@@ -1,0 +1,29 @@
+{
+                question: '갑자기 휴가가 생겼다! 내가 가장 끌리는 여행지는?',
+                answers: [
+                    {
+                        text: '바다 내음 물씬 나는 청정 자연, 경남 거제도 🌊',
+                        weights: { woni: 2 }
+                    },
+                    {
+                        text: '왕갈비통닭과 화성의 도시, 경기도 수원 🏰',
+                        weights: { liv: 2 }
+                    },
+                    {
+                        text: '특유의 감성을 느낄 수 있는 일본 치바현 🌸',
+                        weights: { minami: 2 }
+                    },
+                    {
+                        text: '호수공원에서 즐기는 평화로운 여유, 일산 🌳',
+                        weights: { may: 2 }
+                    },
+                    {
+                        text: '천년의 역사가 살아숨쉬는 신라의 달밤, 경주 🏯',
+                        weights: { zena: 2 }
+                    },
+                    {
+                        text: '어디든 상관없어! 누구랑 가느냐가 중요하지 🥰 (아무데나 다 좋아)',
+                        weights: { woni: 1, liv: 1, minami: 1, may: 1, zena: 1, yoon: 1, kku: 1, kim: 1, yoo: 1, lee: 1 }
+                    }
+                ]
+            }
