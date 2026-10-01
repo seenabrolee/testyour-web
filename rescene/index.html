@@ -563,14 +563,22 @@
         // 최종 결과 도출
         function calculateResult() {
             let maxScore = -1;
-            let finalCharacterKey = '';
+            let tiedKeys = [];
 
-            for (const key in characters) {
+            for (const key in scores) {
                 if (scores[key] > maxScore) {
                     maxScore = scores[key];
-                    finalCharacterKey = key;
+                    tiedKeys = [key];
+                } else if (scores[key] === maxScore) {
+                    tiedKeys.push(key);
                 }
             }
+            
+            // 랜덤 동점자 처리
+            let finalCharacterKey = tiedKeys[Math.floor(Math.random() * tiedKeys.length)];
+            
+            // 전역 변수로 현재 결과 저장 (공유용)
+            window.currentResultKey = finalCharacterKey;
 
             // 결과 화면 업데이트
             const resultChar = characters[finalCharacterKey];
@@ -600,7 +608,7 @@
         }
 
         function shareResult() {
-            const url = window.location.href.split('?')[0];
+            const url = window.location.href.split('?')[0] + '?result=' + (window.currentResultKey || '');
             const shareTitle = "나와 가장 닮은 리센느 멤버는?";
             const shareText = "RE:MINE X RESCENE 성향 테스트! 지금 바로 확인해보세요 🌸";
             
@@ -631,6 +639,45 @@
         function restartTest() {
             showScreen('screen-start');
         }
+
+        // 특정 결과 직접 보기 (공유 링크 타고 왔을 때)
+        function showDirectResult(resultKey) {
+            if (!characters[resultKey]) return;
+            
+            window.currentResultKey = resultKey;
+            
+            const resultChar = characters[resultKey];
+            document.getElementById('result-title').innerText = resultChar.title;
+            
+            const imgEl = document.getElementById('result-image');
+            if (resultChar.image && resultChar.image !== 'No image') {
+                imgEl.src = resultChar.image;
+                imgEl.style.display = 'block';
+            } else {
+                imgEl.style.display = 'none';
+            }
+
+            document.getElementById('result-name').innerText = resultChar.name;
+            document.getElementById('result-desc').innerText = resultChar.description;
+            
+            document.getElementById('ad-container').style.display = 'block';
+            document.getElementById('detailed-result').style.display = 'none';
+            
+            // 버튼 텍스트 변경
+            const startBtns = document.querySelectorAll('.btn-start');
+            startBtns.forEach(btn => btn.innerText = '나도 테스트 해보기');
+            
+            showScreen('screen-result');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const resultParam = urlParams.get('result');
+            if (resultParam && characters[resultParam]) {
+                showDirectResult(resultParam);
+            }
+        });
+
     </script>
 </body>
 </html>
