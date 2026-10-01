@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리센느(RESCENE) 성향 테스트</title>
+
+    <!-- Open Graph for Link Preview -->
+    <meta property="og:title" content="나와 가장 닮은 리센느 멤버는?">
+    <meta property="og:description" content="RE:MINE X RESCENE 성향 테스트! 당신과 똑 닮은 멤버와 삼촌, 스태프를 찾아보세요!">
+    <meta property="og:image" content="https://testyour.uk/rescene/images/woni.jpg">
+    <meta property="og:url" content="https://testyour.uk/rescene">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
@@ -591,20 +600,31 @@
         }
 
         function shareResult() {
-            const url = window.location.href.split('?')[0]; // Query string 제거
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert("테스트 주소가 복사되었습니다! 친구들에게 공유해보세요 💖");
-                }).catch(err => {
-                    alert("주소 복사에 실패했습니다. 브라우저 주소창을 복사해주세요.");
-                });
+            const url = window.location.href.split('?')[0];
+            const shareTitle = "나와 가장 닮은 리센느 멤버는?";
+            const shareText = "RE:MINE X RESCENE 성향 테스트! 지금 바로 확인해보세요 🌸";
+            
+            if (navigator.share) {
+                // 모바일 네이티브 공유 UI 호출
+                navigator.share({
+                    title: shareTitle,
+                    text: shareText,
+                    url: url,
+                }).catch((error) => console.log('공유 취소됨', error));
             } else {
-                alert("주소 복사가 지원되지 않는 브라우저입니다. 주소창을 복사해주세요.");
+                // PC 등 지원하지 않는 경우 클립보드 복사 폴백
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert("테스트 주소가 복사되었습니다! 친구들에게 공유해보세요 💖");
+                    });
+                } else {
+                    alert("주소 복사가 지원되지 않는 브라우저입니다. 주소창을 복사해주세요.");
+                }
             }
         }
 
         function contactUs() {
-            window.location.href = "mailto:admin@testyour.uk?subject=[리센느 테스트 문의]";
+            window.location.href = "mailto:gbcnewskr@gmail.com?subject=[리센느 테스트 문의]";
         }
 
         // 테스트 다시하기
