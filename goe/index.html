@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백일몽 주식회사 입사 테스트 | TESTYOUR</title>
+    
+    <meta property="og:title" content="백일몽 주식회사 입사 테스트">
+    <meta property="og:description" content="괴담에 떨어져도 출근을 해야 하는구나! 나와 가장 닮은 현장탐사팀 직원은?">
+    <meta property="og:url" content="https://testyour.uk/goe">
+    <meta property="og:type" content="website">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0b0f19;
+            color: #e0e6ed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, #111827 0%, #1f2937 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border-left: 2px solid #374151;
+            border-right: 2px solid #374151;
+        }
+        
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .screen.active { display: flex; }
+        
+        .btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: #3b82f6; color: #fff; }
+
+        .progress-container {
+            width: 100%;
+            background-color: #1f2937;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border: 1px solid #374151;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-text {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            min-height: 80px;
+        }
+
+        .choice-btn {
+            background-color: #1f2937;
+            color: #e0e6ed;
+            border: 2px solid #374151;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            width: 100%;
+            transition: all 0.2s;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .choice-btn:hover {
+            background-color: #374151;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .result-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 3px solid #3b82f6;
+            background-color: #111827;
+        }
+        .result-subtitle { font-size: 16px; color: #9ca3af; margin-bottom: 5px; font-weight: 700; }
+        .result-title { font-size: 32px; color: #60a5fa; font-weight: 900; margin-bottom: 10px; }
+        
+        .result-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d1d5db;
+            background-color: #1f2937;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #374151;
+        }
+        .result-desc strong { color: #60a5fa; }
+        
+        .ad-container {
+            width: 100%;
+            padding: 30px 20px;
+            background-color: rgba(0,0,0,0.5);
+            border: 2px dashed #4b5563;
+            border-radius: 10px;
+            margin: 20px 0;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        .ad-container:hover { border-color: #3b82f6; background-color: rgba(37,99,235,0.1); }
+        
+        .loader {
+            border: 5px solid #1f2937;
+            border-top: 5px solid #3b82f6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .home-link {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #1f2937;
+            border-radius: 8px;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .home-link:hover { background-color: #374151; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="screen-start" class="screen active">
+            <div style="margin-top: 50px; font-size: 60px;">🏢</div>
+            <h1 style="font-size: 30px; color: #60a5fa; margin-bottom: 10px; line-height: 1.3;">백일몽 주식회사<br>입사 테스트</h1>
+            <h2 style="font-size: 18px; color: #9ca3af; font-weight: 400; margin-bottom: 50px; line-height: 1.5;">괴담에 떨어져도 출근을 해야 하는구나!<br>나는 어떤 부서, 어떤 직원에 가까울까?</h2>
+            
+            <button class="btn" onclick="startTest()">입사 지원하기</button>
+            
+            <a href="/" class="home-link">다른 테스트 보러가기 &rarr;</a>
+            
+            <div style="margin-top: 50px; font-size: 13px; color: #4b5563;">
+                &copy; 2026 TESTYOUR<br>
+                본 테스트는 웹소설 '괴담출근' 팬심으로 제작된 비공식 테스트입니다.
+            </div>
+        </div>
+
+        <div id="screen-quiz" class="screen">
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div id="question-text" class="question-text"></div>
+            <div id="choices-container" style="width: 100%;"></div>
+        </div>
+
+        <div id="screen-loading" class="screen">
+            <div style="margin-top: 100px;">
+                <div class="loader"></div>
+                <h2 style="color: #60a5fa;">적성 검사 결과 분석 중...</h2>
+                <p style="color: #9ca3af; margin-top: 15px;">당신에게 가장 잘 맞는 팀을 찾고 있습니다...</p>
+            </div>
+        </div>
+
+        <div id="screen-result" class="screen">
+            <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">적성 검사 결과</h2>
+            
+            <div class="result-subtitle">당신과 가장 닮은 백일몽 주식회사 직원은</div>
+            <div id="result-title" class="result-title"></div>
+            <img id="result-image" class="result-image" src="" alt="Result Image">
+            
+            <div id="ad-container" class="ad-container" onclick="setTimeout(unlockResult, 500)">
+                <h3 style="color: #60a5fa; margin: 0 0 10px 0;">[광고] 백일몽 사내 게시판 확인</h3>
+                <p style="color: #9ca3af; font-size: 14px; margin: 0;">배너를 클릭하시면<br><b>[상세 사원 분석 보고서]</b>가 잠금 해제됩니다!</p>
+            </div>
+
+            <div id="detailed-result" style="display: none; width: 100%;">
+                <div id="result-desc" class="result-desc"></div>
+                
+                <button class="btn" onclick="shareResult()">결과 공유하기</button>
+                <button class="btn btn-outline" onclick="restartTest()">다시 지원하기</button>
+                <a href="/" class="home-link" style="margin-top: 20px;">메인 화면으로 돌아가기 &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const characters = {
+            soleum: {
+                name: '김솔음 (현장탐사팀 신입)',
+                image: '/goe/images/soleum.svg',
+                description: '<strong>📌 당신의 사내 포지션:</strong> 생존형 천재 / 기만자<br><br><strong>✨ 성격 분석:</strong><br>본성은 겁이 많고 무서운 것을 싫어하지만, 살아남기 위해서라면 기꺼이 "미친놈" 연기도 불사하는 엄청난 생존 본능의 소유자입니다. 위기 상황에서 오히려 차갑게 머리가 돌아가며, 임기응변과 상황 판단 능력이 타의 추종을 불허합니다. 겉보기엔 싸늘해 보여도 내면은 선량하고 이타적입니다.<br><br><strong>👍 환상의 짝꿍:</strong> 이자헌 (원칙주의자 조장)<br><strong>💬 자주 할 법한 말:</strong> "어떻게든 살아서 퇴근한다."'
+            },
+            jaheon: {
+                name: '이자헌 (현장탐사팀 조장)',
+                image: '/goe/images/jaheon.svg',
+                description: '<strong>📌 당신의 사내 포지션:</strong> 원칙주의 FM / 리더<br><br><strong>✨ 성격 분석:</strong><br>매뉴얼과 효율성을 가장 중시하는 철저한 원칙주의자입니다. 감정 기복이 적어 늘 냉철함을 유지하며, 군더더기 없이 합리적인 판단을 내립니다. 겉으로는 차갑고 엄격해 보이지만, 자신이 맡은 팀원들에 대한 책임감이 그 누구보다 강한 믿음직한 리더입니다.<br><br><strong>👍 환상의 짝꿍:</strong> 김솔음 (변칙적인 돌연변이)<br><strong>💬 자주 할 법한 말:</strong> "매뉴얼대로 행동하십시오."'
+            },
+            haje: {
+                name: '은하제 (현장탐사팀 대리)',
+                image: '/goe/images/haje.svg',
+                description: '<strong>📌 당신의 사내 포지션:</strong> 행동파 / 츤데레 조력자<br><br><strong>✨ 성격 분석:</strong><br>시원시원하고 털털하며 가식 없는 성격입니다. 입이 다소 험하고 불평불만이 많은 것처럼 보이지만, 사실 뒤에서 동료들을 가장 꼼꼼하게 챙기는 "츤데레"의 정석입니다. 눈치가 빠르고 행동력이 좋아 어떤 상황에서도 제 몫을 톡톡히 해내는 든든한 실무자입니다.<br><br><strong>👍 환상의 짝꿍:</strong> 박민성 (인싸 체대생)<br><strong>💬 자주 할 법한 말:</strong> "아 진짜 귀찮게 하네! 비켜봐, 내가 할 테니까."'
+            },
+            minsung: {
+                name: '박민성 (현장탐사팀 주임)',
+                image: '/goe/images/minsung.svg',
+                description: '<strong>📌 당신의 사내 포지션:</strong> 다정다감 / 무한 긍정맨<br><br><strong>✨ 성격 분석:</strong><br>삭막한 회사 생활 속에서 한 줄기 빛과 같은 존재! 특유의 서글서글함과 친화력으로 누구와도 금방 친해집니다. 잘 웃고 다정하며, 동료가 위험에 처하면 몸을 던져서라도 구하려 하는 깊은 희생정신을 가지고 있습니다.<br><br><strong>👍 환상의 짝꿍:</strong> 은하제 (틱틱대는 선배)<br><strong>💬 자주 할 법한 말:</strong> "다들 다친 데는 없으시죠?! 다행이다!"'
+            }
+        };
+
+        const quizData = [
+            {
+                question: '새로운 프로젝트(또는 과제)를 맡게 되었다. 나의 대처는?',
+                choices: [
+                    { text: '미친 듯이 머리를 굴려 가장 효율적이고 안전한 꼼수부터 찾는다.', scores: {soleum: 3} },
+                    { text: '회사 매뉴얼과 과거 사례부터 꼼꼼히 확인하고 FM대로 진행한다.', scores: {jaheon: 3, haje: 1} },
+                    { text: '일단 부딪혀본다! 투덜거리면서도 행동은 제일 빠르다.', scores: {haje: 3} },
+                    { text: '팀원들부터 챙긴다! "우리 다 같이 힘내봐요!" 분위기 메이커 자처.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '갑자기 회사에 정전이 나고 이상한 소리가 들린다!',
+                choices: [
+                    { text: '(속으로는 울고 싶지만) 겉으로는 세상 차가운 표정으로 상황을 주시한다.', scores: {soleum: 3} },
+                    { text: '침착하게 비상 랜턴을 켜고 매뉴얼에 따라 팀원들의 위치를 파악한다.', scores: {jaheon: 3} },
+                    { text: '"아씨 뭐야!" 짜증을 내면서도 무기가 될 만한 것을 먼저 쥔다.', scores: {haje: 3} },
+                    { text: '가장 먼저 옆에 있는 동료의 상태부터 챙기고 안심시킨다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '상사가 말도 안 되는 부당한 지시를 내렸을 때',
+                choices: [
+                    { text: '겉으로는 따르는 척하면서 교묘하게 내 이득을 챙기거나 상사를 엿먹인다.', scores: {soleum: 3} },
+                    { text: '객관적인 근거와 데이터를 들이밀며 지시의 부당함을 논리적으로 반박한다.', scores: {jaheon: 3} },
+                    { text: '그 자리에서 바로 표정이 구겨지며 불만을 토로한다.', scores: {haje: 3} },
+                    { text: '일단 알겠다고 수용하지만, 팀원들이 피해를 보지 않게 혼자 떠안으려 한다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '팀 동료가 큰 실수를 저질러 팀 전체가 위험해졌다.',
+                choices: [
+                    { text: '이미 벌어진 일이다. 빠르게 계산기를 두드려 상황을 역전시킬 기발한 묘수를 짠다.', scores: {soleum: 3} },
+                    { text: '냉정하게 실수의 원인을 분석하고, 책임 소재를 명확히 한 후 수습책을 지시한다.', scores: {jaheon: 3} },
+                    { text: '"야 미쳤어?!" 욕은 오지게 하지만, 막상 제일 발 벗고 나서서 수습을 돕는다.', scores: {haje: 3} },
+                    { text: '"누구나 실수할 수 있죠!" 다독여주고 멘탈부터 챙겨준다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '휴일, 간만에 집에서 쉴 때 나의 모습은?',
+                choices: [
+                    { text: '방구석에 틀어박혀 절대 밖에 나가지 않고 체력과 멘탈을 회복한다.', scores: {soleum: 3} },
+                    { text: '휴일에도 규칙적인 루틴(운동, 독서 등)을 유지하며 자기 관리를 한다.', scores: {jaheon: 3} },
+                    { text: '밀린 잠을 자거나 귀찮아하다가, 막상 불러내면 제일 재밌게 논다.', scores: {haje: 3} },
+                    { text: '지인들에게 먼저 연락해서 약속을 잡고 밖으로 나간다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '처음 보는 사람이 나에게 친한 척하며 다가올 때',
+                choices: [
+                    { text: '의도부터 파악한다. 속으론 경계하지만 겉으론 철저하게 가면을 쓴다.', scores: {soleum: 3} },
+                    { text: '선을 지킨다. 딱 업무적이고 예의 바른 태도만 보여준다.', scores: {jaheon: 3} },
+                    { text: '"뭐야 이 사람은?" 귀찮아하며 대충 철벽을 친다.', scores: {haje: 3} },
+                    { text: '나한테 관심이 있나?! 기뻐하며 금방 친해진다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '업무 스트레스가 극에 달했을 때 푸는 방식은?',
+                choices: [
+                    { text: '아무도 없는 곳에서 조용히 혼잣말이나 내적 비명(?)을 지른다.', scores: {soleum: 3} },
+                    { text: '스트레스 원인을 분석하고 해결책을 찾아 근본적인 문제를 제거한다.', scores: {jaheon: 3} },
+                    { text: '매운 음식이나 술! 혹은 친한 사람한테 속사포로 화풀이(하소연)를 한다.', scores: {haje: 3} },
+                    { text: '사람들을 만나 수다를 떨거나 땀을 빼며 긍정적인 에너지로 정화한다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '나의 진정한 내면(본성)에 가까운 것은?',
+                choices: [
+                    { text: '사실 엄청난 쫄보지만, 필요하면 피도 눈물도 없는 사람처럼 굴 수 있다.', scores: {soleum: 3} },
+                    { text: '매정해 보여도, 내가 맡은 사람에 대한 책임감은 목숨보다 무겁다.', scores: {jaheon: 3} },
+                    { text: '불만은 많지만 결정적인 순간엔 남을 버리지 못하는 정 많은 사람.', scores: {haje: 3} },
+                    { text: '남들이 행복해야 나도 행복하다. 이타심이 내 원동력.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '괴담이 실존하는 세계에 떨어졌다. 나의 생존 확률은?',
+                choices: [
+                    { text: '100%! 잔머리와 미친 연기력으로 끝까지 살아남는다.', scores: {soleum: 3} },
+                    { text: '90%. 완벽한 상황 통제와 매뉴얼 숙지로 위험을 피한다.', scores: {jaheon: 3} },
+                    { text: '70%. 눈치 하나는 기가 막히게 빨라서 어떻게든 살아남는다.', scores: {haje: 3} },
+                    { text: '50%. 남들 구하려다가 내가 죽을 위기에 처할 확률이 높다.', scores: {minsung: 3} }
+                ]
+            },
+            {
+                question: '동료들이 평가하는 나의 평소 이미지는?',
+                choices: [
+                    { text: '도무지 속을 알 수 없는 예측 불가능한 도른자', scores: {soleum: 3} },
+                    { text: '찔러도 피 한 방울 안 나올 것 같은 무서운 FM 상사', scores: {jaheon: 3} },
+                    { text: '말투는 틱틱대는데 일은 기가 막히게 잘하는 실무 에이스', scores: {haje: 3} },
+                    { text: '항상 웃고 있고 에너지가 넘치는 인싸', scores: {minsung: 3} }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let scores = {};
+        window.currentResultKey = '';
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function startTest() {
+            currentQuestionIndex = 0;
+            scores = { soleum: 0, jaheon: 0, haje: 0, minsung: 0 };
+            
+            for (let i = quizData.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
+            }
+            quizData.forEach(q => {
+                for (let i = q.choices.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [q.choices[i], q.choices[j]] = [q.choices[j], q.choices[i]];
+                }
+            });
+
+            renderQuestion();
+            showScreen('screen-quiz');
+        }
+
+        function renderQuestion() {
+            const data = quizData[currentQuestionIndex];
+            document.getElementById('question-text').innerText = data.question;
+            document.getElementById('progress-bar').style.width = (currentQuestionIndex / quizData.length * 100) + '%';
+
+            const container = document.getElementById('choices-container');
+            container.innerHTML = '';
+            data.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerText = choice.text;
+                btn.onclick = () => selectChoice(choice);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectChoice(choice) {
+            for (const [key, weight] of Object.entries(choice.scores)) {
+                scores[key] += weight + (Math.random() * 0.1);
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                renderQuestion();
+            } else {
+                document.getElementById('progress-bar').style.width = '100%';
+                showScreen('screen-loading');
+                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 2500);
+            }
+        }
+
+        function calculateResult() {
+            let maxScore = -1, finalKey = '';
+            for (const key in scores) {
+                if (scores[key] > maxScore) { maxScore = scores[key]; finalKey = key; }
+            }
+            window.currentResultKey = finalKey;
+            applyResultToUI(finalKey);
+            document.getElementById('ad-container').style.display = 'block';
+            document.getElementById('detailed-result').style.display = 'none';
+        }
+        
+        function applyResultToUI(charKey) {
+            const c = characters[charKey];
+            document.getElementById('result-title').innerText = c.name;
+            document.getElementById('result-image').src = c.image;
+            document.getElementById('result-desc').innerHTML = c.description;
+        }
+
+        function unlockResult() {
+            window.open('https://www.coupang.com', '_blank');
+            document.getElementById('ad-container').style.display = 'none';
+            document.getElementById('detailed-result').style.display = 'block';
+            document.getElementById('detailed-result').style.animation = 'fadeIn 0.5s ease-in-out';
+        }
+
+        function shareResult() {
+            const url = window.location.href.split('?')[0] + '?result=' + window.currentResultKey;
+            const shareTitle = "백일몽 주식회사 입사 테스트";
+            const shareText = "나는 괴담출근 현장탐사팀의 누구일까?";
+            if (navigator.share) {
+                navigator.share({ title: shareTitle, text: shareText, url: url }).catch(() => {});
+            } else if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => alert("링크가 복사되었습니다!"));
+            }
+        }
+
+        function restartTest() { showScreen('screen-start'); }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const p = new URLSearchParams(window.location.search).get('result');
+            if (p && characters[p]) {
+                window.currentResultKey = p;
+                applyResultToUI(p);
+                document.getElementById('ad-container').style.display = 'block';
+                document.getElementById('detailed-result').style.display = 'none';
+                document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
+                showScreen('screen-result');
+            }
+        });
+    </script>
+</body>
+</html>
