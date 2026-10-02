@@ -1,16 +1,12 @@
-import json
-
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 헌터X헌터 캐릭터 & 넨 계통 테스트</title>
+    <title>나와 가장 닮은 헌터X헌터 캐릭터는? | TESTYOUR</title>
     
-    <!-- Open Graph for Link Preview -->
-    <meta property="og:title" content="나의 헌터X헌터 캐릭터 & 넨 계통 테스트">
-    <meta property="og:description" content="나와 가장 닮은 헌터X헌터 캐릭터는 누구일까? 그리고 나의 넨 계통은? 지금 바로 테스트해보세요!">
-    <meta property="og:image" content="https://testyour.uk/hxh/images/main.jpg">
+    <meta property="og:title" content="나와 가장 닮은 헌터X헌터 캐릭터는?">
+    <meta property="og:description" content="성격 테스트로 알아보는 나의 헌터X헌터 캐릭터! 곤? 키르아? 히소카? 지금 바로 확인해보세요!">
     <meta property="og:url" content="https://testyour.uk/hxh">
     <meta property="og:type" content="website">
     
@@ -47,9 +43,7 @@ html_content = """<!DOCTYPE html>
             text-align: center;
             flex-grow: 1;
         }
-        .screen.active {
-            display: flex;
-        }
+        .screen.active { display: flex; }
         
         h1 {
             font-size: 28px;
@@ -75,21 +69,14 @@ html_content = """<!DOCTYPE html>
             width: 100%;
             max-width: 300px;
         }
-        .btn:hover {
-            background-color: #ff1e10;
-            transform: scale(1.05);
-        }
+        .btn:hover { background-color: #ff1e10; transform: scale(1.05); }
         .btn-outline {
             background-color: transparent;
             border: 2px solid #ff3b30;
             color: #ff3b30;
         }
-        .btn-outline:hover {
-            background-color: #ff3b30;
-            color: #fff;
-        }
+        .btn-outline:hover { background-color: #ff3b30; color: #fff; }
 
-        /* 퀴즈 진행바 */
         .progress-container {
             width: 100%;
             background-color: #444;
@@ -128,13 +115,8 @@ html_content = """<!DOCTYPE html>
             text-align: left;
             line-height: 1.4;
         }
-        .choice-btn:hover {
-            background-color: #444;
-            border-color: #ff3b30;
-            transform: translateY(-2px);
-        }
+        .choice-btn:hover { background-color: #444; border-color: #ff3b30; transform: translateY(-2px); }
 
-        /* 결과창 스타일 */
         .result-image {
             width: 250px;
             height: 250px;
@@ -144,38 +126,8 @@ html_content = """<!DOCTYPE html>
             border: 3px solid #ff3b30;
             background-color: #333;
         }
-        
-        .result-subtitle {
-            font-size: 16px;
-            color: #aaa;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        
-        .result-title {
-            font-size: 32px;
-            color: #ff3b30;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-        
-        .nen-box {
-            background-color: #333;
-            border-left: 5px solid #ff3b30;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .nen-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff3b30;
-            margin-bottom: 8px;
-        }
+        .result-subtitle { font-size: 16px; color: #aaa; margin-bottom: 5px; font-weight: 700; }
+        .result-title { font-size: 32px; color: #ff3b30; font-weight: 900; margin-bottom: 10px; }
         
         .result-desc {
             font-size: 16px;
@@ -189,10 +141,7 @@ html_content = """<!DOCTYPE html>
             width: 100%;
             box-sizing: border-box;
         }
-        
-        .result-desc strong {
-            color: #ff3b30;
-        }
+        .result-desc strong { color: #ff3b30; }
         
         .ad-container {
             width: 100%;
@@ -205,23 +154,11 @@ html_content = """<!DOCTYPE html>
             box-sizing: border-box;
             transition: all 0.3s;
         }
-        .ad-container:hover {
-            border-color: #ff3b30;
-            background-color: #222;
-        }
+        .ad-container:hover { border-color: #ff3b30; background-color: #222; }
         
-        .contact-text {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #888;
-        }
-        .contact-link {
-            color: #ff3b30;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+        .contact-text { margin-top: 30px; font-size: 14px; color: #888; }
+        .contact-link { color: #ff3b30; text-decoration: underline; cursor: pointer; }
         
-        /* 로딩 애니메이션 */
         .loader {
             border: 5px solid #333;
             border-top: 5px solid #ff3b30;
@@ -231,78 +168,73 @@ html_content = """<!DOCTYPE html>
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* 애니메이션 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .other-test-link {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #333;
+            border-radius: 8px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
         }
+        .other-test-link:hover { background-color: #444; color: #fff; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 시작 화면 -->
         <div id="screen-start" class="screen active">
-            <h1 style="font-size: 36px; margin-top: 50px;">HUNTER<br>×<br>HUNTER</h1>
-            <h2 style="font-size: 20px; color: #ccc; font-weight: 400; margin-bottom: 50px;">나와 가장 닮은 캐릭터와<br>나의 넨(念) 계통은?</h2>
+            <h1 style="font-size: 36px; margin-top: 50px;">HUNTER<br>&times;<br>HUNTER</h1>
+            <h2 style="font-size: 20px; color: #ccc; font-weight: 400; margin-bottom: 50px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
             
-            <button class="btn btn-start" onclick="startTest()">테스트 시작하기</button>
+            <button class="btn btn-start" onclick="startTest()">캐릭터 테스트 시작하기</button>
+            
+            <a href="/nen" class="other-test-link">넨(念) 계통 테스트 하러가기 &rarr;</a>
             
             <div style="margin-top: 50px; font-size: 13px; color: #666;">
-                ⓒ 2024 TESTYOUR<br>
+                &copy; 2026 TESTYOUR<br>
                 본 테스트는 팬심으로 제작된 비공식 심리테스트입니다.
             </div>
         </div>
 
-        <!-- 퀴즈 화면 -->
         <div id="screen-quiz" class="screen">
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
-            <div id="question-text" class="question-text">질문이 여기에 표시됩니다.</div>
-            <div id="choices-container" style="width: 100%;">
-                <!-- 버튼들이 여기에 동적으로 생성됨 -->
-            </div>
+            <div id="question-text" class="question-text"></div>
+            <div id="choices-container" style="width: 100%;"></div>
         </div>
 
-        <!-- 로딩 화면 -->
         <div id="screen-loading" class="screen">
             <div style="margin-top: 100px;">
                 <div class="loader"></div>
-                <h2 style="color: #ff3b30;">수견식(水見式) 진행 중...</h2>
-                <p style="color: #aaa; margin-top: 15px;">당신의 오라를 분석하고 있습니다.</p>
+                <h2 style="color: #ff3b30;">당신의 성향을 분석 중...</h2>
+                <p style="color: #aaa; margin-top: 15px;">헌터 시험 합격 여부를 판정하고 있습니다.</p>
             </div>
         </div>
 
-        <!-- 결과 화면 -->
         <div id="screen-result" class="screen">
-            <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">수견식 결과 발표</h2>
+            <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">캐릭터 매칭 결과</h2>
             
             <div class="result-subtitle">나와 가장 닮은 캐릭터는</div>
-            <div id="result-title" class="result-title">캐릭터 이름</div>
+            <div id="result-title" class="result-title"></div>
             <img id="result-image" class="result-image" src="" alt="Result Image">
             
             <div id="ad-container" class="ad-container" onclick="setTimeout(unlockResult, 500)">
                 <h3 style="color: #ff3b30; margin: 0 0 10px 0;">[광고] 스폰서 배너</h3>
-                <p style="color: #aaa; font-size: 14px; margin: 0;">배너를 클릭하시면 당신의 <b>[넨 계통]</b>과<br><b>[상세 성향 해석]</b>이 잠금 해제됩니다!</p>
+                <p style="color: #aaa; font-size: 14px; margin: 0;">배너를 클릭하시면<br><b>[상세 성향 해석]</b>이 잠금 해제됩니다!</p>
             </div>
 
             <div id="detailed-result" style="display: none; width: 100%;">
-                <div class="nen-box">
-                    <div class="nen-title">나의 넨(念) 계통: <span id="nen-title-text"></span></div>
-                    <div id="nen-desc" style="font-size: 14px; color: #ddd; line-height: 1.5;"></div>
-                </div>
+                <div id="result-desc" class="result-desc"></div>
                 
-                <div id="result-desc" class="result-desc">
-                    캐릭터 설명
-                </div>
-                
-                <button class="btn" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">카카오톡으로 공유하기</button>
-                <button class="btn btn-outline" onclick="restartTest()">나도 테스트 해보기</button>
+                <button class="btn" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">결과 공유하기</button>
+                <button class="btn btn-outline" onclick="restartTest()">테스트 다시하기</button>
+                <a href="/nen" class="other-test-link">넨(念) 계통 테스트도 해보기 &rarr;</a>
                 
                 <div class="contact-text">
                     원하는 캐릭터가 결과에 없다면?<br>
@@ -313,201 +245,159 @@ html_content = """<!DOCTYPE html>
     </div>
 
     <script>
-        // --- 데이터 정의 ---
-        
-        // 1. 캐릭터 정보
         const characters = {
             gon: { 
                 name: '곤 프릭스', 
-                image: '/hxh/images/gon.jpg', 
-                description: '<strong>📌 성향:</strong> 꺾이지 않는 고집과 순수함<br><strong>✨ 특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.' 
+                image: '/hxh/images/gon.svg', 
+                description: '<strong>📌 성향:</strong> 꺾이지 않는 고집과 순수함<br><strong>✨ 특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.<br><br><strong>💖 환상의 짝꿍:</strong> 키르아 조르딕<br><strong>💔 환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             killua: { 
                 name: '키르아 조르딕', 
-                image: '/hxh/images/killua.jpg', 
-                description: '<strong>📌 성향:</strong> 차가운 머리, 따뜻한 심장<br><strong>✨ 특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.' 
+                image: '/hxh/images/killua.svg', 
+                description: '<strong>📌 성향:</strong> 차가운 머리, 따뜻한 심장<br><strong>✨ 특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.<br><br><strong>💖 환상의 짝꿍:</strong> 곤 프릭스<br><strong>💔 환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             kurapika: { 
                 name: '크라피카', 
-                image: '/hxh/images/kurapika.jpg', 
-                description: '<strong>📌 성향:</strong> 냉철한 이성과 완벽주의<br><strong>✨ 특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.' 
+                image: '/hxh/images/kurapika.svg', 
+                description: '<strong>📌 성향:</strong> 냉철한 이성과 완벽주의<br><strong>✨ 특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.<br><br><strong>💖 환상의 짝꿍:</strong> 레오리오<br><strong>💔 환장의 짝꿍:</strong> 환상여단 전원' 
             },
             leorio: { 
                 name: '레오리오', 
-                image: '/hxh/images/leorio.jpg', 
-                description: '<strong>📌 성향:</strong> 의리와 정이 넘치는 행동파<br><strong>✨ 특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.' 
+                image: '/hxh/images/leorio.svg', 
+                description: '<strong>📌 성향:</strong> 의리와 정이 넘치는 행동파<br><strong>✨ 특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.<br><br><strong>💖 환상의 짝꿍:</strong> 크라피카<br><strong>💔 환장의 짝꿍:</strong> 히소카' 
             },
             hisoka: { 
                 name: '히소카', 
-                image: '/hxh/images/hisoka.jpg', 
-                description: '<strong>📌 성향:</strong> 아드레날린 중독 마이웨이<br><strong>✨ 특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.' 
+                image: '/hxh/images/hisoka.svg', 
+                description: '<strong>📌 성향:</strong> 아드레날린 중독 마이웨이<br><strong>✨ 특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.<br><br><strong>💖 환상의 짝꿍:</strong> 곤 프릭스 (미래의 강자)<br><strong>💔 환장의 짝꿍:</strong> 약하고 재미없는 상대' 
             },
             illumi: { 
                 name: '이르미 조르딕', 
-                image: '/hxh/images/illumi.jpg', 
-                description: '<strong>📌 성향:</strong> 뒤틀린 애정과 통제광<br><strong>✨ 특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다. 효율과 목적 달성을 최우선으로 여깁니다.' 
+                image: '/hxh/images/illumi.svg', 
+                description: '<strong>📌 성향:</strong> 뒤틀린 애정과 통제광<br><strong>✨ 특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다.<br><br><strong>💖 환상의 짝꿍:</strong> 히소카 (서로 이용)<br><strong>💔 환장의 짝꿍:</strong> 통제 불가능한 키르아' 
             },
             chrollo: { 
                 name: '클로로 루실플루', 
-                image: '/hxh/images/chrollo.jpg', 
-                description: '<strong>📌 성향:</strong> 압도적 카리스마의 리더<br><strong>✨ 특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.' 
+                image: '/hxh/images/chrollo.svg', 
+                description: '<strong>📌 성향:</strong> 압도적 카리스마의 리더<br><strong>✨ 특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.<br><br><strong>💖 환상의 짝꿍:</strong> 환상여단 멤버 전원<br><strong>💔 환장의 짝꿍:</strong> 크라피카 (천적)' 
             },
             meruem: { 
                 name: '메르엠', 
-                image: '/hxh/images/meruem.jpg', 
-                description: '<strong>📌 성향:</strong> 압도적인 천재성과 순정<br><strong>✨ 특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람(코무기)에게는 모든 것을 내어주는 순정파이기도 합니다.' 
+                image: '/hxh/images/meruem.svg', 
+                description: '<strong>📌 성향:</strong> 압도적인 천재성과 순정<br><strong>✨ 특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람(코무기)에게는 모든 것을 내어주는 순정파이기도 합니다.<br><br><strong>💖 환상의 짝꿍:</strong> 코무기<br><strong>💔 환장의 짝꿍:</strong> 네테로 회장' 
             }
         };
 
-        // 2. 넨 계통 정보
-        const nenTypes = {
-            enhancement: {
-                name: '강화계 (Enhancement)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"단순, 바보, 순수함"</b>이 특징! 복잡하게 생각하기보단 일단 몸으로 부딪히며, 감정 표현이 솔직하고 거짓말을 못 하는 타입입니다.'
-            },
-            transmutation: {
-                name: '변화계 (Transmutation)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"변덕쟁이, 거짓말쟁이"</b>가 특징! 본심을 쉽게 드러내지 않으며 속을 알 수 없는 매력이 있습니다. 상황에 따라 유연하게 대처하는 능력이 뛰어납니다.'
-            },
-            emission: {
-                name: '방출계 (Emission)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"성질이 급함, 덜렁이"</b>가 특징! 감정 기복이 크고 다혈질이지만, 뒤끝이 없고 호탕합니다. 욱하는 성질 뒤에 따뜻한 의리가 숨어있습니다.'
-            },
-            conjuration: {
-                name: '구현화계 (Conjuration)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"신경질적, 예민함"</b>이 특징! 매사에 신중하고 분석적이며, 완벽주의 성향이 강해 목적 달성을 위해 철저한 계획을 세웁니다.'
-            },
-            manipulation: {
-                name: '조작계 (Manipulation)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"핑계쟁이, 마이페이스"</b>가 특징! 자기만의 논리와 주관이 뚜렷하며, 남의 의견에 쉽게 휘둘리지 않고 상황을 자신의 페이스대로 통제하려 합니다.'
-            },
-            specialization: {
-                name: '특질계 (Specialization)',
-                description: '히소카의 오라별 성격 진단에 따르면 <b>"개인주의자, 카리스마"</b>가 특징! 남들과는 다른 독특한 오라를 뿜어내며, 타고난 존재감으로 자연스럽게 사람들을 끌어모으는 리더십이 있습니다.'
-            }
-        };
-
-        // 3. 질문 및 점수 데이터
         const quizData = [
             {
                 question: '길을 걷다 우연히 엄청난 보물 지도를 발견했다! 당신의 첫 반응은?',
                 choices: [
-                    { text: '우와! 당장 모험을 떠나자!! (즉시 출발)', char: {gon: 2}, nen: {enhancement: 2} },
-                    { text: '이게 진짜일 확률은? 함정은 없는지 분석한다.', char: {kurapika: 2, illumi: 1}, nen: {conjuration: 2} },
-                    { text: '이걸로 돈을 얼마나 벌 수 있을지 계산한다.', char: {leorio: 2}, nen: {emission: 2} },
-                    { text: '내가 찾았으니 내 맘대로 할 거야. 재미없어 보이면 버림.', char: {hisoka: 2, killua: 1}, nen: {transmutation: 2} }
+                    { text: '우와! 당장 모험을 떠나자!! (즉시 출발)', scores: {gon: 3} },
+                    { text: '이게 진짜일 확률은? 함정은 없는지 분석한다.', scores: {kurapika: 2, illumi: 1} },
+                    { text: '이걸로 돈을 얼마나 벌 수 있을지 계산한다.', scores: {leorio: 3} },
+                    { text: '내가 찾았으니 내 맘대로. 재미없으면 버림.', scores: {hisoka: 2, killua: 1} }
                 ]
             },
             {
                 question: '누군가 나를 화나게 만들었다. 당신의 대처법은?',
                 choices: [
-                    { text: '그 자리에서 불같이 화를 내며 쏟아낸다.', char: {leorio: 2, gon: 1}, nen: {emission: 2} },
-                    { text: '표정 변화 없이 철저하게 복수할 계획을 세운다.', char: {kurapika: 2, illumi: 1}, nen: {conjuration: 2} },
-                    { text: '웃으면서 넘어가는 척하지만 속으로는 선을 긋는다.', char: {killua: 2, chrollo: 1}, nen: {transmutation: 2} },
-                    { text: '나를 감히? 압도적인 힘과 논리로 찍어누른다.', char: {meruem: 2, hisoka: 1}, nen: {specialization: 2} }
+                    { text: '그 자리에서 불같이 화를 내며 쏟아낸다.', scores: {leorio: 2, gon: 1} },
+                    { text: '표정 변화 없이 철저하게 복수할 계획을 세운다.', scores: {kurapika: 2, illumi: 1} },
+                    { text: '웃으면서 넘어가는 척하지만 속으로는 선을 긋는다.', scores: {killua: 2, chrollo: 1} },
+                    { text: '나를 감히? 압도적인 힘으로 찍어누른다.', scores: {meruem: 2, hisoka: 1} }
                 ]
             },
             {
                 question: '동료가 위험에 처했다. 하지만 구하러 가면 당신도 위험하다!',
                 choices: [
-                    { text: '무슨 소리야? 당연히 뛰어들어서 구한다!', char: {gon: 2, leorio: 1}, nen: {enhancement: 2} },
-                    { text: '손익을 계산해 보고, 이길 확률이 있을 때만 구한다.', char: {illumi: 2}, nen: {manipulation: 2} },
-                    { text: '냉정하게 가장 효율적인 구출 작전을 세운다.', char: {kurapika: 2, killua: 1}, nen: {conjuration: 2} },
-                    { text: '그 동료가 나에게 가치 있는 존재라면 움직인다.', char: {chrollo: 2, meruem: 1}, nen: {specialization: 2} }
+                    { text: '무슨 소리야? 당연히 뛰어들어서 구한다!', scores: {gon: 2, leorio: 1} },
+                    { text: '손익을 계산해 보고 이길 확률이 있을 때만 구한다.', scores: {illumi: 3} },
+                    { text: '냉정하게 가장 효율적인 구출 작전을 세운다.', scores: {kurapika: 2, killua: 1} },
+                    { text: '그 동료가 나에게 가치 있는 존재라면 움직인다.', scores: {chrollo: 2, meruem: 1} }
                 ]
             },
             {
                 question: '당신이 가장 좋아하는 휴식 방법은?',
                 choices: [
-                    { text: '몸을 움직이거나 시끌벅적하게 친구들과 놀기', char: {gon: 2, leorio: 1}, nen: {enhancement: 2, emission: 1} },
-                    { text: '방에 틀어박혀 조용히 독서나 취미 생활하기', char: {chrollo: 2, kurapika: 1}, nen: {specialization: 2, conjuration: 1} },
-                    { text: '스릴 넘치는 게임이나 도박 즐기기', char: {hisoka: 2, killua: 1}, nen: {transmutation: 2} },
-                    { text: '내 방식대로 무언가를 계획하고 정리하기', char: {illumi: 2}, nen: {manipulation: 2} }
+                    { text: '몸을 움직이거나 시끌벅적하게 친구들과 놀기', scores: {gon: 2, leorio: 1} },
+                    { text: '방에 틀어박혀 조용히 독서나 취미 생활하기', scores: {chrollo: 2, kurapika: 1} },
+                    { text: '스릴 넘치는 게임이나 도박 즐기기', scores: {hisoka: 2, killua: 1} },
+                    { text: '내 방식대로 무언가를 계획하고 정리하기', scores: {illumi: 3} }
                 ]
             },
             {
                 question: '사람들이 당신을 볼 때 가장 많이 하는 말은?',
                 choices: [
-                    { text: '"정말 속을 알 수가 없다니까..."', char: {hisoka: 2, chrollo: 1}, nen: {transmutation: 2, specialization: 1} },
-                    { text: '"고집 좀 그만 부려! 내 말 좀 들어!"', char: {gon: 2, illumi: 1}, nen: {enhancement: 2, manipulation: 1} },
-                    { text: '"너무 예민한 거 아니야? 좀 쉬어~"', char: {kurapika: 2}, nen: {conjuration: 2} },
-                    { text: '"성질 좀 죽여! 그래도 정은 많네."', char: {leorio: 2}, nen: {emission: 2} }
+                    { text: '"정말 속을 알 수가 없다니까..."', scores: {hisoka: 2, chrollo: 1} },
+                    { text: '"고집 좀 그만 부려! 내 말 좀 들어!"', scores: {gon: 2, illumi: 1} },
+                    { text: '"너무 예민한 거 아니야? 좀 쉬어~"', scores: {kurapika: 3} },
+                    { text: '"성질 좀 죽여! 그래도 정은 많네."', scores: {leorio: 3} }
                 ]
             },
             {
                 question: '그룹 내에서 당신의 역할은?',
                 choices: [
-                    { text: '압도적인 카리스마로 모두를 이끄는 리더', char: {chrollo: 2, meruem: 2}, nen: {specialization: 2} },
-                    { text: '앞장서서 분위기를 띄우는 돌격대장', char: {gon: 2}, nen: {enhancement: 2} },
-                    { text: '상황을 객관적으로 분석하는 팩트폭격기 브레인', char: {killua: 2, kurapika: 1}, nen: {conjuration: 2} },
-                    { text: '내 맘대로 행동하는 개인플레이어', char: {hisoka: 2, illumi: 1}, nen: {transmutation: 2, manipulation: 1} }
+                    { text: '압도적인 카리스마로 모두를 이끄는 리더', scores: {chrollo: 2, meruem: 1} },
+                    { text: '앞장서서 분위기를 띄우는 돌격대장', scores: {gon: 3} },
+                    { text: '상황을 객관적으로 분석하는 브레인', scores: {killua: 2, kurapika: 1} },
+                    { text: '내 맘대로 행동하는 개인플레이어', scores: {hisoka: 2, illumi: 1} }
                 ]
             },
             {
                 question: '처음 보는 낯선 사람과 대화할 때 당신은?',
                 choices: [
-                    { text: '경계심 없이 금세 친해지고 웃고 떠든다.', char: {gon: 2, leorio: 1}, nen: {enhancement: 2} },
-                    { text: '적당히 거리를 두며 상대의 성향을 파악한다.', char: {kurapika: 2, killua: 1}, nen: {conjuration: 2, transmutation: 1} },
-                    { text: '상대가 나에게 도움이 될 사람인지 저울질한다.', char: {illumi: 2, hisoka: 1}, nen: {manipulation: 2} },
-                    { text: '내 맘에 들면 말을 걸지만, 아니면 철저히 무시한다.', char: {meruem: 2, chrollo: 1}, nen: {specialization: 2} }
+                    { text: '경계심 없이 금세 친해지고 웃고 떠든다.', scores: {gon: 2, leorio: 1} },
+                    { text: '적당히 거리를 두며 상대를 파악한다.', scores: {kurapika: 2, killua: 1} },
+                    { text: '나에게 도움이 될 사람인지 저울질한다.', scores: {illumi: 2, hisoka: 1} },
+                    { text: '내 맘에 들면 말을 걸지만, 아니면 무시한다.', scores: {meruem: 2, chrollo: 1} }
                 ]
             },
             {
-                question: '팀 프로젝트 중, 누군가 계속 실수를 한다!',
+                question: '팀 프로젝트 중 누군가 계속 실수를 한다!',
                 choices: [
-                    { text: '"야! 좀 똑바로 못해?!" 시원하게 화를 내고 도와준다.', char: {leorio: 2}, nen: {emission: 2} },
-                    { text: '"괜찮아! 다시 해보자!" 끝까지 격려하며 이끌어준다.', char: {gon: 2}, nen: {enhancement: 2} },
-                    { text: '한숨을 쉬며 그 사람의 몫까지 내가 완벽하게 끝내버린다.', char: {killua: 2, kurapika: 1}, nen: {conjuration: 1, transmutation: 1} },
-                    { text: '팀에 방해된다면 가차 없이 빼버리거나 역할을 제한한다.', char: {illumi: 2, meruem: 2}, nen: {manipulation: 2, specialization: 1} }
+                    { text: '"야! 좀 똑바로 해!" 화를 내고 도와준다.', scores: {leorio: 3} },
+                    { text: '"괜찮아! 다시 해보자!" 끝까지 격려한다.', scores: {gon: 3} },
+                    { text: '한숨을 쉬며 그 사람 몫까지 내가 끝낸다.', scores: {killua: 2, kurapika: 1} },
+                    { text: '팀에 방해되면 가차 없이 빼버린다.', scores: {illumi: 2, meruem: 1} }
                 ]
             },
             {
-                question: '갑자기 나에게 초능력이 생겼다면, 가장 원하는 능력은?',
+                question: '갑자기 나에게 초능력이 생겼다면?',
                 choices: [
-                    { text: '무엇이든 박살 낼 수 있는 압도적인 파괴력!', char: {gon: 2, meruem: 1}, nen: {enhancement: 2} },
-                    { text: '내 마음대로 사람들을 조종하고 부리는 능력', char: {illumi: 2}, nen: {manipulation: 2} },
-                    { text: '자유자재로 모습이나 성질을 바꾸는 변신 능력', char: {hisoka: 2, killua: 2}, nen: {transmutation: 2} },
-                    { text: '남의 능력을 훔쳐서 내 것으로 만드는 사기적인 능력', char: {chrollo: 2}, nen: {specialization: 2} }
+                    { text: '무엇이든 박살 낼 수 있는 압도적인 파괴력!', scores: {gon: 2, meruem: 1} },
+                    { text: '내 마음대로 사람들을 조종하는 능력', scores: {illumi: 3} },
+                    { text: '자유자재로 모습을 바꾸는 변신 능력', scores: {hisoka: 2, killua: 1} },
+                    { text: '남의 능력을 훔쳐 내 것으로 만드는 능력', scores: {chrollo: 3} }
                 ]
             },
             {
-                question: '중요한 결정을 내려야 하는 순간, 당신의 판단 기준은?',
+                question: '중요한 결정을 내려야 하는 순간, 판단 기준은?',
                 choices: [
-                    { text: '나의 직감! 마음이 끌리는 대로 선택한다.', char: {gon: 2, hisoka: 1}, nen: {enhancement: 2, transmutation: 1} },
-                    { text: '철저한 논리와 데이터 기반으로 가장 합리적인 길을 찾는다.', char: {kurapika: 2, illumi: 1}, nen: {conjuration: 2, manipulation: 1} },
-                    { text: '나와 내 동료들에게 득이 되는가? 인간관계 중심!', char: {leorio: 2, killua: 1}, nen: {emission: 2} },
-                    { text: '내가 정한 나만의 룰(철학)에 어긋나지 않는가?', char: {chrollo: 2, meruem: 1}, nen: {specialization: 2} }
+                    { text: '나의 직감! 마음이 끌리는 대로 선택한다.', scores: {gon: 2, hisoka: 1} },
+                    { text: '철저한 논리와 데이터 기반 합리적 선택', scores: {kurapika: 2, illumi: 1} },
+                    { text: '나와 동료들에게 득이 되는가? 관계 중심!', scores: {leorio: 2, killua: 1} },
+                    { text: '내가 정한 나만의 룰에 어긋나지 않는가?', scores: {chrollo: 2, meruem: 1} }
                 ]
             }
         ];
 
-        // --- 상태 변수 ---
         let currentQuestionIndex = 0;
-        
-        let charScores = { gon: 0, killua: 0, kurapika: 0, leorio: 0, hisoka: 0, illumi: 0, chrollo: 0, meruem: 0 };
-        let nenScores = { enhancement: 0, transmutation: 0, emission: 0, conjuration: 0, manipulation: 0, specialization: 0 };
-        
+        let scores = {};
         window.currentResultKey = '';
-        window.currentNenKey = '';
 
-        // --- 함수 ---
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
         }
 
         function startTest() {
-            // 변수 초기화
             currentQuestionIndex = 0;
-            for (let key in charScores) charScores[key] = 0;
-            for (let key in nenScores) nenScores[key] = 0;
+            scores = { gon: 0, killua: 0, kurapika: 0, leorio: 0, hisoka: 0, illumi: 0, chrollo: 0, meruem: 0 };
             
-            // 섞기 (Fisher-Yates)
             for (let i = quizData.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
             }
-            
             quizData.forEach(q => {
                 for (let i = q.choices.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -522,13 +412,10 @@ html_content = """<!DOCTYPE html>
         function renderQuestion() {
             const data = quizData[currentQuestionIndex];
             document.getElementById('question-text').innerText = data.question;
-            
-            const progress = (currentQuestionIndex / quizData.length) * 100;
-            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-bar').style.width = (currentQuestionIndex / quizData.length * 100) + '%';
 
             const container = document.getElementById('choices-container');
             container.innerHTML = '';
-
             data.choices.forEach(choice => {
                 const btn = document.createElement('button');
                 btn.className = 'choice-btn';
@@ -539,138 +426,67 @@ html_content = """<!DOCTYPE html>
         }
 
         function selectChoice(choice) {
-            // 점수 합산
-            if (choice.char) {
-                for (const [charKey, weight] of Object.entries(choice.char)) {
-                    charScores[charKey] += weight + (Math.random() * 0.1); // 동점 방지용 소수점
-                }
+            for (const [key, weight] of Object.entries(choice.scores)) {
+                scores[key] += weight + (Math.random() * 0.1);
             }
-            if (choice.nen) {
-                for (const [nenKey, weight] of Object.entries(choice.nen)) {
-                    nenScores[nenKey] += weight + (Math.random() * 0.1);
-                }
-            }
-
             currentQuestionIndex++;
-
             if (currentQuestionIndex < quizData.length) {
                 renderQuestion();
             } else {
                 document.getElementById('progress-bar').style.width = '100%';
-                showLoading();
+                showScreen('screen-loading');
+                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 2000);
             }
-        }
-
-        function showLoading() {
-            showScreen('screen-loading');
-            setTimeout(() => {
-                calculateResult();
-                showScreen('screen-result');
-            }, 2000);
         }
 
         function calculateResult() {
-            // 1. 캐릭터 계산
-            let maxCharScore = -1;
-            let finalCharKey = '';
-            for (const key in charScores) {
-                if (charScores[key] > maxCharScore) {
-                    maxCharScore = charScores[key];
-                    finalCharKey = key;
-                }
+            let maxScore = -1, finalKey = '';
+            for (const key in scores) {
+                if (scores[key] > maxScore) { maxScore = scores[key]; finalKey = key; }
             }
-            
-            // 2. 넨 계통 계산
-            let maxNenScore = -1;
-            let finalNenKey = '';
-            for (const key in nenScores) {
-                if (nenScores[key] > maxNenScore) {
-                    maxNenScore = nenScores[key];
-                    finalNenKey = key;
-                }
-            }
-            
-            window.currentResultKey = finalCharKey;
-            window.currentNenKey = finalNenKey;
-            
-            applyResultToUI(finalCharKey, finalNenKey);
-            
+            window.currentResultKey = finalKey;
+            applyResultToUI(finalKey);
             document.getElementById('ad-container').style.display = 'block';
             document.getElementById('detailed-result').style.display = 'none';
         }
         
-        function applyResultToUI(charKey, nenKey) {
-            const charData = characters[charKey];
-            const nenData = nenTypes[nenKey];
-            
-            document.getElementById('result-title').innerText = charData.name;
-            document.getElementById('result-image').src = charData.image;
-            document.getElementById('result-image').onerror = function() {
-                this.src = 'https://via.placeholder.com/250x250.png?text=' + encodeURIComponent(charData.name); // 임시 엑스박스 방지
-            };
-            
-            document.getElementById('nen-title-text').innerText = nenData.name;
-            document.getElementById('nen-desc').innerHTML = nenData.description;
-            
-            document.getElementById('result-desc').innerHTML = charData.description;
-            
-            const startBtns = document.querySelectorAll('.btn-outline');
-            startBtns.forEach(btn => btn.innerText = '테스트 다시하기');
+        function applyResultToUI(charKey) {
+            const c = characters[charKey];
+            document.getElementById('result-title').innerText = c.name;
+            document.getElementById('result-image').src = c.image;
+            document.getElementById('result-desc').innerHTML = c.description;
         }
 
         function unlockResult() {
-            // 쿠팡 파트너스 링크 (추후 수정)
             window.open('https://www.coupang.com', '_blank');
-            
             document.getElementById('ad-container').style.display = 'none';
             document.getElementById('detailed-result').style.display = 'block';
             document.getElementById('detailed-result').style.animation = 'fadeIn 0.5s ease-in-out';
         }
 
         function shareResult() {
-            const url = window.location.href.split('?')[0] + '?char=' + window.currentResultKey + '&nen=' + window.currentNenKey;
+            const url = window.location.href.split('?')[0] + '?result=' + window.currentResultKey;
             const shareTitle = "나와 가장 닮은 헌터X헌터 캐릭터는?";
-            const shareText = "수견식 테스트로 알아보는 나의 넨 계통과 캐릭터!";
-            
+            const shareText = "헌터X헌터 캐릭터 성향 테스트!";
             if (navigator.share) {
-                navigator.share({
-                    title: shareTitle,
-                    text: shareText,
-                    url: url,
-                }).catch((error) => console.log('공유 취소됨', error));
-            } else {
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(url).then(() => {
-                        alert("테스트 주소가 복사되었습니다! 친구들에게 공유해보세요 💖");
-                    });
-                } else {
-                    alert("주소 복사가 지원되지 않는 브라우저입니다.");
-                }
+                navigator.share({ title: shareTitle, text: shareText, url: url }).catch(() => {});
+            } else if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => alert("링크가 복사되었습니다!"));
             }
         }
 
         function contactUs() {
-            window.location.href = "mailto:gbcnewskr@gmail.com?subject=[헌터X헌터 테스트 캐릭터 추가 요청]&body=추가하고 싶은 캐릭터 이름을 적어주세요:%0D%0A";
+            window.location.href = "mailto:gbcnewskr@gmail.com?subject=[헌터X헌터 테스트 캐릭터 추가 요청]";
         }
-        
-        function restartTest() {
-            showScreen('screen-start');
-        }
+        function restartTest() { showScreen('screen-start'); }
 
-        // 특정 결과 직접 보기 (공유 링크 타고 왔을 때)
         window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const charParam = urlParams.get('char');
-            const nenParam = urlParams.get('nen');
-            
-            if (charParam && nenParam && characters[charParam] && nenTypes[nenParam]) {
-                window.currentResultKey = charParam;
-                window.currentNenKey = nenParam;
-                applyResultToUI(charParam, nenParam);
-                
+            const p = new URLSearchParams(window.location.search).get('result');
+            if (p && characters[p]) {
+                window.currentResultKey = p;
+                applyResultToUI(p);
                 document.getElementById('ad-container').style.display = 'block';
                 document.getElementById('detailed-result').style.display = 'none';
-                
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
                 showScreen('screen-result');
             }

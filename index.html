@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESTYOUR - 나를 알아보는 재미있는 테스트</title>
+    <title>TESTYOUR - 나를 알아보는 재밌는 테스트</title>
 
-    <!-- Open Graph for Link Preview -->
-    <meta property="og:title" content="TESTYOUR - 나를 알아보는 재미있는 테스트">
-    <meta property="og:description" content="다양하고 재미있는 심리테스트 모음! 지금 바로 테스트를 시작해보세요.">
+    <meta property="og:title" content="TESTYOUR - 나를 알아보는 재밌는 테스트">
+    <meta property="og:description" content="다양하고 재밌는 심리테스트 모음! 지금 바로 테스트를 시작해보세요.">
     <meta property="og:url" content="https://testyour.uk">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -58,10 +57,8 @@
         .test-card {
             display: block;
             text-decoration: none;
-            background: linear-gradient(135deg, #f3e5f5 0%, #fce4ec 100%);
             border-radius: 20px;
             padding: 30px 20px;
-            color: #4a148c;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.2s, box-shadow 0.2s;
             margin-bottom: 20px;
@@ -79,7 +76,6 @@
 
         .test-card p {
             margin: 0;
-            color: #6a1b9a;
             font-size: 16px;
         }
         
@@ -94,26 +90,25 @@
 <body>
     <div id="app">
         <h1>TESTYOUR</h1>
-        <p class="subtitle">다양하고 재미있는 심리테스트 모음</p>
+        <p class="subtitle">다양하고 재밌는 심리테스트 모음</p>
         
-        <a href="/rescene" class="test-card">
+        <!-- 리센느 테스트 -->
+        <a href="/rescene" class="test-card" style="background: linear-gradient(135deg, #f3e5f5 0%, #fce4ec 100%); color: #4a148c;">
             <h2>나와 가장 닮은 리센느 멤버는?</h2>
-            <p>RE:MINE X RESCENE 성향 테스트 하러가기 🌸</p>
+            <p style="color: #6a1b9a;">RE:MINE X RESCENE 성향 테스트 하러가기 &#x1F338;</p>
         </a>
 
-        <a href="/hxh" class="test-card" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); color: #004d40;">
-            <h2>헌터X헌터 수견식 테스트</h2>
-            <p>나와 가장 닮은 캐릭터와 나의 넨(念) 계통은?</p>
+        <!-- 헌터X헌터 캐릭터 테스트 -->
+        <a href="/hxh" class="test-card" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); color: #b71c1c;">
+            <h2>나와 가장 닮은 헌터X헌터 캐릭터는?</h2>
+            <p style="color: #c62828;">곤? 키르아? 히소카? 성격 기반 캐릭터 매칭!</p>
         </a>
 
-
-        <!-- 나중에 추가될 테스트들을 위한 예시 공간 -->
-        <!--
-        <a href="/other-test" class="test-card" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); color: #0d47a1;">
-            <h2>다음 테스트 준비 중...</h2>
-            <p>Comming Soon ✨</p>
+        <!-- 넨 계통 테스트 -->
+        <a href="/nen" class="test-card" style="background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%); color: #4527a0;">
+            <h2>나의 넨(念) 계통은? 수견식 테스트</h2>
+            <p style="color: #5e35b1;">강화계? 변화계? 특질계? 히소카의 성격 진단!</p>
         </a>
-        -->
 
         <div class="footer">
             &copy; 2026 TESTYOUR. All rights reserved.
