@@ -429,22 +429,59 @@
             }
         }
 
+                const hexagonPos = {
+            enhancement: 0,
+            transmutation: 1,
+            conjuration: 2,
+            specialization: 3,
+            manipulation: 4,
+            emission: 5
+        };
+
+        function getSynergy(main, other) {
+            if (main === other) return '100% (완벽)';
+            const dist = Math.abs(hexagonPos[main] - hexagonPos[other]);
+            const shortestDist = Math.min(dist, 6 - dist);
+            if (shortestDist === 1) return '80% (훌륭한 시너지)';
+            if (shortestDist === 2) return '60% (보통의 시너지)';
+            return '0~40% (상극, 매우 나쁨)';
+        }
+
         function calculateResult() {
-            let maxScore = -1, finalKey = '';
-            for (const key in scores) {
-                if (scores[key] > maxScore) { maxScore = scores[key]; finalKey = key; }
-            }
+            // Sort scores
+            const sortedScores = Object.entries(scores)
+                .sort((a, b) => b[1] - a[1]);
+            
+            const finalKey = sortedScores[0][0];
+            const secondKey = sortedScores[1][0];
+            const thirdKey = sortedScores[2][0];
+            
             window.currentResultKey = finalKey;
-            applyResultToUI(finalKey);
+            applyResultToUI(finalKey, secondKey, thirdKey);
             document.getElementById('ad-container').style.display = 'block';
             document.getElementById('detailed-result').style.display = 'none';
         }
         
-        function applyResultToUI(nenKey) {
+        function applyResultToUI(nenKey, secondKey, thirdKey) {
             const n = nenTypes[nenKey];
             document.getElementById('result-title').innerText = n.name;
             document.getElementById('result-image').src = n.image;
-            document.getElementById('result-desc').innerHTML = n.description;
+            
+            let desc = n.description;
+            
+            if (secondKey && thirdKey) {
+                const s2 = nenTypes[secondKey];
+                const s3 = nenTypes[thirdKey];
+                desc += `<br><br><hr style="border:0; border-top:1px solid rgba(255,255,255,0.2); margin: 20px 0;">`;
+                desc += `<strong>📊 내 안에 숨겨진 또 다른 계통</strong><br>`;
+                desc += `당신의 응답을 분석한 결과, 아래 두 가지 계통의 성향도 강하게 나타납니다!<br><br>`;
+                desc += `<strong>2순위: ${s2.name}</strong><br>`;
+                desc += `• 나와의 궁합: <span style="color:#8b5cf6">${getSynergy(nenKey, secondKey)}</span><br><br>`;
+                desc += `<strong>3순위: ${s3.name}</strong><br>`;
+                desc += `• 나와의 궁합: <span style="color:#8b5cf6">${getSynergy(nenKey, thirdKey)}</span>`;
+            }
+            
+            document.getElementById('result-desc').innerHTML = desc;
         }
 
         function unlockResult() {
@@ -467,11 +504,11 @@
 
         function restartTest() { showScreen('screen-start'); }
 
-        window.addEventListener('DOMContentLoaded', () => {
+                window.addEventListener('DOMContentLoaded', () => {
             const p = new URLSearchParams(window.location.search).get('result');
             if (p && nenTypes[p]) {
                 window.currentResultKey = p;
-                applyResultToUI(p);
+                applyResultToUI(p, null, null);
                 document.getElementById('ad-container').style.display = 'block';
                 document.getElementById('detailed-result').style.display = 'none';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
