@@ -357,7 +357,9 @@
                     id: "cq1",
                     question: '당신은 헌터 시험 중 끝이 안 보이는 누메레 늪지대를 지나가야 합니다. 안개가 끼고 마수들이 우글거리는데, 당신의 전략은?',
                     choices: [
-                        { text: '앞장서는 시험관을 놓치지 않기 위해 선두 그룹에서 바짝 쫓아간다.', scores: {gon: 3}, followUps: ['fq_gon1'] },
+                        { text: '앞장서는 시험관을 놓치지 않기 위해 선두 그룹에서 바짝 쫓아간다.', scores: {gon: 3}, followUps: ['fq_gon1',
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ] },
                         { text: '페이스 조절이 생명. 체력을 아끼며 중간 그룹에서 달린다.', scores: {kurapika: 2, illumi: 2}, followUps: ['fq_kura1'] },
                         { text: '너무 힘든데... 적당한 탈것이나 주변 지형을 이용해 꼼수를 찾는다.', scores: {leorio: 3, killua: 2}, followUps: ['fq_leo1'] },
                         { text: '흥미로운 참가자나 마수가 없는지 안개 속을 헤집으며 탐색한다.', scores: {hisoka: 3, meruem: 1}, followUps: ['fq_hiso1'] }
@@ -367,7 +369,9 @@
                     id: "cq2",
                     question: '투기장 200층에 도달했더니, 악의적인 넨 공격을 날리며 선배 투사들이 도발해옵니다.',
                     choices: [
-                        { text: '열받네?! 넨을 완벽히 배우기도 전에 일단 주먹부터 날리고 본다.', scores: {leorio: 3, gon: 2}, followUps: ['fq_angry'] },
+                        { text: '열받네?! 넨을 완벽히 배우기도 전에 일단 주먹부터 날리고 본다.', scores: {leorio: 3, gon: 2}, followUps: ['fq_angry',
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ] },
                         { text: '넨을 완벽히 습득한 후, 압도적인 실력 차이를 보여주며 무표정하게 짓밟는다.', scores: {killua: 3, meruem: 3}, followUps: ['fq_calm'] },
                         { text: '도발에 넘어가지 않고 침착하게 상대 능력의 특성과 허점을 분석한다.', scores: {kurapika: 3, chrollo: 2}, followUps: ['fq_analyze'] },
                         { text: '저항하는 모습이 귀엽네~ 기괴한 미소를 지으며 상대를 더 농락한다.', scores: {hisoka: 3}, followUps: ['fq_psycho'] }
@@ -377,7 +381,9 @@
                     id: "cq3",
                     question: '요크신 시티 경매장에서 당신이 찾던 물건을 최악의 도적단 "환영여단"이 훔쳐갔습니다!',
                     choices: [
-                        { text: '절대 용서할 수 없다. 내 목숨을 바쳐서라도 그들을 궤멸시키고 복수한다.', scores: {kurapika: 15, chrollo: -5}, followUps: ['fq_revenge'] },
+                        { text: '절대 용서할 수 없다. 내 목숨을 바쳐서라도 그들을 궤멸시키고 복수한다.', scores: {kurapika: 15, chrollo: -5}, followUps: ['fq_revenge',
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ] },
                         { text: '나와 내 동료들의 힘을 합쳐 정면으로 맞서 싸울 방법을 찾는다.', scores: {gon: 3, kurapika: -5}, followUps: ['fq_fight'] },
                         { text: '승산이 없다면 일단 피하고, 후일을 도모하며 기습을 계획한다.', scores: {killua: 3, illumi: 2, kurapika: -5}, followUps: ['fq_assassin'] },
                         { text: '여단이라고? 오히려 그 강한 녀석들과 싸워보고 싶어 미치겠다.', scores: {hisoka: 4, kurapika: -10}, followUps: ['fq_excited'] }
@@ -387,7 +393,9 @@
                     id: "cq4",
                     question: '강력하고 잔혹한 생물인 "키메라 앤트"들이 무고한 사람들을 학살하고 있습니다. 당신이라면?',
                     choices: [
-                        { text: '앞뒤 안 재고 분노를 폭발시켜 무고한 자들을 구하러 쳐들어간다.', scores: {gon: 4, leorio: 2}, followUps: ['fq_rescue_rash'] },
+                        { text: '앞뒤 안 재고 분노를 폭발시켜 무고한 자들을 구하러 쳐들어간다.', scores: {gon: 4, leorio: 2}, followUps: ['fq_rescue_rash',
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ] },
                         { text: '감정을 억누르고, 희생자를 최소화할 가장 안전하고 확실한 작전을 짠다.', scores: {kurapika: 3, killua: 3}, followUps: ['fq_rescue_plan'] },
                         { text: '내게 이득이 될 상대의 능력만 훔치거나 계산적으로 상황을 이용한다.', scores: {illumi: 3, chrollo: 3}, followUps: ['fq_rescue_calc'] },
                         { text: '녀석들의 본거지를 통째로 장악해버리고 왕으로서 군림한다.', scores: {meruem: 4}, followUps: ['fq_boss'] }
@@ -400,7 +408,9 @@
                         { text: '나를 더 강하게 만들어줄 끝없는 모험과 미지의 세계 탐험', scores: {gon: 3} },
                         { text: '잃어버린 동포들의 유품을 되찾고 나의 신념을 지키는 것', scores: {kurapika: 5} },
                         { text: '돈, 지위, 친구 등 세속적이지만 따뜻한 행복', scores: {leorio: 3, killua: 2} },
-                        { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 절대적인 힘', scores: {meruem: 4, chrollo: 3, illumi: 2}, followUps: ['fq_boss_2'] }
+                        { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 절대적인 힘', scores: {meruem: 4, chrollo: 3, illumi: 2}, followUps: ['fq_boss_2',
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ] }
                     ]
                 }
             ],
@@ -411,7 +421,9 @@
                     choices: [
                         { text: '짐승 같은 직감과 신체 능력으로 가볍게 함정을 부수고 나온다.', scores: {gon: 3} },
                         { text: '함정을 판 마수를 기억해두었다가 나중에 반드시 갚아준다.', scores: {kurapika: 2, illumi: 2} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_kura1: {
                     id: "fq_kura1",
@@ -420,7 +432,9 @@
                         { text: '내 알 바 아니다. 내 페이스를 유지하며 무시하고 지나친다.', scores: {illumi: 3, chrollo: 2} },
                         { text: '시험도 중요하지만 사람 목숨이 먼저다! 망설임 없이 부축해준다.', scores: {leorio: 3, gon: 2} },
                         { text: '최소한의 응급처치나 조언만 빠르게 해주고 다시 달린다.', scores: {kurapika: 3, killua: 1} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_leo1: {
                     id: "fq_leo1",
@@ -428,7 +442,9 @@
                     choices: [
                         { text: '"아씨, 걸렸네!" 쿨하게 포기하고 내려서 정석대로 달린다.', scores: {killua: 3} },
                         { text: '"가져오지 말라는 룰은 없었잖아요?!" 뻔뻔하게 말대꾸하며 따진다.', scores: {leorio: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_hiso1: {
                     id: "fq_hiso1",
@@ -436,7 +452,9 @@
                     choices: [
                         { text: '참을 수 없다! 당장 실력을 뽐내며 싸움을 걸어본다.', scores: {hisoka: 3} },
                         { text: '지금은 때가 아니다. 조용히 살기를 거두고 거리를 둔다.', scores: {illumi: 3, chrollo: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_angry: {
                     id: "fq_angry",
@@ -444,7 +462,9 @@
                     choices: [
                         { text: '맞으면서도 물러서지 않고 고집스럽게 밀어붙인다.', scores: {gon: 3} },
                         { text: '아차 싶어 빠르게 거리를 벌리고 방어 태세를 취한다.', scores: {leorio: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_calm: {
                     id: "fq_calm",
@@ -452,7 +472,9 @@
                     choices: [
                         { text: '"넌 짐승 이하다. 두 번 다시 내 눈앞에 나타나지 마라."', scores: {meruem: 3} },
                         { text: '"약한 주제에 깝치지 마." (차갑게 뒤돌아선다)', scores: {killua: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_analyze: {
                     id: "fq_analyze",
@@ -460,7 +482,9 @@
                     choices: [
                         { text: '상대가 가장 고통스러워할 사각지대에서 찔러 넣어 제압한다.', scores: {kurapika: 3} },
                         { text: '상대의 능력이 마음에 든다. 죽이지 않고 내 것으로 훔쳐 올 궁리를 한다.', scores: {chrollo: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_psycho: {
                     id: "fq_psycho",
@@ -468,7 +492,9 @@
                     choices: [
                         { text: '"어딜 도망가?♣" 끝까지 쫓아가서 공포를 심어주고 파괴한다.', scores: {hisoka: 3} },
                         { text: '겁쟁이한테는 흥미가 떨어졌다. 목숨만은 살려준다.', scores: {killua: 2, meruem: 1} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_boss: {
                     id: "fq_boss",
@@ -476,7 +502,9 @@
                     choices: [
                         { text: '능력이 쓸만하다면 살려서 내 수족으로 부린다.', scores: {chrollo: 3} },
                         { text: '왕에게 반역한 죄는 죽음뿐이다. 식량으로 쓰거나 몰살한다.', scores: {meruem: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_boss_2: {
                     id: "fq_boss_2",
@@ -485,7 +513,9 @@
                         { text: '나의 손발이 되어줄 철저하고 유능한 부하들', scores: {chrollo: 3} },
                         { text: '누구도 범접할 수 없는 나 자신의 압도적인 무력', scores: {meruem: 3} },
                         { text: '사람의 마음을 비틀어 내 마음대로 조종할 수 있는 지배력', scores: {illumi: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_rescue_rash: {
                     id: "fq_rescue_rash",
@@ -493,7 +523,9 @@
                     choices: [
                         { text: '내 목숨과 재능을 모두 버려서라도 저 녀석을 죽여버리겠다!!', scores: {gon: 4} },
                         { text: '"내가 미쳤지..." 다리가 후들거리지만 동료를 위해 버틴다.', scores: {leorio: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_rescue_plan: {
                     id: "fq_rescue_plan",
@@ -501,7 +533,9 @@
                     choices: [
                         { text: '리스크를 안고 내 신체 능력의 한계를 끌어올려 초고속으로 기습한다.', scores: {killua: 4} },
                         { text: '상대의 심리를 역이용해 가장 확실하게 적을 묶어둘 빈틈을 노린다.', scores: {kurapika: 4} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_rescue_calc: {
                     id: "fq_rescue_calc",
@@ -509,7 +543,9 @@
                     choices: [
                         { text: '구출해 준 뒤, 나의 능력으로 상대의 의지를 지배해 평생 부려먹는다.', scores: {illumi: 4} },
                         { text: '동료를 돕는 건 당연하다! 계산은 그냥 습관적으로 해본 것일 뿐이다.', scores: {leorio: 2, killua: 2} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_fight: {
                     id: "fq_fight",
@@ -517,7 +553,9 @@
                     choices: [
                         { text: '내 팔이 잘리더라도 상대 녀석의 목을 베겠다!', scores: {gon: 3} },
                         { text: '안 되겠다, 살고 봐야지! 연막을 치고 도망친다.', scores: {leorio: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_assassin: {
                     id: "fq_assassin",
@@ -525,7 +563,9 @@
                     choices: [
                         { text: '고통 없이 한 번에 심장을 뽑아 숨통을 끊어버린다.', scores: {killua: 3} },
                         { text: '내 조종을 받는 꼭두각시로 만들어 첩자로 부려먹는다.', scores: {illumi: 3} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_excited: {
                     id: "fq_excited",
@@ -533,7 +573,9 @@
                     choices: [
                         { text: '더, 더 재밌게 해줘! 완전히 미쳐서 광소를 터뜨린다.', scores: {hisoka: 3} },
                         { text: '이 정도면 충분히 데이터를 모았다. 완벽하게 밀실에서 마무리한다.', scores: {chrollo: 2} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 },
                 fq_revenge: {
                     id: "fq_revenge",
@@ -541,7 +583,9 @@
                     choices: [
                         { text: '당연하다. 쓰레기들을 청소할 수 있다면 내 목숨 따위는 안중에도 없다.', scores: {kurapika: 10} },
                         { text: '그건 좀... 복수도 내가 살아야 할 수 있는 거 아닌가?', scores: {leorio: 3, killua: 1, kurapika: -10} }
-                    ]
+                    ,
+                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
+                ]
                 }
             }
         };
