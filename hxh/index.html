@@ -183,6 +183,31 @@
             transition: all 0.2s;
         }
         .other-test-link:hover { background-color: #444; color: #fff; }
+    
+        .stat-row { display: flex; align-items: center; margin-bottom: 8px; }
+        .stat-name { width: 70px; font-size: 13px; color: #ccc; text-align: left; font-weight: bold; }
+        .stat-bar-bg { flex-grow: 1; background-color: #444; height: 8px; border-radius: 4px; overflow: hidden; margin: 0 10px; }
+        .stat-bar-fill { height: 100%; background-color: #ff3b30; border-radius: 4px; transition: width 1s ease; }
+        .stat-val { width: 30px; font-size: 13px; color: #ff3b30; text-align: right; font-weight: bold; }
+
+        .quote-box { font-size: 18px; font-style: italic; color: #fff; text-align: center; margin-bottom: 15px; font-weight: bold; word-break: keep-all; }
+        .quote-box span { color: #ff3b30; }
+        .nen-tag { display: inline-block; background-color: #ff3b30; color: white; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px; }
+
+        .sub-match { background-color: #2a2a2a; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: left; width: 100%; box-sizing: border-box; }
+        .sub-match-title { font-size: 15px; color: #aaa; margin-bottom: 15px; font-weight: bold; }
+        .sub-match-item { display: flex; align-items: center; margin-bottom: 15px; }
+        .sub-match-item:last-child { margin-bottom: 0; }
+        .sub-match-img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; border: 2px solid #555; }
+        .sub-match-info { flex-grow: 1; }
+        .sub-match-name { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .sub-match-bar-wrap { display: flex; align-items: center; }
+        .sub-match-bar-bg { flex-grow: 1; background-color: #444; height: 6px; border-radius: 3px; overflow: hidden; }
+        .sub-match-bar-fill { height: 100%; background-color: #ff3b30; }
+        .sub-match-pct { font-size: 14px; color: #ff3b30; font-weight: bold; margin-left: 10px; width: 35px; text-align: right; }
+
+        .match-percent { font-size: 18px; color: #ff3b30; font-weight: bold; display: block; margin-top: -5px; margin-bottom: 15px; }
+
     </style>
 </head>
 <body>
@@ -222,15 +247,27 @@
             
             <div class="result-subtitle">나와 가장 닮은 캐릭터는</div>
             <div id="result-title" class="result-title"></div>
+            <div id="match-percent-top" class="match-percent"></div>
             <img id="result-image" class="result-image" src="" alt="Result Image">
             
             <div id="ad-container" class="ad-container" onclick="setTimeout(unlockResult, 500)">
                 <h3 style="color: #ff3b30; margin: 0 0 10px 0;">[광고] 스폰서 배너</h3>
-                <p style="color: #aaa; font-size: 14px; margin: 0;">배너를 클릭하시면<br><b>[상세 성향 해석]</b>이 잠금 해제됩니다!</p>
+                <p style="color: #aaa; font-size: 14px; margin: 0;">배너를 클릭하시면<br><b>[상세 성향 해석 및 스탯 분석]</b>이 잠금 해제됩니다!</p>
             </div>
 
             <div id="detailed-result" style="display: none; width: 100%;">
-                <div id="result-desc" class="result-desc"></div>
+                <div class="quote-box" id="result-quote"></div>
+                <div style="text-align:center"><span class="nen-tag" id="result-nen"></span></div>
+                
+                <div class="result-desc" style="margin-bottom: 20px;">
+                    <div id="result-stats" style="margin-bottom:20px; border-bottom: 1px solid #444; padding-bottom: 15px;"></div>
+                    <div id="result-desc-text"></div>
+                </div>
+                
+                <div class="sub-match">
+                    <div class="sub-match-title">당신과 비슷한 또 다른 캐릭터는...</div>
+                    <div id="sub-match-list"></div>
+                </div>
                 
                 <button class="btn" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">결과 공유하기</button>
                 <button class="btn btn-outline" onclick="restartTest()">테스트 다시하기</button>
@@ -250,41 +287,65 @@
         const characters = {
             gon: { 
                 name: '곤 프릭스', 
+                quote: '<span>"</span>내 동료를 상처 입히는 녀석은 절대 용서 못해!<span>"</span>',
+                nen: '강화계',
+                stats: { strength: 95, intelligence: 40, agility: 85, potential: 100 },
                 image: '/hxh/images/gon.png', 
                 description: '<strong>📌 성향:</strong> 꺾이지 않는 고집과 순수함<br><strong>✨ 특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.<br><br><strong>💖 환상의 짝꿍:</strong> 키르아 조르딕<br><strong>💔 환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             killua: { 
                 name: '키르아 조르딕', 
+                quote: '<span>"</span>내가 누군지 잊었어? 난 원래 암살자야.<span>"</span>',
+                nen: '변화계',
+                stats: { strength: 75, intelligence: 90, agility: 95, potential: 90 },
                 image: '/hxh/images/killua.png', 
                 description: '<strong>📌 성향:</strong> 차가운 머리, 따뜻한 심장<br><strong>✨ 특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.<br><br><strong>💖 환상의 짝꿍:</strong> 곤 프릭스<br><strong>💔 환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             kurapika: { 
                 name: '크라피카', 
+                quote: '<span>"</span>복수를 이룰 수 있다면 내 목숨 따위는 안중에도 없다.<span>"</span>',
+                nen: '구현화계 (특질계)',
+                stats: { strength: 70, intelligence: 95, agility: 80, potential: 85 },
                 image: '/hxh/images/kurapika.png', 
                 description: '<strong>📌 성향:</strong> 냉철한 이성과 완벽주의<br><strong>✨ 특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.<br><br><strong>💖 환상의 짝꿍:</strong> 레오리오<br><strong>💔 환장의 짝꿍:</strong> 환영여단 전원' 
             },
             leorio: { 
                 name: '레오리오', 
+                quote: '<span>"</span>겉모습으로 사람 판단하지 마라! 난 진짜 의리파라고!<span>"</span>',
+                nen: '방출계',
+                stats: { strength: 80, intelligence: 75, agility: 70, potential: 75 },
                 image: '/hxh/images/leorio.png', 
                 description: '<strong>📌 성향:</strong> 의리와 정이 넘치는 행동파<br><strong>✨ 특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.<br><br><strong>💖 환상의 짝꿍:</strong> 크라피카<br><strong>💔 환장의 짝꿍:</strong> 히소카' 
             },
             hisoka: { 
                 name: '히소카', 
+                quote: '<span>"</span>더... 더 재밌게 해줘! 부숴버리고 싶게 말이야.♣<span>"</span>',
+                nen: '변화계',
+                stats: { strength: 90, intelligence: 90, agility: 90, potential: 80 },
                 image: '/hxh/images/hisoka.png', 
                 description: '<strong>📌 성향:</strong> 아드레날린 중독 마이웨이<br><strong>✨ 특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.<br><br><strong>💖 환상의 짝꿍:</strong> 곤 프릭스 (미래의 강자)<br><strong>💔 환장의 짝꿍:</strong> 약하고 재미없는 상대' 
             },
             illumi: { 
                 name: '이르미 조르딕', 
+                quote: '<span>"</span>넌 친구 같은 거 필요 없어. 나만 있으면 돼.<span>"</span>',
+                nen: '조작계',
+                stats: { strength: 85, intelligence: 85, agility: 90, potential: 75 },
                 image: '/hxh/images/illumi.png', 
                 description: '<strong>📌 성향:</strong> 뒤틀린 애정과 통제광<br><strong>✨ 특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다.<br><br><strong>💖 환상의 짝꿍:</strong> 히소카 (서로 이용)<br><strong>💔 환장의 짝꿍:</strong> 통제 불가능한 키르아' 
             },
             chrollo: { 
                 name: '클로로 루실플루', 
+                quote: '<span>"</span>우리는 거미다. 머리가 죽어도 거미는 움직인다.<span>"</span>',
+                nen: '특질계',
+                stats: { strength: 85, intelligence: 100, agility: 90, potential: 90 },
                 image: '/hxh/images/chrollo.png', 
                 description: '<strong>📌 성향:</strong> 압도적 카리스마의 리더<br><strong>✨ 특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.<br><br><strong>💖 환상의 짝꿍:</strong> 환영여단 멤버 전원<br><strong>💔 환장의 짝꿍:</strong> 크라피카 (천적)' 
             },
             meruem: { 
                 name: '메르엠', 
+                quote: '<span>"</span>짐은 대체 무엇을 위해 태어난 것인가...<span>"</span>',
+                nen: '특질계',
+                stats: { strength: 100, intelligence: 100, agility: 100, potential: 100 },
                 image: '/hxh/images/meruem.png', 
                 description: '<strong>📌 성향:</strong> 압도적인 천재성과 순정<br><strong>✨ 특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람에게는 모든 것을 내어주는 순정파이기도 합니다.<br><br><strong>💖 환상의 짝꿍:</strong> 코무기<br><strong>💔 환장의 짝꿍:</strong> 네테로 회장' 
             }
@@ -561,21 +622,78 @@
         }
 
         function calculateResult() {
-            let maxScore = -1, finalKey = '';
-            for (const key in scores) {
-                if (scores[key] > maxScore) { maxScore = scores[key]; finalKey = key; }
+            let sortedScores = Object.entries(scores)
+                .map(([key, val]) => ({ key, score: Math.max(0, val) }))
+                .sort((a, b) => b.score - a.score);
+            
+            // Calculate percentage based on theoretical max (~25)
+            let maxTheoretical = 25;
+            let topScore = sortedScores[0].score;
+            let scale = 1;
+            if (topScore > 0 && (topScore / maxTheoretical) < 0.75) {
+                // Boost scale so top result is always at least 75-80% match
+                scale = 0.85 / (topScore / maxTheoretical);
             }
-            window.currentResultKey = finalKey;
-            applyResultToUI(finalKey);
+            
+            sortedScores.forEach(item => {
+                item.pct = Math.min(99, Math.max(1, Math.round((item.score / maxTheoretical) * 100 * scale)));
+            });
+
+            window.currentResultKey = sortedScores[0].key;
+            window.topResults = sortedScores.slice(0, 3);
+            
+            applyResultToUI(window.topResults);
+            
             document.getElementById('ad-container').style.display = 'block';
             document.getElementById('detailed-result').style.display = 'none';
         }
         
-        function applyResultToUI(charKey) {
-            const c = characters[charKey];
-            document.getElementById('result-title').innerText = c.name;
-            document.getElementById('result-image').src = c.image;
-            document.getElementById('result-desc').innerHTML = c.description;
+        function applyResultToUI(topResults) {
+            const topChar = characters[topResults[0].key];
+            
+            document.getElementById('result-title').innerText = topChar.name;
+            document.getElementById('result-image').src = topChar.image;
+            document.getElementById('match-percent-top').innerText = '일치율 ' + topResults[0].pct + '%';
+            
+            // Detailed View
+            document.getElementById('result-quote').innerHTML = topChar.quote;
+            document.getElementById('result-nen').innerText = '[' + topChar.nen + ']';
+            document.getElementById('result-desc-text').innerHTML = topChar.description;
+            
+            // Stats
+            let statsHtml = '';
+            const statNames = { strength: '전투/체력', intelligence: '지능/전략', agility: '민첩/유연', potential: '잠재력' };
+            for (let [k, v] of Object.entries(topChar.stats)) {
+                statsHtml += `
+                    <div class="stat-row">
+                        <div class="stat-name">${statNames[k]}</div>
+                        <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: ${v}%"></div></div>
+                        <div class="stat-val">${v}</div>
+                    </div>
+                `;
+            }
+            document.getElementById('result-stats').innerHTML = statsHtml;
+            
+            // Sub matches
+            let subHtml = '';
+            for (let i = 1; i <= 2; i++) {
+                if(topResults[i]) {
+                    const c = characters[topResults[i].key];
+                    subHtml += `
+                        <div class="sub-match-item">
+                            <img class="sub-match-img" src="${c.image}" alt="">
+                            <div class="sub-match-info">
+                                <div class="sub-match-name">${i+1}위: ${c.name}</div>
+                                <div class="sub-match-bar-wrap">
+                                    <div class="sub-match-bar-bg"><div class="sub-match-bar-fill" style="width: ${topResults[i].pct}%"></div></div>
+                                    <div class="sub-match-pct">${topResults[i].pct}%</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            document.getElementById('sub-match-list').innerHTML = subHtml;
         }
 
         function unlockResult() {
@@ -605,7 +723,12 @@
             const p = new URLSearchParams(window.location.search).get('result');
             if (p && characters[p]) {
                 window.currentResultKey = p;
-                applyResultToUI(p);
+                window.topResults = [
+                    { key: p, pct: 95 },
+                    { key: p === 'gon' ? 'killua' : 'gon', pct: 60 },
+                    { key: p === 'kurapika' ? 'leorio' : 'kurapika', pct: 40 }
+                ];
+                applyResultToUI(window.topResults);
                 document.getElementById('ad-container').style.display = 'block';
                 document.getElementById('detailed-result').style.display = 'none';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
