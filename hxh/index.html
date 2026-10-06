@@ -629,12 +629,28 @@
             const progressPercent = Math.min((currentQuestionIndex / 10) * 100, 100);
             document.getElementById('progress-bar').style.width = progressPercent + '%';
 
-            const container = document.getElementById('choices-container');
+                        const container = document.getElementById('choices-container');
             container.innerHTML = '';
+            
+            // 1. 일반 선택지 렌더링
             data.choices.forEach(choice => {
+                if (choice.text.includes('건너뛰기')) return;
                 const btn = document.createElement('button');
                 btn.className = 'choice-btn';
                 btn.innerText = choice.text;
+                btn.onclick = () => selectChoice(choice);
+                container.appendChild(btn);
+            });
+            
+            // 2. 건너뛰기 선택지 마지막에 렌더링
+            data.choices.forEach(choice => {
+                if (!choice.text.includes('건너뛰기')) return;
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerText = choice.text;
+                // 건너뛰기 버튼은 시각적으로 약간 다르게 표현할 수도 있습니다.
+                btn.style.opacity = '0.8';
+                btn.style.borderStyle = 'dashed';
                 btn.onclick = () => selectChoice(choice);
                 container.appendChild(btn);
             });
