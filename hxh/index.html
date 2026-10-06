@@ -237,6 +237,8 @@
                 <a href="/nen" class="other-test-link">넨(念) 계통 테스트도 해보기 &rarr;</a>
                 
                 <div class="contact-text">
+                    <p style="margin-bottom:5px; color:#ccc;">현재 테스트에 등록되어 있는 캐릭터 목록:</p>
+                    <p style="margin-top:0; color:#ff3b30; font-weight:bold;">곤, 키르아, 크라피카, 레오리오, 히소카, 이르미, 클로로, 메르엠</p>
                     원하는 캐릭터가 결과에 없다면?<br>
                     <span class="contact-link" onclick="contactUs()">개발자에게 추가 요청하기</span>
                 </div>
@@ -288,99 +290,202 @@
             }
         };
 
-        const quizData = [
-            {
-                question: '당신은 헌터 시험에 참가했습니다. 첫 번째 관문은 끝이 안 보이는 지하 터널 달리기! 당신의 전략은?',
-                choices: [
-                    { text: '체력은 자신 있다! 무조건 선두 그룹에서 달린다.', scores: {gon: 3} },
-                    { text: '페이스 조절이 생명. 중간 그룹에서 체력을 아낀다.', scores: {kurapika: 2, illumi: 1} },
-                    { text: '너무 힘든데... 적당히 편하게 갈 꼼수를 찾는다.', scores: {leorio: 3, killua: 1} },
-                    { text: '달리는 건 지루해. 흥미로운 참가자가 없는지 탐색한다.', scores: {hisoka: 3} }
-                ]
-            },
-            {
-                question: '시험 도중 강력한 마수와 마주쳤습니다. 어떻게 할까요?',
-                choices: [
-                    { text: '"우와, 신기하게 생겼다!" 일단 대화를 시도해 본다.', scores: {gon: 3} },
-                    { text: '마수의 약점과 생태를 빠르게 분석하여 치명타를 노린다.', scores: {kurapika: 2, chrollo: 1} },
-                    { text: '싸움보단 도망이 상책! 가장 안전한 퇴로를 확보한다.', scores: {leorio: 3, killua: 1} },
-                    { text: '내 실력을 시험해 볼 좋은 기회다. 가차 없이 제거한다.', scores: {meruem: 2, illumi: 2} }
-                ]
-            },
-            {
-                question: '환영여단과 같은 위험한 범죄 집단이 당신의 고향을 노린다면?',
-                choices: [
-                    { text: '내 모든 것을 걸고, 목숨을 바쳐서라도 복수한다.', scores: {kurapika: 3} },
-                    { text: '나와 내 동료들의 힘을 합쳐 정면으로 맞서 싸운다.', scores: {gon: 2, leorio: 1} },
-                    { text: '승산이 없다면 일단 피하고, 후일을 도모하며 암살을 계획한다.', scores: {killua: 3, illumi: 1} },
-                    { text: '강한 자들인가? 오히려 그들과 싸워보고 싶어 흥분된다.', scores: {hisoka: 3, meruem: 1} }
-                ]
-            },
-            {
-                question: '천공투기장에 출전했습니다. 상대방이 도발을 해오는데?',
-                choices: [
-                    { text: '열받네?! 말이 끝나기도 전에 선빵을 날린다.', scores: {leorio: 3, gon: 1} },
-                    { text: '무표정하게 무시하고, 경기 시작 즉시 압도적인 실력 차이를 보여준다.', scores: {killua: 3, meruem: 1} },
-                    { text: '도발에 넘어가지 않고 침착하게 상대의 허점을 찾는다.', scores: {kurapika: 2, chrollo: 1} },
-                    { text: '재밌는 장난감이네~ 기괴한 미소를 지으며 상대를 더 긁는다.', scores: {hisoka: 3} }
-                ]
-            },
-            {
-                question: '그리드 아일랜드(게임 세계)에 들어왔습니다. 가장 먼저 할 일은?',
-                choices: [
-                    { text: '일단 필드로 나가서 몬스터랑 싸워본다! 모험 시작!', scores: {gon: 3} },
-                    { text: '게임 룰과 카드 시스템부터 완벽하게 마스터한다.', scores: {kurapika: 2, killua: 1} },
-                    { text: '돈(제니)이 될 만한 아이템이나 꼼수가 있는지 알아본다.', scores: {leorio: 3} },
-                    { text: '강한 플레이어들을 찾아다니며 내 입맛대로 이용하거나 사냥한다.', scores: {hisoka: 2, chrollo: 2, illumi: 1} }
-                ]
-            },
-            {
-                question: '넨(念)을 수련할 때, 당신이 가장 중시할 부분은?',
-                choices: [
-                    { text: '무엇이든 박살 낼 수 있는 압도적이고 단순한 파괴력', scores: {gon: 2, meruem: 1} },
-                    { text: '다양한 상황에 유연하게 대처할 수 있는 응용력', scores: {killua: 3, hisoka: 1} },
-                    { text: '상대를 내 마음대로 조종하고 통제할 수 있는 지배력', scores: {illumi: 3, chrollo: 1} },
-                    { text: '특정 조건 하에서만 발동되는 대신 무적에 가까운 능력', scores: {kurapika: 3} }
-                ]
-            },
-            {
-                question: '동료가 적에게 인질로 잡혔습니다. 적의 요구조건은 까다로운데...',
-                choices: [
-                    { text: '앞뒤 안 재고 당장 구하러 쳐들어간다. 동료가 먼저다!', scores: {gon: 3, leorio: 2} },
-                    { text: '감정을 억누르고, 가장 안전하게 동료를 빼낼 전략을 짠다.', scores: {kurapika: 2, killua: 2} },
-                    { text: '그 동료가 나에게 그만큼의 가치가 있는지 냉정하게 계산한다.', scores: {illumi: 3} },
-                    { text: '적의 본거지를 통째로 장악해버리고 내 룰을 강요한다.', scores: {chrollo: 2, meruem: 2} }
-                ]
-            },
-            {
-                question: '당신이 가장 끌리는 직업/역할은?',
-                choices: [
-                    { text: '세상의 미지의 영역을 탐험하는 유적 헌터', scores: {gon: 3, kurapika: 1} },
-                    { text: '돈을 많이 벌고 사람을 고치는 의사 (또는 전문직)', scores: {leorio: 3} },
-                    { text: '규칙에 얽매이지 않고 내 맘대로 사는 암살자나 범죄자', scores: {killua: 1, illumi: 2, chrollo: 2} },
-                    { text: '강한 자들을 찾아다니며 싸우는 전투광', scores: {hisoka: 3} }
-                ]
-            },
-            {
-                question: '수견식(넨 계통 판별)을 할 때 컵의 물이 어떻게 변하기를 바라나요?',
-                choices: [
-                    { text: '물이 확 넘쳐흐른다! (힘과 박력)', scores: {gon: 2} },
-                    { text: '물의 맛이 변하거나 결정이 생긴다! (변화와 특수성)', scores: {killua: 2, hisoka: 1, kurapika: 1} },
-                    { text: '나뭇잎이 내 마음대로 움직인다! (조작과 통제)', scores: {illumi: 2} },
-                    { text: '전혀 예상치 못한 기이한 현상이 발생한다! (나만의 독창성)', scores: {chrollo: 2, meruem: 2} }
-                ]
-            },
-            {
-                question: '당신 인생의 궁극적인 목표는?',
-                choices: [
-                    { text: '나를 강하게 만들어줄 끝없는 모험과 새로운 만남', scores: {gon: 3} },
-                    { text: '잃어버린 것을 되찾거나 신념을 지키는 것', scores: {kurapika: 3} },
-                    { text: '돈, 지위, 친구 등 세속적이지만 따뜻한 행복', scores: {leorio: 3, killua: 1} },
-                    { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 것', scores: {meruem: 3, chrollo: 1} }
-                ]
+        const questionGraph = {
+            start: [
+                {
+                    id: "cq1",
+                    question: '당신은 헌터 시험에 참가했습니다. 첫 번째 관문은 끝이 안 보이는 지하 터널 달리기! 당신의 전략은?',
+                    choices: [
+                        { text: '체력은 자신 있다! 무조건 선두 그룹에서 달린다.', scores: {gon: 3}, followUps: ['fq_gon1'] },
+                        { text: '페이스 조절이 생명. 중간 그룹에서 체력을 아낀다.', scores: {kurapika: 2, illumi: 2}, followUps: ['fq_kura1'] },
+                        { text: '너무 힘든데... 적당히 편하게 갈 꼼수를 찾는다.', scores: {leorio: 3, killua: 2}, followUps: ['fq_leo1'] },
+                        { text: '달리는 건 지루해. 흥미로운 참가자가 없는지 탐색한다.', scores: {hisoka: 3, meruem: 1}, followUps: ['fq_hiso1'] }
+                    ]
+                },
+                {
+                    id: "cq2",
+                    question: '천공투기장에 출전했습니다. 상대방이 당신을 얕보며 도발해오는데?',
+                    choices: [
+                        { text: '열받네?! 말이 끝나기도 전에 선빵을 날린다.', scores: {leorio: 3, gon: 2}, followUps: ['fq_angry'] },
+                        { text: '무표정하게 무시하고, 경기 시작 즉시 압도적인 실력 차이를 보여준다.', scores: {killua: 3, meruem: 3}, followUps: ['fq_calm'] },
+                        { text: '도발에 넘어가지 않고 침착하게 상대의 허점을 찾는다.', scores: {kurapika: 3, chrollo: 2}, followUps: ['fq_analyze'] },
+                        { text: '재밌는 장난감이네~ 기괴한 미소를 지으며 상대를 더 긁는다.', scores: {hisoka: 3}, followUps: ['fq_psycho'] }
+                    ]
+                },
+                {
+                    id: "cq3",
+                    question: '당신 인생의 궁극적인 목표는?',
+                    choices: [
+                        { text: '나를 강하게 만들어줄 끝없는 모험과 새로운 만남', scores: {gon: 3} },
+                        { text: '잃어버린 것을 되찾거나 꺾이지 않는 신념을 지키는 것', scores: {kurapika: 3} },
+                        { text: '돈, 지위, 친구 등 세속적이지만 따뜻한 행복', scores: {leorio: 3, killua: 2} },
+                        { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 것', scores: {meruem: 3, chrollo: 3, illumi: 2}, followUps: ['fq_boss'] }
+                    ]
+                },
+                {
+                    id: "cq4",
+                    question: '동료가 적에게 인질로 잡혔습니다. 적의 요구조건은 까다로운데...',
+                    choices: [
+                        { text: '앞뒤 안 재고 당장 구하러 쳐들어간다. 동료가 먼저다!', scores: {gon: 3, leorio: 2}, followUps: ['fq_rescue_rash'] },
+                        { text: '감정을 억누르고, 가장 안전하게 동료를 빼낼 전략을 짠다.', scores: {kurapika: 3, killua: 2}, followUps: ['fq_rescue_plan'] },
+                        { text: '그 동료가 나에게 그만큼의 가치가 있는지 냉정하게 계산한다.', scores: {illumi: 3}, followUps: ['fq_rescue_calc'] },
+                        { text: '적의 본거지를 통째로 장악해버리고 내 룰을 강요한다.', scores: {chrollo: 3, meruem: 2}, followUps: ['fq_rescue_boss'] }
+                    ]
+                },
+                {
+                    id: "cq5",
+                    question: '환영여단과 같은 강력한 범죄 집단이 당신을 노린다면?',
+                    choices: [
+                        { text: '피하지 않는다! 정면으로 맞서 싸운다.', scores: {gon: 3}, followUps: ['fq_fight'] },
+                        { text: '승산이 없다면 일단 피하고, 후일을 도모하며 암살을 계획한다.', scores: {killua: 3, illumi: 2}, followUps: ['fq_assassin'] },
+                        { text: '강한 자들인가? 오히려 그들과 싸워보고 싶어 흥분된다.', scores: {hisoka: 3}, followUps: ['fq_excited'] },
+                        { text: '내 목숨을 바쳐서라도 반드시 녀석들을 궤멸시킨다.', scores: {kurapika: 3}, followUps: ['fq_revenge'] }
+                    ]
+                }
+            ],
+            followUps: {
+                fq_gon1: {
+                    id: "fq_gon1",
+                    question: '[꼬리질문] 앞장서서 달리다 누군가 파놓은 함정에 빠졌습니다!',
+                    choices: [
+                        { text: '내 뛰어난 신체 능력으로 가볍게 벽을 차고 올라온다.', scores: {gon: 3} },
+                        { text: '함정을 판 녀석을 기억해두었다가 나중에 반드시 갚아준다.', scores: {kurapika: 2, illumi: 2} }
+                    ]
+                },
+                fq_kura1: {
+                    id: "fq_kura1",
+                    question: '[꼬리질문] 달리는 도중, 옆 사람이 탈진해서 쓰러지려 합니다.',
+                    choices: [
+                        { text: '내 알 바 아니다. 내 페이스를 유지하며 지나친다.', scores: {illumi: 3, chrollo: 2} },
+                        { text: '시험도 중요하지만 사람 목숨이 먼저다! 부축해준다.', scores: {leorio: 3, gon: 2} },
+                        { text: '최소한의 응급처치나 조언만 해주고 다시 달린다.', scores: {kurapika: 3, killua: 1} }
+                    ]
+                },
+                fq_leo1: {
+                    id: "fq_leo1",
+                    question: '[꼬리질문] 꼼수를 부리다 시험관에게 들켜 경고를 받았습니다!',
+                    choices: [
+                        { text: '"아씨, 걸렸네!" 쿨하게 포기하고 정석대로 달린다.', scores: {killua: 3} },
+                        { text: '"이게 왜 반칙입니까?!" 뻔뻔하게 말대꾸하며 따진다.', scores: {leorio: 3} }
+                    ]
+                },
+                fq_hiso1: {
+                    id: "fq_hiso1",
+                    question: '[꼬리질문] 탐색 중, 나와 맞먹을 정도로 강하고 살기를 뿜는 참가자와 눈이 마주쳤습니다.',
+                    choices: [
+                        { text: '참을 수 없다! 당장 싸움을 걸어 실력을 확인한다.', scores: {hisoka: 3} },
+                        { text: '지금은 때가 아니다. 조용히 미소만 지어주고 거리를 둔다.', scores: {illumi: 3, chrollo: 3} }
+                    ]
+                },
+                fq_angry: {
+                    id: "fq_angry",
+                    question: '[꼬리질문] 선빵을 날렸지만, 상대가 가볍게 피하고 역공을 해옵니다!',
+                    choices: [
+                        { text: '맞으면서도 물러서지 않고 맷집으로 밀어붙인다.', scores: {gon: 3} },
+                        { text: '아차 싶어 빠르게 거리를 벌리고 방어 태세를 취한다.', scores: {leorio: 3} }
+                    ]
+                },
+                fq_calm: {
+                    id: "fq_calm",
+                    question: '[꼬리질문] 압도적으로 상대를 쓰러뜨렸습니다. 쓰러진 상대에게 남길 한 마디는?',
+                    choices: [
+                        { text: '"넌 짐승 이하다. 두 번 다시 내 눈앞에 나타나지 마라."', scores: {meruem: 3} },
+                        { text: '"약한 주제에 깝치지 마." (차갑게 뒤돌아선다)', scores: {killua: 3} }
+                    ]
+                },
+                fq_analyze: {
+                    id: "fq_analyze",
+                    question: '[꼬리질문] 침착하게 분석해보니 상대의 약점이 보입니다. 어떻게 공격할까요?',
+                    choices: [
+                        { text: '상대가 가장 고통스러워할 타이밍에 찔러 넣어 완벽하게 제압한다.', scores: {kurapika: 3} },
+                        { text: '상대의 능력이 마음에 든다. 죽이지 않고 내 것으로 빼앗을 궁리를 한다.', scores: {chrollo: 3} }
+                    ]
+                },
+                fq_psycho: {
+                    id: "fq_psycho",
+                    question: '[꼬리질문] 당신의 기괴한 미소에 상대가 겁을 먹고 도망치려 합니다.',
+                    choices: [
+                        { text: '"어딜 도망가?♣" 끝까지 쫓아가서 공포를 심어준다.', scores: {hisoka: 3} },
+                        { text: '겁쟁이한테는 흥미가 떨어졌다. 그냥 보내준다.', scores: {killua: 2, meruem: 1} }
+                    ]
+                },
+                fq_boss: {
+                    id: "fq_boss",
+                    question: '[꼬리질문] 정점에 서기 위해 가장 필요한 것은 무엇이라고 생각하나요?',
+                    choices: [
+                        { text: '나를 따르는 절대적으로 충성스럽고 강한 부하들', scores: {chrollo: 3} },
+                        { text: '누구도 범접할 수 없는 나 자신의 압도적인 무력', scores: {meruem: 3} },
+                        { text: '사람을 마음대로 조종할 수 있는 공포와 지배력', scores: {illumi: 3} }
+                    ]
+                },
+                fq_rescue_rash: {
+                    id: "fq_rescue_rash",
+                    question: '[꼬리질문] 막무가내로 쳐들어갔더니 적의 함정에 빠졌습니다!',
+                    choices: [
+                        { text: '함정 따위 힘으로 부수면 그만이다! 분노로 잠재력을 폭발시킨다.', scores: {gon: 3} },
+                        { text: '"내가 미쳤지..." 후회하며 살려달라고 협상(거짓말)을 시도한다.', scores: {leorio: 3} }
+                    ]
+                },
+                fq_rescue_plan: {
+                    id: "fq_rescue_plan",
+                    question: '[꼬리질문] 전략을 짜는 도중, 인질이 처형될 시간이 임박했습니다!',
+                    choices: [
+                        { text: '리스크를 안고 바로 기습 작전을 실행한다.', scores: {killua: 3} },
+                        { text: '초조해하지 마라. 상대의 심리를 역이용해 시간을 번다.', scores: {kurapika: 3} }
+                    ]
+                },
+                fq_rescue_calc: {
+                    id: "fq_rescue_calc",
+                    question: '[꼬리질문] 계산 결과, 동료를 구하는 것이 나에게 이득입니다.',
+                    choices: [
+                        { text: '동료를 구한 뒤, 나에게 진 빚을 철저하게 받아낸다.', scores: {illumi: 3} },
+                        { text: '동료를 돕는 건 당연하다! 계산은 그냥 해본 것일 뿐이다.', scores: {leorio: 2, killua: 1} }
+                    ]
+                },
+                fq_rescue_boss: {
+                    id: "fq_rescue_boss",
+                    question: '[꼬리질문] 적의 본거지를 장악했습니다. 남은 적의 잔당들은 어떻게 할까요?',
+                    choices: [
+                        { text: '능력이 쓸만하다면 살려서 내 수족으로 부린다.', scores: {chrollo: 3} },
+                        { text: '왕에게 반역한 죄는 죽음뿐이다. 전부 몰살한다.', scores: {meruem: 3} }
+                    ]
+                },
+                fq_fight: {
+                    id: "fq_fight",
+                    question: '[꼬리질문] 정면으로 싸우다 치명상을 입었습니다.',
+                    choices: [
+                        { text: '내 팔이 잘리더라도 녀석의 목을 베겠다!', scores: {gon: 3} },
+                        { text: '안 되겠다, 살고 봐야지! 연막을 치고 도망간다.', scores: {leorio: 3} }
+                    ]
+                },
+                fq_assassin: {
+                    id: "fq_assassin",
+                    question: '[꼬리질문] 암살을 위해 상대의 뒤를 잡았습니다.',
+                    choices: [
+                        { text: '고통 없이 한 번에 심장을 뽑아 숨통을 끊는다.', scores: {killua: 3} },
+                        { text: '내 조종을 받는 꼭두각시로 만들어 평생 부려먹는다.', scores: {illumi: 3} }
+                    ]
+                },
+                fq_excited: {
+                    id: "fq_excited",
+                    question: '[꼬리질문] 싸움이 절정에 달해 너무나도 큰 쾌감을 느낍니다.',
+                    choices: [
+                        { text: '더, 더 재밌게 해줘! 완전히 미쳐서 광소를 터뜨린다.', scores: {hisoka: 3} },
+                        { text: '이 정도면 충분하다. 식기 전에 완벽하게 마무리한다.', scores: {chrollo: 2, illumi: 1} }
+                    ]
+                },
+                fq_revenge: {
+                    id: "fq_revenge",
+                    question: '[꼬리질문] 복수의 대가로 당신의 수명이 줄어든다고 해도 괜찮습니까?',
+                    choices: [
+                        { text: '당연하다. 내 목숨 따위는 안중에도 없다.', scores: {kurapika: 3} },
+                        { text: '그건 좀... 복수도 내가 살아야 하는 거 아닌가?', scores: {leorio: 3, killua: 1} }
+                    ]
+                }
             }
-        ];
+        };
 
+        let questionQueue = [];
         let currentQuestionIndex = 0;
         let scores = {};
         window.currentResultKey = '';
@@ -390,19 +495,24 @@
             document.getElementById(screenId).classList.add('active');
         }
 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
         function startTest() {
             currentQuestionIndex = 0;
             scores = { gon: 0, killua: 0, kurapika: 0, leorio: 0, hisoka: 0, illumi: 0, chrollo: 0, meruem: 0 };
             
-            for (let i = quizData.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
-            }
-            quizData.forEach(q => {
-                for (let i = q.choices.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [q.choices[i], q.choices[j]] = [q.choices[j], q.choices[i]];
-                }
+            // 공통 질문 5개를 가져와서 섞음
+            questionQueue = JSON.parse(JSON.stringify(questionGraph.start));
+            shuffleArray(questionQueue);
+            
+            // 모든 질문의 선택지도 섞음
+            questionQueue.forEach(q => {
+                shuffleArray(q.choices);
             });
 
             renderQuestion();
@@ -410,9 +520,13 @@
         }
 
         function renderQuestion() {
-            const data = quizData[currentQuestionIndex];
+            const data = questionQueue[currentQuestionIndex];
             document.getElementById('question-text').innerText = data.question;
-            document.getElementById('progress-bar').style.width = (currentQuestionIndex / quizData.length * 100) + '%';
+            
+            // 진행도는 큐의 크기를 기준으로 하되, 꼬리질문이 추가되면 전체 크기가 커짐
+            // UX를 위해 최대 10문제 기준으로 %를 보여줌 (5개 공통 + 5개 꼬리질문)
+            const progressPercent = Math.min((currentQuestionIndex / 10) * 100, 100);
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
 
             const container = document.getElementById('choices-container');
             container.innerHTML = '';
@@ -426,9 +540,32 @@
         }
 
         function selectChoice(choice) {
+            // 점수 합산
             for (const [key, weight] of Object.entries(choice.scores)) {
-                scores[key] += weight + (Math.random() * 0.1);
+                scores[key] += weight + (Math.random() * 0.1); // 동점 방지
             }
+            
+            // 꼬리 질문이 있다면 바로 다음 순서에 끼워넣기 (새치기)
+            if (choice.followUps && choice.followUps.length > 0) {
+                choice.followUps.forEach(fid => {
+                    const fq = JSON.parse(JSON.stringify(questionGraph.followUps[fid]));
+                    if (fq) {
+                        shuffleArray(fq.choices);
+                        // 현재 질문 바로 다음에 꼬리질문 추가
+                        questionQueue.splice(currentQuestionIndex + 1, 0, fq);
+                    }
+                });
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionQueue.length && currentQuestionIndex < 10) {
+                renderQuestion();
+            } else {
+                document.getElementById('progress-bar').style.width = '100%';
+                showScreen('screen-loading');
+                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 2000);
+            }
+        }
             currentQuestionIndex++;
             if (currentQuestionIndex < quizData.length) {
                 renderQuestion();
