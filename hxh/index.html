@@ -409,6 +409,117 @@
         .sub-match-pct { font-size: 13px; color: #ff3b30; font-weight: bold; margin-left: 10px; width: 35px; text-align: right; }
 
         .match-percent { font-size: 18px; color: #ff3b30; font-weight: bold; display: block; margin-top: -5px; margin-bottom: 15px; }
+    
+        .svg-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: -2px;
+            margin-right: 5px;
+        }
+        .svg-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* Notice below pool grid */
+        .pool-notice {
+            margin-top: 14px;
+            padding: 10px 12px;
+            background: rgba(255, 59, 48, 0.08);
+            border-left: 3px solid #ff3b30;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #bbb;
+            text-align: left;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .pool-notice strong {
+            color: #ff3b30;
+        }
+
+        /* Result Screen Request Card */
+        .char-request-card {
+            background: #262626;
+            border: 1.5px solid #ff3b30;
+            border-radius: 14px;
+            padding: 20px 18px;
+            margin: 25px 0 15px 0;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .char-request-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .char-request-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .char-request-desc {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+        .btn-request {
+            background-color: #ff3b30;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-request:hover {
+            background-color: #e0281d;
+            transform: translateY(-1px);
+        }
+
+        /* Request Modal Form */
+        .form-group {
+            margin-bottom: 14px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #ddd;
+            margin-bottom: 6px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            border-color: #ff3b30;
+        }
+        textarea.form-input {
+            min-height: 80px;
+            resize: vertical;
+        }
     </style>
 </head>
 <body>
@@ -422,13 +533,20 @@
             <div class="pool-box">
                 <div class="pool-header">
                     <div class="pool-title">
+                        <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>
                         <span>등장 캐릭터 풀</span>
                         <span style="font-size: 12px; color: #aaa; font-weight: normal;">(총 8명)</span>
                     </div>
-                    <button type="button" class="pool-modal-btn" onclick="openPoolModal()">상세 도감 창 보기</button>
+                    <button type="button" class="pool-modal-btn" onclick="openPoolModal()">
+                        <span class="svg-icon" style="margin-right:3px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>상세 도감 보기
+                    </button>
                 </div>
                 <div class="pool-grid" id="pool-grid-start">
                     <!-- Populated by JavaScript -->
+                </div>
+                <div class="pool-notice">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ff3b30" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <div>원하는 캐릭터가 없나요? <strong>먼저 테스트를 진행한 후</strong> 결과 화면에서 개발자에게 캐릭터 추가를 요청할 수 있습니다!</div>
                 </div>
             </div>
 
@@ -492,11 +610,21 @@
                 <button class="btn btn-outline" onclick="restartTest()">테스트 다시하기</button>
                 <a href="/nen" class="other-test-link">넨(念) 계통 테스트도 해보기 &rarr;</a>
                 
-                <div class="contact-text">
-                    <p style="margin-bottom:5px; color:#ccc;">현재 테스트에 등록되어 있는 캐릭터 목록:</p>
-                    <p style="margin-top:0; color:#ff3b30; font-weight:bold;">곤, 키르아, 크라피카, 레오리오, 히소카, 이르미, 클로로, 메르엠</p>
-                    원하는 캐릭터가 결과에 없다면?<br>
-                    <span class="contact-link" onclick="contactUs()">개발자에게 추가 요청하기</span>
+                <!-- Character Request Card for Completed Users -->
+                <div class="char-request-card">
+                    <div class="char-request-header">
+                        <span class="svg-icon" style="color:#ff3b30;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                        </span>
+                        <span class="char-request-title">원하는 캐릭터가 없으신가요?</span>
+                    </div>
+                    <p class="char-request-desc">
+                        테스트를 완료하셨군요! <strong>네테로, 비스케, 페이탄, 모라우</strong> 등 추가되기를 바라는 헌터X헌터 캐릭터를 알려주시면 검토 후 다음 업데이트에 우선 추가해 드립니다.
+                    </p>
+                    <button class="btn-request" onclick="openRequestModal()">
+                        <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+                        개발자에게 캐릭터 추가 요청하기
+                    </button>
                 </div>
             </div>
         </div>
@@ -506,7 +634,7 @@
     <div id="modal-pool" class="modal-overlay" onclick="closePoolModalOnBackdrop(event)">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>헌터X헌터 등장 캐릭터 도감</h3>
+                <h3><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>헌터X헌터 등장 캐릭터 도감</h3>
                 <button class="modal-close" onclick="closePoolModal()">&times;</button>
             </div>
             <div class="modal-body" id="modal-pool-body">
@@ -526,7 +654,7 @@
                 nen: '강화계',
                 stats: { strength: 95, intelligence: 40, agility: 85, potential: 100 },
                 image: '/hxh/images/gon.png', 
-                description: '<strong>성향:</strong> 꺾이지 않는 고집과 순수함<br><strong>특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.<br><br><strong>환상의 짝꿍:</strong> 키르아 조르딕<br><strong>환장의 짝꿍:</strong> 이르미 조르딕' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 꺾이지 않는 고집과 순수함<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 키르아 조르딕<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             killua: { 
                 name: '키르아 조르딕', 
@@ -534,7 +662,7 @@
                 nen: '변화계',
                 stats: { strength: 75, intelligence: 90, agility: 95, potential: 90 },
                 image: '/hxh/images/killua.png', 
-                description: '<strong>성향:</strong> 차가운 머리, 따뜻한 심장<br><strong>특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.<br><br><strong>환상의 짝꿍:</strong> 곤 프릭스<br><strong>환장의 짝꿍:</strong> 이르미 조르딕' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 차가운 머리, 따뜻한 심장<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 곤 프릭스<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 이르미 조르딕' 
             },
             kurapika: { 
                 name: '크라피카', 
@@ -542,7 +670,7 @@
                 nen: '구현화계 (특질계)',
                 stats: { strength: 70, intelligence: 95, agility: 80, potential: 85 },
                 image: '/hxh/images/kurapika.png', 
-                description: '<strong>성향:</strong> 냉철한 이성과 완벽주의<br><strong>특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.<br><br><strong>환상의 짝꿍:</strong> 레오리오<br><strong>환장의 짝꿍:</strong> 환영여단 전원' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 냉철한 이성과 완벽주의<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 레오리오<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 환영여단 전원' 
             },
             leorio: { 
                 name: '레오리오', 
@@ -550,7 +678,7 @@
                 nen: '방출계',
                 stats: { strength: 80, intelligence: 75, agility: 70, potential: 75 },
                 image: '/hxh/images/leorio.png', 
-                description: '<strong>성향:</strong> 의리와 정이 넘치는 행동파<br><strong>특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.<br><br><strong>환상의 짝꿍:</strong> 크라피카<br><strong>환장의 짝꿍:</strong> 히소카' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 의리와 정이 넘치는 행동파<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 크라피카<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 히소카' 
             },
             hisoka: { 
                 name: '히소카', 
@@ -558,7 +686,7 @@
                 nen: '변화계',
                 stats: { strength: 90, intelligence: 90, agility: 90, potential: 80 },
                 image: '/hxh/images/hisoka.png', 
-                description: '<strong>성향:</strong> 아드레날린 중독 마이웨이<br><strong>특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.<br><br><strong>환상의 짝꿍:</strong> 곤 프릭스 (미래의 강자)<br><strong>환장의 짝꿍:</strong> 약하고 재미없는 상대' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 아드레날린 중독 마이웨이<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 곤 프릭스 (미래의 강자)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 약하고 재미없는 상대' 
             },
             illumi: { 
                 name: '이르미 조르딕', 
@@ -566,7 +694,7 @@
                 nen: '조작계',
                 stats: { strength: 85, intelligence: 85, agility: 90, potential: 75 },
                 image: '/hxh/images/illumi.png', 
-                description: '<strong>성향:</strong> 뒤틀린 애정과 통제광<br><strong>특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다.<br><br><strong>환상의 짝꿍:</strong> 히소카 (서로 이용)<br><strong>환장의 짝꿍:</strong> 통제 불가능한 키르아' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 뒤틀린 애정과 통제광<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 히소카 (서로 이용)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 통제 불가능한 키르아' 
             },
             chrollo: { 
                 name: '클로로 루실플루', 
@@ -574,7 +702,7 @@
                 nen: '특질계',
                 stats: { strength: 85, intelligence: 100, agility: 90, potential: 90 },
                 image: '/hxh/images/chrollo.png', 
-                description: '<strong>성향:</strong> 압도적 카리스마의 리더<br><strong>특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.<br><br><strong>환상의 짝꿍:</strong> 환영여단 멤버 전원<br><strong>환장의 짝꿍:</strong> 크라피카 (천적)' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 압도적 카리스마의 리더<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 환영여단 멤버 전원<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 크라피카 (천적)' 
             },
             meruem: { 
                 name: '메르엠', 
@@ -582,7 +710,7 @@
                 nen: '특질계',
                 stats: { strength: 100, intelligence: 100, agility: 100, potential: 100 },
                 image: '/hxh/images/meruem.png', 
-                description: '<strong>성향:</strong> 압도적인 천재성과 순정<br><strong>특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람에게는 모든 것을 내어주는 순정파이기도 합니다.<br><br><strong>환상의 짝꿍:</strong> 코무기<br><strong>환장의 짝꿍:</strong> 네테로 회장' 
+                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 압도적인 천재성과 순정<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람에게는 모든 것을 내어주는 순정파이기도 합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 코무기<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 네테로 회장' 
             }
         };
 
@@ -1041,6 +1169,38 @@
             }
         }
 
+        
+        function openRequestModal() {
+            document.getElementById('modal-request').classList.add('active');
+        }
+        function closeRequestModal() {
+            document.getElementById('modal-request').classList.remove('active');
+        }
+        function closeRequestModalOnBackdrop(e) {
+            if (e.target.id === 'modal-request') {
+                closeRequestModal();
+            }
+        }
+        function submitCharacterRequest() {
+            const name = document.getElementById('req-char-name').value.trim();
+            const reason = document.getElementById('req-char-reason').value.trim();
+            if (!name) {
+                alert('추가를 희망하는 캐릭터 이름을 입력해 주세요!');
+                return;
+            }
+            const myResult = (characters[window.currentResultKey] || {}).name || '테스트 완료자';
+            const subject = encodeURIComponent(`[헌터X헌터 캐릭터 추가 요청] ${name}`);
+            const body = encodeURIComponent(
+                `[헌터X헌터 캐릭터 추가 요청]\n\n` +
+                `• 요청 캐릭터: ${name}\n` +
+                `• 추천 성향 및 넨 계통: ${reason || '미작성'}\n` +
+                `• 신청자의 매칭 결과: ${myResult}\n\n` +
+                `감사합니다!`
+            );
+            window.location.href = `mailto:gbcnewskr@gmail.com?subject=${subject}&body=${body}`;
+            closeRequestModal();
+        }
+
         function contactUs() {
             window.location.href = "mailto:gbcnewskr@gmail.com?subject=[헌터X헌터 테스트 캐릭터 추가 요청]";
         }
@@ -1065,5 +1225,36 @@
             }
         });
     </script>
+
+    <!-- Character Request Modal Window -->
+    <div id="modal-request" class="modal-overlay" onclick="closeRequestModalOnBackdrop(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg></span>
+                    캐릭터 추가 요청
+                </h3>
+                <button class="modal-close" onclick="closeRequestModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 20px;">
+                <p style="font-size: 13px; color: #aaa; margin-top: 0; line-height: 1.5;">
+                    추가를 희망하는 헌터X헌터 캐릭터와 어울리는 성향/넨 계통을 적어주시면 업데이트에 적극 반영하겠습니다!
+                </p>
+                <div class="form-group">
+                    <label>추가 희망 캐릭터 이름 *</label>
+                    <input type="text" id="req-char-name" class="form-input" placeholder="예: 아이작 네테로, 페이탄, 비스케">
+                </div>
+                <div class="form-group">
+                    <label>추천 성향 / 넨 계통 / 이유 (선택)</label>
+                    <textarea id="req-char-reason" class="form-input" placeholder="예: 강화계의 정점, 백식관음! 압도적인 무력과 노익장의 매력"></textarea>
+                </div>
+                <button class="btn btn-request" style="margin-top: 10px;" onclick="submitCharacterRequest()">
+                    <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></span>
+                    개발자에게 요청 메일 전송하기
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
