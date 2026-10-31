@@ -232,6 +232,10 @@
                 <div id="result-desc" class="result-desc"></div>
                 
                 <button class="btn" onclick="shareResult()">결과 공유하기</button>
+                <div style="font-size: 11px; color: #888; margin-top: 6px; margin-bottom: 12px; line-height: 1.45; word-break: keep-all; text-align: center;">
+                    * 공유 시 제작자 후원을 위한 스폰서(쿠팡) 페이지가 함께 열립니다.<br>
+                    (이 포스팅은 쿠팡 파트너스 활동의 일환으로 일정액의 수수료를 제공받습니다)
+                </div>
                 <button class="btn btn-outline" onclick="restartTest()">다시 지원하기</button>
                 <a href="/" class="home-link" style="margin-top: 20px;">메인 화면으로 돌아가기 &rarr;</a>
             </div>
@@ -239,6 +243,9 @@
     </div>
 
     <script>
+        // 쿠팡 파트너스 링크 설정 (자유롭게 변경 가능)
+        const COUPANG_PARTNERS_URL = 'https://www.coupang.com';
+
                         const characters = {
             soleum: {
                 name: '김솔음 (현장탐사팀 신입)',
@@ -432,8 +439,7 @@
             }
             window.currentResultKey = finalKey;
             applyResultToUI(finalKey);
-            document.getElementById('ad-container').style.display = 'block';
-            document.getElementById('detailed-result').style.display = 'none';
+            document.getElementById('detailed-result').style.display = 'block';
         }
         
         function applyResultToUI(charKey) {
@@ -468,8 +474,7 @@
             if (p && characters[p]) {
                 window.currentResultKey = p;
                 applyResultToUI(p);
-                document.getElementById('ad-container').style.display = 'block';
-                document.getElementById('detailed-result').style.display = 'none';
+                document.getElementById('detailed-result').style.display = 'block';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
                 showScreen('screen-result');
             }

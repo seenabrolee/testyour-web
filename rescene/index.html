@@ -270,6 +270,9 @@
     </div>
 
     <script>
+        // 쿠팡 파트너스 링크 설정 (자유롭게 변경 가능)
+        const COUPANG_PARTNERS_URL = 'https://www.coupang.com';
+
         // 검색 엔진을 통해 찾은 대표 이미지 URL 추가
         const characters = {
             woni: { name: '원이', title: '파이리', image: '/rescene/images/woni.jpg', description: '수줍음 따위는 모르는 당찬 거제 소녀입니다! 특유의 친화력과 리더십으로 든든하게 팀의 중심을 잡아줍니다. 통통 튀는 매력과 지치지 않는 에너지로 주변 사람들에게 항상 활기를 불어넣으며, 부드러우면서도 단단한 카리스마로 멤버들을 이끄는 리센느의 믿음직한 기둥입니다.' },
@@ -596,8 +599,7 @@
             document.getElementById('result-desc').innerText = resultChar.description;
             
             // 상태 초기화 (광고 보이기, 해석 숨기기)
-            document.getElementById('ad-container').style.display = 'block';
-            document.getElementById('detailed-result').style.display = 'none';
+            document.getElementById('detailed-result').style.display = 'block';
         }
 
 
@@ -660,8 +662,7 @@
             document.getElementById('result-name').innerText = resultChar.name;
             document.getElementById('result-desc').innerText = resultChar.description;
             
-            document.getElementById('ad-container').style.display = 'block';
-            document.getElementById('detailed-result').style.display = 'none';
+            document.getElementById('detailed-result').style.display = 'block';
             
             // 버튼 텍스트 변경
             const startBtns = document.querySelectorAll('.btn-start');
