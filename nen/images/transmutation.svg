@@ -1,24 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
   <defs>
-    <radialGradient id="grad" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#e052a0" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#f15f79" stop-opacity="0.1"/>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ff3b8d" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#111118" stop-opacity="0"/>
     </radialGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <linearGradient id="glassWall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="15%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="waterSweet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7eb3" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a83279" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="pinkGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <style>
+      @keyframes bubbleRise1 {
+        0% { transform: translateY(0); opacity: 0; }
+        20% { opacity: 0.9; }
+        80% { opacity: 0.9; }
+        100% { transform: translateY(-90px); opacity: 0; }
+      }
+      @keyframes bubbleRise2 {
+        0% { transform: translateY(0); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 0.8; }
+        100% { transform: translateY(-110px); opacity: 0; }
+      }
+      @keyframes sparkleAnim {
+        0%, 100% { transform: scale(0.6) rotate(0deg); opacity: 0.3; }
+        50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+      }
+      @keyframes leafFloat {
+        0%, 100% { transform: translateY(0) rotate(1deg); }
+        50% { transform: translateY(-3px) rotate(-2deg); }
+      }
+      .b-rise1 { animation: bubbleRise1 2.4s ease-in infinite; }
+      .b-rise2 { animation: bubbleRise2 3s ease-in infinite 1s; }
+      .b-rise3 { animation: bubbleRise1 2s ease-in infinite 0.5s; }
+      .sparkle { animation: sparkleAnim 1.8s ease-in-out infinite; transform-origin: center; }
+      .floating-leaf { animation: leafFloat 3.2s ease-in-out infinite; transform-origin: 150px 115px; }
+    </style>
   </defs>
-  <!-- Hexagon Background -->
-  <polygon points="100,15 175,58 175,142 100,185 25,142 25,58" fill="url(#grad)" stroke="#e052a0" stroke-width="2" stroke-opacity="0.5"/>
-  <polygon points="100,22 168,62 168,138 100,178 32,138 32,62" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2"/>
-  
-  <!-- Kanji -->
-  <text x="100" y="125" font-family="'Malgun Gothic', 'Noto Serif CJK KR', 'Batang', serif" font-size="80" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">変</text>
-  
-  <!-- Subtitle -->
-  <text x="100" y="160" font-family="'Noto Sans KR', sans-serif" font-size="16" font-weight="700" fill="#ffffff" opacity="0.9" text-anchor="middle" letter-spacing="2">변화계</text>
+
+  <!-- Background Aura -->
+  <circle cx="150" cy="150" r="140" fill="#181822"/>
+  <circle cx="150" cy="140" r="115" fill="url(#bgGlow)" filter="url(#pinkGlow)"/>
+
+  <!-- Sweet Sparkles in air -->
+  <g fill="#ffd1ea">
+    <path d="M85 85 Q90 85 90 80 Q90 85 95 85 Q90 85 90 90 Q90 85 85 85 Z" class="sparkle" style="animation-delay: 0.2s;"/>
+    <path d="M215 90 Q220 90 220 85 Q220 90 225 90 Q220 90 220 95 Q220 90 215 90 Z" class="sparkle" style="animation-delay: 0.8s;"/>
+    <path d="M150 65 Q155 65 155 60 Q155 65 160 65 Q155 65 155 70 Q155 65 150 65 Z" class="sparkle" style="animation-delay: 1.4s;"/>
+  </g>
+
+  <!-- Glass Shadow & Base -->
+  <ellipse cx="150" cy="256" rx="60" ry="12" fill="#000000" opacity="0.5"/>
+
+  <!-- Glass Sweet Water Body -->
+  <path d="M96 116 L105 240 Q106 248 116 248 L184 248 Q194 248 195 240 L204 116 Z" fill="url(#waterSweet)"/>
+
+  <!-- Rising Sweet Carbonated/Syrup Bubbles -->
+  <g class="b-rise1">
+    <circle cx="130" cy="220" r="4" fill="#ffffff" opacity="0.8"/>
+  </g>
+  <g class="b-rise2">
+    <circle cx="170" cy="235" r="5" fill="#ffd5ec" opacity="0.9"/>
+  </g>
+  <g class="b-rise3">
+    <circle cx="145" cy="210" r="3.5" fill="#ffffff" opacity="0.7"/>
+    <circle cx="160" cy="225" r="4.5" fill="#ffb8de" opacity="0.85"/>
+  </g>
+
+  <!-- Water Surface -->
+  <ellipse cx="150" cy="116" rx="54" ry="11" fill="#ffaed4" opacity="0.9"/>
+  <ellipse cx="150" cy="115" rx="52" ry="9" fill="#ffd1e7" opacity="0.6"/>
+
+  <!-- Glass Outer Container -->
+  <path d="M92 108 L104 242 Q105 250 116 250 L184 250 Q195 250 196 242 L208 108 Z" fill="url(#glassWall)" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.6"/>
+  <!-- Glass Rim -->
+  <ellipse cx="150" cy="108" rx="58" ry="11" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.75"/>
+  <!-- Glass Highlight -->
+  <path d="M100 120 L108 238" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Floating Leaf with Sweet Honey/Syrup Drops -->
+  <g class="floating-leaf">
+    <ellipse cx="150" cy="115" rx="28" ry="10" fill="#ff4b8b" opacity="0.3" filter="url(#pinkGlow)"/>
+    <path d="M125 115 C135 101, 168 103, 178 115 C168 129, 135 127, 125 115 Z" fill="#2eb85c" stroke="#1b6e36" stroke-width="1.2"/>
+    <path d="M128 115 C138 105, 165 107, 175 115 C165 125, 138 123, 128 115 Z" fill="#4ade80"/>
+    <path d="M124 115 Q150 115 178 115" stroke="#165b2d" stroke-width="1.5" fill="none"/>
+    <!-- Sweet syrup drops on leaf -->
+    <circle cx="145" cy="112" r="3" fill="#ffe066" stroke="#d49a00" stroke-width="0.8"/>
+    <circle cx="160" cy="117" r="2.5" fill="#ffe066" stroke="#d49a00" stroke-width="0.8"/>
+  </g>
+
+  <!-- Tag / Label -->
+  <g transform="translate(150, 282)">
+    <rect x="-95" y="-12" width="190" height="24" rx="12" fill="#f15f79" opacity="0.95"/>
+    <text x="0" y="4" font-family="'Noto Sans KR', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">변화계 : 물의 맛이 변한다 (달콤함)</text>
+  </g>
 </svg>

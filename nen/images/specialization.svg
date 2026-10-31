@@ -1,24 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
   <defs>
-    <radialGradient id="grad" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#3a1c71" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#d76d77" stop-opacity="0.1"/>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#b02a8f" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#111118" stop-opacity="0"/>
     </radialGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <linearGradient id="glassWall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="15%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7928ca" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#2a0845" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="purpleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <style>
+      @keyframes etherealPulse {
+        0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+        50% { opacity: 0.95; transform: scale(1.06) rotate(3deg); }
+      }
+      @keyframes splitTremble {
+        0%, 100% { transform: translateY(0); }
+        25% { transform: translateY(-1.5px) rotate(1deg); }
+        75% { transform: translateY(1.5px) rotate(-1deg); }
+      }
+      .ethereal-aura { animation: etherealPulse 3s ease-in-out infinite; transform-origin: 150px 140px; }
+      .split-leaf { animation: splitTremble 1.8s ease-in-out infinite; }
+    </style>
   </defs>
-  <!-- Hexagon Background -->
-  <polygon points="100,15 175,58 175,142 100,185 25,142 25,58" fill="url(#grad)" stroke="#3a1c71" stroke-width="2" stroke-opacity="0.5"/>
-  <polygon points="100,22 168,62 168,138 100,178 32,138 32,62" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2"/>
-  
-  <!-- Kanji -->
-  <text x="100" y="125" font-family="'Malgun Gothic', 'Noto Serif CJK KR', 'Batang', serif" font-size="80" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">特</text>
-  
-  <!-- Subtitle -->
-  <text x="100" y="160" font-family="'Noto Sans KR', sans-serif" font-size="16" font-weight="700" fill="#ffffff" opacity="0.9" text-anchor="middle" letter-spacing="2">특질계</text>
+
+  <!-- Background Aura -->
+  <circle cx="150" cy="150" r="140" fill="#181822"/>
+  <circle cx="150" cy="140" r="115" fill="url(#bgGlow)" filter="url(#purpleGlow)"/>
+
+  <!-- Ethereal Mysterious Aura Billowing -->
+  <g class="ethereal-aura" filter="url(#purpleGlow)">
+    <path d="M110 90 Q90 60 115 40 Q135 60 125 85 Z" fill="#e040fb" opacity="0.3"/>
+    <path d="M185 90 Q210 55 180 35 Q165 55 175 85 Z" fill="#b388ff" opacity="0.3"/>
+    <path d="M150 75 Q135 45 150 30 Q165 45 150 75 Z" fill="#ff4081" opacity="0.35"/>
+  </g>
+
+  <!-- Glass Shadow & Base -->
+  <ellipse cx="150" cy="256" rx="60" ry="12" fill="#000000" opacity="0.5"/>
+
+  <!-- Glass Mystical Deep Violet Water Body -->
+  <path d="M96 116 L105 240 Q106 248 116 248 L184 248 Q194 248 195 240 L204 116 Z" fill="url(#waterGrad)"/>
+
+  <!-- Water Surface -->
+  <ellipse cx="150" cy="116" rx="54" ry="11" fill="#c084fc" opacity="0.9"/>
+  <ellipse cx="150" cy="115" rx="50" ry="8" fill="#e9d5ff" opacity="0.6"/>
+
+  <!-- Glass Outer Container -->
+  <path d="M92 108 L104 242 Q105 250 116 250 L184 250 Q195 250 196 242 L208 108 Z" fill="url(#glassWall)" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.6"/>
+  <!-- Glass Rim -->
+  <ellipse cx="150" cy="108" rx="58" ry="11" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.75"/>
+  <!-- Glass Highlight -->
+  <path d="M100 120 L108 238" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Unique Special Phenomenon: The Leaf Splits / Withers / Blooms with other-worldly aura! -->
+  <g class="split-leaf" filter="url(#purpleGlow)">
+    <!-- Aura around split leaf -->
+    <ellipse cx="150" cy="115" rx="30" ry="12" fill="#d500f9" opacity="0.45"/>
+    
+    <!-- Left Leaf Half (Splitting away) -->
+    <path d="M124 115 C132 102, 147 104, 149 111 C143 121, 132 125, 124 115 Z" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
+    <!-- Right Leaf Half (Curling away) -->
+    <path d="M176 115 C168 102, 153 104, 151 111 C157 121, 168 125, 176 115 Z" fill="#6b46c1" stroke="#44337a" stroke-width="1"/>
+    
+    <!-- Otherworldly Red/Violet Energy Flame Bursting from Center Split -->
+    <path d="M150 114 Q146 100 150 86 Q154 100 150 114 Z" fill="#ff1744" opacity="0.95"/>
+    <circle cx="150" cy="100" r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Tag / Label -->
+  <g transform="translate(150, 282)">
+    <rect x="-95" y="-12" width="190" height="24" rx="12" fill="#7928ca" opacity="0.95"/>
+    <text x="0" y="4" font-family="'Noto Sans KR', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">특질계 : 잎이 갈라지며 기현상 발생!</text>
+  </g>
 </svg>
