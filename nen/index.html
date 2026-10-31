@@ -262,12 +262,7 @@
                 <div class="divination-details" id="result-divination-details"></div>
             </div>
             
-            <div id="ad-container" class="ad-container" onclick="setTimeout(unlockResult, 500)">
-                <h3 style="color: #8b5cf6; margin: 0 0 10px 0;">[광고] 스폰서 배너</h3>
-                <p style="color: #aaa; font-size: 14px; margin: 0;">배너를 클릭하시면<br><b>[상세 넨 계통 해석]</b>이 잠금 해제됩니다!</p>
-            </div>
-
-            <div id="detailed-result" style="display: none; width: 100%;">
+            <div id="detailed-result" style="display: block; width: 100%;">
                 <div id="result-desc" class="result-desc"></div>
                 
                 <button class="btn" onclick="shareResult()">결과 공유하기</button>
@@ -278,6 +273,9 @@
     </div>
 
     <script>
+        // 쿠팡 파트너스 링크 설정 (자유롭게 변경 가능)
+        const COUPANG_PARTNERS_URL = 'https://www.coupang.com';
+
         const nenTypes = {
             enhancement: {
                 name: '강화계 (Enhancement)',
@@ -564,8 +562,7 @@
             
             window.currentResultKey = finalKey;
             applyResultToUI(finalKey, secondKey, thirdKey);
-            document.getElementById('ad-container').style.display = 'block';
-            document.getElementById('detailed-result').style.display = 'none';
+            document.getElementById('detailed-result').style.display = 'block';
         }
         
         function applyResultToUI(nenKey, secondKey, thirdKey) {
@@ -603,15 +600,32 @@
             document.getElementById('detailed-result').style.animation = 'fadeIn 0.5s ease-in-out';
         }
 
+        function copyShareUrl(url) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).catch(() => {});
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = url;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch(e) {}
+                document.body.removeChild(ta);
+            }
+        }
+
         function shareResult() {
             const url = window.location.href.split('?')[0] + '?result=' + window.currentResultKey;
-            const shareTitle = "나의 넨(念) 계통은?";
-            const shareText = "수견식 테스트로 알아본 나의 넨 계통!";
-            if (navigator.share) {
-                navigator.share({ title: shareTitle, text: shareText, url: url }).catch(() => {});
-            } else if (navigator.clipboard) {
-                navigator.clipboard.writeText(url).then(() => alert("링크가 복사되었습니다!"));
-            }
+            
+            // 1. 링크 복사
+            copyShareUrl(url);
+            
+            // 2. 쿠팡 파트너스 페이지 새 창 이동
+            window.open(COUPANG_PARTNERS_URL, '_blank');
+            
+            // 3. 사용자 안내 알림
+            alert("결과 링크가 복사되었습니다!\n스폰서 페이지 확인 후 원하는 곳에 붙여넣어 친구들에게 공유해 보세요.");
         }
 
         function restartTest() { showScreen('screen-start'); }
