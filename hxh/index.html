@@ -13,6 +13,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
         
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #111;
@@ -23,6 +27,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            word-break: keep-all;
         }
         
         .container {
@@ -33,6 +38,7 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
         }
         
         .screen {
@@ -46,10 +52,10 @@
         .screen.active { display: flex; }
         
         h1 {
-            font-size: 28px;
+            font-size: 32px;
             color: #ff3b30;
-            margin-bottom: 30px;
-            line-height: 1.4;
+            margin-bottom: 20px;
+            line-height: 1.3;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -64,18 +70,214 @@
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 15px;
             transition: all 0.2s;
             width: 100%;
-            max-width: 300px;
+            max-width: 340px;
         }
-        .btn:hover { background-color: #ff1e10; transform: scale(1.05); }
+        .btn:hover { background-color: #ff1e10; transform: scale(1.02); }
         .btn-outline {
             background-color: transparent;
             border: 2px solid #ff3b30;
             color: #ff3b30;
         }
         .btn-outline:hover { background-color: #ff3b30; color: #fff; }
+
+        /* Character Pool Box on Start Screen */
+        .pool-box {
+            width: 100%;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 14px;
+            padding: 16px 14px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .pool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #383838;
+        }
+        .pool-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ff3b30;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .pool-modal-btn {
+            background: rgba(255, 59, 48, 0.15);
+            border: 1px solid #ff3b30;
+            color: #ff3b30;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .pool-modal-btn:hover {
+            background: #ff3b30;
+            color: #fff;
+        }
+        .pool-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px 6px;
+        }
+        .pool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 6px 2px;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .pool-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+        .pool-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #555;
+            margin-bottom: 6px;
+            background-color: #333;
+        }
+        .pool-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #eee;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .pool-nen {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        /* Modal Window */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 12px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: #222;
+            border: 2px solid #ff3b30;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 460px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.3);
+            animation: modalFadeIn 0.25s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .modal-header h3 {
+            margin: 0;
+            color: #ff3b30;
+            font-size: 17px;
+            font-weight: 900;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+        .modal-body {
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .char-card {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        .char-card-img {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff3b30;
+            flex-shrink: 0;
+            background-color: #333;
+        }
+        .char-card-info {
+            flex-grow: 1;
+        }
+        .char-card-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .char-card-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .char-card-badge {
+            font-size: 11px;
+            padding: 2px 7px;
+            background: #ff3b30;
+            color: #fff;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .char-card-quote {
+            font-size: 12px;
+            color: #bbb;
+            font-style: italic;
+            line-height: 1.3;
+        }
 
         .progress-container {
             width: 100%;
@@ -93,9 +295,9 @@
         }
 
         .question-text {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             line-height: 1.5;
             min-height: 60px;
         }
@@ -104,16 +306,17 @@
             background-color: #333;
             color: #fff;
             border: 2px solid #555;
-            padding: 18px;
-            font-size: 16px;
+            padding: 16px;
+            font-size: 15px;
             font-weight: 700;
             border-radius: 12px;
             cursor: pointer;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             width: 100%;
             transition: all 0.2s;
             text-align: left;
             line-height: 1.4;
+            word-break: keep-all;
         }
         .choice-btn:hover { background-color: #444; border-color: #ff3b30; transform: translateY(-2px); }
 
@@ -130,7 +333,7 @@
         .result-title { font-size: 32px; color: #ff3b30; font-weight: 900; margin-bottom: 10px; }
         
         .result-desc {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             color: #ddd;
             background-color: #2a2a2a;
@@ -139,7 +342,7 @@
             margin-bottom: 30px;
             text-align: left;
             width: 100%;
-            box-sizing: border-box;
+            word-break: keep-all;
         }
         .result-desc strong { color: #ff3b30; }
         
@@ -151,7 +354,6 @@
             border-radius: 10px;
             margin: 20px 0;
             cursor: pointer;
-            box-sizing: border-box;
             transition: all 0.3s;
         }
         .ad-container:hover { border-color: #ff3b30; background-color: #222; }
@@ -190,42 +392,57 @@
         .stat-bar-fill { height: 100%; background-color: #ff3b30; border-radius: 4px; transition: width 1s ease; }
         .stat-val { width: 30px; font-size: 13px; color: #ff3b30; text-align: right; font-weight: bold; }
 
-        .quote-box { font-size: 18px; font-style: italic; color: #fff; text-align: center; margin-bottom: 15px; font-weight: bold; word-break: keep-all; }
+        .quote-box { font-size: 17px; font-style: italic; color: #fff; text-align: center; margin-bottom: 15px; font-weight: bold; word-break: keep-all; }
         .quote-box span { color: #ff3b30; }
         .nen-tag { display: inline-block; background-color: #ff3b30; color: white; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px; }
 
-        .sub-match { background-color: #2a2a2a; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: left; width: 100%; box-sizing: border-box; }
+        .sub-match { background-color: #2a2a2a; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: left; width: 100%; }
         .sub-match-title { font-size: 15px; color: #aaa; margin-bottom: 15px; font-weight: bold; }
         .sub-match-item { display: flex; align-items: center; margin-bottom: 15px; }
         .sub-match-item:last-child { margin-bottom: 0; }
-        .sub-match-img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; border: 2px solid #555; }
+        .sub-match-img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; border: 2px solid #555; background-color: #333; }
         .sub-match-info { flex-grow: 1; }
-        .sub-match-name { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .sub-match-name { font-size: 15px; font-weight: bold; color: #fff; margin-bottom: 5px; }
         .sub-match-bar-wrap { display: flex; align-items: center; }
         .sub-match-bar-bg { flex-grow: 1; background-color: #444; height: 6px; border-radius: 3px; overflow: hidden; }
         .sub-match-bar-fill { height: 100%; background-color: #ff3b30; }
-        .sub-match-pct { font-size: 14px; color: #ff3b30; font-weight: bold; margin-left: 10px; width: 35px; text-align: right; }
+        .sub-match-pct { font-size: 13px; color: #ff3b30; font-weight: bold; margin-left: 10px; width: 35px; text-align: right; }
 
         .match-percent { font-size: 18px; color: #ff3b30; font-weight: bold; display: block; margin-top: -5px; margin-bottom: 15px; }
-
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <h1 style="font-size: 36px; margin-top: 50px;">HUNTER<br>&times;<br>HUNTER</h1>
-            <h2 style="font-size: 20px; color: #ccc; font-weight: 400; margin-bottom: 50px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
+            <h1 style="font-size: 34px; margin-top: 25px; margin-bottom: 10px;">HUNTER<br>&times;<br>HUNTER</h1>
+            <h2 style="font-size: 18px; color: #ccc; font-weight: 400; margin-bottom: 25px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
             
+            <!-- Character Pool Box on Start Screen -->
+            <div class="pool-box">
+                <div class="pool-header">
+                    <div class="pool-title">
+                        <span>🎯 등장 캐릭터 풀</span>
+                        <span style="font-size: 12px; color: #aaa; font-weight: normal;">(총 8명)</span>
+                    </div>
+                    <button type="button" class="pool-modal-btn" onclick="openPoolModal()">상세 도감 창 보기 🔍</button>
+                </div>
+                <div class="pool-grid" id="pool-grid-start">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
             <button class="btn btn-start" onclick="startTest()">캐릭터 테스트 시작하기</button>
             
             <a href="/nen" class="other-test-link">넨(念) 계통 테스트 하러가기 &rarr;</a>
             
-            <div style="margin-top: 50px; font-size: 13px; color: #666;">
+            <div style="margin-top: 35px; font-size: 13px; color: #666;">
                 &copy; 2026 TESTYOUR<br>
                 본 테스트는 팬심으로 제작된 비공식 심리테스트입니다.
             </div>
         </div>
 
+        <!-- Quiz Screen -->
         <div id="screen-quiz" class="screen">
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
@@ -234,6 +451,7 @@
             <div id="choices-container" style="width: 100%;"></div>
         </div>
 
+        <!-- Loading Screen -->
         <div id="screen-loading" class="screen">
             <div style="margin-top: 100px;">
                 <div class="loader"></div>
@@ -242,6 +460,7 @@
             </div>
         </div>
 
+        <!-- Result Screen -->
         <div id="screen-result" class="screen">
             <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">캐릭터 매칭 결과</h2>
             
@@ -279,6 +498,22 @@
                     원하는 캐릭터가 결과에 없다면?<br>
                     <span class="contact-link" onclick="contactUs()">개발자에게 추가 요청하기</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Character Pool Modal Window -->
+    <div id="modal-pool" class="modal-overlay" onclick="closePoolModalOnBackdrop(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📜 헌터X헌터 등장 캐릭터 도감</h3>
+                <button class="modal-close" onclick="closePoolModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-pool-body">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div style="padding: 12px 16px; border-top: 1px solid #333; background: #1a1a1a;">
+                <button class="btn" style="margin-top: 0; width: 100%; max-width: none;" onclick="closePoolModal(); startTest();">이 캐릭터들로 테스트 시작하기!</button>
             </div>
         </div>
     </div>
@@ -357,48 +592,44 @@
                     id: "cq1",
                     question: '당신은 헌터 시험 중 끝이 안 보이는 누메레 늪지대를 지나가야 합니다. 안개가 끼고 마수들이 우글거리는데, 당신의 전략은?',
                     choices: [
-                        { text: '앞장서는 시험관을 놓치지 않기 위해 선두 그룹에서 바짝 쫓아간다.', scores: {gon: 3}, followUps: ['fq_gon1',
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ] },
+                        { text: '앞장서는 시험관을 놓치지 않기 위해 선두 그룹에서 바짝 쫓아간다.', scores: {gon: 3}, followUps: ['fq_gon1'] },
                         { text: '페이스 조절이 생명. 체력을 아끼며 중간 그룹에서 달린다.', scores: {kurapika: 2, illumi: 2}, followUps: ['fq_kura1'] },
                         { text: '너무 힘든데... 적당한 탈것이나 주변 지형을 이용해 꼼수를 찾는다.', scores: {leorio: 3, killua: 2}, followUps: ['fq_leo1'] },
-                        { text: '흥미로운 참가자나 마수가 없는지 안개 속을 헤집으며 탐색한다.', scores: {hisoka: 3, meruem: 1}, followUps: ['fq_hiso1'] }
+                        { text: '흥미로운 참가자나 마수가 없는지 안개 속을 헤집으며 탐색한다.', scores: {hisoka: 3, meruem: 1}, followUps: ['fq_hiso1'] },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "cq2",
                     question: '투기장 200층에 도달했더니, 악의적인 넨 공격을 날리며 선배 투사들이 도발해옵니다.',
                     choices: [
-                        { text: '열받네?! 넨을 완벽히 배우기도 전에 일단 주먹부터 날리고 본다.', scores: {leorio: 3, gon: 2}, followUps: ['fq_angry',
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ] },
+                        { text: '열받네?! 넨을 완벽히 배우기도 전에 일단 주먹부터 날리고 본다.', scores: {leorio: 3, gon: 2}, followUps: ['fq_angry'] },
                         { text: '넨을 완벽히 습득한 후, 압도적인 실력 차이를 보여주며 무표정하게 짓밟는다.', scores: {killua: 3, meruem: 3}, followUps: ['fq_calm'] },
                         { text: '도발에 넘어가지 않고 침착하게 상대 능력의 특성과 허점을 분석한다.', scores: {kurapika: 3, chrollo: 2}, followUps: ['fq_analyze'] },
-                        { text: '저항하는 모습이 귀엽네~ 기괴한 미소를 지으며 상대를 더 농락한다.', scores: {hisoka: 3}, followUps: ['fq_psycho'] }
+                        { text: '저항하는 모습이 귀엽네~ 기괴한 미소를 지으며 상대를 더 농락한다.', scores: {hisoka: 3}, followUps: ['fq_psycho'] },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "cq3",
                     question: '요크신 시티 경매장에서 당신이 찾던 물건을 최악의 도적단 "환영여단"이 훔쳐갔습니다!',
                     choices: [
-                        { text: '절대 용서할 수 없다. 내 목숨을 바쳐서라도 그들을 궤멸시키고 복수한다.', scores: {kurapika: 15, chrollo: -5}, followUps: ['fq_revenge',
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ] },
+                        { text: '절대 용서할 수 없다. 내 목숨을 바쳐서라도 그들을 궤멸시키고 복수한다.', scores: {kurapika: 15, chrollo: -5}, followUps: ['fq_revenge'] },
                         { text: '나와 내 동료들의 힘을 합쳐 정면으로 맞서 싸울 방법을 찾는다.', scores: {gon: 3, kurapika: -5}, followUps: ['fq_fight'] },
                         { text: '승산이 없다면 일단 피하고, 후일을 도모하며 기습을 계획한다.', scores: {killua: 3, illumi: 2, kurapika: -5}, followUps: ['fq_assassin'] },
-                        { text: '여단이라고? 오히려 그 강한 녀석들과 싸워보고 싶어 미치겠다.', scores: {hisoka: 4, kurapika: -10}, followUps: ['fq_excited'] }
+                        { text: '여단이라고? 오히려 그 강한 녀석들과 싸워보고 싶어 미치겠다.', scores: {hisoka: 4, kurapika: -10}, followUps: ['fq_excited'] },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "cq4",
                     question: '강력하고 잔혹한 생물인 "키메라 앤트"들이 무고한 사람들을 학살하고 있습니다. 당신이라면?',
                     choices: [
-                        { text: '앞뒤 안 재고 분노를 폭발시켜 무고한 자들을 구하러 쳐들어간다.', scores: {gon: 4, leorio: 2}, followUps: ['fq_rescue_rash',
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ] },
+                        { text: '앞뒤 안 재고 분노를 폭발시켜 무고한 자들을 구하러 쳐들어간다.', scores: {gon: 4, leorio: 2}, followUps: ['fq_rescue_rash'] },
                         { text: '감정을 억누르고, 희생자를 최소화할 가장 안전하고 확실한 작전을 짠다.', scores: {kurapika: 3, killua: 3}, followUps: ['fq_rescue_plan'] },
                         { text: '내게 이득이 될 상대의 능력만 훔치거나 계산적으로 상황을 이용한다.', scores: {illumi: 3, chrollo: 3}, followUps: ['fq_rescue_calc'] },
-                        { text: '녀석들의 본거지를 통째로 장악해버리고 왕으로서 군림한다.', scores: {meruem: 4}, followUps: ['fq_boss'] }
+                        { text: '녀석들의 본거지를 통째로 장악해버리고 왕으로서 군림한다.', scores: {meruem: 4}, followUps: ['fq_boss'] },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
@@ -408,9 +639,8 @@
                         { text: '나를 더 강하게 만들어줄 끝없는 모험과 미지의 세계 탐험', scores: {gon: 3} },
                         { text: '잃어버린 동포들의 유품을 되찾고 나의 신념을 지키는 것', scores: {kurapika: 5} },
                         { text: '돈, 지위, 친구 등 세속적이지만 따뜻한 행복', scores: {leorio: 3, killua: 2} },
-                        { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 절대적인 힘', scores: {meruem: 4, chrollo: 3, illumi: 2}, followUps: ['fq_boss_2',
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ] }
+                        { text: '세상의 정점에 서서 모든 것을 내 발아래 두는 절대적인 힘', scores: {meruem: 4, chrollo: 3, illumi: 2}, followUps: ['fq_boss_2'] },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 }
             ],
@@ -420,10 +650,9 @@
                     question: '[꼬리질문] 늪지대에서 앞장서서 달리다 마수의 함정에 빠졌습니다!',
                     choices: [
                         { text: '짐승 같은 직감과 신체 능력으로 가볍게 함정을 부수고 나온다.', scores: {gon: 3} },
-                        { text: '함정을 판 마수를 기억해두었다가 나중에 반드시 갚아준다.', scores: {kurapika: 2, illumi: 2} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '함정을 판 마수를 기억해두었다가 나중에 반드시 갚아준다.', scores: {kurapika: 2, illumi: 2} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_kura1: {
                     id: "fq_kura1",
@@ -431,80 +660,72 @@
                     choices: [
                         { text: '내 알 바 아니다. 내 페이스를 유지하며 무시하고 지나친다.', scores: {illumi: 3, chrollo: 2} },
                         { text: '시험도 중요하지만 사람 목숨이 먼저다! 망설임 없이 부축해준다.', scores: {leorio: 3, gon: 2} },
-                        { text: '최소한의 응급처치나 조언만 빠르게 해주고 다시 달린다.', scores: {kurapika: 3, killua: 1} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '최소한의 응급처치나 조언만 빠르게 해주고 다시 달린다.', scores: {kurapika: 3, killua: 1} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_leo1: {
                     id: "fq_leo1",
                     question: '[꼬리질문] 꼼수를 부려 통과하다가 시험관에게 지적을 받았습니다!',
                     choices: [
                         { text: '"아씨, 걸렸네!" 쿨하게 포기하고 내려서 정석대로 달린다.', scores: {killua: 3} },
-                        { text: '"가져오지 말라는 룰은 없었잖아요?!" 뻔뻔하게 말대꾸하며 따진다.', scores: {leorio: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '"가져오지 말라는 룰은 없었잖아요?!" 뻔뻔하게 말대꾸하며 따진다.', scores: {leorio: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_hiso1: {
                     id: "fq_hiso1",
                     question: '[꼬리질문] 안개 속에서, 나와 맞먹을 정도로 강하고 살기를 뿜는 참가자와 눈이 마주쳤습니다.',
                     choices: [
                         { text: '참을 수 없다! 당장 실력을 뽐내며 싸움을 걸어본다.', scores: {hisoka: 3} },
-                        { text: '지금은 때가 아니다. 조용히 살기를 거두고 거리를 둔다.', scores: {illumi: 3, chrollo: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '지금은 때가 아니다. 조용히 살기를 거두고 거리를 둔다.', scores: {illumi: 3, chrollo: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_angry: {
                     id: "fq_angry",
                     question: '[꼬리질문] 선빵을 날렸지만, 상대가 가볍게 피하고 넨으로 역공을 해옵니다!',
                     choices: [
                         { text: '맞으면서도 물러서지 않고 고집스럽게 밀어붙인다.', scores: {gon: 3} },
-                        { text: '아차 싶어 빠르게 거리를 벌리고 방어 태세를 취한다.', scores: {leorio: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '아차 싶어 빠르게 거리를 벌리고 방어 태세를 취한다.', scores: {leorio: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_calm: {
                     id: "fq_calm",
                     question: '[꼬리질문] 암살술로 상대를 순식간에 제압했습니다. 쓰러진 상대에게 남길 한 마디는?',
                     choices: [
                         { text: '"넌 짐승 이하다. 두 번 다시 내 눈앞에 나타나지 마라."', scores: {meruem: 3} },
-                        { text: '"약한 주제에 깝치지 마." (차갑게 뒤돌아선다)', scores: {killua: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '"약한 주제에 깝치지 마." (차갑게 뒤돌아선다)', scores: {killua: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_analyze: {
                     id: "fq_analyze",
                     question: '[꼬리질문] 침착하게 분석해보니 상대 능력의 약점이 보입니다. 어떻게 공격할까요?',
                     choices: [
                         { text: '상대가 가장 고통스러워할 사각지대에서 찔러 넣어 제압한다.', scores: {kurapika: 3} },
-                        { text: '상대의 능력이 마음에 든다. 죽이지 않고 내 것으로 훔쳐 올 궁리를 한다.', scores: {chrollo: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '상대의 능력이 마음에 든다. 죽이지 않고 내 것으로 훔쳐 올 궁리를 한다.', scores: {chrollo: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_psycho: {
                     id: "fq_psycho",
                     question: '[꼬리질문] 당신의 끔찍한 살기에 상대가 겁을 먹고 항복하려 합니다.',
                     choices: [
                         { text: '"어딜 도망가?♣" 끝까지 쫓아가서 공포를 심어주고 파괴한다.', scores: {hisoka: 3} },
-                        { text: '겁쟁이한테는 흥미가 떨어졌다. 목숨만은 살려준다.', scores: {killua: 2, meruem: 1} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '겁쟁이한테는 흥미가 떨어졌다. 목숨만은 살려준다.', scores: {killua: 2, meruem: 1} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_boss: {
                     id: "fq_boss",
                     question: '[꼬리질문] 종족의 정점에 섰습니다. 남은 인간의 잔당들은 어떻게 할까요?',
                     choices: [
                         { text: '능력이 쓸만하다면 살려서 내 수족으로 부린다.', scores: {chrollo: 3} },
-                        { text: '왕에게 반역한 죄는 죽음뿐이다. 식량으로 쓰거나 몰살한다.', scores: {meruem: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '왕에게 반역한 죄는 죽음뿐이다. 식량으로 쓰거나 몰살한다.', scores: {meruem: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_boss_2: {
                     id: "fq_boss_2",
@@ -512,80 +733,72 @@
                     choices: [
                         { text: '나의 손발이 되어줄 철저하고 유능한 부하들', scores: {chrollo: 3} },
                         { text: '누구도 범접할 수 없는 나 자신의 압도적인 무력', scores: {meruem: 3} },
-                        { text: '사람의 마음을 비틀어 내 마음대로 조종할 수 있는 지배력', scores: {illumi: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '사람의 마음을 비틀어 내 마음대로 조종할 수 있는 지배력', scores: {illumi: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_rescue_rash: {
                     id: "fq_rescue_rash",
                     question: '[꼬리질문] 막무가내로 쳐들어갔더니 엄청난 괴물과 마주쳤습니다!',
                     choices: [
                         { text: '내 목숨과 재능을 모두 버려서라도 저 녀석을 죽여버리겠다!!', scores: {gon: 4} },
-                        { text: '"내가 미쳤지..." 다리가 후들거리지만 동료를 위해 버틴다.', scores: {leorio: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '"내가 미쳤지..." 다리가 후들거리지만 동료를 위해 버틴다.', scores: {leorio: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_rescue_plan: {
                     id: "fq_rescue_plan",
                     question: '[꼬리질문] 작전을 짜는 도중, 괴물이 동료를 해치려 합니다!',
                     choices: [
                         { text: '리스크를 안고 내 신체 능력의 한계를 끌어올려 초고속으로 기습한다.', scores: {killua: 4} },
-                        { text: '상대의 심리를 역이용해 가장 확실하게 적을 묶어둘 빈틈을 노린다.', scores: {kurapika: 4} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '상대의 심리를 역이용해 가장 확실하게 적을 묶어둘 빈틈을 노린다.', scores: {kurapika: 4} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_rescue_calc: {
                     id: "fq_rescue_calc",
                     question: '[꼬리질문] 계산 결과, 동료를 구하는 것이 나에게 이득입니다.',
                     choices: [
                         { text: '구출해 준 뒤, 나의 능력으로 상대의 의지를 지배해 평생 부려먹는다.', scores: {illumi: 4} },
-                        { text: '동료를 돕는 건 당연하다! 계산은 그냥 습관적으로 해본 것일 뿐이다.', scores: {leorio: 2, killua: 2} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '동료를 돕는 건 당연하다! 계산은 그냥 습관적으로 해본 것일 뿐이다.', scores: {leorio: 2, killua: 2} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_fight: {
                     id: "fq_fight",
                     question: '[꼬리질문] 정면으로 싸우다 치명상을 입었습니다.',
                     choices: [
                         { text: '내 팔이 잘리더라도 상대 녀석의 목을 베겠다!', scores: {gon: 3} },
-                        { text: '안 되겠다, 살고 봐야지! 연막을 치고 도망친다.', scores: {leorio: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '안 되겠다, 살고 봐야지! 연막을 치고 도망친다.', scores: {leorio: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_assassin: {
                     id: "fq_assassin",
                     question: '[꼬리질문] 암살을 위해 타겟의 뒤를 완벽하게 잡았습니다.',
                     choices: [
                         { text: '고통 없이 한 번에 심장을 뽑아 숨통을 끊어버린다.', scores: {killua: 3} },
-                        { text: '내 조종을 받는 꼭두각시로 만들어 첩자로 부려먹는다.', scores: {illumi: 3} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '내 조종을 받는 꼭두각시로 만들어 첩자로 부려먹는다.', scores: {illumi: 3} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_excited: {
                     id: "fq_excited",
                     question: '[꼬리질문] 강자와의 싸움이 절정에 달해 너무나도 큰 쾌감을 느낍니다.',
                     choices: [
                         { text: '더, 더 재밌게 해줘! 완전히 미쳐서 광소를 터뜨린다.', scores: {hisoka: 3} },
-                        { text: '이 정도면 충분히 데이터를 모았다. 완벽하게 밀실에서 마무리한다.', scores: {chrollo: 2} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '이 정도면 충분히 데이터를 모았다. 완벽하게 밀실에서 마무리한다.', scores: {chrollo: 2} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 },
                 fq_revenge: {
                     id: "fq_revenge",
                     question: '[꼬리질문] 복수를 이루기 위해 당신의 수명이나 영혼을 대가로 바쳐야 한다면, 괜찮습니까?',
                     choices: [
                         { text: '당연하다. 쓰레기들을 청소할 수 있다면 내 목숨 따위는 안중에도 없다.', scores: {kurapika: 10} },
-                        { text: '그건 좀... 복수도 내가 살아야 할 수 있는 거 아닌가?', scores: {leorio: 3, killua: 1, kurapika: -10} }
-                    ,
-                    { text: \'어느 것도 해당되지 않는다 (질문 건너뛰기)\', scores: {} }
-                ]
+                        { text: '그건 좀... 복수도 내가 살아야 할 수 있는 거 아닌가?', scores: {leorio: 3, killua: 1, kurapika: -10} },
+                        { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
                 }
             }
         };
@@ -598,12 +811,68 @@
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        /* Character Pool Functions */
+        function initCharacterPoolPreview() {
+            const grid = document.getElementById('pool-grid-start');
+            if (!grid) return;
+            grid.innerHTML = '';
+            for (const [key, c] of Object.entries(characters)) {
+                const item = document.createElement('div');
+                item.className = 'pool-item';
+                item.onclick = openPoolModal;
+                item.title = `${c.name} (${c.nen})`;
+                item.innerHTML = `
+                    <img class="pool-thumb" src="${c.image}" alt="${c.name}">
+                    <div class="pool-name">${c.name.split(' ')[0]}</div>
+                    <div class="pool-nen">${c.nen.split(' ')[0]}</div>
+                `;
+                grid.appendChild(item);
+            }
+        }
+
+        function renderPoolModal() {
+            const body = document.getElementById('modal-pool-body');
+            if (!body || body.children.length > 0) return;
+            body.innerHTML = '';
+            for (const [key, c] of Object.entries(characters)) {
+                const card = document.createElement('div');
+                card.className = 'char-card';
+                card.innerHTML = `
+                    <img class="char-card-img" src="${c.image}" alt="${c.name}">
+                    <div class="char-card-info">
+                        <div class="char-card-top">
+                            <div class="char-card-name">${c.name}</div>
+                            <span class="char-card-badge">${c.nen}</span>
+                        </div>
+                        <div class="char-card-quote">${c.quote.replace(/<\/?span>/g, '')}</div>
+                    </div>
+                `;
+                body.appendChild(card);
+            }
+        }
+
+        function openPoolModal() {
+            renderPoolModal();
+            document.getElementById('modal-pool').classList.add('active');
+        }
+
+        function closePoolModal() {
+            document.getElementById('modal-pool').classList.remove('active');
+        }
+
+        function closePoolModalOnBackdrop(e) {
+            if (e.target.id === 'modal-pool') {
+                closePoolModal();
             }
         }
 
@@ -629,10 +898,10 @@
             const progressPercent = Math.min((currentQuestionIndex / 10) * 100, 100);
             document.getElementById('progress-bar').style.width = progressPercent + '%';
 
-                        const container = document.getElementById('choices-container');
+            const container = document.getElementById('choices-container');
             container.innerHTML = '';
             
-            // 1. 일반 선택지 렌더링
+            // 1. 일반 선택지 렌더링 (건너뛰기 제외)
             data.choices.forEach(choice => {
                 if (choice.text.includes('건너뛰기')) return;
                 const btn = document.createElement('button');
@@ -642,23 +911,23 @@
                 container.appendChild(btn);
             });
             
-            // 2. 건너뛰기 선택지 마지막에 렌더링
-            data.choices.forEach(choice => {
-                if (!choice.text.includes('건너뛰기')) return;
-                const btn = document.createElement('button');
-                btn.className = 'choice-btn';
-                btn.innerText = choice.text;
-                // 건너뛰기 버튼은 시각적으로 약간 다르게 표현할 수도 있습니다.
-                btn.style.opacity = '0.8';
-                btn.style.borderStyle = 'dashed';
-                btn.onclick = () => selectChoice(choice);
-                container.appendChild(btn);
-            });
+            // 2. 건너뛰기 선택지 항상 마지막에 고정 렌더링
+            const skipChoice = data.choices.find(c => c.text.includes('건너뛰기')) || { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} };
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'choice-btn';
+            skipBtn.innerText = skipChoice.text;
+            skipBtn.style.opacity = '0.75';
+            skipBtn.style.borderStyle = 'dashed';
+            skipBtn.style.color = '#aaa';
+            skipBtn.onclick = () => selectChoice(skipChoice);
+            container.appendChild(skipBtn);
         }
 
         function selectChoice(choice) {
-            for (const [key, weight] of Object.entries(choice.scores)) {
-                scores[key] += weight + (Math.random() * 0.1); 
+            if (choice.scores) {
+                for (const [key, weight] of Object.entries(choice.scores)) {
+                    scores[key] += weight + (Math.random() * 0.1); 
+                }
             }
             
             if (choice.followUps && choice.followUps.length > 0) {
@@ -677,7 +946,7 @@
             } else {
                 document.getElementById('progress-bar').style.width = '100%';
                 showScreen('screen-loading');
-                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 2000);
+                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 1800);
             }
         }
 
@@ -686,12 +955,10 @@
                 .map(([key, val]) => ({ key, score: Math.max(0, val) }))
                 .sort((a, b) => b.score - a.score);
             
-            // Calculate percentage based on theoretical max (~25)
             let maxTheoretical = 25;
             let topScore = sortedScores[0].score;
             let scale = 1;
             if (topScore > 0 && (topScore / maxTheoretical) < 0.75) {
-                // Boost scale so top result is always at least 75-80% match
                 scale = 0.85 / (topScore / maxTheoretical);
             }
             
@@ -780,6 +1047,8 @@
         function restartTest() { showScreen('screen-start'); }
 
         window.addEventListener('DOMContentLoaded', () => {
+            initCharacterPoolPreview();
+
             const p = new URLSearchParams(window.location.search).get('result');
             if (p && characters[p]) {
                 window.currentResultKey = p;
