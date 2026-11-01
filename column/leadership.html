@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[칼럼] 위기 관리와 조직 행동론으로 본 헌터X헌터의 4대 리더십 모델 | TESTYOUR</title>
+    <meta name="description" content="극한의 위기 상황에서 리더의 결단력은 어디서 나오는가? 곤, 키르아, 클로로, 메르엠의 위기 관리와 리더십 유형을 조직 심리학 관점에서 분석한 칼럼입니다.">
+    <link rel="canonical" href="https://testyour.uk/column/leadership.html">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0f1117;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            word-break: keep-all;
+        }
+        .header-nav {
+            background: #161922;
+            border-bottom: 1px solid #262c3a;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo { font-size: 22px; font-weight: 900; color: #ff3b30; text-decoration: none; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 18px; font-size: 14px; }
+        .nav-links a:hover { color: #fff; }
+        .container { max-width: 820px; margin: 30px auto; padding: 0 20px 80px; }
+        
+        .breadcrumb { font-size: 13px; color: #64748b; margin-bottom: 18px; }
+        .breadcrumb a { color: #94a3b8; text-decoration: none; }
+        .breadcrumb a:hover { color: #ff3b30; }
+
+        .article-header {
+            margin-bottom: 35px;
+            border-bottom: 2px solid #2d3748;
+            padding-bottom: 24px;
+        }
+        .article-category {
+            display: inline-block;
+            background: rgba(255, 59, 48, 0.15);
+            color: #ff3b30;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #ff3b30;
+            margin-bottom: 12px;
+        }
+        .article-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #f8fafc;
+            line-height: 1.4;
+            margin: 0 0 12px 0;
+        }
+        .article-meta {
+            color: #64748b;
+            font-size: 13px;
+            display: flex;
+            gap: 16px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-top: 44px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 8px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background: #ff3b30;
+            border-radius: 2px;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+        p, li { font-size: 15px; color: #cbd5e1; margin-bottom: 16px; }
+        ul, ol { padding-left: 22px; }
+
+        .callout-box {
+            background: #181d28;
+            border-left: 4px solid #ff3b30;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 24px 0;
+        }
+        .callout-box h4 { margin: 0 0 8px 0; color: #ff3b30; font-size: 16px; }
+        .callout-box p { margin: 0; color: #cbd5e1; font-size: 14px; }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            background: #161a24;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 24px 0;
+            border: 1px solid #2d3748;
+        }
+        .table-custom th {
+            background: #1e2433;
+            color: #94a3b8;
+            padding: 12px 14px;
+            font-size: 13px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        .table-custom td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #2d3748;
+            font-size: 14px;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #2a151b 0%, #1a1e29 100%);
+            border: 1px solid #ff3b30;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .cta-banner h3 { margin: 0 0 10px 0; color: #f8fafc; font-size: 20px; }
+        .cta-banner p { margin: 0 0 18px 0; color: #cbd5e1; font-size: 14px; }
+        .cta-btn {
+            display: inline-block;
+            background: #ff3b30;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .cta-btn:hover { background: #ff1e10; transform: translateY(-2px); }
+
+        .footer {
+            border-top: 1px solid #2d3748;
+            padding: 40px 24px;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            background: #0b0d13;
+        }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 8px; }
+        .footer-links a:hover { color: #ff3b30; }
+
+        .column-card {
+            background: #161a24;
+            border: 1px solid #2d3748;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .column-card:hover {
+            transform: translateY(-3px);
+            border-color: #ff3b30;
+        }
+        .column-card h3 {
+            margin: 0 0 8px 0;
+            color: #f8fafc;
+            font-size: 20px;
+        }
+        .column-card p {
+            margin: 0 0 12px 0;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header style="background: #161922; border-bottom: 1px solid #262c3a;">
+        <div class="header-nav">
+            <a href="/" class="logo">TESTYOUR</a>
+            <nav class="nav-links">
+                <a href="/">홈</a>
+                <a href="/nen">넨 테스트</a>
+                <a href="/hxh">캐릭터 테스트</a>
+                <a href="/column">심리 칼럼</a>
+                <a href="/about.html">소개</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb">
+            <a href="/">홈</a> &gt; <a href="/column">심리 칼럼</a> &gt; <span>헌터X헌터 4대 리더십 분석</span>
+        </nav>
+
+        <article>
+            <header class="article-header">
+                <span class="article-category">조직 행동론 & 심리 칼럼</span>
+                <h1 class="article-title">위기 관리와 조직 행동론으로 본 헌터X헌터의 4대 리더십 모델</h1>
+                <div class="article-meta">
+                    <span>에디토리얼: TESTYOUR 심리연구팀</span>
+                    <span>발행일: 2026년 11월 1일</span>
+                    <span>분량: 공백 제외 3,500자</span>
+                </div>
+            </header>
+
+            <p class="lead" style="font-size:17px; color:#e2e8f0; font-weight:500;">
+                조직이 평온할 때는 관리자의 사소한 실수가 드러나지 않습니다. 
+                그러나 모든 자원이 고갈되고 생사가 촌각을 다투는 극도의 불확실성(VUCA 환경)에 직면했을 때, 
+                리더가 내리는 단 한 번의 결단은 조직의 존폐를 가릅니다. 
+                만화 《헌터×헌터》는 위기 상황에서 인간 집단이 작동하는 메커니즘을 가장 냉철하고 현실적으로 묘사한 걸작으로 손꼽힙니다.
+            </p>
+
+            <h2>1. 곤 프릭스: 솔선수범형 돌파 리더십 (Frontline Breakthrough)</h2>
+            <p>
+                곤의 리더십은 '극단적인 진정성'과 '최전선에서의 직접 돌파'로 정의됩니다. 
+                곤은 뒤에서 명령을 내리는 리더가 아닙니다. 어떤 난관이 닥치든 가장 위험한 자리에 먼저 자신의 몸을 던집니다.
+            </p>
+            <ul>
+                <li><strong>장점:</strong> 팀원들의 의심과 계산을 단숨에 무력화시키는 압도적인 영감과 추진력. 불가능해 보이는 상황에서도 길을 뚫어내는 기적적인 돌파력.</li>
+                <li><strong>조직 심리학적 맹점:</strong> 감정적 격앙 시 타협을 거부하고 자기 파괴적인 결정을 밀어붙여 팀 전체를 사지로 몰아넣을 수 있는 위험성. 키메라 앤트 편에서 네페르피트와의 담판 당시 동료 키르아의 심리적 안정을 전혀 배려하지 못했던 점이 대표적인 실례입니다.</li>
+            </ul>
+
+            <h2>2. 키르아 조르딕: 리스크 관리형 참모 리더십 (Chief Risk Officer)</h2>
+            <p>
+                키르아는 팀에서 가장 객관적이고 비관적인 가설을 먼저 검토하는 '최고 리스크 관리자(CRO)'의 역할을 수행합니다. 
+                조르딕 가문의 혹독한 암살 교육은 그에게 실패 시의 대가가 얼마나 참혹한지를 뼛속 깊이 각인시켰습니다.
+            </p>
+            <ul>
+                <li><strong>장점:</strong> 전황을 냉철하게 분석하여 팀의 자원 소모를 최소화하고, 최악의 시나리오에서도 생존 루트를 반드시 확보하는 치밀함.</li>
+                <li><strong>조직 심리학적 맹점:</strong> 지나친 신중함으로 인해 decisive한 승부처에서 타이밍을 놓치거나, 팀의 사기를 저하시킬 수 있는 회의주의. 리스크를 두려워하지 않는 곤과 같은 돌격형 파트너가 없을 경우 과감한 혁신을 주저하게 됩니다.</li>
+            </ul>
+
+            <h2>3. 클로로 루실플루: 탈개인화된 시스템 분권형 리더십 (Decentralized Network)</h2>
+            <p>
+                환영여단의 단장 클로로는 현대 경영학에서 가장 주목받는 '홀라크라시(Holacracy)' 및 '분산 자율 조직(DAO)'의 리더십 모델을 선구적으로 보여줍니다. 
+                그의 리더십 철학은 명확합니다: <strong>"거미에게 있어 머리는 단지 하나의 기관일 뿐이다. 중요한 것은 거미라는 조직이 살아남아 전진하는 것이다."</strong>
+            </p>
+            <ul>
+                <li><strong>장점:</strong> 리더 1인이 부재하거나 암살당하더라도 조직 전체가 마비되지 않고 정해진 규칙(동전 던지기, 단원 간 호혜성)에 따라 자율적으로 생존하고 임무를 수행하는 완벽한 시스템 안정성.</li>
+                <li><strong>조직 심리학적 맹점:</strong> 조직의 목표와 생존이 극단적으로 우위가 됨으로써, 개인의 인권이나 외부 사회에 대한 최소한의 윤리적 가치가 완전히 배제되는 비인간화 현상.</li>
+            </ul>
+
+            <h2>4. 메르엠: 절대 카리스마적 변혁 리더십 (Transformational Monarch)</h2>
+            <p>
+                키메라 앤트의 왕 메르엠은 '압도적인 무력과 지능'을 바탕으로 출현한 절대군주형 리더의 전형입니다. 
+                처음에는 공포와 물리적 복종을 통해 신하들을 지배했으나, 눈먼 인간 소녀 코무기를 만나며 
+                "폭력으로 복종시키는 힘"이 아닌 "타인의 재능을 존중하고 고결한 비전을 공유하는 진정한 리더십"으로 각성합니다.
+            </p>
+            <ul>
+                <li><strong>장점:</strong> 어떤 내부 저항이나 외부 위협도 단번에 잠재우는 절대적인 카리스마와 명확한 방향 제시. 능력주의에 입각한 공정한 인재 등용.</li>
+                <li><strong>조직 심리학적 맹점:</strong> 리더 개인의 역량과 도덕성에 조직의 운명이 100% 종속되며, 리더가 쓰러지면 직속 호위군들이 갈피를 못 잡고 자멸하듯 대체 불가능한 리스크를 안게 됩니다.</li>
+            </ul>
+
+            <h2>5. 현대 조직에 던지는 시사점: 팀의 역동을 완성하는 밸런스</h2>
+            <p>
+                헌터X헌터의 4대 리더십 유형은 어느 하나가 절대적으로 우월하다고 단정할 수 없습니다. 
+                창업 초기 불확실성을 뚫어야 할 때는 곤과 같은 <strong>돌파형 리더</strong>가 필수적이며, 
+                규모가 커지고 컴플라이언스와 위기관리가 중요해지면 키르아와 같은 <strong>리스크 관리자</strong>가 절실해집니다. 
+                장기적으로 지속 가능한 기업이 되기 위해서는 클로로처럼 <strong>리더의 공백에도 흔들리지 않는 시스템</strong>을 구축해야 하며, 
+                거대한 변화의 물결 앞에서는 메르엠처럼 <strong>스스로의 편견을 깨고 진화하는 변혁적 리더십</strong>이 요구됩니다.
+            </p>
+
+            <div class="cta-banner">
+                <h3>당신은 위기 상황에서 어떤 인물처럼 결단을 내리시나요?</h3>
+                <p>생사가 걸린 헌터 시험과 위기 딜레마 질문들을 통해, 나의 리더십과 심리 유형을 지금 바로 확인해 보세요.</p>
+                <a href="/hxh" class="cta-btn">🎯 나와 가장 닮은 헌터 캐릭터 테스트하기</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links" style="margin-bottom:12px;">
+            <a href="/">홈</a> |
+            <a href="/nen">넨 테스트</a> |
+            <a href="/hxh">캐릭터 테스트</a> |
+            <a href="/column">심리 칼럼</a> |
+            <a href="/about.html">소개</a> |
+            <a href="/privacy.html">개인정보처리방침</a> |
+            <a href="/terms.html">이용약관</a>
+        </div>
+        <p style="margin: 6px 0; color: #64748b; font-size: 12px;">
+            본 사이트의 심리 칼럼 및 도감 자료는 에듀테인먼트 및 성격 심리학 비교 연구 목적으로 기획된 비공식 비상업적 팬 콘텐츠입니다.
+        </p>
+        <p style="margin: 0; color: #475569; font-size: 12px;">
+            &copy; 2026 TESTYOUR. All rights reserved. 문의: contact@testyour.uk
+        </p>
+    </footer>
+
+</body>
+</html>
