@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16 Personalities Precision Assessment (MBTI) | TESTYOUR UK</title>
+    
+    <meta name="description" content="Discover your 16 personality types (MBTI) and psychological cognitive functions in just 3 minutes. Comprehensive Jungian typology evaluation.">
+    <link rel="canonical" href="https://testyour.uk/en/mbti/">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #0f1117;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background-color: #161a24;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid #262c3a;
+        }
+        .header-bar .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        .lang-switch {
+            font-size: 13px;
+            background: rgba(255,255,255,0.08);
+            padding: 4px 10px;
+            border-radius: 15px;
+        }
+        .lang-switch a {
+            text-decoration: none;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .lang-switch a.active { color: #38bdf8; }
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 35px 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .screen.active { display: flex; }
+        h1 {
+            font-size: 26px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+        .btn {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.2s;
+            width: 100%;
+            max-width: 360px;
+            text-decoration: none;
+        }
+        .btn:hover { background-color: #0ea5e9; color: #fff; transform: translateY(-2px); }
+        .progress-container {
+            width: 100%;
+            background-color: #2d3748;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 35px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #38bdf8;
+            transition: width 0.3s ease;
+        }
+        .question-text {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            min-height: 60px;
+            color: #f8fafc;
+        }
+        .choice-btn {
+            background-color: #1e2433;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            width: 100%;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            line-height: 1.5;
+        }
+        .choice-btn:hover {
+            background-color: #283347;
+            border-color: #38bdf8;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .result-code {
+            font-size: 46px;
+            font-weight: 900;
+            color: #38bdf8;
+            letter-spacing: 3px;
+            margin: 10px 0 4px;
+        }
+        .result-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+        .axis-box {
+            background: #181d2a;
+            border: 1px solid #283347;
+            border-radius: 12px;
+            padding: 18px;
+            width: 100%;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .axis-item {
+            margin-bottom: 12px;
+        }
+        .axis-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #94a3b8;
+        }
+        .axis-bar-bg {
+            height: 8px;
+            background: #2d3748;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+        }
+        .axis-bar-fill {
+            height: 100%;
+            background: #38bdf8;
+        }
+        .desc-box {
+            background: #181d2a;
+            border: 1px solid #283347;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        .encyclopedia-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15.5px;
+            text-decoration: none;
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+        }
+        .share-btn {
+            background: #334155;
+            color: #f8fafc;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <a href="/en/" class="logo">TESTYOUR</a>
+            <div class="lang-switch">
+                <a href="/mbti/">KO</a>
+                <span style="color:#475569;">|</span>
+                <a href="/en/mbti/" class="active">EN</a>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="screen-start" class="screen active">
+            <div style="font-size: 13px; font-weight: bold; color: #38bdf8; letter-spacing: 2px; margin-bottom: 12px;">JUNGIAN PERSONALITY ASSESSMENT</div>
+            <h1>16 Personalities Test</h1>
+            <p style="color: #94a3b8; font-size: 15px; margin-bottom: 30px; line-height: 1.6;">
+                Based on Carl Jung's psychological types. Discover your 4 core axes: Energy (E/I), Perception (S/N), Judgment (T/F), and Lifestyle (J/P) in just 3 minutes.
+            </p>
+            <button class="btn" onclick="startTest()">Start Assessment &rarr;</button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="screen-question" class="screen">
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div id="question-text" class="question-text"></div>
+            <button id="choice-a" class="choice-btn" onclick="handleChoice(0)"></button>
+            <button id="choice-b" class="choice-btn" onclick="handleChoice(1)"></button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="screen-result" class="screen">
+            <div style="font-size: 12px; font-weight: 700; color: #38bdf8; letter-spacing: 1.5px;">YOUR PERSONALITY TYPE</div>
+            <div id="result-code" class="result-code"></div>
+            <div id="result-title" class="result-title"></div>
+
+            <div class="axis-box">
+                <div class="axis-item">
+                    <div class="axis-labels"><span>Extraversion (E)</span><span id="label-ei">Introversion (I)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-ei" class="axis-bar-fill"></div></div>
+                </div>
+                <div class="axis-item">
+                    <div class="axis-labels"><span>Sensing (S)</span><span id="label-sn">Intuition (N)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-sn" class="axis-bar-fill"></div></div>
+                </div>
+                <div class="axis-item">
+                    <div class="axis-labels"><span>Thinking (T)</span><span id="label-tf">Feeling (F)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-tf" class="axis-bar-fill"></div></div>
+                </div>
+                <div class="axis-item">
+                    <div class="axis-labels"><span>Judging (J)</span><span id="label-jp">Perceiving (P)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-jp" class="axis-bar-fill"></div></div>
+                </div>
+            </div>
+
+            <div id="result-desc" class="desc-box"></div>
+
+            <a id="btn-encyclopedia" href="#" class="encyclopedia-btn">📖 Read In-Depth Dossier & Guide &rarr;</a>
+            <button class="share-btn" onclick="shareResult()">Copy Result Link & Share</button>
+            <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Test</button>
+            <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            // E vs I
+            {
+                q: "After a grueling week, how do you naturally recharge your energy over the weekend?",
+                choices: [
+                    { text: "Meeting friends, going out to social gatherings, or vibrant activities with people.", axis: "E" },
+                    { text: "Relaxing at home in quiet solitude (movies, gaming, reading) with zero appointments.", axis: "I" }
+                ]
+            },
+            {
+                q: "When attending a networking event or party with unfamiliar faces, what is your typical behavior?",
+                choices: [
+                    { text: "Initiate conversations easily and enjoy connecting across diverse groups.", axis: "E" },
+                    { text: "Observe quietly at first, preferring deep one-on-one chats with people you know.", axis: "I" }
+                ]
+            },
+            {
+                q: "When an exciting new breakthrough idea strikes you, how do you process it?",
+                choices: [
+                    { text: "Immediately voice it out loud to brainstorm and refine it in real-time dialogue.", axis: "E" },
+                    { text: "Deliberate and structure the idea thoroughly in your head before presenting it.", axis: "I" }
+                ]
+            },
+
+            // S vs N
+            {
+                q: "When absorbing instructional manuals, reports, or books, which format feels more intuitive?",
+                choices: [
+                    { text: "Empirical case studies, concrete numbers, verifiable facts, and step-by-step procedures.", axis: "S" },
+                    { text: "Overarching concepts, theoretical metaphors, future possibilities, and innovative ideas.", axis: "N" }
+                ]
+            },
+            {
+                q: "When kicking off a new major project, what is your preferred approach?",
+                choices: [
+                    { text: "Faithfully following proven manuals, industry standards, and verified protocols.", axis: "S" },
+                    { text: "Challenging existing norms to design a novel, unorthodox, and customized approach.", axis: "N" }
+                ]
+            },
+            {
+                q: "During reflective idle moments, where does your imagination naturally gravitate?",
+                choices: [
+                    { text: "Immediate tangible reality: daily tasks, physical surroundings, and practical schedules.", axis: "S" },
+                    { text: "The future world in 10 years, philosophical principles, human psychology, and cosmic wonder.", axis: "N" }
+                ]
+            },
+
+            // T vs F
+            {
+                q: "When a close friend vents about an acute personal dilemma, what is your instinctive initial response?",
+                choices: [
+                    { text: "Analyze the root cause objectively and offer pragmatic, actionable solutions.", axis: "T" },
+                    { text: "Empathize deeply with their emotional pain and offer unconditional heartfelt support.", axis: "F" }
+                ]
+            },
+            {
+                q: "When making a critical team decision, what takes priority in your evaluation?",
+                choices: [
+                    { text: "Impartial principles, logical consistency, cost-benefit analysis, and objective metrics.", axis: "T" },
+                    { text: "Team morale, interpersonal harmony, and the human emotional impact of the decision.", axis: "F" }
+                ]
+            },
+            {
+                q: "If someone presents an argument with an obvious logical fallacy during discussion, you:",
+                choices: [
+                    { text: "Point out the factual inconsistency clearly to ensure accuracy prevails.", axis: "T" },
+                    { text: "Frame feedback gently or let it pass so as not to embarrass or hurt their feelings.", axis: "F" }
+                ]
+            },
+
+            // J vs P
+            {
+                q: "When embarking on a 4-day vacation with friends, what best describes your travel style?",
+                choices: [
+                    { text: "Detailed itinerary with confirmed bookings, route timetables, and backup plans.", axis: "J" },
+                    { text: "Booking only essential stays, leaving daily schedules spontaneous based on daily vibes.", axis: "P" }
+                ]
+            },
+            {
+                q: "How do you manage deadlines and multiple overlapping tasks?",
+                choices: [
+                    { text: "Set milestone checklists and complete key deliverables ahead of schedule.", axis: "J" },
+                    { text: "Thrive under last-minute pressure when adrenaline unleashes peak creative focus.", axis: "P" }
+                ]
+            },
+            {
+                q: "How would you describe your desk, workspace, or computer desktop?",
+                choices: [
+                    { text: "Neatly categorized into dedicated folders and tidy surfaces with minimal clutter.", axis: "J" },
+                    { text: "A creative chaos where everything is within reach, organized by personal intuition.", axis: "P" }
+                ]
+            }
+        ];
+
+        const typeProfiles = {
+            "INTJ": { title: "The Architect & Mastermind", desc: "Visionary strategic architect possessing profound long-term insight and relentless analytical determination." },
+            "INTP": { title: "The Logician & Thinker", desc: "Inventive intellectual explorer driven by unquenchable curiosity to deconstruct the laws of reality." },
+            "ENTJ": { title: "The Commander & Executive", desc: "Decisive visionary commander who turns ambitious plans into formidable institutional achievements." },
+            "ENTP": { title: "The Debater & Visionary", desc: "Ingenious lateral thinker and catalyst who thrives on intellectual challenge and unconventional ideas." },
+            "INFJ": { title: "The Advocate & Mystic", desc: "Insightful visionary humanitarian who combines profound empathy with quiet, disciplined determination." },
+            "INFP": { title: "The Mediator & Healer", desc: "Authentic, poetic soul guided by core personal values, creative imagination, and quiet idealism." },
+            "ENFJ": { title: "The Protagonist & Mentor", desc: "Charismatic community leader and empathetic mentor who empowers others toward collective greatness." },
+            "ENFP": { title: "The Campaigner & Champion", desc: "Enthusiastic free spirit who connects disparate ideas and uplifts people with creative optimism." },
+            "ISTJ": { title: "The Logistician & Inspector", desc: "Pillar of reliability and factual integrity who upholds standards through methodical discipline." },
+            "ISFJ": { title: "The Defender & Protector", desc: "Devoted, attentive guardian who nurtures warm harmony and dependable practical support for loved ones." },
+            "ESTJ": { title: "The Executive & Director", desc: "Pragmatic organizational powerhouse who establishes order, accountability, and tangible results." },
+            "ESFJ": { title: "The Consul & Provider", desc: "Generous social harmonizer who fosters belonging, celebration, and practical community care." },
+            "ISTP": { title: "The Virtuoso & Craftsman", desc: "Cool-headed master of tactical mechanics who analyzes complex physical systems with calm pragmatism." },
+            "ISFP": { title: "The Adventurer & Artist", desc: "Sensory aesthetic artist who lives authentically in the moment through tactile creative expressions." },
+            "ESTP": { title: "The Entrepreneur & Dynamo", desc: "Bold, charismatic maverick who navigates high-stakes situations with lightning tactical reflex." },
+            "ESFP": { title: "The Entertainer & Performer", desc: "Radiant, spontaneous joymaker who electrifies surroundings and celebrates the beauty of today." }
+        };
+
+        let currentQ = 0;
+        let scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+        let finalCode = "";
+
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function startTest() {
+            currentQ = 0;
+            scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+            showScreen('screen-question');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQ];
+            document.getElementById('question-text').innerText = (currentQ + 1) + ". " + q.q;
+            document.getElementById('choice-a').innerText = q.choices[0].text;
+            document.getElementById('choice-b').innerText = q.choices[1].text;
+            document.getElementById('progress-bar').style.width = ((currentQ / questions.length) * 100) + '%';
+        }
+
+        function handleChoice(index) {
+            const chosen = questions[currentQ].choices[index];
+            scores[chosen.axis]++;
+            currentQ++;
+            if (currentQ < questions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const ePercent = Math.round((scores.E / 3) * 100);
+            const sPercent = Math.round((scores.S / 3) * 100);
+            const tPercent = Math.round((scores.T / 3) * 100);
+            const jPercent = Math.round((scores.J / 3) * 100);
+
+            const axisE = (scores.E >= scores.I) ? 'E' : 'I';
+            const axisS = (scores.S >= scores.N) ? 'S' : 'N';
+            const axisT = (scores.T >= scores.F) ? 'T' : 'F';
+            const axisJ = (scores.J >= scores.P) ? 'J' : 'P';
+
+            finalCode = axisE + axisS + axisT + axisJ;
+            const profile = typeProfiles[finalCode];
+
+            document.getElementById('result-code').innerText = finalCode;
+            document.getElementById('result-title').innerText = profile ? profile.title : '';
+            document.getElementById('result-desc').innerText = profile ? profile.desc : '';
+
+            // Update Bars
+            document.getElementById('bar-ei').style.width = ePercent + '%';
+            document.getElementById('label-ei').innerText = `E: ${ePercent}% | I: ${100 - ePercent}%`;
+
+            document.getElementById('bar-sn').style.width = sPercent + '%';
+            document.getElementById('label-sn').innerText = `S: ${sPercent}% | N: ${100 - sPercent}%`;
+
+            document.getElementById('bar-tf').style.width = tPercent + '%';
+            document.getElementById('label-tf').innerText = `T: ${tPercent}% | F: ${100 - tPercent}%`;
+
+            document.getElementById('bar-jp').style.width = jPercent + '%';
+            document.getElementById('label-jp').innerText = `J: ${jPercent}% | P: ${100 - jPercent}%`;
+
+            document.getElementById('btn-encyclopedia').href = '/en/mbti/' + finalCode.toLowerCase() + '.html';
+
+            showScreen('screen-result');
+        }
+
+        function shareResult() {
+            const shareUrl = 'https://testyour.uk/en/mbti/' + finalCode.toLowerCase() + '.html';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('Result dossier URL copied to clipboard! Share it with friends.');
+                }).catch(() => {
+                    prompt('Copy this link to share:', shareUrl);
+                });
+            } else {
+                prompt('Copy this link to share:', shareUrl);
+            }
+        }
+    </script>
+</body>
+</html>

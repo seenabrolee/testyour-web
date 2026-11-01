@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Hunter x Hunter Character Are You? | TESTYOUR UK</title>
+    
+    <meta name="description" content="Take the Hunter x Hunter personality assessment. Are you Gon, Killua, Kurapika, Leorio, Hisoka, Chrollo, Illumi, or Meruem?">
+    <link rel="canonical" href="https://testyour.uk/en/hxh/">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #0f1117;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background-color: #161a24;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid #262c3a;
+        }
+        .header-bar .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #ff3b30;
+            text-decoration: none;
+        }
+        .lang-switch {
+            font-size: 13px;
+            background: rgba(255,255,255,0.08);
+            padding: 4px 10px;
+            border-radius: 15px;
+        }
+        .lang-switch a {
+            text-decoration: none;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .lang-switch a.active { color: #ff3b30; }
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 35px 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .screen.active { display: flex; }
+        h1 {
+            font-size: 26px;
+            color: #ff3b30;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+        .btn {
+            background-color: #ff3b30;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.2s;
+            width: 100%;
+            max-width: 360px;
+            text-decoration: none;
+        }
+        .btn:hover { background-color: #e0281e; transform: translateY(-2px); }
+        .progress-container {
+            width: 100%;
+            background-color: #2d3748;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 35px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #ff3b30;
+            transition: width 0.3s ease;
+        }
+        .question-text {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            min-height: 60px;
+            color: #f8fafc;
+        }
+        .choice-btn {
+            background-color: #1e2433;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            width: 100%;
+            font-size: 14.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            line-height: 1.5;
+        }
+        .choice-btn:hover {
+            background-color: #283347;
+            border-color: #ff3b30;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .result-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff3b30;
+            margin: 15px 0 10px;
+            box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+        }
+        .result-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ff3b30;
+            margin-bottom: 4px;
+        }
+        .desc-box {
+            background: #181d2a;
+            border: 1px solid #283347;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        .encyclopedia-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #ff3b30 0%, #c52218 100%);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <a href="/en/" class="logo">TESTYOUR</a>
+            <div class="lang-switch">
+                <a href="/hxh/">KO</a>
+                <span style="color:#475569;">|</span>
+                <a href="/en/hxh/" class="active">EN</a>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="screen-start" class="screen active">
+            <div style="font-size: 13px; font-weight: bold; color: #ff3b30; letter-spacing: 2px; margin-bottom: 12px;">HUNTER EXAM PERSONALITY MATCH</div>
+            <h1>Which Character Are You?</h1>
+            <p style="color: #94a3b8; font-size: 15px; margin-bottom: 25px; line-height: 1.6;">
+                Step into the Hunter Exam. Answer critical scenario decisions to discover which Hunter x Hunter personality archetype matches your psychological soul.
+            </p>
+            <button class="btn" onclick="startTest()">Take the Hunter Exam &rarr;</button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="screen-question" class="screen">
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div id="question-text" class="question-text"></div>
+            <div id="choices-container" style="width: 100%;"></div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="screen-result" class="screen">
+            <div style="font-size: 12px; font-weight: 700; color: #ff3b30; letter-spacing: 1.5px;">YOUR MATCHING CHARACTER</div>
+            <img id="result-img" src="" alt="Result Character" class="result-img">
+            <div id="result-title" class="result-title"></div>
+            <div id="result-subtitle" style="font-size: 14px; color: #94a3b8; font-style: italic; margin-bottom: 15px;"></div>
+
+            <div id="result-desc" class="desc-box"></div>
+
+            <a id="btn-dossier" href="#" class="encyclopedia-btn">📖 View Full Character Dossier &rarr;</a>
+            <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Assessment</button>
+            <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
+        </div>
+    </div>
+
+    <script>
+        const charProfiles = {
+            gon: {
+                name: "Gon Freecss",
+                title: "The Pure Heart of the Wild",
+                img: "/hxh/images/gon.jpg",
+                desc: "<strong>Archetype:</strong> Unbreakable Willpower & Direct Instinct.<br>You are genuine, intensely driven, and guided by your heart. When you fix your eyes on a goal, nothing can sway you."
+            },
+            killua: {
+                name: "Killua Zoldyck",
+                title: "The Lightning Assassin",
+                img: "/hxh/images/killua.jpg",
+                desc: "<strong>Archetype:</strong> Cool Intellect & Fierce Loyalty.<br>Sharp-witted, tactical, and observant. While calm and detached on the outside, you possess unwavering devotion to your inner circle."
+            },
+            kurapika: {
+                name: "Kurapika",
+                title: "The Vengeful Scarlet Eyes",
+                img: "/hxh/images/kurapika.jpg",
+                desc: "<strong>Archetype:</strong> Noble Scholar & Meticulous Perfectionist.<br>You are intensely principled and analytical, willing to endure immense self-sacrifice for your core values and justice."
+            },
+            leorio: {
+                name: "Leorio Paradinight",
+                title: "The Heart of Gold",
+                img: "/hxh/images/leorio.jpg",
+                desc: "<strong>Archetype:</strong> Passionate Humanist & Brotherly Loyalty.<br>Though practical about reality, you possess the warmest heart and will gladly throw yourself into danger to protect friends."
+            },
+            hisoka: {
+                name: "Hisoka Morow",
+                title: "The Grim Reaper Magician",
+                img: "/hxh/images/hisoka.jpg",
+                desc: "<strong>Archetype:</strong> Enigmatic Maverick & Thrill Seeker.<br>Unpredictable and charming, you march entirely to your own desires, always craving intellectual and sensory stimulation."
+            },
+            chrollo: {
+                name: "Chrollo Lucilfer",
+                title: "The Spider's Head",
+                img: "/hxh/images/chrollo.jpg",
+                desc: "<strong>Archetype:</strong> Charismatic Strategist & Mastermind.<br>Philosophical and composed, you command natural authority and loyalty, coordinating complex systems with graceful precision."
+            },
+            illumi: {
+                name: "Illumi Zoldyck",
+                title: "The Pin-Cushion Puppeteer",
+                img: "/hxh/images/illumi.jpg",
+                desc: "<strong>Archetype:</strong> Stoic Controller & Absolute Pragmatist.<br>Calm, systematic, and rational to a fault. You prefer total control and zero ambiguity in your relationships."
+            },
+            meruem: {
+                name: "Meruem (King of Ants)",
+                title: "The Apex Sovereign",
+                img: "/hxh/images/meruem.jpg",
+                desc: "<strong>Archetype:</strong> Noble Sovereign & Philosophical Seeker.<br>Unmatched in intellect and ambition, you evolve continuously and seek true meaning and beauty beyond superficial status."
+            }
+        };
+
+        const questions = [
+            {
+                q: "During the Hunter Exam, you enter the dangerous Numere Wetlands shrouded in thick fog and monsters. What is your strategy?",
+                choices: [
+                    { text: "Stay close right behind the examiner in the lead group to never lose sight of him.", char: "gon" },
+                    { text: "Hang back in the middle with a trusted friend, keeping a calm eye on potential ambushes.", char: "killua" },
+                    { text: "Form a tight tactical alliance with fellow candidates to share intelligence and survive.", char: "kurapika" },
+                    { text: "Rely on raw grit and follow your companions no matter how exhausted you get.", char: "leorio" }
+                ]
+            },
+            {
+                q: "A dangerous rogue candidate begins picking off candidates in the shadows for fun. You:",
+                choices: [
+                    { text: "Smile with intrigued amusement. Finally, someone worthy of testing my limits.", char: "hisoka" },
+                    { text: "Analyze his movement patterns calmly from afar without revealing your presence.", char: "chrollo" },
+                    { text: "Charge straight at him because letting innocent people get hurt is unforgivable.", char: "gon" },
+                    { text: "Deem him an inefficient variable and neutralize him cleanly without emotion.", char: "illumi" }
+                ]
+            },
+            {
+                q: "In Trick Tower, you must cast a majority vote on a door: a long safe 45-hour path, or a 3-minute fast path that only allows two people. What do you do?",
+                choices: [
+                    { text: "Refuse to abandon anyone. Fight together to find a creative third way through.", char: "gon" },
+                    { text: "Calculate the exact probabilities and make the logically optimal sacrifice.", char: "killua" },
+                    { text: "Debate the moral principles with candidates to reach an ethical consensus.", char: "kurapika" },
+                    { text: "Stand at the front and demand a fair compromise so everyone survives.", char: "leorio" }
+                ]
+            },
+            {
+                q: "What defines true strength and mastery in your philosophy?",
+                choices: [
+                    { text: "Uncontested biological and intellectual superiority over all obstacles.", char: "meruem" },
+                    { text: "Commanding loyal companions and mastering multifaceted knowledge.", char: "chrollo" },
+                    { text: "The thrill of dancing on the knife-edge between life and death.", char: "hisoka" },
+                    { text: "Protecting the people who matter most to you, no matter the cost.", char: "killua" }
+                ]
+            }
+        ];
+
+        let currentQ = 0;
+        let scores = { gon:0, killua:0, kurapika:0, leorio:0, hisoka:0, chrollo:0, illumi:0, meruem:0 };
+
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function startTest() {
+            currentQ = 0;
+            scores = { gon:0, killua:0, kurapika:0, leorio:0, hisoka:0, chrollo:0, illumi:0, meruem:0 };
+            showScreen('screen-question');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQ];
+            document.getElementById('question-text').innerText = (currentQ + 1) + ". " + q.q;
+            document.getElementById('progress-bar').style.width = ((currentQ / questions.length) * 100) + '%';
+            
+            const container = document.getElementById('choices-container');
+            container.innerHTML = '';
+            q.choices.forEach(c => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerText = c.text;
+                btn.onclick = () => {
+                    scores[c.char]++;
+                    currentQ++;
+                    if (currentQ < questions.length) renderQuestion();
+                    else showResults();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function showResults() {
+            let maxScore = -1;
+            let winner = 'gon';
+            for (let c in scores) {
+                if (scores[c] > maxScore) {
+                    maxScore = scores[c];
+                    winner = c;
+                }
+            }
+
+            const p = charProfiles[winner];
+            document.getElementById('result-img').src = p.img;
+            document.getElementById('result-title').innerText = p.name;
+            document.getElementById('result-subtitle').innerText = p.title;
+            document.getElementById('result-desc').innerHTML = p.desc;
+            document.getElementById('btn-dossier').href = '/en/hxh/' + winner + '.html';
+
+            showScreen('screen-result');
+        }
+    </script>
+</body>
+</html>
