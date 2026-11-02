@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16 Personalities Precision Assessment (MBTI) | TESTYOUR UK</title>
+    <title>16 Personalities Multi-Dimensional Assessment (MBTI & Cognitive Stack) | TESTYOUR UK</title>
     
-    <meta name="description" content="Discover your 16 personality types (MBTI) and psychological cognitive functions in just 3 minutes. Comprehensive Jungian typology evaluation.">
+    <meta name="description" content="Beyond simple binary quizzes: take our 20-question, 5-option multi-dimensional Jungian MBTI assessment to measure your 4 core axes and 8 cognitive functions.">
     <link rel="canonical" href="https://testyour.uk/en/mbti/">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         * { box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -24,7 +24,7 @@
         }
         .container {
             width: 100%;
-            max-width: 520px;
+            max-width: 540px;
             background-color: #161a24;
             min-height: 100vh;
             display: flex;
@@ -44,24 +44,26 @@
             font-weight: 900;
             color: #38bdf8;
             text-decoration: none;
+            letter-spacing: 1px;
         }
         .lang-switch {
             font-size: 13px;
-            background: rgba(255,255,255,0.08);
-            padding: 4px 10px;
-            border-radius: 15px;
+            background: rgba(255,255,255,0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
         }
         .lang-switch a {
             text-decoration: none;
             color: #94a3b8;
             font-weight: 600;
         }
-        .lang-switch a.active { color: #38bdf8; }
+        .lang-switch a.active { color: #38bdf8; font-weight: 800; }
         .screen {
             display: none;
             flex-direction: column;
             align-items: center;
-            padding: 35px 20px;
+            padding: 32px 20px 45px;
             text-align: center;
             flex-grow: 1;
         }
@@ -79,7 +81,7 @@
             padding: 15px 30px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             margin-top: 15px;
             transition: all 0.2s;
@@ -88,41 +90,69 @@
             text-decoration: none;
         }
         .btn:hover { background-color: #0ea5e9; color: #fff; transform: translateY(-2px); }
+
+        .quiz-meta {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cat-badge {
+            background: rgba(56, 189, 248, 0.14);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .q-counter {
+            font-size: 13px;
+            font-weight: 800;
+            color: #94a3b8;
+        }
+
         .progress-container {
             width: 100%;
             background-color: #2d3748;
             height: 8px;
             border-radius: 4px;
-            margin-bottom: 35px;
+            margin-bottom: 26px;
             overflow: hidden;
         }
         .progress-bar {
             height: 100%;
             width: 0%;
-            background-color: #38bdf8;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
             transition: width 0.3s ease;
         }
         .question-text {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             line-height: 1.5;
-            min-height: 60px;
+            min-height: 54px;
             color: #f8fafc;
+            text-align: left;
+            width: 100%;
         }
         .choice-btn {
             background-color: #1e2433;
             color: #e2e8f0;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 14px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
             width: 100%;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
-            line-height: 1.5;
+            line-height: 1.48;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
         .choice-btn:hover {
             background-color: #283347;
@@ -130,61 +160,86 @@
             color: #fff;
             transform: translateY(-2px);
         }
+        .choice-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            font-size: 12px;
+            font-weight: 800;
+            margin-top: 1px;
+        }
+        .back-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            align-self: flex-start;
+            transition: all 0.2s;
+        }
+        .back-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
+
         .result-code {
             font-size: 46px;
             font-weight: 900;
             color: #38bdf8;
             letter-spacing: 3px;
-            margin: 10px 0 4px;
+            margin: 8px 0 4px;
         }
         .result-title {
             font-size: 20px;
             font-weight: 800;
             color: #f1f5f9;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .axis-box {
             background: #181d2a;
             border: 1px solid #283347;
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 14px;
+            padding: 20px;
             width: 100%;
-            margin: 20px 0;
+            margin-bottom: 18px;
             text-align: left;
         }
-        .axis-item {
-            margin-bottom: 12px;
-        }
+        .axis-item { margin-bottom: 14px; }
         .axis-labels {
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-weight: 700;
+            margin-bottom: 5px;
             color: #94a3b8;
         }
         .axis-bar-bg {
-            height: 8px;
+            height: 10px;
             background: #2d3748;
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
             display: flex;
         }
-        .axis-bar-fill {
-            height: 100%;
-            background: #38bdf8;
-        }
+        .axis-bar-left { height: 100%; background: #38bdf8; transition: width 0.8s ease; }
+        .axis-bar-right { height: 100%; background: #a855f7; transition: width 0.8s ease; }
+
         .desc-box {
             background: #181d2a;
             border: 1px solid #283347;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 20px;
             width: 100%;
             text-align: left;
-            font-size: 14.5px;
-            line-height: 1.8;
+            font-size: 14.3px;
+            line-height: 1.75;
             color: #cbd5e1;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .encyclopedia-btn {
             display: block;
@@ -194,21 +249,21 @@
             padding: 15px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 15.5px;
+            font-size: 15px;
             text-decoration: none;
             margin: 10px 0;
             box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
         }
         .share-btn {
-            background: #334155;
-            color: #f8fafc;
+            background: #22c55e;
+            color: #fff;
             border: none;
-            padding: 12px 20px;
+            padding: 13px 20px;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 700;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -218,206 +273,1111 @@
             <a href="/en/" class="logo">TESTYOUR</a>
             <div class="lang-switch">
                 <a href="/mbti/">KO</a>
-                <span style="color:#475569;">|</span>
+                <span style="color:#475569; margin:0 4px;">|</span>
                 <a href="/en/mbti/" class="active">EN</a>
             </div>
         </div>
 
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <div style="font-size: 13px; font-weight: bold; color: #38bdf8; letter-spacing: 2px; margin-bottom: 12px;">JUNGIAN PERSONALITY ASSESSMENT</div>
-            <h1>16 Personalities Test</h1>
-            <p style="color: #94a3b8; font-size: 15px; margin-bottom: 30px; line-height: 1.6;">
-                Based on Carl Jung's psychological types. Discover your 4 core axes: Energy (E/I), Perception (S/N), Judgment (T/F), and Lifestyle (J/P) in just 3 minutes.
+            <div style="font-size: 12px; font-weight: 800; color: #38bdf8; letter-spacing: 2px; margin-bottom: 8px;">MULTI-DIMENSIONAL JUNGIAN MATRIX</div>
+            <h1 style="margin-top:0;">16 Personalities Precision Test</h1>
+            <p style="color: #94a3b8; font-size: 14.5px; margin-bottom: 22px; line-height: 1.6;">
+                Beyond simple binary A/B quizzes. Evaluate your personality across 20 realistic life scenarios with 5 multi-axis behavioral responses per question.
             </p>
-            <button class="btn" onclick="startTest()">Start Assessment &rarr;</button>
+            <div style="background:#1e2433; border:1px solid #334155; border-radius:14px; padding:18px 20px; width:100%; text-align:left; margin-bottom:20px; font-size:13px; color:#94a3b8; line-height:1.7;">
+                <div style="color:#f8fafc; font-weight:700; margin-bottom:6px;">🎯 Multi-Dimensional Assessment Highlights</div>
+                • <strong>20 Deep Scenario Questions:</strong> Work, social dynamics, crisis leadership, and inner cognition<br>
+                • <strong>5 Nuanced Options per Question:</strong> Cross-axis weighted scoring across 100 total behavioral choices<br>
+                • <strong>Cognitive Function Stack:</strong> Unlocks your Dominant, Auxiliary, Tertiary, and Inferior functions
+            </div>
+            <button class="btn" onclick="startTest()">Start 20-Question Assessment &rarr;</button>
+            <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:16px;">&larr; Back to Main Hub</a>
         </div>
 
         <!-- Question Screen -->
         <div id="screen-question" class="screen">
+            <div class="quiz-meta">
+                <span id="q-category" class="cat-badge">Energy Direction</span>
+                <span id="q-counter" class="q-counter">Q 01 / 20</span>
+            </div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
             <div id="question-text" class="question-text"></div>
-            <button id="choice-a" class="choice-btn" onclick="handleChoice(0)"></button>
-            <button id="choice-b" class="choice-btn" onclick="handleChoice(1)"></button>
+            <div id="choices-container" style="width: 100%;"></div>
+            <button id="btn-prev" class="back-btn" onclick="prevQuestion()" style="display:none;">&larr; Previous Question</button>
         </div>
 
         <!-- Result Screen -->
         <div id="screen-result" class="screen">
-            <div style="font-size: 12px; font-weight: 700; color: #38bdf8; letter-spacing: 1.5px;">YOUR PERSONALITY TYPE</div>
+            <div style="font-size: 12px; font-weight: 700; color: #38bdf8; letter-spacing: 1.5px;">20-QUESTION MULTI-DIMENSIONAL RESULT</div>
             <div id="result-code" class="result-code"></div>
             <div id="result-title" class="result-title"></div>
 
             <div class="axis-box">
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:14px; font-size:14.5px;">📊 4-Axis Spectrum Breakdown</div>
                 <div class="axis-item">
-                    <div class="axis-labels"><span>Extraversion (E)</span><span id="label-ei">Introversion (I)</span></div>
-                    <div class="axis-bar-bg"><div id="bar-ei" class="axis-bar-fill"></div></div>
+                    <div class="axis-labels"><span id="lbl-e">Extraversion (E)</span><span id="lbl-i">Introversion (I)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-e" class="axis-bar-left"></div><div id="bar-i" class="axis-bar-right"></div></div>
                 </div>
                 <div class="axis-item">
-                    <div class="axis-labels"><span>Sensing (S)</span><span id="label-sn">Intuition (N)</span></div>
-                    <div class="axis-bar-bg"><div id="bar-sn" class="axis-bar-fill"></div></div>
+                    <div class="axis-labels"><span id="lbl-s">Sensing (S)</span><span id="lbl-n">Intuition (N)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-s" class="axis-bar-left"></div><div id="bar-n" class="axis-bar-right"></div></div>
                 </div>
                 <div class="axis-item">
-                    <div class="axis-labels"><span>Thinking (T)</span><span id="label-tf">Feeling (F)</span></div>
-                    <div class="axis-bar-bg"><div id="bar-tf" class="axis-bar-fill"></div></div>
+                    <div class="axis-labels"><span id="lbl-t">Thinking (T)</span><span id="lbl-f">Feeling (F)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-t" class="axis-bar-left"></div><div id="bar-f" class="axis-bar-right"></div></div>
                 </div>
-                <div class="axis-item">
-                    <div class="axis-labels"><span>Judging (J)</span><span id="label-jp">Perceiving (P)</span></div>
-                    <div class="axis-bar-bg"><div id="bar-jp" class="axis-bar-fill"></div></div>
+                <div class="axis-item" style="margin-bottom:4px;">
+                    <div class="axis-labels"><span id="lbl-j">Judging (J)</span><span id="lbl-p">Perceiving (P)</span></div>
+                    <div class="axis-bar-bg"><div id="bar-j" class="axis-bar-left"></div><div id="bar-p" class="axis-bar-right"></div></div>
                 </div>
             </div>
 
-            <div id="result-desc" class="desc-box"></div>
+            <div class="desc-box">
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:8px; font-size:14.5px;">🧠 Jungian Cognitive Function Stack</div>
+                <div id="result-cognitive"></div>
+            </div>
 
-            <a id="btn-encyclopedia" href="#" class="encyclopedia-btn">📖 Read In-Depth Dossier & Guide &rarr;</a>
+            <div class="desc-box">
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:8px; font-size:14.5px;">💡 Core Psychological Profile</div>
+                <div id="result-desc"></div>
+            </div>
+
+            <a id="btn-encyclopedia" href="#" class="encyclopedia-btn">📖 Read Full 1,500-Word Type Dossier &rarr;</a>
             <button class="share-btn" onclick="shareResult()">Copy Result Link & Share</button>
-            <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Test</button>
+            <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Assessment</button>
             <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
         </div>
     </div>
 
     <script>
         const questions = [
-            // E vs I
             {
-                q: "After a grueling week, how do you naturally recharge your energy over the weekend?",
-                choices: [
-                    { text: "Meeting friends, going out to social gatherings, or vibrant activities with people.", axis: "E" },
-                    { text: "Relaxing at home in quiet solitude (movies, gaming, reading) with zero appointments.", axis: "I" }
-                ]
+                        "category": "Energy Direction & Social Dynamics",
+                        "q": "It's Friday evening after an exhausting week of deadlines. How do you ideally kick off your weekend?",
+                        "choices": [
+                                    {
+                                                "text": "Head straight to a pre-planned dinner party or lively hot-spot gathering to blow off steam with a crowd.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Spontaneously text available friends to grab casual drinks and catch up on life without a set agenda.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "P": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Join a small, structured hobby class or fitness session where social interaction has a clear focus.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Spend a quiet, cozy evening with one closest confidant or partner having an intimate, heartfelt conversation.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Go straight home, mute all phone notifications, and immerse yourself completely in solo hobbies and solitude.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "When attending a networking event or party with unfamiliar faces, what is your typical behavior?",
-                choices: [
-                    { text: "Initiate conversations easily and enjoy connecting across diverse groups.", axis: "E" },
-                    { text: "Observe quietly at first, preferring deep one-on-one chats with people you know.", axis: "I" }
-                ]
+                        "category": "Energy Direction & Social Positioning",
+                        "q": "You arrive at a networking event or club gathering where over half the room are strangers. What is your natural posture?",
+                        "choices": [
+                                    {
+                                                "text": "Break the ice proactively, introduce people to each other, and anchor the group conversation.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Float freely between different tables and groups, trading jokes and exploring interesting conversations.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "P": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Follow the official program schedule, exchanging polite and professional greetings as appropriate.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Converse calmly and attentively with the one or two people seated right next to you.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Step back to quietly observe the room's social structure and dynamics, speaking only when necessary.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "When an exciting new breakthrough idea strikes you, how do you process it?",
-                choices: [
-                    { text: "Immediately voice it out loud to brainstorm and refine it in real-time dialogue.", axis: "E" },
-                    { text: "Deliberate and structure the idea thoroughly in your head before presenting it.", axis: "I" }
-                ]
-            },
-
-            // S vs N
-            {
-                q: "When absorbing instructional manuals, reports, or books, which format feels more intuitive?",
-                choices: [
-                    { text: "Empirical case studies, concrete numbers, verifiable facts, and step-by-step procedures.", axis: "S" },
-                    { text: "Overarching concepts, theoretical metaphors, future possibilities, and innovative ideas.", axis: "N" }
-                ]
-            },
-            {
-                q: "When kicking off a new major project, what is your preferred approach?",
-                choices: [
-                    { text: "Faithfully following proven manuals, industry standards, and verified protocols.", axis: "S" },
-                    { text: "Challenging existing norms to design a novel, unorthodox, and customized approach.", axis: "N" }
-                ]
-            },
-            {
-                q: "During reflective idle moments, where does your imagination naturally gravitate?",
-                choices: [
-                    { text: "Immediate tangible reality: daily tasks, physical surroundings, and practical schedules.", axis: "S" },
-                    { text: "The future world in 10 years, philosophical principles, human psychology, and cosmic wonder.", axis: "N" }
-                ]
-            },
-
-            // T vs F
-            {
-                q: "When a close friend vents about an acute personal dilemma, what is your instinctive initial response?",
-                choices: [
-                    { text: "Analyze the root cause objectively and offer pragmatic, actionable solutions.", axis: "T" },
-                    { text: "Empathize deeply with their emotional pain and offer unconditional heartfelt support.", axis: "F" }
-                ]
-            },
-            {
-                q: "When making a critical team decision, what takes priority in your evaluation?",
-                choices: [
-                    { text: "Impartial principles, logical consistency, cost-benefit analysis, and objective metrics.", axis: "T" },
-                    { text: "Team morale, interpersonal harmony, and the human emotional impact of the decision.", axis: "F" }
-                ]
-            },
-            {
-                q: "If someone presents an argument with an obvious logical fallacy during discussion, you:",
-                choices: [
-                    { text: "Point out the factual inconsistency clearly to ensure accuracy prevails.", axis: "T" },
-                    { text: "Frame feedback gently or let it pass so as not to embarrass or hurt their feelings.", axis: "F" }
-                ]
-            },
-
-            // J vs P
-            {
-                q: "When embarking on a 4-day vacation with friends, what best describes your travel style?",
-                choices: [
-                    { text: "Detailed itinerary with confirmed bookings, route timetables, and backup plans.", axis: "J" },
-                    { text: "Booking only essential stays, leaving daily schedules spontaneous based on daily vibes.", axis: "P" }
-                ]
+                        "category": "Energy Direction & Idea Expansion",
+                        "q": "During a team brainstorming session, a sudden breakthrough idea strikes you. How do you develop it?",
+                        "choices": [
+                                    {
+                                                "text": "Speak up immediately, sketch it on the whiteboard, and refine it through rapid-fire live debate.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Toss the idea out casually to colleagues nearby to gauge their immediate facial reactions and energy.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "F": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Share the core summary concisely, then ask the team for objective feedback on practical feasibility.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Jot down key points quietly in your notebook, verify the facts, and present a structured proposal later.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Simulate every possible counterargument inside your head first, speaking only once the logic is bulletproof.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "How do you manage deadlines and multiple overlapping tasks?",
-                choices: [
-                    { text: "Set milestone checklists and complete key deliverables ahead of schedule.", axis: "J" },
-                    { text: "Thrive under last-minute pressure when adrenaline unleashes peak creative focus.", axis: "P" }
-                ]
+                        "category": "Energy Direction & Emotional Recovery",
+                        "q": "When going through a painful setback or personal slump, how do you restore your inner equilibrium?",
+                        "choices": [
+                                    {
+                                                "text": "Meet up with friends to vent everything out loud—laughing and talking resets your mental state.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Throw yourself into dynamic physical activities, sports, or travel to shake off the stagnation.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "S": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Consult one trusted mentor or experienced specialist to map out pragmatic next steps.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Retreat to your room to journal, listen to music, or immerse yourself in art until your emotions settle.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Cut off external contact temporarily to coldly analyze the root cause of the failure and rebuild your strategy.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "How would you describe your desk, workspace, or computer desktop?",
-                choices: [
-                    { text: "Neatly categorized into dedicated folders and tidy surfaces with minimal clutter.", axis: "J" },
-                    { text: "A creative chaos where everything is within reach, organized by personal intuition.", axis: "P" }
-                ]
+                        "category": "Energy Direction & Daily Communication",
+                        "q": "What best describes your genuine habit regarding phone calls, group chats, and daily messaging?",
+                        "choices": [
+                                    {
+                                                "text": "I lead multiple group chats simultaneously and prefer calling directly rather than typing long texts.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "I love sharing daily snapshots, memes, and short reels with friends throughout the day to stay connected.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "S": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "I handle work messages promptly, while keeping personal chats to designated evening downtime.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "I reply promptly to practical business or scheduling messages, but find endless small talk draining.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Sudden phone calls feel intrusive; I let notifications pile up and reply in batches when I have mental space.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Information Perception & Learning",
+                        "q": "When learning a complex new technology or business domain, what does your brain crave first?",
+                        "choices": [
+                                    {
+                                                "text": "A step-by-step practical manual accompanied by verified empirical data and proven case studies.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Direct hands-on experimentation—touching, testing, and feeling how it works in real time.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Reviewing a concise overview of the theory first, then comparing it against real-world industrial applications.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "T": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "The creative future possibilities and cross-disciplinary innovations this concept could unlock.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "The overarching theoretical architecture and fundamental principles that govern the entire system.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Information Perception & Aesthetics",
+                        "q": "Right after watching a thought-provoking film, what aspect dominates your post-movie conversation?",
+                        "choices": [
+                                    {
+                                                "text": "The realism of the acting, cinematography details, acoustic design, and historical/factual accuracy.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "The most thrilling action sequences, memorable lines, and tangible plot twists that happened on screen.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "The narrative coherence of the plot and how believably the characters reacted to their circumstances.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "F": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Exploring 'What if' alternate endings and expanding the fictional universe into wild hypotheticals.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "The hidden philosophical metaphors, symbolic props, and underlying commentary on human nature.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Information Perception & Problem Solving",
+                        "q": "When confronted with a recurring organizational inefficiency, how do you prefer to solve it?",
+                        "choices": [
+                                    {
+                                                "text": "Audit historical records thoroughly and apply the safest, industry-proven standard operating procedure.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Use whatever tangible resources are on hand right now to fix the immediate bottleneck pragmatically.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "T": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Keep the stable legacy foundation intact while piloting an innovative new tool on the worst bottleneck.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "I": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Look beyond surface symptoms to model the hidden structural root and its 3-year ripple effects.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "T": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Question the legacy system from scratch and design an unorthodox, paradigm-shifting alternative.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "P": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Information Perception & Expression",
+                        "q": "When explaining a complex situation or giving a presentation, what characterizes your speaking style?",
+                        "choices": [
+                                    {
+                                                "text": "Chronological, precise, and grounded in exact dates, numbers, and verifiable facts.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Rich with vivid sensory descriptions and real-life episodes that listeners can easily picture.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "State the executive summary first, then supply concrete data points wherever the audience asks.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Dynamically branching from one concept to unexpected creative connections that spark new questions.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Driven by powerful analogies, overarching frameworks, and penetrating insights into the core essence.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Information Perception & Time Orientation",
+                        "q": "When taking a quiet walk or gazing out a window, where does your stream of consciousness naturally drift?",
+                        "choices": [
+                                    {
+                                                "text": "The crisp breeze, surrounding street sights, what to eat for dinner, and immediate errands.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Vivid memories of recent events and the comforting rhythm of your established daily routines.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "J": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Reviewing ongoing tasks for the week and visualizing realistic milestones for the upcoming month.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "J": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Endless philosophical puzzles, abstract daydreams, and imaginary worlds detached from mundane reality.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "I": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "A grand 5-to-10-year vision of your life trajectory and how society and technology will evolve.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "J": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Judgment Criteria & Empathy",
+                        "q": "A close colleague confides in you, 'I made a huge mistake on the project and got chewed out by the director...' How do you respond?",
+                        "choices": [
+                                    {
+                                                "text": "Ask for the exact details of the error and immediately map out a concrete step-by-step recovery plan.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Analyze the situation objectively to point out systemic flaws so they see it wasn't 100% their fault.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "N": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Offer warm words of comfort first, and once they calm down, share practical tips to prevent repeat errors.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "E": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Listen quietly until they finish venting, then treat them to their favorite comfort food in solidarity.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Say 'That must have been so stressful and heartbreaking...' and deeply empathize with their hurt feelings.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Judgment Criteria & Leadership",
+                        "q": "As team lead, you must retain only one person: Member A (underperforming but earnest and going through hardship) or Member B (brilliant performer but abrasive).",
+                        "choices": [
+                                    {
+                                                "text": "Retain B based strictly on measurable KPIs—project survival and objective output come first.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Set personal sympathy aside and calculate a cold cost-benefit matrix comparing B's friction vs. A's replacement cost.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Give both a clear conditional probation period and evaluate them on combined output and teamwork metrics.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "N": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Agonize deeply over hurting either person and fight to restructure roles so both can somehow stay.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Give A the opportunity—trust, team morale, and human potential matter more than toxic brilliance.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Judgment Criteria & Debate",
+                        "q": "During a heated meeting, someone sharply points out a flaw in your proposal. What is your internal reaction?",
+                        "choices": [
+                                    {
+                                                "text": "If their logic is valid, accept it without ego and immediately upgrade your hypothesis.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Scrutinize their counterargument for factual gaps and prepare a sharper, data-backed rebuttal.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Note valid points calmly while keeping a neutral tone so the meeting doesn't become emotional.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "I": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Worry that the room's atmosphere is turning hostile and use a conciliatory gesture to smooth things over.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Regardless of the facts, feel stung by their aggressive tone and lack of interpersonal respect in public.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Judgment Criteria & Core Values",
+                        "q": "When you admire someone deeply, which quality commands your highest respect?",
+                        "choices": [
+                                    {
+                                                "text": "Razor-sharp intellect capable of deconstructing any complex problem with unwavering logical consistency.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Undeniable professional competence that delivers concrete results without emotional excuses.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "A balanced demeanor that combines rational judgment with unfailing courtesy toward others.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Radiant warmth that uplifts everyone around them and fosters genuine human harmony.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Profound emotional maturity, authenticity, and gentle consideration for the vulnerable.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Judgment Criteria & Honesty vs Harmony",
+                        "q": "A friend proudly shows off an expensive new outfit that looks terrible on them and asks, 'Be honest, how does it look?'",
+                        "choices": [
+                                    {
+                                                "text": "'Honestly, the cut clashes with your proportions. Can you still return or exchange it?'",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Offer objective styling feedback on why the color or silhouette looks awkward and how to fix it.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "N": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Compliment one nice detail first, then gently suggest pairing it with different pants or accessories.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'Whoa, bold new vibe! It totally shows off your unique confidence!'—cheer on their spirit.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "P": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Not wanting to ruin their excitement, find a genuine positive detail like the fabric or color to praise.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Lifestyle & Planning",
+                        "q": "When preparing for a long-awaited 5-day international trip, which style matches you best?",
+                        "choices": [
+                                    {
+                                                "text": "Build a master spreadsheet with hourly transit routes, restaurant hours, budget caps, and Plan B backups.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Lock in the core daily landmarks and strategic route anchors so every day has a clear objective.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "N": 1,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Schedule key morning attractions in advance, while leaving afternoons open for spontaneous exploration.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "S": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Rigid itineraries feel like work—leave the entire trip open to serendipity, mood, and chance encounters.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Book only the flight and first night's hotel, then wander picturesque alleys and local spots on a whim.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "S": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Lifestyle & Deadlines",
+                        "q": "You are given a major individual project due in two weeks. What does your actual work curve look like?",
+                        "choices": [
+                                    {
+                                                "text": "Break the workload into daily milestones on day one, finish two days early, and polish calmly.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Lock down the structural outline early to eliminate uncertainty, then fill in the sections methodically.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Respect the final deadline strictly, but adjust daily output flexibly depending on your daily energy.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "N": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Jump straight into whichever part feels most exciting today, pivoting direction fluidly as you go.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Let ideas marinate loosely while exploring references, then unleash explosive hyper-focus right before the deadline.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Lifestyle & Workspace",
+                        "q": "What is the typical state of your physical desk and computer desktop folders?",
+                        "choices": [
+                                    {
+                                                "text": "Every item has a designated spot and digital files are sorted into strict hierarchical folder trees.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "A prioritized To-Do checklist sits front and center, and crossing off completed tasks brings deep satisfaction.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Core archive folders are neatly organized, while active work-in-progress files sit conveniently on the desktop.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "I": 2
+                                                }
+                                    },
+                                    {
+                                                "text": "I let things pile up freely until a sudden burst of midnight inspiration makes me reorganize the whole room.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "It looks messy to outsiders, but everything I need is spread out within intuitive arm's reach.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Lifestyle & Adaptability",
+                        "q": "Your carefully planned weekend or project schedule is suddenly derailed by an unexpected external change. You:",
+                        "choices": [
+                                    {
+                                                "text": "Feel genuine stress from the disrupted order and immediately construct a replacement schedule to regain control.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Identify why the disruption happened and update protocols so the same hiccup never repeats.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "T": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Feel briefly disappointed, but quickly pivot to catching up on other pending tasks or rest.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "F": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Accept unpredictability as a natural part of life and improvise a creative alternative on the spot.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Think 'Even better! Unexpected free time!' and pivot effortlessly to a fun new activity.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "Lifestyle & Closure",
+                        "q": "When making a major purchase (like a laptop) or a pivotal life decision, how do you reach closure?",
+                        "choices": [
+                                    {
+                                                "text": "Filter candidates against pre-set criteria, decide swiftly, and never look back once purchased.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Compare verified reviews systematically and complete the decision cleanly within your planned timeframe.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "S": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Narrow it down systematically to 2-3 finalists, then take extra time weighing the final trade-offs.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Deliberate for ages, then make a sudden decisive leap the moment your gut intuition clicks.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "F": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "Keep tabs open until the very last second wondering, 'What if a better option appears tomorrow?'",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
             }
-        ];
+];
 
         const typeProfiles = {
-            "INTJ": { title: "The Architect & Mastermind", desc: "Visionary strategic architect possessing profound long-term insight and relentless analytical determination." },
-            "INTP": { title: "The Logician & Thinker", desc: "Inventive intellectual explorer driven by unquenchable curiosity to deconstruct the laws of reality." },
-            "ENTJ": { title: "The Commander & Executive", desc: "Decisive visionary commander who turns ambitious plans into formidable institutional achievements." },
-            "ENTP": { title: "The Debater & Visionary", desc: "Ingenious lateral thinker and catalyst who thrives on intellectual challenge and unconventional ideas." },
-            "INFJ": { title: "The Advocate & Mystic", desc: "Insightful visionary humanitarian who combines profound empathy with quiet, disciplined determination." },
-            "INFP": { title: "The Mediator & Healer", desc: "Authentic, poetic soul guided by core personal values, creative imagination, and quiet idealism." },
-            "ENFJ": { title: "The Protagonist & Mentor", desc: "Charismatic community leader and empathetic mentor who empowers others toward collective greatness." },
-            "ENFP": { title: "The Campaigner & Champion", desc: "Enthusiastic free spirit who connects disparate ideas and uplifts people with creative optimism." },
-            "ISTJ": { title: "The Logistician & Inspector", desc: "Pillar of reliability and factual integrity who upholds standards through methodical discipline." },
-            "ISFJ": { title: "The Defender & Protector", desc: "Devoted, attentive guardian who nurtures warm harmony and dependable practical support for loved ones." },
-            "ESTJ": { title: "The Executive & Director", desc: "Pragmatic organizational powerhouse who establishes order, accountability, and tangible results." },
-            "ESFJ": { title: "The Consul & Provider", desc: "Generous social harmonizer who fosters belonging, celebration, and practical community care." },
-            "ISTP": { title: "The Virtuoso & Craftsman", desc: "Cool-headed master of tactical mechanics who analyzes complex physical systems with calm pragmatism." },
-            "ISFP": { title: "The Adventurer & Artist", desc: "Sensory aesthetic artist who lives authentically in the moment through tactile creative expressions." },
-            "ESTP": { title: "The Entrepreneur & Dynamo", desc: "Bold, charismatic maverick who navigates high-stakes situations with lightning tactical reflex." },
-            "ESFP": { title: "The Entertainer & Performer", desc: "Radiant, spontaneous joymaker who electrifies surroundings and celebrates the beauty of today." }
+            "INTJ": {
+                title: "The Architect & Mastermind",
+                cognitive: "• <strong>Dominant:</strong> Introverted Intuition (Ni) — Deep systemic foresight & pattern synthesis<br>• <strong>Auxiliary:</strong> Extraverted Thinking (Te) — Strategic execution & structural efficiency<br>• <strong>Tertiary:</strong> Introverted Feeling (Fi) — Unwavering internal moral conviction<br>• <strong>Inferior:</strong> Extraverted Sensing (Se) — Sensory overload or impulsive indulgence under stress",
+                desc: "Visionary strategic architect possessing profound long-term insight and relentless analytical determination."
+            },
+            "INTP": {
+                title: "The Logician & Thinker",
+                cognitive: "• <strong>Dominant:</strong> Introverted Thinking (Ti) — First-principles deconstruction & logical rigor<br>• <strong>Auxiliary:</strong> Extraverted Intuition (Ne) — Cross-disciplinary ideation & hypothesis exploration<br>• <strong>Tertiary:</strong> Introverted Sensing (Si) — Internal archive of verified reference frameworks<br>• <strong>Inferior:</strong> Extraverted Feeling (Fe) — Vulnerability in navigating emotional group dynamics",
+                desc: "Inventive intellectual explorer driven by unquenchable curiosity to deconstruct the laws of reality."
+            },
+            "ENTJ": {
+                title: "The Commander & Executive",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Thinking (Te) — Decisive organizational command & KPI execution<br>• <strong>Auxiliary:</strong> Introverted Intuition (Ni) — Long-range strategic vision & trajectory mapping<br>• <strong>Tertiary:</strong> Extraverted Sensing (Se) — Tactical real-time opportunity seizure<br>• <strong>Inferior:</strong> Introverted Feeling (Fi) — Blind spots regarding personal emotional vulnerability",
+                desc: "Decisive visionary commander who turns ambitious plans into formidable institutional achievements."
+            },
+            "ENTP": {
+                title: "The Debater & Visionary",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Intuition (Ne) — Rapid divergent brainstorming & paradigm disruption<br>• <strong>Auxiliary:</strong> Introverted Thinking (Ti) — Precision logical auditing & structural critique<br>• <strong>Tertiary:</strong> Extraverted Feeling (Fe) — Charismatic wit & persuasive social reading<br>• <strong>Inferior:</strong> Introverted Sensing (Si) — Impatience with repetitive administrative maintenance",
+                desc: "Ingenious lateral thinker and catalyst who thrives on intellectual challenge and unconventional ideas."
+            },
+            "INFJ": {
+                title: "The Advocate & Mystic",
+                cognitive: "• <strong>Dominant:</strong> Introverted Intuition (Ni) — Profound insight into human motives & existential meaning<br>• <strong>Auxiliary:</strong> Extraverted Feeling (Fe) — Empathetic resonance & ethical community upliftment<br>• <strong>Tertiary:</strong> Introverted Thinking (Ti) — Coherent internal philosophical rigor<br>• <strong>Inferior:</strong> Extraverted Sensing (Se) — Sensitivity to chaotic physical environments",
+                desc: "Insightful visionary humanitarian who combines profound empathy with quiet, disciplined determination."
+            },
+            "INFP": {
+                title: "The Mediator & Healer",
+                cognitive: "• <strong>Dominant:</strong> Introverted Feeling (Fi) — Deep moral authenticity & emotional integrity<br>• <strong>Auxiliary:</strong> Extraverted Intuition (Ne) — Poetic imagination & empathetic possibility<br>• <strong>Tertiary:</strong> Introverted Sensing (Si) — Cherished nostalgic memory & sensory resonance<br>• <strong>Inferior:</strong> Extraverted Thinking (Te) — Stress under rigid bureaucratic quantification",
+                desc: "Authentic, poetic soul guided by core personal values, creative imagination, and quiet idealism."
+            },
+            "ENFJ": {
+                title: "The Protagonist & Mentor",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Feeling (Fe) — Charismatic interpersonal harmony & collective empowerment<br>• <strong>Auxiliary:</strong> Introverted Intuition (Ni) — Insightful mentorship & developmental vision<br>• <strong>Tertiary:</strong> Extraverted Sensing (Se) — Expressive presence & dynamic engagement<br>• <strong>Inferior:</strong> Introverted Thinking (Ti) — Self-criticism when harmony conflicts with cold logic",
+                desc: "Charismatic community leader and empathetic mentor who empowers others toward collective greatness."
+            },
+            "ENFP": {
+                title: "The Campaigner & Champion",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Intuition (Ne) — Contagious creative exploration & human connection<br>• <strong>Auxiliary:</strong> Introverted Feeling (Fi) — Passionate authenticity & moral warmth<br>• <strong>Tertiary:</strong> Extraverted Thinking (Te) — Surprising bursts of pragmatic mobilization<br>• <strong>Inferior:</strong> Introverted Sensing (Si) — Fatigue from micromanagement and rigid routines",
+                desc: "Enthusiastic free spirit who connects disparate ideas and uplifts people with creative optimism."
+            },
+            "ISTJ": {
+                title: "The Logistician & Inspector",
+                cognitive: "• <strong>Dominant:</strong> Introverted Sensing (Si) — Encyclopedic factual accuracy & procedural mastery<br>• <strong>Auxiliary:</strong> Extraverted Thinking (Te) — Systematic order, accountability & execution<br>• <strong>Tertiary:</strong> Introverted Feeling (Fi) — Quiet, unshakable personal loyalty<br>• <strong>Inferior:</strong> Extraverted Intuition (Ne) — Caution toward untested, chaotic speculation",
+                desc: "Pillar of reliability and factual integrity who upholds standards through methodical discipline."
+            },
+            "ISFJ": {
+                title: "The Defender & Protector",
+                cognitive: "• <strong>Dominant:</strong> Introverted Sensing (Si) — Attentive memory for practical human details<br>• <strong>Auxiliary:</strong> Extraverted Feeling (Fe) — Devoted care & warm interpersonal stewardship<br>• <strong>Tertiary:</strong> Introverted Thinking (Ti) — Calm, methodical problem troubleshooting<br>• <strong>Inferior:</strong> Extraverted Intuition (Ne) — Anxiety when confronting sudden structural upheaval",
+                desc: "Devoted, attentive guardian who nurtures warm harmony and dependable practical support for loved ones."
+            },
+            "ESTJ": {
+                title: "The Executive & Director",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Thinking (Te) — Structural governance, clear metrics & decisive leadership<br>• <strong>Auxiliary:</strong> Introverted Sensing (Si) — Reliance on verified precedent & institutional standards<br>• <strong>Tertiary:</strong> Extraverted Intuition (Ne) — Pragmatic brainstorming for operational upgrades<br>• <strong>Inferior:</strong> Introverted Feeling (Fi) — Discomfort with unquantifiable emotional appeals",
+                desc: "Pragmatic organizational powerhouse who establishes order, accountability, and tangible results."
+            },
+            "ESFJ": {
+                title: "The Consul & Provider",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Feeling (Fe) — Warm social orchestration & community cohesion<br>• <strong>Auxiliary:</strong> Introverted Sensing (Si) — Practical, detail-oriented hospitality & tradition<br>• <strong>Tertiary:</strong> Extraverted Intuition (Ne) — Playful social creativity & adaptability<br>• <strong>Inferior:</strong> Introverted Thinking (Ti) — Sensitivity to cold, impersonal criticism",
+                desc: "Generous social harmonizer who fosters belonging, celebration, and practical community care."
+            },
+            "ISTP": {
+                title: "The Virtuoso & Craftsman",
+                cognitive: "• <strong>Dominant:</strong> Introverted Thinking (Ti) — Effortless mechanical & tactical efficiency<br>• <strong>Auxiliary:</strong> Extraverted Sensing (Se) — Razor-sharp situational awareness & physical reflex<br>• <strong>Tertiary:</strong> Introverted Intuition (Ni) — Gut-levelhunches on how systems will fail or succeed<br>• <strong>Inferior:</strong> Extraverted Feeling (Fe) — Aversion to emotional drama or social obligation",
+                desc: "Cool-headed master of tactical mechanics who analyzes complex physical systems with calm pragmatism."
+            },
+            "ISFP": {
+                title: "The Adventurer & Artist",
+                cognitive: "• <strong>Dominant:</strong> Introverted Feeling (Fi) — Deep personal sincerity & non-judgmental warmth<br>• <strong>Auxiliary:</strong> Extraverted Sensing (Se) — Acute aesthetic appreciation & present-moment mastery<br>• <strong>Tertiary:</strong> Introverted Intuition (Ni) — Subtle symbolic depth in creative expression<br>• <strong>Inferior:</strong> Extraverted Thinking (Te) — Stress under aggressive corporate hierarchy",
+                desc: "Sensory aesthetic artist who lives authentically in the moment through tactile creative expressions."
+            },
+            "ESTP": {
+                title: "The Entrepreneur & Dynamo",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Sensing (Se) — High-octane action & immediate opportunity capture<br>• <strong>Auxiliary:</strong> Introverted Thinking (Ti) — Cool-headed risk calculation under pressure<br>• <strong>Tertiary:</strong> Extraverted Feeling (Fe) — Magnetic social charm & persuasive negotiation<br>• <strong>Inferior:</strong> Introverted Intuition (Ni) — Restlessness when forced into abstract long-term waiting",
+                desc: "Bold, charismatic maverick who navigates high-stakes situations with lightning tactical reflex."
+            },
+            "ESFP": {
+                title: "The Entertainer & Performer",
+                cognitive: "• <strong>Dominant:</strong> Extraverted Sensing (Se) — Vibrant sensory celebration & stage magnetism<br>• <strong>Auxiliary:</strong> Introverted Feeling (Fi) — Genuine emotional warmth & generous empathy<br>• <strong>Tertiary:</strong> Extraverted Thinking (Te) — Resourceful practical mobilization in crises<br>• <strong>Inferior:</strong> Introverted Intuition (Ni) — Avoidance of bleak, overly abstract existential gloom",
+                desc: "Radiant, spontaneous joymaker who electrifies surroundings and celebrates the beauty of today."
+            }
         };
 
         let currentQ = 0;
-        let scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+        let answerHistory = [];
         let finalCode = "";
 
         function showScreen(id) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function startTest() {
             currentQ = 0;
-            scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+            answerHistory = [];
             showScreen('screen-question');
             renderQuestion();
         }
 
         function renderQuestion() {
             const q = questions[currentQ];
+            document.getElementById('q-category').innerText = q.category;
+            document.getElementById('q-counter').innerText = `Q ${String(currentQ + 1).padStart(2, '0')} / ${questions.length}`;
             document.getElementById('question-text').innerText = (currentQ + 1) + ". " + q.q;
-            document.getElementById('choice-a').innerText = q.choices[0].text;
-            document.getElementById('choice-b').innerText = q.choices[1].text;
             document.getElementById('progress-bar').style.width = ((currentQ / questions.length) * 100) + '%';
+
+            document.getElementById('btn-prev').style.display = currentQ > 0 ? 'inline-block' : 'none';
+
+            const container = document.getElementById('choices-container');
+            container.innerHTML = '';
+
+            q.choices.forEach((c, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerHTML = `<span class="choice-num">${idx + 1}</span><span>${c.text}</span>`;
+                btn.onclick = () => handleChoice(c.scores);
+                container.appendChild(btn);
+            });
         }
 
-        function handleChoice(index) {
-            const chosen = questions[currentQ].choices[index];
-            scores[chosen.axis]++;
+        function handleChoice(scoreObj) {
+            answerHistory.push(scoreObj);
             currentQ++;
             if (currentQ < questions.length) {
                 renderQuestion();
@@ -426,11 +1386,33 @@
             }
         }
 
+        function prevQuestion() {
+            if (currentQ > 0) {
+                currentQ--;
+                answerHistory.pop();
+                renderQuestion();
+            }
+        }
+
         function showResults() {
-            const ePercent = Math.round((scores.E / 3) * 100);
-            const sPercent = Math.round((scores.S / 3) * 100);
-            const tPercent = Math.round((scores.T / 3) * 100);
-            const jPercent = Math.round((scores.J / 3) * 100);
+            let scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+            answerHistory.forEach(sc => {
+                for (let k in sc) {
+                    scores[k] = (scores[k] || 0) + sc[k];
+                }
+            });
+
+            const ePercent = Math.round((scores.E / (scores.E + scores.I || 1)) * 100);
+            const iPercent = 100 - ePercent;
+
+            const sPercent = Math.round((scores.S / (scores.S + scores.N || 1)) * 100);
+            const nPercent = 100 - sPercent;
+
+            const tPercent = Math.round((scores.T / (scores.T + scores.F || 1)) * 100);
+            const fPercent = 100 - tPercent;
+
+            const jPercent = Math.round((scores.J / (scores.J + scores.P || 1)) * 100);
+            const pPercent = 100 - jPercent;
 
             const axisE = (scores.E >= scores.I) ? 'E' : 'I';
             const axisS = (scores.S >= scores.N) ? 'S' : 'N';
@@ -438,24 +1420,32 @@
             const axisJ = (scores.J >= scores.P) ? 'J' : 'P';
 
             finalCode = axisE + axisS + axisT + axisJ;
-            const profile = typeProfiles[finalCode];
+            const profile = typeProfiles[finalCode] || typeProfiles["INTJ"];
 
             document.getElementById('result-code').innerText = finalCode;
-            document.getElementById('result-title').innerText = profile ? profile.title : '';
-            document.getElementById('result-desc').innerText = profile ? profile.desc : '';
+            document.getElementById('result-title').innerText = profile.title;
+            document.getElementById('result-cognitive').innerHTML = profile.cognitive;
+            document.getElementById('result-desc').innerText = profile.desc;
 
-            // Update Bars
-            document.getElementById('bar-ei').style.width = ePercent + '%';
-            document.getElementById('label-ei').innerText = `E: ${ePercent}% | I: ${100 - ePercent}%`;
+            document.getElementById('bar-e').style.width = ePercent + '%';
+            document.getElementById('bar-i').style.width = iPercent + '%';
+            document.getElementById('lbl-e').innerText = `Extraversion (E) ${ePercent}%`;
+            document.getElementById('lbl-i').innerText = `Introversion (I) ${iPercent}%`;
 
-            document.getElementById('bar-sn').style.width = sPercent + '%';
-            document.getElementById('label-sn').innerText = `S: ${sPercent}% | N: ${100 - sPercent}%`;
+            document.getElementById('bar-s').style.width = sPercent + '%';
+            document.getElementById('bar-n').style.width = nPercent + '%';
+            document.getElementById('lbl-s').innerText = `Sensing (S) ${sPercent}%`;
+            document.getElementById('lbl-n').innerText = `Intuition (N) ${nPercent}%`;
 
-            document.getElementById('bar-tf').style.width = tPercent + '%';
-            document.getElementById('label-tf').innerText = `T: ${tPercent}% | F: ${100 - tPercent}%`;
+            document.getElementById('bar-t').style.width = tPercent + '%';
+            document.getElementById('bar-f').style.width = fPercent + '%';
+            document.getElementById('lbl-t').innerText = `Thinking (T) ${tPercent}%`;
+            document.getElementById('lbl-f').innerText = `Feeling (F) ${fPercent}%`;
 
-            document.getElementById('bar-jp').style.width = jPercent + '%';
-            document.getElementById('label-jp').innerText = `J: ${jPercent}% | P: ${100 - jPercent}%`;
+            document.getElementById('bar-j').style.width = jPercent + '%';
+            document.getElementById('bar-p').style.width = pPercent + '%';
+            document.getElementById('lbl-j').innerText = `Judging (J) ${jPercent}%`;
+            document.getElementById('lbl-p').innerText = `Perceiving (P) ${pPercent}%`;
 
             document.getElementById('btn-encyclopedia').href = '/en/mbti/' + finalCode.toLowerCase() + '.html';
 

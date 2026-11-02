@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16가지 성격 유형 정밀 검사 (MBTI) | TESTYOUR</title>
+    <title>16가지 성격 유형 입체 정밀 검사 (MBTI & 8대 인지기능) | TESTYOUR</title>
     
-    <meta name="description" content="칼 융의 심리유형론을 기반으로 나의 16가지 성격 유형(MBTI)과 인지기능 지표를 3분 만에 정밀 측정해보세요.">
-    <meta property="og:title" content="16가지 성격 유형 정밀 검사 (MBTI) | TESTYOUR">
-    <meta property="og:description" content="나는 어떤 성격 유형일까? 에너지, 인식, 판단, 생활양식의 4대 심리 지표를 정밀 진단해보세요.">
+    <meta name="description" content="칼 융의 심리유형론과 8대 인지기능을 기반으로 설계된 20문항 5지선다 다차원 매트릭스 MBTI 정밀 진단. 에너지, 인식, 판단, 생활양식 스펙트럼을 입체 측정하세요.">
+    <meta property="og:title" content="16가지 성격 유형 입체 정밀 검사 (MBTI) | TESTYOUR">
+    <meta property="og:description" content="단순 이분법을 넘어선 20문항×5지선다 다차원 심리 매트릭스! 나의 4대 선호 지표와 융의 8대 인지기능 스택을 정밀 진단해보세요.">
     <meta property="og:url" content="https://testyour.uk/mbti">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://testyour.uk/mbti">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
         
         * { box-sizing: border-box; }
 
@@ -32,7 +32,7 @@
         
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 540px;
             background-color: #161a24;
             min-height: 100vh;
             display: flex;
@@ -40,12 +40,40 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.5);
             position: relative;
         }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid #262c3a;
+        }
+        .header-bar .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #38bdf8;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .lang-switch {
+            font-size: 13px;
+            background: rgba(255,255,255,0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .lang-switch a {
+            text-decoration: none;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .lang-switch a.active { color: #38bdf8; font-weight: 800; }
         
         .screen {
             display: none;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 32px 20px 45px;
             text-align: center;
             flex-grow: 1;
         }
@@ -56,7 +84,7 @@
             color: #38bdf8;
             margin-bottom: 8px;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .btn {
@@ -66,59 +94,115 @@
             padding: 15px 30px;
             font-size: 17px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             margin-top: 15px;
             transition: all 0.2s;
             width: 100%;
-            max-width: 340px;
+            max-width: 360px;
         }
-        .btn:hover { background-color: #0ea5e9; transform: scale(1.02); color: #fff; }
+        .btn:hover { background-color: #0ea5e9; transform: translateY(-2px); color: #fff; }
         
+        .quiz-meta {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cat-badge {
+            background: rgba(56, 189, 248, 0.14);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .q-counter {
+            font-size: 13px;
+            font-weight: 800;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
         .progress-container {
             width: 100%;
             background-color: #2d3748;
             height: 8px;
             border-radius: 4px;
-            margin-bottom: 35px;
+            margin-bottom: 26px;
             overflow: hidden;
         }
         .progress-bar {
             height: 100%;
             width: 0%;
-            background-color: #38bdf8;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
             transition: width 0.3s ease;
         }
         
         .question-text {
-            font-size: 20px;
+            font-size: 18.5px;
             font-weight: 700;
-            margin-bottom: 25px;
-            line-height: 1.5;
-            min-height: 60px;
+            margin-bottom: 22px;
+            line-height: 1.55;
+            min-height: 56px;
             color: #f8fafc;
+            text-align: left;
+            width: 100%;
         }
         
         .choice-btn {
             background-color: #1e2433;
             color: #e2e8f0;
             border: 1px solid #334155;
-            padding: 16px 18px;
-            margin-bottom: 12px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
             border-radius: 12px;
-            font-size: 15px;
+            font-size: 14.3px;
             cursor: pointer;
             transition: all 0.2s;
             width: 100%;
             text-align: left;
-            line-height: 1.45;
+            line-height: 1.48;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
         .choice-btn:hover {
-            background-color: #2d3748;
+            background-color: #283347;
             border-color: #38bdf8;
             color: #fff;
             transform: translateY(-2px);
         }
+        .choice-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            font-size: 12px;
+            font-weight: 800;
+            margin-top: 1px;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            align-self: flex-start;
+            transition: all 0.2s;
+        }
+        .back-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
 
         .loader {
             border: 5px solid #2d3748;
@@ -132,17 +216,17 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .result-code {
-            font-size: 42px;
+            font-size: 44px;
             color: #38bdf8;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 4px;
         }
         .result-title {
             font-size: 22px;
             color: #f8fafc;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .result-box {
             background: #1e2433;
@@ -151,14 +235,14 @@
             padding: 20px;
             text-align: left;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 14.5px;
             line-height: 1.7;
             color: #cbd5e1;
         }
         
         .axis-row {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .axis-labels {
             display: flex;
@@ -166,7 +250,7 @@
             font-size: 13px;
             font-weight: bold;
             color: #94a3b8;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
         .axis-bar-wrap {
             height: 10px;
@@ -203,19 +287,19 @@
 
         .wiki-link-btn {
             display: block;
-            background: #1e2433;
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-            padding: 12px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #fff;
+            padding: 14px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 6px;
             width: 100%;
             transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
         }
-        .wiki-link-btn:hover { background: #38bdf8; color: #0f172a; }
+        .wiki-link-btn:hover { opacity: 0.95; transform: translateY(-1px); }
 
         .other-link {
             color: #94a3b8;
@@ -229,40 +313,50 @@
 </head>
 <body>
     <div class="container">
+        <div class="header-bar">
+            <a href="/" class="logo">TESTYOUR</a>
+            <div class="lang-switch">
+                <a href="/mbti/" class="active">KO</a>
+                <span style="color:#475569; margin:0 4px;">|</span>
+                <a href="/en/mbti/">EN</a>
+            </div>
+        </div>
+
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <h1 style="margin-top:20px;">16가지 성격 유형 검사</h1>
-            <h2 style="font-size:16px; color:#94a3b8; font-weight:normal; margin-bottom:25px;">칼 융의 심리유형론 기반 MBTI 정밀 진단</h2>
+            <div style="font-size:12px; font-weight:800; color:#38bdf8; letter-spacing:2px; margin-bottom:6px;">MULTI-DIMENSIONAL JUNGIAN MATRIX</div>
+            <h1 style="margin-top:0;">16가지 성격 유형 입체 검사</h1>
+            <h2 style="font-size:15px; color:#94a3b8; font-weight:normal; margin-bottom:22px;">단순 이분법을 넘어선 20문항 × 5지선다 다차원 정밀 진단</h2>
             
             <div style="background:#1e2433; border:1px solid #334155; border-radius:14px; padding:20px; width:100%; text-align:left; margin-bottom:20px;">
-                <div style="font-size:14px; color:#e2e8f0; font-weight:bold; margin-bottom:8px;">🎯 본 테스트의 특징</div>
-                <ul style="margin:0; padding-left:18px; font-size:13px; color:#94a3b8; line-height:1.7;">
-                    <li><strong>4대 축 정밀 측정:</strong> 외향(E)/내향(I), 감각(S)/직관(N), 사고(T)/감정(F), 판단(J)/인식(P)</li>
-                    <li><strong>소요 시간:</strong> 약 3분 (12개 핵심 상황 문항)</li>
-                    <li><strong>심층 결과:</strong> 나의 성향, 인지기능, 강약점, 추천 직업 적성 및 궁합 제공</li>
+                <div style="font-size:14px; color:#e2e8f0; font-weight:bold; margin-bottom:8px;">🎯 다차원 입체 검사 업그레이드 특징</div>
+                <ul style="margin:0; padding-left:18px; font-size:13px; color:#94a3b8; line-height:1.75;">
+                    <li><strong>20개 심층 시나리오 문항:</strong> 일상, 업무, 인간관계, 위기 대처 등 입체적 맥락 측정</li>
+                    <li><strong>문항당 5가지 세분화 선택지:</strong> 단순 양자택일(A/B)이 아닌 주지표+보조지표 교차 가중치 부여 (총 100개 행동 선택지)</li>
+                    <li><strong>8대 인지기능 스택 도출:</strong> 주기능·부기능·3차기능·열등기능 심층 프로파일링 제공</li>
                 </ul>
             </div>
             
-            <button class="btn" onclick="startTest()">MBTI 검사 시작하기</button>
+            <button class="btn" onclick="startTest()">입체 정밀 검사 시작하기 &rarr;</button>
             <a href="/" class="other-link">&larr; 다른 심리테스트 보러가기</a>
 
             <!-- AdSense Educational Guide Section -->
             <section style="margin-top:40px; text-align:left; background:#12151e; border:1px solid #262c3a; border-radius:14px; padding:22px 18px; line-height:1.8; color:#cbd5e1;">
                 <h3 style="color:#38bdf8; font-size:18px; margin-top:0; margin-bottom:12px; border-bottom:1px solid #2d3748; padding-bottom:8px;">
-                    📖 MBTI의 과학적 배경과 심리 기능 이론 가이드
+                    📖 MBTI의 과학적 배경과 8대 심리 기능 이론 가이드
                 </h3>
                 
-                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">1. 칼 융의 심리유형론(Psychological Types)과 MBTI의 탄생</h4>
+                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">1. 칼 융의 심리유형론(Psychological Types)과 다차원 스펙트럼</h4>
                 <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
-                    MBTI(Myers-Briggs Type Indicator)는 스위스의 정신의학자 칼 구스타프 융(Carl G. Jung)의 인지 기능 이론을 바탕으로, 캐서린 브릭스(Katharine C. Briggs)와 이사벨 마이어스(Isabel B. Myers) 모녀가 인간의 성격 다양성을 체계화하기 위해 개발한 심리 지표입니다. 인간이 정보를 수집하고 판단을 내리는 방식에 따라 선천적으로 타고나는 고유한 심리적 선호(Preference)를 16가지 유형으로 분류합니다.
+                    MBTI(Myers-Briggs Type Indicator)는 스위스의 정신의학자 칼 구스타프 융(Carl G. Jung)의 인지 기능 이론을 바탕으로, 캐서린 브릭스(Katharine C. Briggs)와 이사벨 마이어스(Isabel B. Myers)가 체계화한 성격 지표입니다. 인간의 성격은 단순한 흑백 논리가 아니라, 상황에 따라 주기능과 부기능이 역동적으로 상호작용하는 다차원 스펙트럼으로 작동합니다.
                 </p>
 
-                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">2. 4가지 양극 선호 지표의 이해</h4>
+                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">2. 4가지 양극 선호 지표와 교차 역학</h4>
                 <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
-                    - <strong>에너지 방향 (E vs I):</strong> 외부 활동과 대인관계에서 에너지를 얻는 외향형(E) vs 내면의 사색과 조용한 휴식에서 충전하는 내향형(I)<br>
-                    - <strong>정보 인식 (S vs N):</strong> 오감과 구체적인 현실 데이터에 집중하는 감각형(S) vs 육감과 전체적인 패턴, 미래 가능성을 직관하는 직관형(N)<br>
-                    - <strong>판단 및 결정 (T vs F):</strong> 객관적 논리와 원칙, 인과관계를 중시하는 사고형(T) vs 인간적인 가치, 공감과 조화를 우선하는 감정형(F)<br>
-                    - <strong>생활 양식 (J vs P):</strong> 계획적이고 체계적으로 결론을 매듭짓는 판단형(J) vs 자율적이고 유연하게 상황에 적응하는 인식형(P)
+                    - <strong>에너지 방향 (E vs I):</strong> 외부 세계와의 상호작용에서 활력을 얻는 외향형(E) vs 내면의 성찰과 깊이 있는 몰입에서 충전하는 내향형(I)<br>
+                    - <strong>정보 인식 (S vs N):</strong> 오감과 검증된 사실·실무 경험에 집중하는 감각형(S) vs 거시적 맥락·은유·미래 잠재력을 꿰뚫는 직관형(N)<br>
+                    - <strong>판단 및 결정 (T vs F):</strong> 인과관계와 객관적 논리·원칙을 우선하는 사고형(T) vs 인간적 유대와 정서적 공명·가치를 중시하는 감정형(F)<br>
+                    - <strong>생활 양식 (J vs P):</strong> 체계적 계획과 명확한 종결을 선호하는 판단형(J) vs 상황 변화에 맞춘 유연한 적응과 자율성을 즐기는 인식형(P)
                 </p>
 
                 <h4 style="color:#7dd3fc; font-size:14px; margin:16px 0 8px 0;">📚 16가지 성격 유형별 개별 백과사전</h4>
@@ -301,30 +395,35 @@
 
         <!-- Quiz Screen -->
         <div id="screen-quiz" class="screen">
+            <div class="quiz-meta">
+                <span id="q-category" class="cat-badge">에너지 방향</span>
+                <span id="q-counter" class="q-counter">Q 01 / 20</span>
+            </div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
             <div id="question-text" class="question-text"></div>
             <div id="choices-container" style="width: 100%;"></div>
+            <button id="btn-prev" class="back-btn" onclick="prevQuestion()" style="display:none;">&larr; 이전 질문으로</button>
         </div>
 
         <!-- Loading Screen -->
         <div id="screen-loading" class="screen">
             <div style="margin-top: 100px;">
                 <div class="loader"></div>
-                <h2 style="color: #38bdf8;">성격 지표를 정밀 분석 중입니다...</h2>
-                <p style="color: #94a3b8; margin-top: 15px;">4대 양극 선호 지표와 인지기능을 조합하고 있습니다.</p>
+                <h2 style="color: #38bdf8;">다차원 성격 매트릭스를 분석 중입니다...</h2>
+                <p style="color: #94a3b8; margin-top: 15px;">20개 문항의 주지표·보조지표 가중치와 8대 인지기능을 계산하고 있습니다.</p>
             </div>
         </div>
 
         <!-- Result Screen -->
         <div id="screen-result" class="screen">
-            <div style="font-size:13px; color:#94a3b8; margin-bottom:5px;">나의 16가지 성격 유형 진단 결과</div>
+            <div style="font-size:13px; color:#94a3b8; margin-bottom:5px;">20문항 다차원 정밀 진단 결과</div>
             <div id="res-code" class="result-code">INTJ</div>
             <div id="res-title" class="result-title">용의주도한 전략가</div>
             
             <div class="result-box">
-                <div style="font-weight:bold; color:#38bdf8; margin-bottom:12px; font-size:15px;">📊 나의 성향 지표 분포</div>
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:14px; font-size:15px;">📊 나의 4대 성향 스펙트럼 정밀 분포</div>
                 
                 <div class="axis-row">
                     <div class="axis-labels">
@@ -359,7 +458,7 @@
                     </div>
                 </div>
 
-                <div class="axis-row">
+                <div class="axis-row" style="margin-bottom:4px;">
                     <div class="axis-labels">
                         <span id="lbl-j">판단 (J) 50%</span>
                         <span id="lbl-p">인식 (P) 50%</span>
@@ -372,8 +471,13 @@
             </div>
 
             <div class="result-box">
-                <div style="font-weight:bold; color:#38bdf8; margin-bottom:8px; font-size:15px;">💡 성격 특징 심층 분석</div>
-                <div id="res-desc" style="font-size:14px; line-height:1.7;"></div>
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:8px; font-size:15px;">🧠 융 심리학 기반 4대 인지기능 스택</div>
+                <div id="res-cognitive" style="font-size:13.8px; line-height:1.75; color:#e2e8f0;"></div>
+            </div>
+
+            <div class="result-box">
+                <div style="font-weight:bold; color:#38bdf8; margin-bottom:8px; font-size:15px;">💡 입체 성격 특징 심층 분석</div>
+                <div id="res-desc" style="font-size:14px; line-height:1.75;"></div>
             </div>
 
             <div class="result-box">
@@ -386,7 +490,7 @@
                 <div id="res-match" style="font-size:14px; line-height:1.7;"></div>
             </div>
 
-            <a id="res-wiki-link" href="#" class="wiki-link-btn">📖 해당 성격 유형 상세 도감 보러가기 &rarr;</a>
+            <a id="res-wiki-link" href="#" class="wiki-link-btn">📖 해당 성격 유형 상세 백과사전 보러가기 &rarr;</a>
             
             <button class="share-btn" onclick="shareResult()">결과 링크 복사하고 공유하기</button>
             <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">다시 테스트하기</button>
@@ -396,200 +500,1025 @@
 
     <script>
         const questions = [
-            // E vs I
             {
-                q: "지친 한 주를 보낸 뒤 주말을 맞이했을 때, 당신이 에너지를 충전하는 방식은?",
-                choices: [
-                    { text: "친구들과 맛있는 것을 먹거나 밖에서 사람들과 어울려야 기운이 난다.", axis: "E" },
-                    { text: "약속 없이 집에서 혼자만의 시간(영화, 게임, 휴식)을 보낼 때 비로소 힐링된다.", axis: "I" }
-                ]
+                        "category": "에너지 방향 & 사회적 역학",
+                        "q": "금요일 저녁, 일주일간 고된 업무와 일정을 마치고 퇴근하는 길입니다. 당신이 가장 바라는 주말의 시작은?",
+                        "choices": [
+                                    {
+                                                "text": "미리 잡아둔 핫플레이스 모임이나 파티에 합류해 많은 사람들과 어울리며 에너지를 발산한다.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "당장 연락해서 나올 수 있는 편한 친구들을 급히 불러내어 즉흥적으로 맥주 한잔하며 수다를 떤다.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "P": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "북적이는 곳보다는 취미 클래스나 운동 모임처럼 목적이 분명한 소규모 외부 활동에 참여한다.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "가장 마음 맞는 단짝 한 명이나 연인과 조용하고 분위기 좋은 식당에서 오붓하게 깊은 대화를 나눈다.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "아무와도 만나지 않고 집에 돌아와 핸드폰 알림을 꺼둔 채 나만의 독서·게임·사색에 완전히 몰입한다.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "새로운 모임이나 낯선 사람들과의 술자리에 참석했을 때 당신의 행동은?",
-                choices: [
-                    { text: "먼저 말을 걸고 분위기를 주도하며 어렵지 않게 대화에 녹아든다.", axis: "E" },
-                    { text: "처음에는 조용히 관찰하며, 친한 사람 한두 명과 깊은 대화를 나누는 편이다.", axis: "I" }
-                ]
+                        "category": "에너지 방향 & 대인 포지셔닝",
+                        "q": "처음 보는 사람들이 절반 이상인 낯선 네트워킹 파티나 동호회 모임에 참석했습니다. 당신의 자연스러운 행동은?",
+                        "choices": [
+                                    {
+                                                "text": "어색한 정적을 깨고 먼저 자기소개를 주도하며, 사람들의 공통 관심사를 찾아 전체 분위기를 띄운다.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "흥미로워 보이는 주제가 나오는 테이블 이곳저곳을 자유롭게 오가며 새로운 사람들과 대화를 주고받는다.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "P": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "모임의 진행 순서나 공식 프로그램에 맞춰 예의 바르고 적절하게 사람들과 인사를 나눈다.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "내 옆자리에 앉은 사람이나 먼저 말을 걸어오는 한두 명과 차분하게 깊은 대화를 이어가며 탐색한다.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "전체적인 모임의 구조와 사람들의 성향을 한발 물러서서 조용히 관찰하며 꼭 필요한 말만 아껴서 한다.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "획기적인 아이디어가 떠올랐을 때 당신의 처리 방식은?",
-                choices: [
-                    { text: "주변 사람들에게 즉시 말로 꺼내놓고 토론하며 아이디어를 구체화한다.", axis: "E" },
-                    { text: "혼자 머릿속으로 충분히 숙고하고 정리한 후에 완성된 생각을 발표한다.", axis: "I" }
-                ]
-            },
-
-            // S vs N
-            {
-                q: "설명서나 책을 읽을 때 당신이 더 편안하게 받아들이는 정보의 형태는?",
-                choices: [
-                    { text: "실제 적용 사례, 명확한 수치, 눈에 보이는 구체적인 단계별 사실", axis: "S" },
-                    { text: "전체적인 개념과 이론, 비유와 은유, 미래의 가능성과 아이디어", axis: "N" }
-                ]
-            },
-            {
-                q: "어떤 프로젝트나 과업을 시작할 때 당신의 접근법은?",
-                choices: [
-                    { text: "과거에 이미 검증된 성공 매뉴얼과 절차를 충실히 따르는 방식", axis: "S" },
-                    { text: "기존의 방식을 뒤엎고 나만의 새롭고 독창적인 방식을 시도해보는 것", axis: "N" }
-                ]
-            },
-            {
-                q: "생각에 잠길 때 당신의 시선이 머무는 곳은?",
-                choices: [
-                    { text: "현재 눈앞에 벌어지고 있는 오감의 현실과 당장 처리해야 할 실무", axis: "S" },
-                    { text: "10년 뒤의 세상, 우주의 원리, 보이지 않는 인간의 심리와 미래의 환상", axis: "N" }
-                ]
-            },
-
-            // T vs F
-            {
-                q: "친구가 극심한 스트레스를 호소하며 힘든 일을 털어놓을 때 당신의 첫 반응은?",
-                choices: [
-                    { text: "왜 그런 일이 생겼는지 상황의 원인을 분석하고 실질적인 해결책을 제시한다.", axis: "T" },
-                    { text: "얼마나 힘들었을지 친구의 감정에 깊이 공감하고 위로와 정서적 지지를 보낸다.", axis: "F" }
-                ]
-            },
-            {
-                q: "조직이나 팀에서 중요한 결정을 내려야 할 때 가장 우선하는 기준은?",
-                choices: [
-                    { text: "개인적인 사정에 흔들리지 않는 공정한 원칙과 객관적 논리, 손익 계산", axis: "T" },
-                    { text: "구성원들의 사기, 인간적인 화합, 그리고 타인에게 미칠 정서적 영향", axis: "F" }
-                ]
-            },
-            {
-                q: "대화 중 상대방의 의견에 명백한 논리적 오류가 발견되었을 때 당신은?",
-                choices: [
-                    { text: "잘못된 사실을 정확하게 짚고 넘어가야 직성이 풀린다.", axis: "T" },
-                    { text: "상대방의 체면이나 기분이 상하지 않도록 완곡하게 돌려 말하거나 침묵한다.", axis: "F" }
-                ]
-            },
-
-            // J vs P
-            {
-                q: "친구들과 3박 4일 여행을 떠나기로 했을 때 당신의 여행 스타일은?",
-                choices: [
-                    { text: "일자별 동선, 맛집 리스트, 비상시 대안까지 시간표처럼 계획해 둔다.", axis: "J" },
-                    { text: "숙소와 항공권만 예약해두고, 구체적인 일정은 그날의 기분에 따라 즉흥적으로 정한다.", axis: "P" }
-                ]
+                        "category": "에너지 방향 & 사고 확장",
+                        "q": "회의나 팀 프로젝트 도중 머릿속에 번뜩이는 아이디어가 떠올랐을 때, 당신이 이를 발전시키는 방식은?",
+                        "choices": [
+                                    {
+                                                "text": "그 자리에서 즉시 발언권을 얻어 화이트보드에 적어가며 팀원들과 실시간 토론으로 살을 붙인다.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "주변 동료들에게 가볍게 '이런 건 어때?'라고 던져보며 사람들의 표정과 현장 반응을 먼저 살핀다.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "F": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "핵심 요지만 간결하게 공유한 뒤, 실무적으로 구현 가능한지 팀원들의 객관적 피드백을 요청한다.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "수첩이나 메모장에 핵심 키워드를 조용히 적어두고, 근거 자료를 검토한 뒤 정돈된 문서로 제시한다.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "머릿속에서 반론 가능성과 논리적 허점을 끝까지 시뮬레이션해 본 후, 완벽하다고 확신할 때만 입을 연다.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "마감 기한이 정해진 중요한 프로젝트를 수행할 때 당신의 작업 패턴은?",
-                choices: [
-                    { text: "할 일을 캘린더에 쪼개어 배분하고 마감 며칠 전에 미리 끝마쳐 둔다.", axis: "J" },
-                    { text: "마감 직전까지 자료를 모으다가, 막판에 폭발적인 집중력으로 벼락치기한다.", axis: "P" }
-                ]
+                        "category": "에너지 방향 & 스트레스 회복",
+                        "q": "예기치 못한 큰 실패나 개인적인 슬럼프를 겪어 마음이 무거울 때, 내면의 에너지를 회복하는 당신만의 방식은?",
+                        "choices": [
+                                    {
+                                                "text": "사람들을 만나 실컷 털어놓고 함께 웃고 떠들다 보면 어느새 복잡한 머릿속이 시원하게 리셋된다.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "운동, 드라이브, 새로운 장소 탐방 등 몸을 역동적으로 움직이는 외부 활동에 에너지를 쏟아부어 잊는다.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "S": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "비슷한 문제를 겪어본 선배나 전문가 한 명을 찾아가 실질적인 조언을 구하며 돌파구를 찾는다.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "혼자 방에서 일기나 글을 쓰거나, 좋아하는 영화·음악에 깊이 잠겨 감정을 차분히 가라앉힌다.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "외부와의 연락을 잠시 차단하고, 무엇이 문제였는지 원인과 앞으로의 대책을 홀로 냉정하게 복기한다.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
             },
             {
-                q: "당신의 방이나 책상, 컴퓨터 바탕화면의 상태는?",
-                choices: [
-                    { text: "물건이 정해진 자리에 깔끔하게 정리되어 있어야 마음이 편안하다.", axis: "J" },
-                    { text: "남들이 보기엔 어질러져 있어도 나만의 손길이 닿는 곳에 두는 것이 편하다.", axis: "P" }
-                ]
+                        "category": "에너지 방향 & 일상 커뮤니케이션",
+                        "q": "일상적인 연락이나 메신저(카카오톡, DM, 전화) 소통에 대한 당신의 가장 솔직한 성향은?",
+                        "choices": [
+                                    {
+                                                "text": "단톡방 여러 곳에서 대화를 동시에 주도하며, 글로 치기 답답하면 바로 전화를 거는 편이 훨씬 편하다.",
+                                                "scores": {
+                                                            "E": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "일상 속 소소한 사진이나 재밌는 릴스·밈을 친구들에게 수시로 공유하며 리액션을 주고받는 걸 즐긴다.",
+                                                "scores": {
+                                                            "E": 2,
+                                                            "S": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "업무나 공적인 연락은 칼같이 주고받되, 사적인 대화는 저녁 시간 등 정해진 여유 시간에만 나눈다.",
+                                                "scores": {
+                                                            "E": 1,
+                                                            "I": 1,
+                                                            "T": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "용건이 있거나 중요한 약속을 잡을 때는 빠르게 답장하지만, 의미 없는 잡담이 길어지면 피로감을 느낀다.",
+                                                "scores": {
+                                                            "I": 2,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "갑작스러운 전화벨 소리는 부담스럽고, 알림을 쌓아두었다가 내 마음의 여유가 생길 때 몰아서 텍스트로 답한다.",
+                                                "scores": {
+                                                            "I": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "정보 인식 & 학습 메커니즘",
+                        "q": "새로운 비즈니스나 생소한 분야의 기술을 처음 배울 때, 당신의 뇌가 가장 먼저 요구하는 정보는?",
+                        "choices": [
+                                    {
+                                                "text": "지금 당장 따라 해볼 수 있는 단계별 실습 매뉴얼과 실제로 검증된 성공 데이터 및 수치",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "직접 손으로 만져보고 조작해 보면서 몸으로 부딪혀 체득할 수 있는 생생한 현장 경험",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "기본적인 이론 개요를 먼저 훑어본 뒤, 실제 현장에서 어떻게 쓰이는지 대표 사례를 대조해 본다.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "T": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "이 지식을 다른 영역과 융합했을 때 파생될 수 있는 미래의 무궁무진한 잠재력과 창의적 영감",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "이 기술이 왜 탄생했는지 관통하는 근본 원리와 전체 생태계를 조망하는 거대한 설계도(Big Picture)",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "T": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "정보 인식 & 작품 해석 관점",
+                        "q": "인상 깊은 영화나 소설을 감상한 직후, 친구들과 감상을 나눌 때 당신이 주로 집중하는 포인트는?",
+                        "choices": [
+                                    {
+                                                "text": "배우들의 사실적인 연기 디테일, 화려한 연출과 사운드, 실제 역사나 현실 고증이 얼마나 정확한지",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "가장 명장면이었던 구체적인 사건과 대사, 그리고 주인공이 겪은 현실적인 에피소드 자체의 재미",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "작품의 기승전결 개연성과 등장인물들이 처한 현실적 상황 및 심리 변화의 자연스러운 흐름",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "F": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'만약 결말 이후에 주인공이 다른 선택을 했다면?'이라며 세계관을 확장하는 상상의 나래와 토론",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "감독이 소품과 복선에 숨겨둔 철학적 은유(메타포)와 작품이 던지는 인간 본성에 대한 본질적 메시지",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "정보 인식 & 문제 해결 방식",
+                        "q": "조직이나 일상에서 반복되는 비효율적인 문제를 마주했을 때, 당신이 선호하는 해결 접근법은?",
+                        "choices": [
+                                    {
+                                                "text": "과거의 유사 사례 데이터를 철저히 조사하여, 가장 리스크가 적고 입증된 정석 솔루션을 적용한다.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "현재 가용한 예산과 자원 안에서 당장 눈앞의 급한 불을 가장 빠르고 실용적으로 끄는 방법을 택한다.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "T": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "기존 시스템의 안정적인 틀은 유지하되, 가장 병목이 심한 구간에 새로운 도구를 부분 도입해 테스트한다.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "I": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "눈앞의 현상 너머에 숨겨진 구조적 원인과 3년 뒤 발생할 연쇄 파급 효과를 예측해 모델을 재설계한다.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "T": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "기존의 관행 자체를 원점에서 의심하고, 판을 완전히 새로 짜는 혁신적이고 실험적인 패러다임을 제시한다.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "P": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "정보 인식 & 커뮤니케이션 화법",
+                        "q": "누군가에게 복잡한 상황을 설명하거나 발표할 때 나타나는 당신만의 화법 특징은?",
+                        "choices": [
+                                    {
+                                                "text": "육하원칙에 입각해 시간 순서대로 정확한 팩트, 날짜, 수치 위주로 오해의 여지 없이 설명한다.",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "내가 직접 보고 들은 생생한 현장 묘사와 구체적인 예시를 곁들여 현실감 있게 전달한다.",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "결론과 핵심 요약을 먼저 제시한 뒤, 상대방이 궁금해하는 부분만 구체적인 근거를 들어 보충한다.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "하나의 주제에서 연관된 또 다른 아이디어로 사고가 역동적으로 뻗어나가며 통찰력 있는 화두를 던진다.",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "찰떡같은 비유와 상징적인 키워드를 사용하여 전체적인 맥락과 핵심 본질을 단번에 관통시킨다.",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "정보 인식 & 시공간 의식",
+                        "q": "산책을 하거나 멍하니 창밖을 바라볼 때, 당신의 의식이 주로 머무는 영역은?",
+                        "choices": [
+                                    {
+                                                "text": "지금 느껴지는 바람의 온도, 주변 풍경의 색감, 오늘 저녁에 먹을 메뉴와 당장 처리할 현실의 일들",
+                                                "scores": {
+                                                            "S": 3,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "최근에 있었던 인상적인 사건들의 기억과 내가 차곡차곡 쌓아온 일상의 루틴 및 경험들",
+                                                "scores": {
+                                                            "S": 2,
+                                                            "J": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "현재 진행 중인 일들의 진척 상황을 점검하고, 다가오는 이번 달의 계획과 현실적 목표를 그려본다.",
+                                                "scores": {
+                                                            "S": 1,
+                                                            "N": 1,
+                                                            "J": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "꼬리에 꼬리를 무는 철학적 질문들, 가보지 않은 평행우주나 기발한 공상적 아이디어의 세계",
+                                                "scores": {
+                                                            "N": 2,
+                                                            "I": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "5년, 10년 뒤 내가 그려나갈 삶의 거대한 궤적과 앞으로 세상이 어떻게 변할지에 대한 미래 시나리오",
+                                                "scores": {
+                                                            "N": 3,
+                                                            "J": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "판단 기준 & 공감 메커니즘",
+                        "q": "친한 동료가 '이번 프로젝트에서 내가 큰 실수를 해서 팀장님께 심하게 깨졌어...'라며 우울해할 때 당신의 반응은?",
+                        "choices": [
+                                    {
+                                                "text": "무슨 실수였는지 경위를 정확히 묻고, 지금 당장 수습할 수 있는 가장 현실적인 복구 플랜을 함께 짜준다.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "냉정하게 상황을 분석해 보니 너만의 잘못이 아니라 시스템 문제도 있다며 객관적 인과관계를 짚어준다.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "N": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "일단 위로의 말을 건넨 뒤, 감정이 조금 진정되면 앞으로 비슷한 실수를 막을 실무 팁을 알려준다.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "E": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "묵묵히 옆에서 이야기를 끝까지 들어주며, 동료가 스스로 감정을 추스를 수 있도록 맛있는 걸 사주며 응원한다.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'얼마나 마음 졸이고 속상했어...'라며 먼저 동료의 다친 자존심과 감정에 깊이 이입해 따뜻하게 위로한다.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "판단 기준 & 조직 의사결정",
+                        "q": "팀 리더로서 성과가 부진하지만 사정이 딱한 팀원 A와, 실력은 뛰어나지만 독단적인 팀원 B 중 한 명만 핵심 보직에 남겨야 한다면?",
+                        "choices": [
+                                    {
+                                                "text": "프로젝트의 성패와 조직 전체의 생존이 최우선이므로, 명확한 성과 지표(KPI)에 따라 실력이 검증된 B를 선택한다.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "감정적 동정심은 배제하되, B의 독단성이 가져올 리스크와 A의 교체 비용을 손익 계산표로 냉철히 비교해 결정한다.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "두 사람 모두에게 명확한 기한과 조건부 과제를 부여한 뒤, 그 결과 데이터와 협업 태도를 합산해 공정히 평가한다.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "N": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "누구 한 명을 내치는 결정 자체에 큰 고뇌를 느끼며, 두 사람의 역할을 조정해 어떻게든 함께 갈 수 있는 중재안을 찾는다.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "P": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "팀의 신뢰와 인간적 유대를 해치는 독단성보다는, 동기를 부여했을 때 함께 성장할 수 있는 A에게 기회를 준다.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "판단 기준 & 토론과 피드백",
+                        "q": "열띤 회의나 논쟁 중에 상대방이 내 의견의 약점을 날카롭게 지적했을 때 당신의 내면 반응은?",
+                        "choices": [
+                                    {
+                                                "text": "상대의 지적이 논리적으로 타당하다면 기분 나빠하기보다 즉시 수용하고 내 가설을 더 완벽하게 수정한다.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "상대방의 반론 근거에 팩트 오류가 없는지 조목조목 따져 묻고, 더 치밀한 데이터로 재반박에 나선다.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "타당한 지적은 메모해 두되, 회의가 과열되지 않도록 감정을 배제한 채 중립적인 어조로 논점을 정리한다.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "I": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "회의장 전체의 분위기가 얼어붙는 것이 불편하여, 일단 상대의 의견을 존중하는 제스처로 긴장감을 완화한다.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "내용의 맞고 틀림을 떠나, 공격적인 말투나 공개적인 자리에서 나를 배려하지 않은 태도에 마음의 상처를 입는다.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "판단 기준 & 인간적 가치관",
+                        "q": "당신이 누군가를 '정말 배울 점이 많고 훌륭한 사람이다'라고 평가할 때 가장 결정적인 기준은?",
+                        "choices": [
+                                    {
+                                                "text": "어떤 복잡한 문제도 명쾌하게 구조화해 내는 압도적인 지성과 흔들림 없는 일관된 원칙",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "감정에 휘둘리지 않고 자신의 분야에서 확실한 결과물과 전문적 역량을 증명해 내는 실력",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "S": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "차분한 이성적 판단력을 갖추면서도 주변 사람들에게 예의와 도리를 잃지 않는 균형 감각",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "주변 사람들에게 따뜻한 긍정 에너지를 전파하고, 누구와도 조화롭게 어우러지는 포용력",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "약자나 소외된 사람까지 세심하게 배려할 줄 아는 깊은 성숙함과 진정성 있는 인품",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "판단 기준 & 솔직함과 배려",
+                        "q": "친구가 새로 산 고가의 옷을 입고 와서 '나 이거 어때? 솔직하게 말해줘!'라고 물었는데, 사실 전혀 어울리지 않는다면?",
+                        "choices": [
+                                    {
+                                                "text": "'솔직히 말하면 네 체형이나 톤에는 이전 스타일이 훨씬 나아. 환불이나 교환 가능해?'라고 팩트를 말해준다.",
+                                                "scores": {
+                                                            "T": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "옷의 핏이나 컬러 조합 중 어떤 부분이 왜 어색해 보이는지 객관적인 스타일링 보완책을 조언해 준다.",
+                                                "scores": {
+                                                            "T": 2,
+                                                            "N": 1,
+                                                            "J": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "장점을 먼저 하나 칭찬해 기분을 맞춰준 뒤, '다만 바지나 아우터는 다른 걸 매치하면 훨씬 예쁘겠다'고 덧붙인다.",
+                                                "scores": {
+                                                            "T": 1,
+                                                            "F": 1,
+                                                            "E": 1,
+                                                            "P": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'오, 새로운 시도네! 너다운 개성이 느껴져!'라며 친구의 도전 자체를 기분 좋게 응원하고 넘어간다.",
+                                                "scores": {
+                                                            "F": 2,
+                                                            "P": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "이미 사서 신나 있는 친구의 기분을 망치고 싶지 않아, 소재나 색상 중 예쁜 구석을 찾아내어 진심으로 칭찬해 준다.",
+                                                "scores": {
+                                                            "F": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "생활 양식 & 여행 스타일",
+                        "q": "오랫동안 기다려온 5일간의 해외여행을 준비할 때, 당신의 실제 준비 스타일에 가장 가까운 것은?",
+                        "choices": [
+                                    {
+                                                "text": "항공·숙소는 물론 시간대별 이동 경로, 식당 영업시간, 예산 시트와 플랜 B까지 완벽히 세팅해야 안심된다.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "꼭 가보고 싶은 핵심 랜드마크와 동선 축만 굵직하게 잡아두고, 일자별 목표를 명확히 정리해 둔다.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "N": 1,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "오전에는 미리 예약한 필수 코스를 돌고, 오후 시간대는 비워두어 현지 상황에 따라 유동적으로 즐긴다.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "S": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "계획표에 묶이는 순간 여행이 일처럼 느껴진다. 그날의 날씨와 기분, 우연한 만남에 모든 가능성을 열어둔다.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "비행기와 첫날 숙소 정도만 예약하고, 현지에서 끌리는 골목길과 현지인 추천 맛집을 따라 발길 닿는 대로 누빈다.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "S": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "생활 양식 & 마감 관리",
+                        "q": "2주 뒤에 제출해야 하는 굵직한 개인 과제나 기획안이 주어졌을 때, 당신의 전형적인 업무 진행 곡선은?",
+                        "choices": [
+                                    {
+                                                "text": "첫날 전체 분량을 일자별 마일스톤으로 쪼개어 매일 정해진 할당량을 완수하고, 마감 이틀 전에 여유 있게 검토한다.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "초반에 목차와 뼈대를 빠르게 확정 지어 불확실성을 제거한 뒤, 계획된 순서에 따라 차근차근 채워 나간다.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "S": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "전체 마감 기한은 엄수하되, 매일의 작업량은 그날의 컨디션과 집중도에 따라 탄력적으로 조절한다.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "N": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "계획표를 짜는 시간에 일단 흥미로운 부분부터 손 가는 대로 건드려 보며, 작업 도중 방향을 유연하게 수시로 바꾼다.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "E": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "초반에는 다양한 레퍼런스를 구경하며 느긋하게 아이디어를 숙성시키다가, 마감이 코앞에 닥쳤을 때 초인적인 집중력을 발휘한다.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "생활 양식 & 작업 환경",
+                        "q": "집중해서 일하거나 공부해야 할 때, 당신의 책상 위와 디지털 폴더(바탕화면)의 상태는 어떠한가요?",
+                        "choices": [
+                                    {
+                                                "text": "물건마다 지정된 위치가 있고 파일도 연도·카테고리별 폴더 트리로 정교하게 분류되어 있어야 집중이 잘 된다.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "업무 시작 전 오늘 해야 할 체크리스트(To-Do List)를 눈에 보이게 정리해 두고 하나씩 지워나가는 쾌감을 즐긴다.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "T": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "중요한 핵심 문서 폴더만 깔끔하게 유지하고, 현재 진행 중인 작업 파일들은 바탕화면에 편하게 꺼내둔다.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "T": 1,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "평소엔 자유롭게 늘어놓고 쓰다가, 어느 날 갑자기 영감이 꽂히면 밤을 새워서라도 대청소와 배치를 싹 바꾼다.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "남들이 보기엔 다소 어질러져 보여도, 내 동선과 손이 닿는 직관적인 위치에 필요한 것들이 펼쳐져 있는 게 편하다.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "I": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "생활 양식 & 변수 대처",
+                        "q": "완벽하게 세워둔 주말 계획이나 프로젝트 일정이 외부의 갑작스러운 변수로 인해 완전히 취소·변경되었을 때 당신은?",
+                        "choices": [
+                                    {
+                                                "text": "예측 범위를 벗어난 상황에 상당한 스트레스와 피로를 느끼며, 즉시 대체 일정을 다시 짜서 통제권을 회복하려 한다.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "I": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "약속이나 규칙이 깨진 원인을 명확히 짚고 넘어가며, 다음부터 같은 차질이 생기지 않도록 매뉴얼을 보완한다.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "T": 1,
+                                                            "S": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "처음엔 살짝 아쉽지만, 빠르게 현실을 수용하고 평소 미뤄두었던 다른 할 일이나 휴식으로 일정을 전환한다.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "F": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "변수는 언제든 생길 수 있다고 자연스럽게 받아들이며, 흐름에 몸을 맡기고 즉흥적인 대안을 유쾌하게 탐색한다.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "F": 1,
+                                                            "N": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'오히려 좋아! 뜻밖의 자유 시간이 생겼네!'라며 바뀐 상황에 맞춰 그 순간 즐길 수 있는 새로운 거리를 찾는다.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "E": 1
+                                                }
+                                    }
+                        ]
+            },
+            {
+                        "category": "생활 양식 & 의사결정 종결",
+                        "q": "중요한 쇼핑(노트북, 가구 등)이나 진로 결정을 앞두었을 때 당신의 최종 결정 패턴은?",
+                        "choices": [
+                                    {
+                                                "text": "미리 정해둔 예산과 기준표에 부합하는 후보군을 추려 빠르게 결정을 내리고, 한 번 결정한 뒤에는 미련을 두지 않는다.",
+                                                "scores": {
+                                                            "J": 3,
+                                                            "T": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "주변 전문가나 신뢰할 수 있는 리뷰를 꼼꼼히 비교 검증한 뒤 계획된 기한 내에 흔들림 없이 구매를 완료한다.",
+                                                "scores": {
+                                                            "J": 2,
+                                                            "S": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "최종 후보 2~3개까지는 체계적으로 압축해 두지만, 마지막 결제 버튼을 누르기 직전까지 꽤 신중하게 고민한다.",
+                                                "scores": {
+                                                            "J": 1,
+                                                            "P": 1,
+                                                            "N": 1,
+                                                            "F": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "오랫동안 고민하다가도 어느 순간 직관이나 현장의 느낌에 강하게 끌리면 그 자리에서 전격적으로 선택한다.",
+                                                "scores": {
+                                                            "P": 2,
+                                                            "F": 1,
+                                                            "E": 1
+                                                }
+                                    },
+                                    {
+                                                "text": "'더 좋은 선택지가 있지 않을까?'라는 생각에 마지막 순간까지 결정을 보류하며 새로운 정보와 가능성을 계속 탐색한다.",
+                                                "scores": {
+                                                            "P": 3,
+                                                            "N": 1
+                                                }
+                                    }
+                        ]
             }
-        ];
+];
 
         const mbtiResults = {
             INTJ: {
-                title: "용의주도한 전략가",
-                desc: "거대한 비전과 치밀한 논리로 목표를 달성하는 전략적 사색가입니다. 감정에 휘둘리지 않고 독립적으로 문제를 해결하는 탁월한 장기 전략가입니다.",
-                careers: "경영 전략 기획자, 데이터 과학자, 시스템 설계자, 금융 분석가, 연구원",
-                match: "환상의 궁합: ENFP, ENTP / 주의할 궁합: ESFP, ISFJ"
+                title: "용의주도한 전략가 (Architect)",
+                cognitive: "• <strong>주기능:</strong> 내향 직관 (Ni) — 현상 이면의 본질과 장기적 미래 궤적 통찰<br>• <strong>부기능:</strong> 외향 사고 (Te) — 목표 달성을 위한 효율적 시스템 설계 및 실행<br>• <strong>3차기능:</strong> 내향 감정 (Fi) — 타협하지 않는 내면의 독자적 윤리와 가치관<br>• <strong>열등기능:</strong> 외향 감각 (Se) — 과도한 스트레스 시 나타나는 감각적 충동성",
+                desc: "거대한 비전과 치밀한 논리로 목표를 달성하는 전략적 사색가입니다. 감정에 휘둘리지 않고 복잡한 문제를 구조화하여 독립적으로 돌파해 내는 탁월한 장기 설계자입니다.",
+                careers: "경영 전략 기획자, AI/데이터 과학자, 시스템 아키텍트, 퀀트 금융 분석가, R&D 연구원",
+                match: "환상의 궁합: ENFP, ENTP / 보완이 필요한 궁합: ESFP, ISFJ"
             },
             INTP: {
-                title: "논리적인 사색가",
-                desc: "사물의 본질적 작동 원리를 파고드는 지적 호기심의 화신입니다. 고정관념을 거부하고 독창적인 아이디어와 정밀한 논리로 문제를 해체합니다.",
-                careers: "소프트웨어 아키텍트, 이론 연구원, 철학자, 퀀트 분석가, 테크 창업가",
-                match: "환상의 궁합: ENTJ, ENFJ / 주의할 궁합: ESFJ, ESTJ"
+                title: "논리적인 사색가 (Logician)",
+                cognitive: "• <strong>주기능:</strong> 내향 사고 (Ti) — 사물의 근본 작동 원리와 논리적 정합성 해체 분석<br>• <strong>부기능:</strong> 외향 직관 (Ne) — 다각도의 지적 가능성과 창의적 가설 확장<br>• <strong>3차기능:</strong> 내향 감각 (Si) — 검증된 지식 아카이브 축적과 데이터 대조<br>• <strong>열등기능:</strong> 외향 감정 (Fe) — 사회적 분위기 적응 및 감정 표현의 어색함",
+                desc: "우주와 사물의 본질적 작동 원리를 파고드는 지적 호기심의 화신입니다. 고정관념을 거부하고 독창적인 관점과 정밀한 논리 체계로 난제를 해체합니다.",
+                careers: "소프트웨어 아키텍트, 이론 물리학자/연구원, 철학자, 알고리즘 설계자, 테크 창업가",
+                match: "환상의 궁합: ENTJ, ENFJ / 보완이 필요한 궁합: ESFJ, ESTJ"
             },
             ENTJ: {
-                title: "대담한 통솔자",
-                desc: "카리스마 넘치는 비전과 추진력으로 집단을 이끌어 장애물을 돌파하는 타고난 리더입니다. 성과주의와 효율성을 극대화합니다.",
-                careers: "기업 CEO, 경영 컨설턴트, 벤처 투자자, 프로젝트 디렉터",
-                match: "환상의 궁합: INFP, INTP / 주의할 궁합: ISFP, ESFP"
+                title: "대담한 통솔자 (Commander)",
+                cognitive: "• <strong>주기능:</strong> 외향 사고 (Te) — 조직 자원 최적화, 결단력 있는 지휘 및 성과 도출<br>• <strong>부기능:</strong> 내향 직관 (Ni) — 장기적 전략 로드맵과 거시적 비전 수립<br>• <strong>3차기능:</strong> 외향 감각 (Se) — 현실의 기회를 즉각 포착하는 역동적 추진력<br>• <strong>열등기능:</strong> 내향 감정 (Fi) — 개인적 감정의 소외 및 타인의 정서적 취약성 간과",
+                desc: "카리스마 넘치는 비전과 압도적 추진력으로 집단을 이끌어 장애물을 돌파하는 타고난 사령관입니다. 비효율을 용납하지 않고 최단 경로로 성과를 완성합니다.",
+                careers: "기업 CEO/임원, 경영 컨설턴트, 벤처 캐피탈리스트, 변호사, 대형 프로젝트 디렉터",
+                match: "환상의 궁합: INFP, INTP / 보완이 필요한 궁합: ISFP, ESFP"
             },
             ENTP: {
-                title: "뜨거운 논쟁가",
-                desc: "상식을 뒤흔드는 위트와 기지로 끊임없이 새로운 가능성을 실험하는 지적 모험가입니다. 게임의 룰을 뒤바꾸는 데 희열을 느낍니다.",
-                careers: "스타트업 창업가, 크리에이티브 디렉터, 변호사, 제품 기획자",
-                match: "환상의 궁합: INFJ, INTJ / 주의할 궁합: ISFJ, ISTJ"
+                title: "뜨거운 논쟁가 (Debater)",
+                cognitive: "• <strong>주기능:</strong> 외향 직관 (Ne) — 경계를 넘나드는 아이디어 폭발과 기존 통념 파괴<br>• <strong>부기능:</strong> 내향 사고 (Ti) — 날카로운 논리적 허점 포착과 독자적 솔루션 구축<br>• <strong>3차기능:</strong> 외향 감정 (Fe) — 유머와 재치로 대중의 심리를 읽고 매료시키는 감각<br>• <strong>열등기능:</strong> 내향 감각 (Si) — 반복적 루틴과 세부 행정 절차에 대한 지루함",
+                desc: "상식을 뒤흔드는 위트와 기지로 끊임없이 새로운 가능성을 실험하는 지적 모험가입니다. 남들이 당연하게 여기는 게임의 룰을 뒤바꾸는 데서 짜릿한 희열을 느낍니다.",
+                careers: "연쇄 창업가, 크리에이티브 디렉터, 전략 마케터, 벤처 투자 심사역, 프로듀서",
+                match: "환상의 궁합: INFJ, INTJ / 보완이 필요한 궁합: ISFJ, ISTJ"
             },
             INFJ: {
-                title: "통찰력 있는 선지자",
-                desc: "타인의 숨겨진 감정과 세상의 본질을 꿰뚫어 보는 고결한 이상주의자입니다. 조용하지만 강철 같은 신념으로 사람들에게 영감을 줍니다.",
-                careers: "심리상담가, 작가, 인문학 연구원, 예술 치료사, 비영리 단체장",
-                match: "환상의 궁합: ENTP, ENFP / 주의할 궁합: ESTP, ESTJ"
+                title: "통찰력 있는 선지자 (Advocate)",
+                cognitive: "• <strong>주기능:</strong> 내향 직관 (Ni) — 인간 심리의 심연과 삶의 본질적 의미를 꿰뚫는 통찰<br>• <strong>부기능:</strong> 외향 감정 (Fe) — 타인의 아픔에 공명하고 공동체의 성장을 돕는 헌신<br>• <strong>3차기능:</strong> 내향 사고 (Ti) — 통찰을 뒷받침하는 정교한 내적 논리와 철학적 체계<br>• <strong>열등기능:</strong> 외향 감각 (Se) — 현실의 과도한 시각·청각 자극에 대한 피로감",
+                desc: "타인의 숨겨진 내면과 세상의 본질을 조용히 꿰뚫어 보는 고결한 이상주의자입니다. 온화한 외면 속에 강철 같은 신념을 품고 세상에 선한 영향력을 전파합니다.",
+                careers: "심리상담 전문가, 작가/에세이스트, 인문학 연구자, 조직문화 디렉터, 예술 치료사",
+                match: "환상의 궁합: ENTP, ENFP / 보완이 필요한 궁합: ESTP, ESTJ"
             },
             INFP: {
-                title: "열정적인 중재자",
-                desc: "자신만의 고유한 내면 가치와 진정성을 수호하는 따뜻한 음유시인입니다. 세상의 소외된 이들에게 깊은 연민과 감수성을 보냅니다.",
-                careers: "소설가, 일러스트레이터, 심리치료사, 콘텐츠 기획자, 환경운동가",
-                match: "환상의 궁합: ENFJ, ENTJ / 주의할 궁합: ESTJ, ESTP"
+                title: "열정적인 중재자 (Mediator)",
+                cognitive: "• <strong>주기능:</strong> 내향 감정 (Fi) — 진정성 있는 자아 정체성과 순수한 내면 가치 수호<br>• <strong>부기능:</strong> 외향 직관 (Ne) — 풍부한 상상력과 서사적·예술적 영감의 확장<br>• <strong>3차기능:</strong> 내향 감각 (Si) — 소중한 추억과 정서적 여운을 깊이 간직하는 감수성<br>• <strong>열등기능:</strong> 외향 사고 (Te) — 냉정한 효율성 추구 및 강압적 조직 규율에 대한 부담",
+                desc: "자신만의 고유한 내면 가치와 진정성을 수호하는 따뜻한 낭만주의자입니다. 세상의 소외된 곳을 어루만지며 예술과 깊은 공감으로 사람들의 마음을 치유합니다.",
+                careers: "소설가/시나리오 작가, 일러스트레이터, 심리치료사, 브랜드 스토리텔러, 비영리 활동가",
+                match: "환상의 궁합: ENFJ, ENTJ / 보완이 필요한 궁합: ESTJ, ESTP"
             },
             ENFJ: {
-                title: "정의로운 사회운동가",
-                desc: "타인의 잠재력을 이끌어내고 집단의 조화를 위해 헌신하는 따뜻한 멘토입니다. 사람들의 마음을 움직이는 선한 영향력의 리더입니다.",
-                careers: "교육자, 인사 총괄(HRD), 조직 문화 컨설턴트, 사회복지 전문가",
-                match: "환상의 궁합: INFP, ISFP / 주의할 궁합: ISTP, INTP"
+                title: "정의로운 사회운동가 (Protagonist)",
+                cognitive: "• <strong>주기능:</strong> 외향 감정 (Fe) — 사람들의 감정을 하나로 묶고 잠재력을 일깨우는 리더십<br>• <strong>부기능:</strong> 내향 직관 (Ni) — 타인과 조직이 나아갈 이상적인 성장 비전 제시<br>• <strong>3차기능:</strong> 외향 감각 (Se) — 현장의 에너지를 읽고 생동감 있게 행동하는 표현력<br>• <strong>열등기능:</strong> 내향 사고 (Ti) — 관계의 조화를 위해 자신의 냉정한 손익을 뒤로 미룸",
+                desc: "타인의 잠재력을 이끌어내고 집단의 화합을 위해 헌신하는 카리스마 멘토입니다. 진심 어린 격려와 언변으로 사람들의 마음을 움직이는 타고난 리더입니다.",
+                careers: "교육자/교수, 인사 총괄(HRD), 코칭 전문가, 외교관, 커뮤니케이션 디렉터",
+                match: "환상의 궁합: INFP, ISFP / 보완이 필요한 궁합: ISTP, INTP"
             },
             ENFP: {
-                title: "재기발랄한 활동가",
-                desc: "자유로운 호기심과 무한한 열정으로 사람들에게 활력을 선물하는 에너자이저입니다. 어떤 상황에서도 희망을 찾아내는 축제의 주인공입니다.",
-                careers: "마케터, 광고 기획자, 크리에이터, 이벤트 플래너, 방송 PD",
-                match: "환상의 궁합: INTJ, INFJ / 주의할 궁합: ISTJ, ESTJ"
+                title: "재기발랄한 활동가 (Campaigner)",
+                cognitive: "• <strong>주기능:</strong> 외향 직관 (Ne) — 무한한 호기심으로 세상과 사람들의 가능성을 연결<br>• <strong>부기능:</strong> 내향 감정 (Fi) — 자신만의 확고한 진정성과 뜨거운 인간애<br>• <strong>3차기능:</strong> 외향 사고 (Te) — 열정이 꽂혔을 때 발휘되는 놀라운 프로젝트 추진력<br>• <strong>열등기능:</strong> 내향 감각 (Si) — 반복적인 서류 작업과 디테일 마감에 대한 피로",
+                desc: "자유로운 상상력과 긍정 에너지로 주변에 활력을 불어넣는 영감의 원천입니다. 틀에 박힌 일상을 거부하고 사람들과 진심으로 교감하며 새로운 모험을 개척합니다.",
+                careers: "크리에이티브 기획자, 방송 PD, 저널리스트, UX 디자이너, 브랜드 마케터",
+                match: "환상의 궁합: INTJ, INFJ / 보완이 필요한 궁합: ISTJ, ESTJ"
             },
             ISTJ: {
-                title: "청렴결백한 원칙주의자",
-                desc: "철저한 규칙 준수와 성실함으로 신뢰를 증명하는 현실의 기둥입니다. 한번 맡은 책임은 끝까지 완수해 내는 믿음직한 수호자입니다.",
-                careers: "공무원, 회계사, 감정평가사, 물류 관리자, 데이터 분석가",
-                match: "환상의 궁합: ESFP, ESTP / 주의할 궁합: ENFP, ENTP"
+                title: "청렴결백한 원칙주의자 (Logistician)",
+                cognitive: "• <strong>주기능:</strong> 내향 감각 (Si) — 검증된 데이터와 과거 경험을 토대로 한 빈틈없는 정확성<br>• <strong>부기능:</strong> 외향 사고 (Te) — 명확한 절차와 원칙에 입각한 체계적 업무 완수<br>• <strong>3차기능:</strong> 내향 감정 (Fi) — 말보다 행동으로 증명하는 깊은 책임감과 신의<br>• <strong>열등기능:</strong> 외향 직관 (Ne) — 검증되지 않은 급격한 변화와 불확실성에 대한 경계",
+                desc: "철저한 규칙 준수와 한결같은 성실함으로 신뢰를 증명하는 조직의 기둥입니다. 어떠한 위기 상황에서도 흔들림 없이 맡은 바 책임을 완벽히 완수합니다.",
+                careers: "공인회계사, 법조인/공직자, 컴플라이언스 총괄, 데이터베이스 관리자, 품질 보증 디렉터",
+                match: "환상의 궁합: ESFP, ESTP / 보완이 필요한 궁합: ENFP, ENTP"
             },
             ISFJ: {
-                title: "용감한 수호자",
-                desc: "소중한 사람들을 위해 세심한 배려와 헌신을 아끼지 않는 온화한 조력자입니다. 보이지 않는 곳에서 평화를 지탱하는 따뜻한 방패입니다.",
-                careers: "간호사, 초등교사, 비서, 사회복지사, 사서, 고객 지원 관리자",
-                match: "환상의 궁합: ESTP, ESFP / 주의할 궁합: ENTP, INTJ"
+                title: "용감한 수호자 (Defender)",
+                cognitive: "• <strong>주기능:</strong> 내향 감각 (Si) — 소중한 사람들의 사소한 습관과 필요까지 기억하는 세심함<br>• <strong>부기능:</strong> 외향 감정 (Fe) — 타인의 감정을 배려하고 따뜻한 안정감을 주는 헌신<br>• <strong>3차기능:</strong> 내향 사고 (Ti) — 차분하고 현실적인 상황 분석과 실무적 문제 해결<br>• <strong>열등기능:</strong> 외향 직관 (Ne) — 낯선 환경 변화나 과도한 추상적 논의에 대한 부담",
+                desc: "소중한 사람들과 공동체를 위해 세심한 배려와 헌신을 아끼지 않는 온화한 수호자입니다. 보이지 않는 곳에서 조직의 평화와 실무를 든든히 지탱합니다.",
+                careers: "의료·간호 전문가, 교육자, 인사·복지 담당자, 큐레이터/아카이비스트, 상담가",
+                match: "환상의 궁합: ESTP, ESFP / 보완이 필요한 궁합: ENTP, INTJ"
             },
             ESTJ: {
-                title: "엄격한 관리자",
-                desc: "명확한 룰과 체계적인 추진력으로 조직을 정렬하고 성과를 완성해 내는 실천형 사령관입니다. 공정하고 확실한 지휘를 선호합니다.",
-                careers: "경영 관리자, 금융 감독관, 프로젝트 매니저, 판사, 군 지휘관",
-                match: "환상의 궁합: ISFP, ISTP / 주의할 궁합: INFP, ENFP"
+                title: "엄격한 관리자 (Executive)",
+                cognitive: "• <strong>주기능:</strong> 외향 사고 (Te) — 명확한 규칙과 목표 설정, 조직의 일사불란한 실행 지휘<br>• <strong>부기능:</strong> 내향 감각 (Si) — 입증된 표준 매뉴얼과 역사적 데이터를 기반으로 한 안정성<br>• <strong>3차기능:</strong> 외향 직관 (Ne) — 실무 효율을 높이기 위한 새로운 시스템 도입 검토<br>• <strong>열등기능:</strong> 내향 감정 (Fi) — 비논리적인 감정 호소에 대한 답답함과 내면 감정의 억압",
+                desc: "명확한 원칙과 체계적인 관리 능력으로 혼란스러운 조직을 정렬하고 가시적인 성과를 만들어내는 실전형 지휘관입니다.",
+                careers: "기업 임원/운영 총괄(COO), 판사/검사, 금융 감독관, 공급망(SCM) 디렉터, 프로젝트 매니저",
+                match: "환상의 궁합: ISFP, ISTP / 보완이 필요한 궁합: INFP, ENFP"
             },
             ESFJ: {
-                title: "사교적인 외교관",
-                desc: "뛰어난 친화력과 헌신으로 사람들을 살뜰히 챙기는 분위기 메이커입니다. 타인의 필요에 민감하며 조직의 조화와 화합을 이끕니다.",
-                careers: "승무원, 호텔리어, 홍보 책임자, 상담 치료사, 행사 총괄자",
-                match: "환상의 궁합: ISFP, ISTP / 주의할 궁합: INTP, INTJ"
+                title: "사교적인 외교관 (Consul)",
+                cognitive: "• <strong>주기능:</strong> 외향 감정 (Fe) — 탁월한 공감 능력과 친화력으로 공동체의 화합 주도<br>• <strong>부기능:</strong> 내향 감각 (Si) — 사람들의 실질적 필요를 꼼꼼히 챙기는 현실적 보살핌<br>• <strong>3차기능:</strong> 외향 직관 (Ne) — 모임과 분위기를 다채롭게 만드는 재치 있는 아이디어<br>• <strong>열등기능:</strong> 내향 사고 (Ti) — 타인의 비판이나 냉정한 거리두기에 받는 정서적 타격",
+                desc: "뛰어난 친화력과 따뜻한 책임감으로 주변 사람들을 살뜰히 챙기는 공동체의 중심입니다. 모두가 소외되지 않고 어우러지는 조화로운 환경을 만듭니다.",
+                careers: "PR/홍보 디렉터, 호텔·호스피탈리티 총괄, 의료 코디네이터, 교육 행정가, 이벤트 디렉터",
+                match: "환상의 궁합: ISFP, ISTP / 보완이 필요한 궁합: INTP, INTJ"
             },
             ISTP: {
-                title: "만능 재주꾼",
-                desc: "도구와 기계를 자유자재로 다루며 위기 상황을 냉철하게 해결하는 실용주의자입니다. 말보다 실력으로 증명하는 고독한 승부사입니다.",
-                careers: "시스템 엔지니어, 파일럿, 응급구조사, 포렌식 수사관, 바이오 메카닉",
-                match: "환상의 궁합: ESFJ, ESTJ / 주의할 궁합: ENFJ, INFJ"
+                title: "만능 재주꾼 (Virtuoso)",
+                cognitive: "• <strong>주기능:</strong> 내향 사고 (Ti) — 최소한의 에너지로 핵심 문제를 해결하는 냉철한 실용 논리<br>• <strong>부기능:</strong> 외향 감각 (Se) — 도구와 현장을 즉각적으로 장악하는 뛰어난 감각 반응성<br>• <strong>3차기능:</strong> 내향 직관 (Ni) — 위기 순간에 번뜩이는 직관적 돌파구 포착<br>• <strong>열등기능:</strong> 외향 감정 (Fe) — 과도한 감정적 요구나 구속에 대한 강한 거부감",
+                desc: "복잡한 도구와 시스템을 자유자재로 다루며 위기 상황을 가장 냉철하고 실용적으로 돌파하는 해결사입니다. 불필요한 말보다 확실한 기술과 결과로 증명합니다.",
+                careers: "항공·기계 엔지니어, 사이버 보안 전문가, 파일럿, 응급의학 전문의, 포렌식 수사관",
+                match: "환상의 궁합: ESFJ, ESTJ / 보완이 필요한 궁합: ENFJ, INFJ"
             },
             ISFP: {
-                title: "호기심 많은 예술가",
-                desc: "순간의 아름다움과 내면의 감성에 충실한 따뜻한 방랑자입니다. 타인을 구속하지 않고 자유롭게 현재의 행복을 만끽합니다.",
-                careers: "패션 디자이너, 플로리스트, 수의테크니션, 조향사, 그래픽 아티스트",
-                match: "환상의 궁합: ESFJ, ESTJ / 주의할 궁합: ENTJ, ESTJ"
+                title: "호기심 많은 예술가 (Adventurer)",
+                cognitive: "• <strong>주기능:</strong> 내향 감정 (Fi) — 꾸밈없는 진솔함과 타인을 있는 그대로 존중하는 따뜻한 내면<br>• <strong>부기능:</strong> 외향 감각 (Se) — 색채, 소리, 공간 등 현재의 감각적 아름다움을 포착하는 예술성<br>• <strong>3차기능:</strong> 내향 직관 (Ni) — 작품과 삶에 은유적 깊이를 더하는 조용한 영감<br>• <strong>열등기능:</strong> 외향 사고 (Te) — 강압적 경쟁 구도와 경직된 통제 환경에 대한 스트레스",
+                desc: "현재라는 순간의 아름다움과 내면의 감성에 충실한 온화한 예술가입니다. 타인을 통제하려 하지 않으며 자신만의 미학적 감각으로 세상을 조용히 물들입니다.",
+                careers: "패션·공간 디자이너, 조향사, 사운드 엔지니어, 수의사/동물 매개 치료사, 아트 디렉터",
+                match: "환상의 궁합: ESFJ, ESTJ / 보완이 필요한 궁합: ENTJ, ESTJ"
             },
             ESTP: {
-                title: "모험을 즐기는 사업가",
-                desc: "직관적인 신체 감각과 대담한 결단력으로 기회를 포착하는 현실의 승부사입니다. 행동으로 부딪치며 위기를 돌파합니다.",
-                careers: "스타트업 CEO, 전문 영업인, 자산 운용가, 스포츠 매니저",
-                match: "환상의 궁합: ISFJ, ISTJ / 주의할 궁합: INFJ, INTJ"
+                title: "모험을 즐기는 사업가 (Entrepreneur)",
+                cognitive: "• <strong>주기능:</strong> 외향 감각 (Se) — 현장의 흐름과 기회를 단숨에 포착하는 동물적 감각과 행동력<br>• <strong>부기능:</strong> 내향 사고 (Ti) — 리스크와 손익을 즉석에서 계산해 내는 냉철한 전술적 판단<br>• <strong>3차기능:</strong> 외향 감정 (Fe) — 사람들의 심리를 읽고 협상을 유리하게 이끄는 사교적 매력<br>• <strong>열등기능:</strong> 내향 직관 (Ni) — 먼 미래에 대한 막연한 불안감이나 성급한 단정",
+                desc: "뛰어난 현장 감각과 대담한 결단력으로 위기를 기회로 바꾸는 타고난 승부사입니다. 책상 위의 이론보다 직접 부딪쳐 해결하는 실전의 지배자입니다.",
+                careers: "스타트업 창업가, 벤처 투자자, 스포츠 에이전트, 외과 전문의/응급구조대장, 전문 협상가",
+                match: "환상의 궁합: ISFJ, ISTJ / 보완이 필요한 궁합: INFJ, INTJ"
             },
             ESFP: {
-                title: "자유로운 영혼의 연예인",
-                desc: "인생이라는 무대를 찬란하게 빛내는 타고난 스타입니다. 유쾌한 밝음과 깊은 공감 능력으로 주변 사람들에게 행복을 전파합니다.",
-                careers: "연예인, 크리에이터, 파티 플래너, 항공 승무원, 레크리에이션 강사",
-                match: "환상의 궁합: ISFJ, ISTJ / 주의할 궁합: INTJ, INFJ"
+                title: "자유로운 영혼의 연예인 (Entertainer)",
+                cognitive: "• <strong>주기능:</strong> 외향 감각 (Se) — 지금 이 순간의 생동감과 즐거움을 극대화하는 무대 장악력<br>• <strong>부기능:</strong> 내향 감정 (Fi) — 사람에 대한 순수한 애정과 솔직하고 따뜻한 감정 표현<br>• <strong>3차기능:</strong> 외향 사고 (Te) — 위급한 현장에서 의외로 발휘되는 빠르고 실용적인 대처 능력<br>• <strong>열등기능:</strong> 내향 직관 (Ni) — 고립된 환경이나 무겁고 추상적인 철학 논쟁에 대한 회피",
+                desc: "인생이라는 무대를 찬란하게 빛내는 타고난 엔터테이너입니다. 특유의 유쾌한 에너지와 따뜻한 공감 능력으로 주변 사람들의 얼어붙은 마음까지 녹여냅니다.",
+                careers: "공연·미디어 아티스트, 브랜드 앰배서더, 이벤트 프로듀서, 여행 크리에이터, 홍보 전문가",
+                match: "환상의 궁합: ISFJ, ISTJ / 보완이 필요한 궁합: INTJ, INFJ"
             }
         };
 
         let currentIdx = 0;
-        let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+        let answerHistory = [];
         let finalCode = "";
 
         function showScreen(id) {
@@ -600,30 +1529,34 @@
 
         function startTest() {
             currentIdx = 0;
-            scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+            answerHistory = [];
             renderQuestion();
             showScreen('screen-quiz');
         }
 
         function renderQuestion() {
             const qData = questions[currentIdx];
+            document.getElementById('q-category').innerText = qData.category;
+            document.getElementById('q-counter').innerText = `Q ${String(currentIdx + 1).padStart(2, '0')} / ${questions.length}`;
             document.getElementById('question-text').innerText = (currentIdx + 1) + ". " + qData.q;
             document.getElementById('progress-bar').style.width = ((currentIdx / questions.length) * 100) + "%";
+
+            document.getElementById('btn-prev').style.display = currentIdx > 0 ? 'inline-block' : 'none';
 
             const container = document.getElementById('choices-container');
             container.innerHTML = '';
 
-            qData.choices.forEach(c => {
+            qData.choices.forEach((c, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'choice-btn';
-                btn.innerText = c.text;
-                btn.onclick = () => selectChoice(c.axis);
+                btn.innerHTML = `<span class="choice-num">${idx + 1}</span><span>${c.text}</span>`;
+                btn.onclick = () => selectChoice(c.scores);
                 container.appendChild(btn);
             });
         }
 
-        function selectChoice(axis) {
-            scores[axis]++;
+        function selectChoice(scoreObj) {
+            answerHistory.push(scoreObj);
             currentIdx++;
 
             if (currentIdx < questions.length) {
@@ -631,21 +1564,36 @@
             } else {
                 document.getElementById('progress-bar').style.width = "100%";
                 showScreen('screen-loading');
-                setTimeout(calcResult, 1500);
+                setTimeout(calcResult, 1200);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIdx > 0) {
+                currentIdx--;
+                answerHistory.pop();
+                renderQuestion();
             }
         }
 
         function calcResult() {
-            const ePct = Math.round((scores.E / (scores.E + scores.I)) * 100) || 50;
+            let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+            answerHistory.forEach(sc => {
+                for (let k in sc) {
+                    scores[k] = (scores[k] || 0) + sc[k];
+                }
+            });
+
+            const ePct = Math.round((scores.E / (scores.E + scores.I || 1)) * 100);
             const iPct = 100 - ePct;
 
-            const sPct = Math.round((scores.S / (scores.S + scores.N)) * 100) || 50;
+            const sPct = Math.round((scores.S / (scores.S + scores.N || 1)) * 100);
             const nPct = 100 - sPct;
 
-            const tPct = Math.round((scores.T / (scores.T + scores.F)) * 100) || 50;
+            const tPct = Math.round((scores.T / (scores.T + scores.F || 1)) * 100);
             const fPct = 100 - tPct;
 
-            const jPct = Math.round((scores.J / (scores.J + scores.P)) * 100) || 50;
+            const jPct = Math.round((scores.J / (scores.J + scores.P || 1)) * 100);
             const pPct = 100 - jPct;
 
             const code = 
@@ -659,14 +1607,14 @@
 
             document.getElementById('res-code').innerText = code;
             document.getElementById('res-title').innerText = info.title;
+            document.getElementById('res-cognitive').innerHTML = info.cognitive;
             document.getElementById('res-desc').innerText = info.desc;
             document.getElementById('res-careers').innerText = info.careers;
             document.getElementById('res-match').innerText = info.match;
 
             document.getElementById('res-wiki-link').href = '/mbti/' + code.toLowerCase() + '.html';
-            document.getElementById('res-wiki-link').innerText = '📖 ' + code + ' (' + info.title + ') 상세 도감 보러가기 →';
+            document.getElementById('res-wiki-link').innerText = '📖 ' + code + ' 상세 백과사전 도감 보러가기 →';
 
-            // Bars
             document.getElementById('lbl-e').innerText = '외향 (E) ' + ePct + '%';
             document.getElementById('lbl-i').innerText = '내향 (I) ' + iPct + '%';
             document.getElementById('bar-e').style.width = ePct + '%';
@@ -695,15 +1643,13 @@
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert('결과 페이지 주소가 클립보드에 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V)하여 공유해보세요.');
+                    alert('결과 도감 주소가 클립보드에 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V)하여 공유해보세요.');
                 }).catch(() => {
                     prompt('아래 링크를 복사하여 공유하세요:', shareUrl);
                 });
             } else {
                 prompt('아래 링크를 복사하여 공유하세요:', shareUrl);
             }
-
-
         }
     </script>
 </body>
