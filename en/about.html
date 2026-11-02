@@ -3,64 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | TESTYOUR UK</title>
-    <meta name="description" content="Learn about TESTYOUR UK: our editorial mission, psychological frameworks, and educational archives exploring Jungian personality typology and cultural archetypes.">
+    <title>About Us | TESTYOUR</title>
+    <meta name="description" content="A space designed to introduce small, refreshing variables to tired daily routines. The story of interactive psychology platform TESTYOUR by Editor Seenabro.">
+    <meta property="og:title" content="About Us | TESTYOUR">
+    <meta property="og:description" content="A space designed to introduce small, refreshing variables to tired daily routines. The story of interactive psychology platform TESTYOUR by Editor Seenabro.">
+    <meta property="og:url" content="https://testyour.uk/en/about.html">
+    <meta property="og:type" content="website">
     <link rel="canonical" href="https://testyour.uk/en/about.html">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #0f1117; color: #e2e8f0; margin: 0; padding: 0; line-height: 1.85; }
-        .header-nav { background: #161922; border-bottom: 1px solid #262c3a; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto; }
-        .logo { font-size: 22px; font-weight: 900; color: #38bdf8; text-decoration: none; }
-        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 18px; font-size: 14px; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #0f1117;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            word-break: keep-all;
+        }
+        .header-nav {
+            background: #1a1e29;
+            border-bottom: 1px solid #2d3748;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ff3b30;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
         .nav-links a:hover { color: #fff; }
-        .container { max-width: 820px; margin: 40px auto; padding: 0 20px 80px; }
-        h1 { font-size: 30px; font-weight: 900; color: #f8fafc; border-bottom: 2px solid #38bdf8; padding-bottom: 12px; margin-bottom: 25px; }
-        h2 { font-size: 20px; font-weight: 800; color: #38bdf8; margin-top: 35px; margin-bottom: 14px; }
-        p { font-size: 15.5px; color: #cbd5e1; margin-bottom: 16px; }
-        .footer { border-top: 1px solid #2d3748; padding: 40px 20px; text-align: center; color: #64748b; font-size: 13px; background: #0b0d13; }
-        .footer a { color: #94a3b8; text-decoration: none; margin: 0 8px; }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px 60px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #f8fafc;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #ff3b30;
+            padding-bottom: 12px;
+        }
+        .last-updated {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: #ff3b30;
+            border-radius: 2px;
+        }
+        p, li {
+            color: #cbd5e1;
+            font-size: 15.5px;
+            margin-bottom: 16px;
+            line-height: 1.95;
+        }
+        ul { padding-left: 20px; }
+        .card-box {
+            background: #1a1e29;
+            border: 1px solid #2d3748;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .footer {
+            border-top: 1px solid #2d3748;
+            padding: 40px 24px;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            background: #0b0d13;
+        }
+        .footer-links {
+            margin-bottom: 14px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 13px;
+        }
+        .footer-links a:hover { color: #ff3b30; }
+        .disclaimer-box {
+            background: rgba(255, 59, 48, 0.08);
+            border-left: 4px solid #ff3b30;
+            padding: 16px 20px;
+            margin: 28px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 13.5px;
+            color: #fca5a5;
+            line-height: 1.8;
+        }
     </style>
 </head>
 <body>
-    <header>
+
+    <header style="background: #161922; border-bottom: 1px solid #262c3a;">
         <div class="header-nav">
             <a href="/en/" class="logo">TESTYOUR</a>
             <nav class="nav-links">
                 <a href="/en/">Home</a>
                 <a href="/en/mbti/">MBTI Test</a>
                 <a href="/en/nen/">Nen Test</a>
-                <a href="/en/hxh/">HxH Match</a>
-                <a href="/about.html">KO</a>
+                <a href="/en/hxh/">HxH Test</a>
+                <a href="/en/column/">Essays</a>
+                <a href="/en/about.html">About</a>
+                <div class="lang-switch" style="display:inline-block; font-size:13px; background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:15px; margin-left:15px;">
+                    <a href="/about.html" style="color:#94a3b8; text-decoration:none;">KO</a> 
+                    <span style="color:#475569;">|</span> 
+                    <a href="/en/about.html" style="color:#38bdf8; font-weight:bold; text-decoration:none;">EN</a>
+                </div>
             </nav>
         </div>
     </header>
+
     <main class="container">
-        <h1>About TESTYOUR UK</h1>
-        <p>
-            Welcome to <strong>TESTYOUR UK</strong> (https://testyour.uk), an independent cultural and psychological web publication founded in 2026. Our mission is to bridge established analytical personality models with narrative subcultural archetypes, providing users with engaging tools for self-reflection and comparative character study.
-        </p>
+        <h1>About TESTYOUR</h1>
+        <div class="last-updated">Last Updated: November 2, 2026 · By Editor Seenabro</div>
 
-        <h2>1. Editorial Mission & Typology Philosophy</h2>
-        <p>
-            Understanding oneself is one of the most foundational human endeavors. We believe that personality typology—such as Carl Jung's psychological types (popularized in the 16-personality Myers-Briggs framework)—serves as a valuable heuristic for exploring cognitive diversity. By pairing these frameworks with rich fictional universes like <em>Hunter x Hunter</em>, we make complex psychological concepts accessible, entertaining, and educational.
-        </p>
+        <div class="card-box" style="border-left: 4px solid #ff3b30;">
+            <h3 style="margin-top:0; color:#ff3b30; font-size:19px;">☕ Welcome! Glad to have you here at TESTYOUR.</h3>
+            <p>
+                Navigating corporate routines and everyday demands often leaves us wondering: <strong>"Who am I right now?"</strong> and <strong>"Why do my colleagues think and react so differently?"</strong>
+            </p>
+            <p>
+                On your commute home or during a quiet breather at your desk, this space was crafted to offer a refreshing pause and an opportunity to reconnect with yourself.
+            </p>
+        </div>
 
-        <h2>2. Non-Commercial Fan-Made Disclaimer</h2>
+        <h2>1. Not an Absolute Truth, But Crafted with Depth</h2>
         <p>
-            All pop-culture references, names, and character concepts from <em>Hunter x Hunter</em> are the sole intellectual property of Yoshihiro Togashi, Shueisha, and associated license holders. TESTYOUR is an unofficial, non-commercial fan initiative operated under Fair Use principles for analytical and educational commentary. All character illustrations featured on this website are original digital fan-art interpretations and not official studio assets.
+            To be completely honest, no single online test can encapsulate the entire human spirit. You certainly shouldn't treat any assessment as an unshakeable gospel.
         </p>
-
-        <h2>3. Transparency & Contact</h2>
         <p>
-            We adhere to the highest standards of user privacy and transparency. We do not store personal identifiers, nor do we sell user assessment data to third parties. For questions, suggestions, or editorial corrections, please reach out to our team at <strong>contact@testyour.uk</strong>.
+            However, if you've grown tired of the superficial, one-second binary quizzes flooding the internet, you will discover something uniquely engaging here.
+        </p>
+        <ul>
+            <li><strong>Multi-Dimensional Cognitive Metrics:</strong> Each prompt presents 5 nuanced, real-world behavioral choices rather than simplistic yes-or-no traps, assessing energy orientation, intuition, logic, and operational agility.</li>
+            <li><strong>Dynamic Contextual Branching:</strong> Tailored follow-up sequences help unravel the deeper motivations behind your selected actions.</li>
+            <li><strong>Rigorously Balanced Scoring Pool:</strong> Validated across hundreds of simulated runs to ensure fair representation and authentic self-discovery.</li>
+        </ul>
+
+        <h2>2. Beyond Quizzes: Static Encyclopedia & Candid Essays</h2>
+        <p>
+            Instead of simply displaying a score and disappearing, we provide an extensive <strong>Static Encyclopedia</strong> and <strong>Editor's Essays</strong> for you to read at your leisure.
+        </p>
+        <ul>
+            <li><strong>16 MBTI Personality Reports:</strong> Detailed breakdowns of Carl Jung's 4-function cognitive hierarchy (Dominant, Auxiliary, Tertiary, Inferior).</li>
+            <li><strong>6 Nen Categories & 8 Character Dossiers:</strong> Exploring interpersonal dynamics and archetype psychology through the lens of rich narrative lore.</li>
+            <li><strong>Workplace Survival Essays:</strong> Candid thoughts on corporate burnout, creative self-development, and situational leadership in high-pressure teams.</li>
+        </ul>
+
+        <div class="disclaimer-box">
+            <strong>💡 Respect for Original Creators (Legal Disclaimer):</strong><br>
+            TESTYOUR is an unofficial, non-commercial fan-made edutainment initiative created with deep respect for Yoshihiro Togashi's 《Hunter × Hunter》. All original character names, concepts, and trademarks belong exclusively to their respective copyright holders.
+        </div>
+
+        <h2>3. We'd Love to Hear From You (Contact)</h2>
+        <p>
+            Whether it's a short note saying you enjoyed the test or constructive feedback on questions you'd like to see refined, we always welcome your voice. Feel free to reach out anytime.
+        </p>
+        <p style="background:#1a1e29; padding:14px 20px; border-radius:10px; border:1px solid #334155; display:inline-block;">
+            📧 Official Contact Email: <strong style="color:#ff3b30;">contact@testyour.uk</strong> (Editor Seenabro)
         </p>
     </main>
+
     <footer class="footer">
-        <div style="margin-bottom:12px;">
-            <a href="/en/">Home</a> | <a href="/en/about.html">About</a> | <a href="/en/privacy.html">Privacy Policy</a> | <a href="/en/terms.html">Terms of Service</a>
+        <div class="footer-links">
+            <a href="/en/">Home</a> |
+            <a href="/en/mbti/">MBTI Test</a> |
+            <a href="/en/nen/">Nen Test</a> |
+            <a href="/en/hxh/">HxH Test</a> |
+            <a href="/en/column/">Essays</a> |
+            <a href="/en/about.html">About</a> |
+            <a href="/en/privacy.html">Privacy Policy</a> |
+            <a href="/en/terms.html">Terms of Service</a>
         </div>
-        &copy; 2026 TESTYOUR.UK. All rights reserved.
+        <p style="margin: 6px 0; color: #64748b; font-size: 12px;">
+            TESTYOUR is an unofficial edutainment fan project, unaffiliated with official publishers.
+        </p>
+        <p style="margin: 0; color: #475569; font-size: 12px;">
+            &copy; 2026 TESTYOUR. All rights reserved. Inquiries: contact@testyour.uk
+        </p>
     </footer>
+
 </body>
 </html>
