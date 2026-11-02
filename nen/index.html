@@ -222,9 +222,15 @@
             
             <img src="/nen/images/divination_hero.jpg" alt="수견식 유리잔과 나뭇잎" class="hero-image">
             
-                        <div style="background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8b5cf6; padding: 13px 15px; border-radius: 8px; font-size: 13.5px; color: #ddd; text-align: left; line-height: 1.65; margin: 15px 0 20px;">
-                "물잔 위에 잎사귀를 띄우고 두 손으로 오오라를 모았을 때, 내 안에서는 어떤 반응이 일어날까요?<br>
-                너무 심각하게 받아들이실 필요는 없지만, 히소카의 기질 진단과 엮어보면 의외로 뼈를 때릴지도 모릅니다. 가볍게 1분 동안 즐겨보세요."
+            <div style="font-size: 12.5px; color: #c4b5fd; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 10px;">
+                🃏 익명을 원하는... 마술사◆의 오오라 진단
+            </div>
+            <div style="background: rgba(139, 92, 246, 0.1); border-left: 3px solid #8b5cf6; padding: 14px 16px; border-radius: 8px; font-size: 13.5px; color: #ddd; text-align: left; line-height: 1.7; margin: 5px 0 20px;">
+                <div style="color: #f15f79; font-weight: 700; margin-bottom: 8px; font-style: italic; font-size: 14px;">
+                    "참고로 나는 변화계지◆ 변덕쟁이에 거짓말쟁이♥<br>
+                    근데 설익은 과일은…, 왜 저렇게 맛있어 보이는 걸까…♣"
+                </div>
+                물잔 위에 잎사귀를 띄우고 두 손으로 오오라를 모았을 때, 당신 안에서는 어떤 반응이 일어날까요? 히소카의 대사와 오오라 성격 진단법으로 내 진짜 기질을 확인해 보세요.
             </div>
 
             <button class="btn" onclick="startTest()">💧 수견식 시작하기</button>
@@ -248,8 +254,11 @@
         <div id="screen-loading" class="screen">
             <div style="margin-top: 100px;">
                 <div class="loader"></div>
-                <h2 style="color: #8b5cf6;">수견식(&#x6C34;&#x898B;&#x5F0F;) 진행 중...</h2>
-                <p style="color: #aaa; margin-top: 15px;">컵 위의 잎사귀를 관찰하고 있습니다...</p>
+                <h2 style="color: #8b5cf6;">수견식(&#x6C34;&#x898B;&#x5F0F;) 관찰 중... ◆</h2>
+                <p style="color: #e2e8f0; margin-top: 15px; font-style: italic; line-height: 1.7;">
+                    "그 눈!! 그 표정!! 그 기상!!…<br>
+                    아아… 네 오오라가 어떤 맛으로 익어갈지 기대되는걸… ♥"
+                </p>
             </div>
         </div>
 
@@ -280,7 +289,7 @@
 
     <script>
         
-        const nenTypes = {
+                const nenTypes = {
             enhancement: {
                 name: '강화계 (Enhancement)',
                 image: '/nen/images/enhancement.svg',
@@ -288,7 +297,7 @@
                     title: '물의 양이 늘어나 컵 밖으로 넘쳐흐름!',
                     details: '양손을 컵에 대고 오라를 불어넣자, 표면장력을 넘어 <strong>물이 찰랑이며 컵 밖으로 끊임없이 쏟아져 내립니다.</strong> 물 위에 뜬 잎사귀도 솟구치는 수면에 맞춰 넘실거립니다. 신체와 물질 본연의 힘을 극한으로 증폭시키는 강화계만의 상징적인 물리 현상입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #ff9068; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "단순하고 일편단심 ♠"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #ff9068;">"복잡하게 생각하기보단 일단 몸으로 부딪히는 타입이군... 숨기는 것도 서투르고 감정도 뻔히 다 드러나지. 아주 단순해 ♠<br>나쁘게 말하면 우직하고 융통성이 없달까? 자신의 능력을 한계까지 끌어올리는 걸 좋아하겠지. 양보다 질을 추구하는 건 마음에 들어 ♣"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>거짓말을 못 하고 감정 표현이 솔직합니다! 자신의 목표와 능력을 극한까지 단련하는 것을 선호합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 곤 프릭스, 우보긴, 네테로<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 자신의 신체 능력을 극한까지 강화하여 한 방에 승부를 보는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 방출계, 변화계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 특질계'
+                description: '<div style="font-size: 1.1em; color: #ff9068; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "단순하고 일편단심 ♠"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(255,144,104,0.08); border-left: 3px solid #ff9068; border-radius: 0 8px 8px 0; line-height: 1.75;">"우린 궁합이 잘 맞아◆ 성격이 정반대라 서로에게 끌리지. 아주 좋은 친구가 될 수 있을지도 몰라♠<br>복잡하게 생각하기보단 일단 몸으로 부딪히는 타입이군... 그 눈!! 그 표정!! 그 기상!!… 아아… 지금 당장 너를, 부숴버리고 싶다…♥<br>하지만 조심해야 할 거야, 변화계는 변덕이 심하거든. 소중하던 것도 순식간에 쓰레기로 변해버려. 그러니까, 날 실망시키지 마라♦"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>거짓말을 못 하고 감정 표현이 솔직합니다! 『완벽하게 이길 거야, 그렇지?』라며 자신의 목표와 능력을 극한까지 단련해 정면 승부를 보는 타입입니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 곤 프릭스, 우보긴, 네테로<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 자신의 신체 능력을 극한까지 강화하여 한 방에 승부를 보는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 방출계, 변화계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 특질계'
             },
             transmutation: {
                 name: '변화계 (Transmutation)',
@@ -297,7 +306,7 @@
                     title: '물의 맛이 달콤하게 변함 (시럽/설탕물)!',
                     details: '물과 잎사귀의 겉모습은 차분해 보이지만, 탄산처럼 달콤한 기포가 일며 한 모금 마셔보면 <strong>꿀이나 시럽처럼 진하고 달콤한 맛</strong>이 납니다. 나뭇잎에도 반짝이는 당분 이슬이 맺힙니다. 오라 본래의 성질을 자유자재로 다른 물질의 특성으로 탈바꿈시키는 변화계의 확실한 증거입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #f15f79; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "변덕쟁이, 거짓말쟁이 ♥"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #f15f79;">"나랑 같은 부류네...? 본심을 쉽게 드러내지 않고 언제든 태도를 바꿀 준비가 되어 있지 ♥<br>상황에 맞춰 기민하게 대처하면서 속임수를 쓰는 걸 즐길 거야. 오라를 이리저리 바꿔가며 장난치기 딱 좋은 성격이지... 아주 달콤해 ♣"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>속을 알 수 없는 매력이 있습니다. 상황에 따라 유연하게 대처하며, 오라를 다양한 성질로 변화시키는 창의적인 전투를 선호합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 키르아, 히소카, 마치<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라에 전기, 고무 등 특수한 성질을 부여하여 상대를 농락하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 강화계, 구현화계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 조작계'
+                description: '<div style="font-size: 1.1em; color: #f15f79; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "변덕쟁이, 거짓말쟁이 ♥"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(241,95,121,0.08); border-left: 3px solid #f15f79; border-radius: 0 8px 8px 0; line-height: 1.75;">"참고로 나는 변화계지◆ 변덕쟁이에 거짓말쟁이♥ 나랑 아주 똑같은 부류네...?<br>소중하던 것도 순식간에 쓰레기로 변해버릴 만큼 변덕이 심하고, 본심을 쉽게 드러내지 않지♣ 어쩌면 난, 바로 옆에서 네 기술을 보고 싶어서 일부러 다치는 건지도 몰라...<br>그보다 오늘 밤 어때, 함께 식사라도…. ……. 유감인걸♦"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>속을 알 수 없는 매력이 있습니다. 상황에 따라 유연하게 태도를 바꾸며, 오라를 다양한 성질로 변화시키는 창의적이고 변칙적인 심리전을 즐깁니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 키르아, 히소카, 마치<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라에 전기, 고무(번지검) 등 특수한 성질을 부여하여 상대를 농락하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 강화계, 구현화계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 조작계'
             },
             emission: {
                 name: '방출계 (Emission)',
@@ -306,7 +315,7 @@
                     title: '물의 색깔이 붉고 찬란하게 변함!',
                     details: '손을 대자마자 투명했던 맑은 물이 <strong>선명하고 눈부신 황금빛과 붉은 루비빛의 유색 액체</strong>로 순식간에 물들었습니다. 뿜어져 나온 오라 입자들이 허공으로 치솟으며 잎사귀를 황금빛으로 밝힙니다. 오라를 체외로 분리하여 강력한 독립 에너지로 쏘아보내는 방출계의 특징입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #f9d423; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "성질이 급하고 덜렁이 ♦"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #f9d423;">"감정 기복이 크고 다혈질이라 툭하면 욱하는군... 조급하게 일을 처리하려다 빈틈을 보이는 경우가 많겠어 ♦<br>그래도 뒤끝이 없고 호탕한 면은 있지. 화가 나면 참지 못하고 오라를 덩어리째 떼어내서 멀리 날려버리려나? ♠"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>성질이 급하지만 뒤끝이 없고 호탕합니다. 욱하는 성질 뒤에 의리가 숨어있으며, 오라를 몸에서 분리시켜 공격하는 데 능합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 레오리오, 프랭클린, 라제르<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라를 몸에서 분리하여 원거리 에너지탄이나 투사체로 공격하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 강화계, 조작계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 구현화계'
+                description: '<div style="font-size: 1.1em; color: #f9d423; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "성질이 급하고 덜렁이 ♦"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(249,212,35,0.08); border-left: 3px solid #f9d423; border-radius: 0 8px 8px 0; line-height: 1.75;">"감정 기복이 크고 다혈질이라 툭하면 욱하는군... 조급하게 일을 처리하려다 빈틈을 보이는 경우가 많겠어♦<br>하지만 뒤끝이 없고 호탕한 맛은 있지. 『모두의 힘이 있었기 때문이야, 팀의 승리인 거지♠』 같은 말도 진심으로 내뱉을 줄 아는 뜨거운 부류랄까? 화가 나면 참지 못하고 오라를 덩어리째 떼어내 날려버리려나? ♥"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>성질이 급하지만 뒤끝이 없고 호탕합니다. 욱하는 다혈질 성향 뒤에 뜨거운 동료애와 의리가 숨어있으며, 오라를 몸에서 분리시켜 원거리에서 타격하는 데 능합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 레오리오, 프랭클린, 레이저<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라를 몸에서 분리하여 원거리 에너지탄이나 투사체로 포격하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 강화계, 조작계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 구현화계'
             },
             conjuration: {
                 name: '구현화계 (Conjuration)',
@@ -315,7 +324,7 @@
                     title: '물속에 에메랄드빛 결정체/불순물이 생겨남!',
                     details: '티 없이 맑았던 컵 속에서 <strong>보석과 얼음 같은 단단한 에메랄드빛 결정 입자</strong>들이 저절로 실체화되어 점점 자라납니다. 잎사귀 가장자리에도 미세한 광물 결정이 서려 있습니다. 순수한 오라의 형상을 눈에 만져지는 실제 물질로 구현해내는 구현화계의 대표적인 징표입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #38ef7d; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "신경질적이고 예민함 ♣"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #38ef7d;">"매사에 신중하고 분석적이야... 완벽을 추구하다 보니 사소한 것에도 꽤 예민하게 반응하겠지 ♣<br>머릿속으로 철저한 계획을 세우고, 상상한 도구에 까다로운 제약까지 걸어서라도 기어코 완벽하게 실체화시키려 들 거야. 재미없게 깐깐한 타입이랄까 ♠"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>매사에 신중하고 분석적이며 완벽주의 성향이 강합니다. 목적 달성을 위해 철저한 계획을 세우고 특수 능력을 구현합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 크라피카, 코르토피, 겐스루<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라로 무기나 도구를 실체화하고 특수 조건으로 위력을 극대화하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 변화계, 특질계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 방출계'
+                description: '<div style="font-size: 1.1em; color: #38ef7d; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "신경질적이고 예민함 ♣"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(56,239,125,0.08); border-left: 3px solid #38ef7d; border-radius: 0 8px 8px 0; line-height: 1.75;">"『나... 낯가리는데◆』 하고 경계선을 그으면서, 머릿속으론 이미 수만 가지 시뮬레이션과 제약을 끝내놓는 타입이군♣<br>매사에 신중하고 분석적이야... 『완벽하게 이길 거야, 그렇지?♠』라며 상상한 도구에 목숨을 건 서약까지 걸어 기어코 실체화시키려 들지. 재미없을 정도로 깐깐하지만, 그 서늘한 집념만큼은 인정해 줄게♥"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>매사에 신중하고 분석적이며 완벽주의 성향이 강합니다. 목적 달성을 위해 철저한 계획과 제약(리스크)을 설계하여 특수 능력을 구현합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 크라피카, 코르토피, 카이토<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 오라로 무기나 도구를 실체화하고 특수 조건(서약)으로 위력을 극대화하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 변화계, 특질계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 방출계'
             },
             manipulation: {
                 name: '조작계 (Manipulation)',
@@ -324,7 +333,7 @@
                     title: '나뭇잎이 물 위에서 스스로 소용돌이치며 회전함!',
                     details: '수면 위에 고요하게 머물러 있던 나뭇잎이 <strong>소용돌이를 그리며 360도로 뱅글뱅글 춤추듯 회전</strong>합니다! 마치 나뭇잎에 살아있는 의지가 깃든 것처럼 자유롭게 궤적을 그리며 돕니다. 외부의 생물이나 사물에 오라의 끈을 연결하여 완벽하게 통제하는 조작계의 명확한 현상입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #6dd5ed; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "핑계쟁이, 마이페이스 ♦"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #6dd5ed;">"자기만의 핑계와 논리가 뚜렷해서 남의 의견엔 귓등으로도 안 듣겠군... 모든 상황을 철저히 자기 통제 아래 두려 하지 ♦<br>자신이 세운 논리대로 사물이나 사람을 꼭두각시처럼 지배하려는 녀석들. 자기 페이스를 뺏기면 꽤나 당황할 텐데... 찔러볼 맛이 나겠어 ♥"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>자기만의 논리가 뚜렷하며 남에게 쉽게 휘둘리지 않습니다. 상황을 통제하고 생물이나 사물을 조종하는 전략적 전투를 선호합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 이르미, 샤르나크, 슈트<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 바늘이나 안테나 등 매개체를 통해 타인의 행동을 지배하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 방출계, 특질계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 변화계'
+                description: '<div style="font-size: 1.1em; color: #6dd5ed; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "핑계쟁이, 마이페이스 ♦"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(109,213,237,0.08); border-left: 3px solid #6dd5ed; border-radius: 0 8px 8px 0; line-height: 1.75;">"자기만의 핑계와 논리가 뚜렷해서 남의 의견엔 귓등으로도 안 듣는 철저한 마이페이스군♦<br>『아르카를 죽이고 키르아의 원한을 사는 편이 재밌을까... 곤을 구해 이르미를 적으로 돌리는 게 재밌을까, 이거 고민되네~♥』처럼 모든 상황을 자기 계산과 통제 아래 두려 하지. 자기 페이스를 뺏기면 어떤 얼굴을 할지... 찔러볼 맛이 나겠어♣"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>자기만의 논리가 뚜렷하며 남에게 쉽게 휘둘리지 않습니다. 판 전체를 통제하고 생물이나 사물을 내 의지대로 움직이는 전략적 지배를 선호합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 이르미, 샤르나크, 모라우<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 바늘이나 안테나, 연기 등 매개체를 통해 타인의 행동과 전장을 지배하는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 방출계, 특질계<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 변화계'
             },
             specialization: {
                 name: '특질계 (Specialization)',
@@ -333,79 +342,101 @@
                     title: '나뭇잎이 갈라지며 기이한 에너지가 피어오름!',
                     details: '다른 5계통의 규칙으로는 절대 해석할 수 없는 미지의 반응! <strong>잎사귀가 반으로 갈라지며 흑자색의 기이한 오라 불꽃</strong>이 허공으로 피어오릅니다. 나뭇잎이 마르거나 꽃이 피는 등 오직 타고난 특별한 영혼에게만 발현되는 규격 외 계통, 특질계의 경이로운 증명입니다.'
                 },
-                description: '<div style="font-size: 1.1em; color: #d76d77; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "카리스마 넘치는 개인주의자 ♥"</strong></div><div style="font-style: italic; color: #ccc; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #d76d77;">"어딜 가나 사람을 끌어모으는 묘한 카리스마가 있군... 하지만 본질적으로는 철저한 마이웨이에 개인주의자지 ♥<br>다른 계통의 법칙으론 설명할 수 없는, 유일무이하고 이질적인 오라를 풍기고 있어... 설익은 과일만큼이나 매력적이야 ♣"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>타고난 존재감과 카리스마로 사람들을 이끄는 리더십이 있습니다. 다른 5계통 어디에도 속하지 않는 유일무이한 능력을 가집니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 클로로, 메르엠, 네온<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 남의 능력을 훔치거나 미래를 보는 등 완전히 규격 외의 능력을 보유한 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> (모든 계통과 독자적)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 강화계 (정반대)'
+                description: '<div style="font-size: 1.1em; color: #d76d77; margin-bottom: 10px;"><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#f15f79"><polygon points="12,2 20,12 12,22 4,12"></polygon></svg></span>히소카의 성격 진단: "카리스마 넘치는 개인주의자 ♥"</strong></div><div style="font-style: italic; color: #eee; margin-bottom: 15px; padding: 12px 14px; background: rgba(215,109,119,0.08); border-left: 3px solid #d76d77; border-radius: 0 8px 8px 0; line-height: 1.75;">"어딜 가나 사람을 끌어모으는 묘한 카리스마가 있군... 하지만 본질적으로는 『익명을 원하는... 마술사◆』처럼 누구에게도 구속되지 않는 철저한 개인주의자지♥<br>『내게 불가능은 없다♠』고 당당히 말할 자격이 있는 유일무이한 오오라... 근데 설익은 과일은…, 왜 저렇게 맛있어 보이는 걸까…♣ 언젠가 맞붙을 날이 기대되는군♦"</div><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path></svg></span>당신의 넨 성향:</strong><br>타고난 존재감과 카리스마로 사람들을 매료시키지만, 내면은 독자적인 세계를 걷는 개인주의자입니다. 다른 5계통 어디에도 속하지 않는 규격 외의 능력을 발현합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9068" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>대표 캐릭터:</strong> 클로로, 메르엠, 네페르피트<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f9d423" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>전투 스타일:</strong> 남의 능력을 훔치거나 미래를 예지하는 등 상식을 초월한 고유 능력을 다루는 타입<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38ef7d" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>시너지 좋은 계통:</strong> 구현화계, 조작계 (및 독자적 발현)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4b1f" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>상극인 계통:</strong> 강화계 (정반대)'
             }
         };
 
-                let questionQueue = [];
+        let questionQueue = [];
         let currentQuestionIndex = 0;
         let scores = {};
 
-                const questionGraph = {
+        const questionGraph = {
             start: [
                 {
                     id: "q1",
-                    question: '흐음... 너의 체형과 평소 행동거지를 보면 말이지...? ♣',
+                    question: '「나... 낯가리는데◆」 후후, 농담이야♥ 강자들이 득실거리는 시험장에 들어섰을 때, 네 평소 행동거지와 인상은 어느 쪽이지? ♣',
                     choices: [
-                        { text: '숨기는 것 없이 겉과 속이 같은 솔직한 근육질 체형', scores: {enhancement: 5, emission: 2}, followUps: ['fq_enh1'] },
-                        { text: '본심을 잘 숨기고 태도 변화가 유연한 잔근육 체형', scores: {transmutation: 5, conjuration: 2}, followUps: ['fq_trans1'] },
-                        { text: '사소한 것에도 민감하고 완벽을 추구하는 신경질쟁이', scores: {conjuration: 5, manipulation: 1}, followUps: ['fq_conj1'] },
-                        { text: '어딜 가나 시선을 끄는 묘한 카리스마의 개인주의자', scores: {specialization: 5, manipulation: 2}, followUps: ['fq_spec1'] },
+                        { text: '숨기는 것 없이 겉과 속이 똑같은 솔직하고 다부진 인상 ♠', scores: {enhancement: 5, emission: 2}, followUps: ['fq_enh1'] },
+                        { text: '본심을 절대 드러내지 않고 언제든 태도를 바꾸는 유연한 인상 ♥', scores: {transmutation: 5, conjuration: 2}, followUps: ['fq_trans1'] },
+                        { text: '진짜로 낯을 가리듯 경계심이 강하고 사소한 변수에도 예민한 신경질쟁이 ♣', scores: {conjuration: 5, manipulation: 1}, followUps: ['fq_conj1'] },
+                        { text: '어딜 가나 묘하게 시선을 끌어당기는 카리스마 개인주의자 ♦', scores: {specialization: 5, manipulation: 2}, followUps: ['fq_spec1'] },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "q2",
-                    question: '눈앞에 강적이 나타났어. 넌 전투를 어떻게 풀어나갈 생각이지? ♠',
+                    question: '「완벽하게 이길 거야, 그렇지? ◆」 눈앞에 만만치 않은 강적이 나타났어. 넌 어떻게 승리를 거머쥘 생각이지? ♠',
                     choices: [
-                        { text: '일단 거리를 벌리고 빈틈이 보이면 멀리서 강력한 포격을 날린다.', scores: {emission: 4, manipulation: 2} },
-                        { text: '정면돌파! 내 뼈를 내어주더라도 육탄전으로 적의 숨통을 끊어버린다.', scores: {enhancement: 4, emission: 1} },
-                        { text: '상대를 내 페이스로 끌어들이고, 내가 세운 논리적 계산대로 움직이게 통제한다.', scores: {manipulation: 4, conjuration: 1} },
-                        { text: '거짓말과 속임수로 적을 농락하고, 유연하고 변칙적인 공격으로 찌른다.', scores: {transmutation: 4, specialization: 1} },
+                        { text: '일단 거리를 벌리고 빈틈이 보이는 순간 오라를 통째로 날려 포격한다 ♦', scores: {emission: 5, manipulation: 1}, followUps: ['fq_emis1'] },
+                        { text: '정면돌파! 내 뼈를 내어주더라도 육탄전으로 적의 숨통을 끊어버린다 ♠', scores: {enhancement: 4, emission: 1} },
+                        { text: '상대를 내 페이스로 끌어들여, 내가 세운 논리적 계산대로 움직이게 통제한다 ♣', scores: {manipulation: 5, conjuration: 1}, followUps: ['fq_manip1'] },
+                        { text: '거짓말과 속임수로 적을 농락하고, 유연하고 변칙적인 트릭으로 찌른다 ♥', scores: {transmutation: 4, specialization: 1} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "q3",
-                    question: '누군가 고의로 널 화나게 만들었어. 네 반응은 어떨까... ♥',
+                    question: '「그 눈!! 그 표정!! 그 기상!!… 아아… 지금 당장 너를, 부숴버리고 싶다…♠」 누군가 널 지독하게 도발하며 자극했을 때, 네 반응은? ♥',
                     choices: [
-                        { text: '불같이 화를 내며 즉각적으로 분노를 표출한다! 성질 급하거든.', scores: {emission: 5, enhancement: 1} },
-                        { text: '분노하기보단 차가운 논리로 상대의 헛점을 얄밉게 찌르며 따진다.', scores: {manipulation: 4, conjuration: 2} },
-                        { text: '상처받겠지만 겉으론 아무렇지 않은 척, 오히려 미소 지으며 상황을 넘긴다.', scores: {transmutation: 4, specialization: 2} },
-                        { text: '어차피 내 갈 길 갈 건데 뭐. 짜증은 나도 크게 괘념치 않고 내버려 둔다.', scores: {specialization: 4, enhancement: 1} },
+                        { text: '참을 수 없지! 불같이 화를 내며 즉각적으로 분노를 폭발시킨다 ♦', scores: {emission: 5, enhancement: 1} },
+                        { text: '분노하기보단 차가운 논리와 핑계로 상대의 허점을 얄밉게 찌르며 따진다 ♣', scores: {manipulation: 4, conjuration: 2} },
+                        { text: '속으론 쓰레기 취급하더라도, 겉으론 생긋 웃으며 능청스럽게 넘긴다 ♥', scores: {transmutation: 4, specialization: 2} },
+                        { text: '어차피 내 갈 길 갈 건데 뭐. 내 선만 안 넘으면 크게 괘념치 않고 무시한다 ♦', scores: {specialization: 4, enhancement: 1} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "q4",
-                    question: '원하는 걸 확실하게 손에 넣기 위해... 넌 어떤 제약(리스크)까지 감수할 수 있지? ♣',
+                    question: '「어쩌면 난, 바로 옆에서 네 염사봉합을 보고 싶어서 일부러 다치는 건지도 몰라◆」 원하는 걸 손에 넣기 위해 넌 어떤 리스크까지 감수할 수 있지? ♣',
                     choices: [
-                        { text: '목숨을 잃거나 평생 능력을 못 쓰게 되더라도, 최강의 위력을 위한 서약을 건다.', scores: {conjuration: 5, specialization: 1} },
-                        { text: '내가 평소 애용하는 조종 매개체(애장품)를 뺏기면 무력해지는 위험을 감수한다.', scores: {manipulation: 5, emission: 1} },
-                        { text: '내 몸이 타들어가거나 고문받는 고통을 견디면서까지 오라의 성질을 바꾼다.', scores: {transmutation: 5, enhancement: 1} },
-                        { text: '복잡한 리스크는 질색! 내 잠재력과 한계를 믿고 오로지 신체 단련에만 몰두한다.', scores: {enhancement: 4, emission: 2} },
+                        { text: '목숨을 걸거나 평생 능력을 못 쓰게 되더라도, 최강의 위력을 위한 서약을 건다 ♣', scores: {conjuration: 5, specialization: 1} },
+                        { text: '일부러 팔 한쪽을 내어주는 한이 있더라도 상대를 완벽히 속이는 쾌감을 택한다 ♥', scores: {transmutation: 5, enhancement: 1} },
+                        { text: '내가 평소 아끼는 매개체(애장품)에 모든 통제 권한을 몰아주는 위험을 감수한다 ♦', scores: {manipulation: 5, emission: 1} },
+                        { text: '복잡한 리스크는 질색! 내 잠재력을 믿고 오로지 정면 승부와 신체 단련에 몰두한다 ♠', scores: {enhancement: 4, emission: 2} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "q5",
-                    question: '전투 중 넨의 4대행과 응용기 중에서... 네가 가장 선호하는 기술은 어느 쪽일까? ♦',
+                    question: '「아르카를 죽이고 키르아의 원한을 사는 편이 재밌을까... 곤을 구해 이르미를 적으로 돌리는 게 재밌을까, 이거 고민되네~◆」 극단적인 기로에서 네 선택 기준은? ♥',
                     choices: [
-                        { text: '내 기척과 넨을 투명하게 숨겨 적의 사각에서 치명타를 먹이는 속임수, [인(隠)]', scores: {transmutation: 4, conjuration: 3} },
-                        { text: '수십 미터 반경의 모든 것을 꿰뚫어보고, 사각지대를 완전히 차단하는 탐색, [엔(円)]', scores: {emission: 4, manipulation: 3} },
-                        { text: '내가 평소에 쥐고 다니는 무기나 도구에 오라를 씌워 절삭력과 위력을 높이는, [슈(周)]', scores: {manipulation: 4, conjuration: 3} },
-                        { text: '모든 오라를 주먹 한 점에 모아, 방어를 포기하고 뚫어버리는 일격필살, [코(硬)]', scores: {enhancement: 5} },
+                        { text: '어느 쪽이 더 짜릿하고 재밌는 장난감이 될지, 내 흥미와 유희를 최우선으로 둔다 ♥', scores: {transmutation: 4, specialization: 2} },
+                        { text: '내 사람과 내가 세운 원칙을 지키는 데 가장 확실하고 통제 가능한 길을 택한다 ♦', scores: {manipulation: 4, conjuration: 2} },
+                        { text: '이해득실 따윈 계산 안 해! 내 심장과 의리가 가리키는 쪽으로 무조건 직진한다 ♠', scores: {enhancement: 4, emission: 2} },
+                        { text: '남들이 강요하는 두 가지 선택지를 모두 부수고, 나만의 독자적인 판을 새로 짠다 ♣', scores: {specialization: 4, conjuration: 2} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 {
                     id: "q6",
-                    question: '자신과 맞지 않는 다른 계통의 기술을 배울 수 있다면... 넌 어떻게 할래? ♠',
+                    question: '「내게 불가능은 없다◆」 ...라고 단언할 수 있을 만큼, 전투 중 네가 가장 선호하는 오오라 응용 기술은 어느 쪽일까? ♠',
                     choices: [
-                        { text: '위력이 60%로 떨어지더라도, 전략의 폭을 넓히기 위해 여러 계통을 섞어 배운다.', scores: {transmutation: 3, conjuration: 3, emission: 3} },
-                        { text: '용량 낭비다! 내 주특기 계통 하나에만 경험치를 올인해서 극한의 극(極)에 달한다.', scores: {enhancement: 4, manipulation: 2} },
-                        { text: '능력 발현 0%인 특질계에 매달리며 언젠가 후천적으로 각성할 날만을 끈질기게 기다린다.', scores: {conjuration: 4, manipulation: 4} },
-                        { text: '난 천부적인 재능으로 모든 계통의 제약을 무시하고 효율 100%로 다룰 수 있지 ♥', scores: {specialization: 6} },
+                        { text: '내 기척과 오오라를 투명하게 숨겨 적의 사각에서 치명타를 먹이는 속임수, [인(隠)] ♥', scores: {transmutation: 4, conjuration: 3} },
+                        { text: '수십 미터 반경의 모든 움직임을 꿰뚫어 보고 사각지대를 차단하는 탐색망, [엔(円)] ♦', scores: {emission: 4, manipulation: 3} },
+                        { text: '내가 평소 쥐고 다니는 무기나 도구에 오오라를 둘러 위력을 극대화하는, [슈(周)] ♣', scores: {manipulation: 4, conjuration: 3} },
+                        { text: '모든 오오라를 주먹 한 점에 모아 방어를 포기하고 뚫어버리는 일격필살, [코(硬)] ♠', scores: {enhancement: 5} },
+                        { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
+                },
+                {
+                    id: "q7",
+                    question: '「우린 궁합이 잘 맞아, 아주 좋은 친구가 될 수 있을지도 몰라◆ 하지만 소중하던 것도 순식간에 쓰레기로 변해버릴 수 있지...」 너에게 동료나 팀이란 어떤 의미야? ♣',
+                    choices: [
+                        { text: '「모두의 힘이 있었기 때문이야, 팀의 승리인 거지!」 뒤끝 없이 정과 의리를 나누는 내 편 ♦', scores: {emission: 5, enhancement: 2} },
+                        { text: '한 번 믿기로 한 친구는 절대 의심하지 않고 무슨 일이 있어도 끝까지 지킨다 ♠', scores: {enhancement: 5, emission: 1} },
+                        { text: '흥미가 맞을 땐 최고지만, 날 실망시키면 언제든 미련 없이 돌아설 수 있는 관계 ♥', scores: {transmutation: 5, specialization: 1} },
+                        { text: '각자의 역할과 규칙이 명확히 지켜질 때만 유지되는 철저한 비즈니스 관계 ♣', scores: {conjuration: 3, manipulation: 3} },
+                        { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
+                },
+                {
+                    id: "q8",
+                    question: '「그보다 오늘 밤 어때, 함께 식사라도…. ……. 유감인걸◆」 네가 공들여 던진 제안이 단칼에 거절당했을 때, 네 속마음은 어떨까? ♥',
+                    choices: [
+                        { text: '「유감인걸◆」 가볍게 어깨를 으쓱하고 곧바로 다른 재밌는 타깃을 찾으러 간다 ♥', scores: {transmutation: 4, emission: 1} },
+                        { text: '「근데 설익은 과일은…, 왜 저렇게 맛있어 보이는 걸까…♣」 거절당할수록 오히려 정복욕이 끓어오른다 ♦', scores: {specialization: 4, manipulation: 2} },
+                        { text: '왜 거절당했는지 원인을 철저히 분석해, 다음번엔 절대 거절 못 할 완벽한 조건을 준비한다 ♣', scores: {conjuration: 5, manipulation: 1} },
+                        { text: '자존심 상하게 거절을 해?! 그 자리에서 바로 이유를 묻고 직설적으로 부딪힌다 ♠', scores: {emission: 4, enhancement: 2} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 }
@@ -413,41 +444,61 @@
             followUps: {
                 fq_enh1: {
                     id: 'fq_enh1',
-                    question: '솔직하고 우직한 정면 승부... 그렇다면 넌 전투 중 육체적 고통을 어떻게 견뎌내지? ♠',
+                    question: '솔직하고 일편단심인 너... 「완벽하게 이길 거야, 그렇지?◆」 만약 전투 중 뼈가 부러지는 고통이 덮쳐오면 어떻게 견뎌내지? ♠',
                     choices: [
-                        { text: '재생력과 회복력마저 극한으로 강화시켜, 맞은 만큼 더 맹렬하게 덤벼든다.', scores: {enhancement: 4} },
-                        { text: '욱하는 성질에 고통도 잊고, 오히려 아드레날린을 폭발시키며 적을 두들겨 팬다.', scores: {emission: 3, enhancement: 1} },
-                        { text: '미련할 정도로 고통을 참고 버티면서, 적이 방심하는 단 한 번의 빈틈을 노린다.', scores: {transmutation: 2, enhancement: 1} },
+                        { text: '재생력과 회복력마저 극한으로 강화시켜, 맞은 만큼 더 맹렬하게 정면으로 덤벼든다 ♠', scores: {enhancement: 4} },
+                        { text: '욱하는 성질에 고통도 잊고, 오히려 아드레날린을 폭발시키며 적을 몰아붙인다 ♦', scores: {emission: 3, enhancement: 1} },
+                        { text: '미련할 정도로 고통을 참아내면서 적이 방심하는 단 한 번의 결정적 빈틈을 노린다 ♥', scores: {transmutation: 2, enhancement: 1} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 fq_trans1: {
                     id: 'fq_trans1',
-                    question: '변덕스럽고 속내를 알 수 없는 너... 만약 거짓말을 들켰을 때의 반응은? ♥',
+                    question: '「참고로 나는 변화계지◆ 변덕쟁이에 거짓말쟁이♥」 나랑 같은 냄새가 나는데... 만약 네 거짓말이 들통났을 땐 어떤 표정을 지을까? ♣',
                     choices: [
-                        { text: '오히려 더 뻔뻔하게 웃으며 두 번째, 세 번째 거짓말과 속임수를 겹겹이 깔아둔다.', scores: {transmutation: 4} },
-                        { text: '당황한 기색 없이, 거짓말이 들켰을 때를 대비해둔 논리적인 플랜B를 즉시 가동한다.', scores: {conjuration: 3, transmutation: 1} },
-                        { text: '들켰다면 어쩔 수 없지. 쿨하게 인정하고 곧바로 무력이나 다른 수단으로 노선을 튼다.', scores: {enhancement: 2, emission: 2} },
+                        { text: '오히려 더 뻔뻔하게 미소 지으며 두 번째, 세 번째 거짓말과 트릭을 겹겹이 깔아둔다 ♥', scores: {transmutation: 4} },
+                        { text: '당황한 기색 없이, 거짓말이 들통났을 때를 대비해둔 치밀한 플랜B를 즉시 가동한다 ♣', scores: {conjuration: 3, transmutation: 1} },
+                        { text: '들켰다면 어쩔 수 없지~ 쿨하게 인정하고 곧바로 무력이나 다른 수단으로 노선을 튼다 ♠', scores: {enhancement: 2, emission: 2} },
+                        { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
+                },
+                fq_emis1: {
+                    id: 'fq_emis1',
+                    question: '성질은 급해도 뒤끝 없는 너... 「모두의 힘이 있었기 때문이야◆」라며 웃다가도, 만약 소중한 동료가 눈앞에서 당하면 어떻게 돌변하지? ♦',
+                    choices: [
+                        { text: '이성이고 뭐고 없다! 분노의 오오라를 최대 화력으로 방출해 주변을 초토화시킨다 ♦', scores: {emission: 4} },
+                        { text: '동료를 다치게 한 녀석에게 곧바로 달려들어 주먹으로 직접 갚아준다 ♠', scores: {enhancement: 3, emission: 1} },
+                        { text: '동료를 먼저 안전한 곳으로 빼돌린 뒤, 철저하게 계산된 포위망으로 보복한다 ♣', scores: {manipulation: 2, emission: 2} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 fq_conj1: {
                     id: 'fq_conj1',
-                    question: '신경질적일 정도로 매사에 신중한 너... 강박에 가까운 집착을 보이는 대상이 있나? ♣',
+                    question: '「나... 낯가리는데◆」라며 거리를 두지만 머릿속은 누구보다 차갑군... 네가 강박에 가까울 만큼 집착하는 원칙은 뭐야? ♣',
                     choices: [
-                        { text: '오직 특정 대상(ex. 여단)만을 파멸시키기 위해, 내 목숨과 맞바꾼 저주를 맹세한다.', scores: {conjuration: 4} },
-                        { text: '나만의 규칙과 통제에서 벗어나는 돌발 상황 자체를 극도로 혐오한다.', scores: {manipulation: 3, conjuration: 1} },
-                        { text: '내가 세운 계획이 완벽하게 실현되는 과정 그 자체에서 짜릿한 희열을 느낀다.', scores: {transmutation: 2, conjuration: 1} },
+                        { text: '오직 특정 목표만을 완수하기 위해, 내 목숨까지 담보로 거는 절대적인 규칙과 제약 ♣', scores: {conjuration: 4} },
+                        { text: '나만의 질서와 통제에서 벗어나는 돌발 변수 자체를 원천 차단하는 완벽함 ♦', scores: {manipulation: 3, conjuration: 1} },
+                        { text: '내가 설계한 시나리오가 오차 없이 실현되는 과정 그 자체의 짜릿한 희열 ♥', scores: {transmutation: 2, conjuration: 1} },
+                        { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
+                    ]
+                },
+                fq_manip1: {
+                    id: 'fq_manip1',
+                    question: '「이쪽을 살릴까, 저쪽을 적으로 돌릴까 고민되네~◆」 모든 걸 네 손바닥 위에 두고 통제하려는 너, 만약 계획이 어긋나면 어쩔 텐가? ♦',
+                    choices: [
+                        { text: '그럴 리가 없지. 이미 핑계와 대안까지 세워두고 상대를 다시 내 룰 안으로 가둔다 ♦', scores: {manipulation: 4} },
+                        { text: '내 페이스가 흔들리는 건 못 참아! 숨겨둔 비장의 도구를 꺼내 판을 강제로 리셋한다 ♣', scores: {conjuration: 2, manipulation: 2} },
+                        { text: '계획이 틀어지면 화력전으로 밀어붙여 힘으로라도 주도권을 되찾아온다 ♠', scores: {emission: 2, manipulation: 2} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 },
                 fq_spec1: {
                     id: 'fq_spec1',
-                    question: '다른 5계통으론 설명할 수 없는 이질적인 너... 네 능력의 본질은 뭘까? ♦',
+                    question: '「익명을 원하는... 마술사◆」처럼 어디에도 속하지 않는 이질적인 오오라... 네가 갈망하는 궁극의 힘은 뭘까? ♥',
                     choices: [
-                        { text: '타인이 피땀 흘려 완성한 넨 능력을 빼앗거나 빌려서 내 것처럼 다루는 능력', scores: {specialization: 4} },
-                        { text: '절대적인 예지력으로 미래를 읽거나, 타인의 기억과 마음을 꿰뚫어 보는 능력', scores: {specialization: 4} },
-                        { text: '내가 죽은 뒤에 발동하여 사후넨(死後念)으로 나를 부활시키고 상대를 저주하는 능력', scores: {specialization: 3, conjuration: 1} },
+                        { text: '타인이 피땀 흘려 완성한 능력을 빼앗거나 빌려서 내 것처럼 지배하는 힘 ♥', scores: {specialization: 4} },
+                        { text: '절대적인 예지력으로 미래를 읽거나, 타인의 기억과 진실을 꿰뚫어 보는 힘 ♦', scores: {specialization: 4} },
+                        { text: '죽음조차 뛰어넘어 사후넨(死後念)으로 다시금 되살아나는 불멸의 집념 ♣', scores: {specialization: 3, conjuration: 1} },
                         { text: '어느 것도 썩 와닿지 않는다 (질문 건너뛰기)', scores: {} }
                     ]
                 }

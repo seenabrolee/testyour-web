@@ -182,11 +182,15 @@
 
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <div style="font-size: 13px; font-weight: bold; color: #ff3b30; letter-spacing: 2px; margin-bottom: 12px;">SHINGEN-RYU AURA TEST</div>
-            <h1>What is Your Nen Type?</h1>
-            <p style="color: #94a3b8; font-size: 15px; margin-bottom: 20px; line-height: 1.6;">
-                Fill a glass of water, float a leaf upon it, and unleash your aura. Based on Hisoka's personality diagnosis, find your true Nen category.
-            </p>
+            <div style="font-size: 12.5px; font-weight: bold; color: #f15f79; letter-spacing: 1px; margin-bottom: 10px;">🃏 A MAGICIAN... WHO WISHES TO REMAIN ANONYMOUS◆</div>
+            <h1>Water Divination Test</h1>
+            <div style="background: rgba(241, 95, 121, 0.08); border-left: 3px solid #f15f79; padding: 13px 15px; border-radius: 8px; font-size: 13.5px; color: #e2e8f0; text-align: left; line-height: 1.65; margin: 10px 0 18px;">
+                <div style="color: #f15f79; font-weight: 700; font-style: italic; margin-bottom: 6px;">
+                    "By the way, I'm a Transmuter◆ Fickle and a liar♥<br>
+                    Why does unripe fruit look so delicious...?♣"
+                </div>
+                Float a leaf upon a glass of water and release your aura. Discover your true Nen affinity through Hisoka's iconic lines and personality diagnosis.
+            </div>
             <img src="/nen/images/divination_hero.jpg" alt="Water Divination" class="hero-img">
             <button class="btn" onclick="startTest()">Begin Water Divination &rarr;</button>
         </div>
@@ -216,89 +220,116 @@
     </div>
 
     <script>
-        const nenProfiles = {
+                const nenProfiles = {
             enhancement: {
                 name: "Enhancement (強化系)",
                 divination: "Water volume increases and overflows the glass",
                 img: "/nen/images/enhancement.svg",
-                desc: "<strong>Personality:</strong> Simple, earnest, and determined.<br><strong>Combat Trait:</strong> Superhuman durability and direct melee supremacy.<br>Enhancers are honest, direct, and act on instinct. You prefer straightforward action over complicated schemes."
+                desc: '<div style="color:#ff9068; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "Simple and Earnest ♠"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(255,144,104,0.08); border-left:3px solid #ff9068; padding:10px 12px; margin-bottom:12px;">"We are a great match◆ Our personalities are complete opposites, so we attract each other♠ Those eyes!! That expression!! That spirit!! ...Ahhh, I want to break you right now...♥ But be careful—Transmuters are fickle. Even what is precious can turn into trash in an instant. So don\'t disappoint me♦"</div><strong>Your Nen Trait:</strong> Honest, direct, and unyielding. You charge straight ahead saying, <em>"I\'m going to win completely, right?"</em>'
             },
             transmutation: {
                 name: "Transmutation (変化系)",
-                divination: "The taste of the water changes",
+                divination: "The taste of the water turns sweet",
                 img: "/nen/images/transmutation.svg",
-                desc: "<strong>Personality:</strong> Whimsical, deceitful, and unpredictable.<br><strong>Combat Trait:</strong> Transforming aura into elements like electricity or rubber.<br>You are a charismatic trickster who masks deep loyalty beneath an unpredictable and witty exterior."
+                desc: '<div style="color:#f15f79; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "Whimsical and Deceitful ♥"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(241,95,121,0.08); border-left:3px solid #f15f79; padding:10px 12px; margin-bottom:12px;">"By the way, I\'m a Transmuter◆ Fickle and a liar♥ Even what is precious can turn into trash in a heartbeat♣ Maybe I get hurt on purpose just to watch your technique up close... More importantly, how about dinner tonight...? ......What a shame♦"</div><strong>Your Nen Trait:</strong> A charismatic trickster who hides true intentions beneath a playful smile.'
             },
             emission: {
                 name: "Emission (放出系)",
-                divination: "The color of the water changes",
+                divination: "The color of the water changes vividly",
                 img: "/nen/images/emission.svg",
-                desc: "<strong>Personality:</strong> Impatient, volatile, yet warm-hearted.<br><strong>Combat Trait:</strong> Long-range projectile firepower and teleportation.<br>Passionate and quick to react, you have an explosive temper but an intensely loyal heart."
+                desc: '<div style="color:#f9d423; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "Impatient and Volatile ♦"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(249,212,35,0.08); border-left:3px solid #f9d423; padding:10px 12px; margin-bottom:12px;">"Quick-tempered and hot-blooded♦ You lose your cool easily and blast your aura from afar... Yet you hold no grudges and can sincerely say, <em>\'It was thanks to everyone\'s power—a victory for the team♠\'</em>♥"</div><strong>Your Nen Trait:</strong> Explosive temper paired with deep loyalty and devastating long-range firepower.'
             },
             conjuration: {
                 name: "Conjuration (具現化系)",
-                divination: "Impurities and crystals form in the water",
+                divination: "Emerald crystals and impurities materialize in the water",
                 img: "/nen/images/conjuration.svg",
-                desc: "<strong>Personality:</strong> High-strung, fastidious, and stoic.<br><strong>Combat Trait:</strong> Creating physical weapons imbued with supernatural conditions.<br>You are meticulous and highly analytical, carefully analyzing risks before making a move."
+                desc: '<div style="color:#38ef7d; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "High-Strung and Fastidious ♣"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(56,239,125,0.08); border-left:3px solid #38ef7d; padding:10px 12px; margin-bottom:12px;">"You step back saying, <em>\'I... I\'m shy around strangers◆\'</em> while your mind has already finished ten thousand calculations and vows♣ You set strict conditions to ensure: <em>\'I\'m going to win completely, right?♠\'</em>"</div><strong>Your Nen Trait:</strong> Meticulous, analytical, and driven by unbreakable vows and precision.'
             },
             manipulation: {
                 name: "Manipulation (操作系)",
-                divination: "The floating leaf moves across the surface",
+                divination: "The floating leaf spins and moves across the surface",
                 img: "/nen/images/manipulation.svg",
-                desc: "<strong>Personality:</strong> Argumentative, logical, and protective.<br><strong>Combat Trait:</strong> Controlling living beings and inanimate tools with total command.<br>You value order, control, and logical justification above all else."
+                desc: '<div style="color:#6dd5ed; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "Argumentative & My-Pace ♦"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(109,213,237,0.08); border-left:3px solid #6dd5ed; padding:10px 12px; margin-bottom:12px;">"Stubbornly logical and moving at your own pace♦ <em>\'Should I kill Alluka and earn Killua\'s hatred... or save Gon and make Illumi my enemy? What a dilemma~♥\'</em> You love keeping every piece on the board under your control♣"</div><strong>Your Nen Trait:</strong> Strategic, protective, and determined to control the battlefield through logic.'
             },
             specialization: {
                 name: "Specialization (特質系)",
-                divination: "The leaf spins, shatters, or an unprecedented anomaly occurs",
+                divination: "The leaf splits as an otherworldly aura ignites",
                 img: "/nen/images/specialization.svg",
-                desc: "<strong>Personality:</strong> Individualistic, charismatic, and enigmatic.<br><strong>Combat Trait:</strong> Reality-breaking metaphysical powers (stealing skills, reading minds).<br>You march entirely to your own beat, commanding mysterious presence and profound inner independence."
+                desc: '<div style="color:#d76d77; font-weight:bold; margin-bottom:8px;">🃏 Hisoka\'s Diagnosis: "Charismatic Individualist ♥"</div><div style="font-style:italic; color:#e2e8f0; background:rgba(215,109,119,0.08); border-left:3px solid #d76d77; padding:10px 12px; margin-bottom:12px;">"Like <em>\'a magician... who wishes to remain anonymous◆\'</em>, you belong to no ordinary category♥ You possess the aura to declare <em>\'Nothing is impossible for me♠\'</em>... Why does unripe fruit look so delicious...?♣"</div><strong>Your Nen Trait:</strong> Enigmatic, fiercely independent, and blessed with rule-breaking charisma.'
             }
         };
 
         const questions = [
             {
-                q: "When facing a seemingly insurmountable obstacle, your instinctive reaction is:",
+                q: "「I... I\'m shy around strangers◆」 Hehe, just kidding♥ When stepping into an arena full of dangerous rivals, what is your true demeanor? ♣",
                 choices: [
-                    { text: "Charge straight through it with maximum effort and raw determination.", type: "enhancement" },
-                    { text: "Look for clever angles, loopholes, or unconventional shortcuts to slip past.", type: "transmutation" },
-                    { text: "Blast through from a safe distance before it can touch you.", type: "emission" },
-                    { text: "Carefully analyze its structural weaknesses and prepare specialized tools.", type: "conjuration" }
+                    { text: "Honest, transparent, and charging forward with nothing to hide ♠", type: "enhancement" },
+                    { text: "Hiding my true motives behind a flexible, unpredictable smile ♥", type: "transmutation" },
+                    { text: "Cautious, high-strung, and analyzing every tiny risk in the room ♣", type: "conjuration" },
+                    { text: "Aloof and independent, yet effortlessly drawing everyone\'s eyes ♦", type: "specialization" }
                 ]
             },
             {
-                q: "In social situations, how do people most commonly describe your presence?",
+                q: "「I\'m going to win completely, right? ◆」 A formidable enemy stands before you. How do you claim victory? ♠",
                 choices: [
-                    { text: "Honest, pure, and refreshingly straightforward.", type: "enhancement" },
-                    { text: "Fascinating, witty, but delightfully unpredictable.", type: "transmutation" },
-                    { text: "Expressive, energetic, and passionately outspoken.", type: "emission" },
-                    { text: "Calm, mysterious, and marching to an entirely unique beat.", type: "specialization" }
+                    { text: "Keep my distance and blast them with concentrated aura projectiles ♦", type: "emission" },
+                    { text: "Head-on collision! Even if my bones break, I crush them in close combat ♠", type: "enhancement" },
+                    { text: "Lure them into my pace and control every move through calculated rules ♣", type: "manipulation" },
+                    { text: "Deceive them with lies and versatility, striking from a blind spot ♥", type: "transmutation" }
                 ]
             },
             {
-                q: "When someone questions your methods in front of the group, you:",
+                q: "「Those eyes!! That look!! That spirit!! ...Ahhh, I want to break you right now...♠」 When someone provokes you to the limit, how do you react? ♥",
                 choices: [
-                    { text: "Present a barrage of structured logical arguments and procedural points.", type: "manipulation" },
-                    { text: "Stay calm and quiet on the surface, but note it meticulously for later.", type: "conjuration" },
-                    { text: "Fire back instantly with passionate indignation.", type: "emission" },
-                    { text: "Smile mischievously and change the subject to confuse them.", type: "transmutation" }
+                    { text: "Explode with immediate fury! I never hold back my temper ♦", type: "emission" },
+                    { text: "Dismantle their provocation with cold logic and sharp excuses ♣", type: "manipulation" },
+                    { text: "Treat them like trash inside, but smile sweetly on the surface ♥", type: "transmutation" },
+                    { text: "Ignore them completely unless they cross my personal boundary ♦", type: "specialization" }
                 ]
             },
             {
-                q: "If you could manifest a supernatural power right now, which appeals most?",
+                q: "「Maybe I get hurt on purpose just to watch your technique up close◆」 What risk would you accept to get what you desire? ♣",
                 choices: [
-                    { text: "Invulnerable physical armor and devastating strike power.", type: "enhancement" },
-                    { text: "An aura that can turn into high-voltage lightning or razor-sharp thread.", type: "transmutation" },
-                    { text: "The power to steal other people's abilities or rewrite the laws of reality.", type: "specialization" },
-                    { text: "A physical item that enforces absolute rules on anyone caught in it.", type: "conjuration" }
+                    { text: "Stake my very life on an absolute vow to forge an unbeatable weapon ♣", type: "conjuration" },
+                    { text: "Sacrifice an arm gladly if it sets up the ultimate trick and thrill ♥", type: "transmutation" },
+                    { text: "Pour all my control into a favored medium or tool ♦", type: "manipulation" },
+                    { text: "No convoluted conditions! I trust only my raw physical training ♠", type: "enhancement" }
                 ]
             },
             {
-                q: "What is your philosophy on life rules and social expectations?",
+                q: "「Should I earn Killua\'s hatred... or save Gon and make Illumi my enemy? What a dilemma~◆」 At a fateful crossroads, how do you choose? ♥",
                 choices: [
-                    { text: "Rules keep chaos in check and must be respected logically.", type: "manipulation" },
-                    { text: "Rules exist for other people; I follow my own personal destiny.", type: "specialization" },
-                    { text: "If my heart tells me it is right, I will pursue it regardless of rules.", type: "enhancement" },
-                    { text: "I adapt smoothly, following rules when convenient and dodging them when fun.", type: "transmutation" }
+                    { text: "Whichever option promises the most thrilling amusement ♥", type: "transmutation" },
+                    { text: "The path that best protects my people and preserves my control ♦", type: "manipulation" },
+                    { text: "No calculations! I follow my heart and loyalty straight ahead ♠", type: "enhancement" },
+                    { text: "Shatter both choices and invent my own third rule entirely ♣", type: "specialization" }
+                ]
+            },
+            {
+                q: "「Nothing is impossible for me◆」 Which combat application do you trust most in the heat of battle? ♠",
+                choices: [
+                    { text: "[In] — Concealing my aura completely to land a lethal surprise trick ♥", type: "transmutation" },
+                    { text: "[En] — Expanding a wide sensory perimeter to dominate the space ♦", type: "emission" },
+                    { text: "[Shu] — Infusing my signature weapon or medium with deadly aura ♣", type: "conjuration" },
+                    { text: "[Ko] — Focusing 100% of my aura into a single unstoppable fist ♠", type: "enhancement" }
+                ]
+            },
+            {
+                q: "「We could be great friends◆ Though what is precious can turn into trash in an instant...」 What do comrades mean to you? ♣",
+                choices: [
+                    { text: "「It was thanks to everyone\'s power—a team victory!」 True loyalty ♦", type: "emission" },
+                    { text: "Once I call someone a friend, I trust and protect them to the end ♠", type: "enhancement" },
+                    { text: "Fun while they excite me, disposable the moment they disappoint me ♥", type: "transmutation" },
+                    { text: "A structured partnership governed by clear roles and obligations ♣", type: "manipulation" }
+                ]
+            },
+            {
+                q: "「More importantly, how about dinner tonight...? ......What a shame◆」 When your proposal is coldly rejected, how do you feel? ♥",
+                choices: [
+                    { text: "「What a shame◆」 Shrug it off lightly and hunt for the next amusement ♥", type: "transmutation" },
+                    { text: "「Why does unripe fruit look so delicious...?♣」 Rejection only fuels my obsession ♦", type: "specialization" },
+                    { text: "Analyze every reason for the rejection and prepare an unrefusable condition ♣", type: "conjuration" },
+                    { text: "Confront them on the spot and demand an honest answer! ♠", type: "emission" }
                 ]
             }
         ];
