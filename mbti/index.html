@@ -207,6 +207,83 @@
             transition: all 0.2s;
         }
         .back-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
+        .quiz-nav-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 14px;
+            gap: 10px;
+        }
+        .nav-sub-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .nav-sub-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
+        .skip-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px dashed #475569;
+            color: #94a3b8;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: auto;
+            transition: all 0.2s;
+        }
+        .skip-btn:hover { color: #f8fafc; border-color: #38bdf8; background: rgba(56, 189, 248, 0.08); }
+        .finish-early-wrap {
+            margin-top: 24px;
+            text-align: center;
+            border-top: 1px solid #262c3a;
+            padding-top: 16px;
+            width: 100%;
+        }
+        .finish-early-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            padding: 6px 12px;
+            transition: color 0.2s;
+        }
+        .finish-early-btn:hover { color: #94a3b8; }
+        .accuracy-warning-box {
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
+            text-align: left;
+            width: 100%;
+            line-height: 1.65;
+        }
+        .accuracy-warning-title {
+            font-weight: 700;
+            color: #fbbf24;
+            font-size: 14.5px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .accuracy-warning-desc {
+            font-size: 13px;
+            color: #fde68a;
+            margin: 0;
+        }
+
 
         .loader {
             border: 5px solid #2d3748;
@@ -414,7 +491,15 @@
             </div>
             <div id="question-text" class="question-text"></div>
             <div id="choices-container" style="width: 100%;"></div>
-            <button id="btn-prev" class="back-btn" onclick="prevQuestion()" style="display:none;">&larr; 이전 질문으로</button>
+            <div class="quiz-nav-row">
+                <button id="btn-prev" class="nav-sub-btn" onclick="prevQuestion()" style="display:none;">&larr; 이전 질문</button>
+                <button id="btn-skip" class="skip-btn" onclick="skipQuestion()">잘 모르겠어요 (건너뛰기) &rarr;</button>
+            </div>
+            <div class="finish-early-wrap">
+                <button id="btn-finish-early" class="finish-early-btn" onclick="finishEarly()">
+                    여기까지만 풀고 결과 확인하기
+                </button>
+            </div>
         </div>
 
         <!-- Loading Screen -->
@@ -428,11 +513,23 @@
 
         <!-- Result Screen -->
         <div id="screen-result" class="screen">
-            <div style="font-size:13px; color:#94a3b8; margin-bottom:5px;">20문항 다차원 정밀 진단 결과</div>
+            <div style="font-size:13px; color:#94a3b8; margin-bottom:5px;">16가지 성격 유형 검사 결과</div>
             <div id="res-code" class="result-code">INTJ</div>
             <div id="res-title" class="result-title">용의주도한 전략가</div>
             <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3); border-radius:20px; padding:4px 14px; margin-bottom:16px; font-size:12px; color:#38bdf8; font-weight:600;">
                 칼 융(Carl Jung) 8대 인지기능 이론 기반 분석 결과
+            </div>
+
+            <!-- Partial / Skipped Result Notice -->
+            <div id="accuracy-warning" class="accuracy-warning-box" style="display:none;">
+                <div class="accuracy-warning-title">
+                    <span>⚠️</span> 간이 검사 결과 안내 (주의)
+                </div>
+                <div class="accuracy-warning-desc">
+                    건너뛴 문항이 있거나 검사를 중간에 종료하여, 평소 실제 성향과 차이가 있을 수 있습니다.<br>
+                    <strong>(전체 20문항 중 <span id="warn-answered-count" style="color:#f8fafc;">0</span>문항 응답 반영)</strong><br>
+                    <span style="color:#94a3b8; font-size:12px;">※ 응답하지 않은 영역은 50:50 중립 비율로 산정되었습니다. 언제든 20문항을 모두 완료해 더 정밀한 분석을 확인해 보세요.</span>
+                </div>
             </div>
             
             <div class="result-box">
@@ -1281,6 +1378,32 @@
             }
         }
 
+        function skipQuestion() {
+            answerHistory.push({});
+            currentIdx++;
+
+            if (currentIdx < questions.length) {
+                renderQuestion();
+            } else {
+                document.getElementById('progress-bar').style.width = "100%";
+                showScreen('screen-loading');
+                setTimeout(calcResult, 1000);
+            }
+        }
+
+        function finishEarly() {
+            const answeredCount = answerHistory.filter(h => Object.keys(h).length > 0).length;
+            if (answeredCount < 3) {
+                alert('성향을 분석하려면 최소 3문제 이상 답변해 주세요.');
+                return;
+            }
+            if (confirm('지금까지 답변한 ' + answeredCount + '문항을 바탕으로 결과를 확인하시겠습니까?\n\n(건너뛴 문항이 많을수록 실제 성향과 다를 수 있습니다.)')) {
+                document.getElementById('progress-bar').style.width = "100%";
+                showScreen('screen-loading');
+                setTimeout(calcResult, 1000);
+            }
+        }
+
         function prevQuestion() {
             if (currentIdx > 0) {
                 currentIdx--;
@@ -1297,24 +1420,23 @@
                 }
             });
 
-            const ePct = Math.round((scores.E / (scores.E + scores.I || 1)) * 100);
-            const iPct = 100 - ePct;
+            function calcAxis(scoreA, scoreB, charA, charB) {
+                const sum = scoreA + scoreB;
+                if (sum === 0) {
+                    return { pctA: 50, pctB: 50, letter: charA, isUnmeasured: true };
+                }
+                const pctA = Math.round((scoreA / sum) * 100);
+                const pctB = 100 - pctA;
+                const letter = scoreA >= scoreB ? charA : charB;
+                return { pctA, pctB, letter, isUnmeasured: false };
+            }
 
-            const sPct = Math.round((scores.S / (scores.S + scores.N || 1)) * 100);
-            const nPct = 100 - sPct;
+            const axEI = calcAxis(scores.E, scores.I, "E", "I");
+            const axSN = calcAxis(scores.S, scores.N, "S", "N");
+            const axTF = calcAxis(scores.T, scores.F, "T", "F");
+            const axJP = calcAxis(scores.J, scores.P, "J", "P");
 
-            const tPct = Math.round((scores.T / (scores.T + scores.F || 1)) * 100);
-            const fPct = 100 - tPct;
-
-            const jPct = Math.round((scores.J / (scores.J + scores.P || 1)) * 100);
-            const pPct = 100 - jPct;
-
-            const code = 
-                (scores.E >= scores.I ? "E" : "I") +
-                (scores.S >= scores.N ? "S" : "N") +
-                (scores.T >= scores.F ? "T" : "F") +
-                (scores.J >= scores.P ? "J" : "P");
-
+            const code = axEI.letter + axSN.letter + axTF.letter + axJP.letter;
             finalCode = code;
             const info = mbtiResults[code] || mbtiResults["INTJ"];
 
@@ -1328,25 +1450,37 @@
             document.getElementById('res-wiki-link').href = '/mbti/' + code.toLowerCase() + '.html';
             document.getElementById('res-wiki-link').innerText = '📖 ' + code + ' 상세 백과사전 도감 보러가기 →';
 
-            document.getElementById('lbl-e').innerText = '외향 (E) ' + ePct + '%';
-            document.getElementById('lbl-i').innerText = '내향 (I) ' + iPct + '%';
-            document.getElementById('bar-e').style.width = ePct + '%';
-            document.getElementById('bar-i').style.width = iPct + '%';
+            document.getElementById('lbl-e').innerText = '외향 (E) ' + axEI.pctA + '%';
+            document.getElementById('lbl-i').innerText = '내향 (I) ' + axEI.pctB + '%';
+            document.getElementById('bar-e').style.width = axEI.pctA + '%';
+            document.getElementById('bar-i').style.width = axEI.pctB + '%';
 
-            document.getElementById('lbl-s').innerText = '감각 (S) ' + sPct + '%';
-            document.getElementById('lbl-n').innerText = '직관 (N) ' + nPct + '%';
-            document.getElementById('bar-s').style.width = sPct + '%';
-            document.getElementById('bar-n').style.width = nPct + '%';
+            document.getElementById('lbl-s').innerText = '감각 (S) ' + axSN.pctA + '%';
+            document.getElementById('lbl-n').innerText = '직관 (N) ' + axSN.pctB + '%';
+            document.getElementById('bar-s').style.width = axSN.pctA + '%';
+            document.getElementById('bar-n').style.width = axSN.pctB + '%';
 
-            document.getElementById('lbl-t').innerText = '사고 (T) ' + tPct + '%';
-            document.getElementById('lbl-f').innerText = '감정 (F) ' + fPct + '%';
-            document.getElementById('bar-t').style.width = tPct + '%';
-            document.getElementById('bar-f').style.width = fPct + '%';
+            document.getElementById('lbl-t').innerText = '사고 (T) ' + axTF.pctA + '%';
+            document.getElementById('lbl-f').innerText = '감정 (F) ' + axTF.pctB + '%';
+            document.getElementById('bar-t').style.width = axTF.pctA + '%';
+            document.getElementById('bar-f').style.width = axTF.pctB + '%';
 
-            document.getElementById('lbl-j').innerText = '판단 (J) ' + jPct + '%';
-            document.getElementById('lbl-p').innerText = '인식 (P) ' + pPct + '%';
-            document.getElementById('bar-j').style.width = jPct + '%';
-            document.getElementById('bar-p').style.width = pPct + '%';
+            document.getElementById('lbl-j').innerText = '판단 (J) ' + axJP.pctA + '%';
+            document.getElementById('lbl-p').innerText = '인식 (P) ' + axJP.pctB + '%';
+            document.getElementById('bar-j').style.width = axJP.pctA + '%';
+            document.getElementById('bar-p').style.width = axJP.pctB + '%';
+
+            const answeredCount = answerHistory.filter(h => Object.keys(h).length > 0).length;
+            const isPartial = answeredCount < questions.length;
+            const warnBox = document.getElementById('accuracy-warning');
+            if (warnBox) {
+                if (isPartial) {
+                    warnBox.style.display = 'block';
+                    document.getElementById('warn-answered-count').innerText = answeredCount;
+                } else {
+                    warnBox.style.display = 'none';
+                }
+            }
 
             showScreen('screen-result');
         }

@@ -191,6 +191,83 @@
             transition: all 0.2s;
         }
         .back-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
+        .quiz-nav-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 14px;
+            gap: 10px;
+        }
+        .nav-sub-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .nav-sub-btn:hover { color: #fff; border-color: #64748b; background: #1e2433; }
+        .skip-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px dashed #475569;
+            color: #94a3b8;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: auto;
+            transition: all 0.2s;
+        }
+        .skip-btn:hover { color: #f8fafc; border-color: #38bdf8; background: rgba(56, 189, 248, 0.08); }
+        .finish-early-wrap {
+            margin-top: 24px;
+            text-align: center;
+            border-top: 1px solid #262c3a;
+            padding-top: 16px;
+            width: 100%;
+        }
+        .finish-early-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            padding: 6px 12px;
+            transition: color 0.2s;
+        }
+        .finish-early-btn:hover { color: #94a3b8; }
+        .accuracy-warning-box {
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
+            text-align: left;
+            width: 100%;
+            line-height: 1.65;
+        }
+        .accuracy-warning-title {
+            font-weight: 700;
+            color: #fbbf24;
+            font-size: 14.5px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .accuracy-warning-desc {
+            font-size: 13px;
+            color: #fde68a;
+            margin: 0;
+        }
+
 
         .result-code {
             font-size: 46px;
@@ -319,7 +396,15 @@
             </div>
             <div id="question-text" class="question-text"></div>
             <div id="choices-container" style="width: 100%;"></div>
-            <button id="btn-prev" class="back-btn" onclick="prevQuestion()" style="display:none;">&larr; Previous Question</button>
+            <div class="quiz-nav-row">
+                <button id="btn-prev" class="nav-sub-btn" onclick="prevQuestion()" style="display:none;">&larr; Previous Question</button>
+                <button id="btn-skip" class="skip-btn" onclick="skipQuestion()">Not sure (Skip) &rarr;</button>
+            </div>
+            <div class="finish-early-wrap">
+                <button id="btn-finish-early" class="finish-early-btn" onclick="finishEarly()">
+                    See results with current answers
+                </button>
+            </div>
         </div>
 
         <!-- Result Screen -->
@@ -329,6 +414,18 @@
             <div id="result-title" class="result-title"></div>
             <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3); border-radius:20px; padding:4px 14px; margin-bottom:16px; font-size:12px; color:#38bdf8; font-weight:600;">
                 Analyzed based on Carl Jung's 8 Cognitive Functions
+            </div>
+
+            <!-- Partial / Skipped Result Notice -->
+            <div id="accuracy-warning" class="accuracy-warning-box" style="display:none;">
+                <div class="accuracy-warning-title">
+                    <span>⚠️</span> Quick Assessment Notice (Partial Result)
+                </div>
+                <div class="accuracy-warning-desc">
+                    Some questions were skipped or the test was ended early. The result may differ from your full personality profile.<br>
+                    <strong>(<span id="warn-answered-count" style="color:#f8fafc;">0</span> of 20 questions answered)</strong><br>
+                    <span style="color:#94a3b8; font-size:12px;">※ Unanswered dimensions are calculated at a 50:50 neutral balance. Complete all 20 questions anytime for a full comprehensive breakdown.</span>
+                </div>
             </div>
 
             <div class="axis-box">
@@ -1103,6 +1200,27 @@
             }
         }
 
+        function skipQuestion() {
+            answerHistory.push({});
+            currentQ++;
+            if (currentQ < questions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function finishEarly() {
+            const answeredCount = answerHistory.filter(h => Object.keys(h).length > 0).length;
+            if (answeredCount < 3) {
+                alert('Please answer at least 3 questions to calculate your profile.');
+                return;
+            }
+            if (confirm('View results based on your ' + answeredCount + ' answered questions?\n\n(Results may differ from your full profile if questions were left unanswered.)')) {
+                showResults();
+            }
+        }
+
         function prevQuestion() {
             if (currentQ > 0) {
                 currentQ--;
@@ -1119,24 +1237,23 @@
                 }
             });
 
-            const ePercent = Math.round((scores.E / (scores.E + scores.I || 1)) * 100);
-            const iPercent = 100 - ePercent;
+            function calcAxis(scoreA, scoreB, charA, charB) {
+                const sum = scoreA + scoreB;
+                if (sum === 0) {
+                    return { pctA: 50, pctB: 50, letter: charA, isUnmeasured: true };
+                }
+                const pctA = Math.round((scoreA / sum) * 100);
+                const pctB = 100 - pctA;
+                const letter = scoreA >= scoreB ? charA : charB;
+                return { pctA, pctB, letter, isUnmeasured: false };
+            }
 
-            const sPercent = Math.round((scores.S / (scores.S + scores.N || 1)) * 100);
-            const nPercent = 100 - sPercent;
+            const axEI = calcAxis(scores.E, scores.I, "E", "I");
+            const axSN = calcAxis(scores.S, scores.N, "S", "N");
+            const axTF = calcAxis(scores.T, scores.F, "T", "F");
+            const axJP = calcAxis(scores.J, scores.P, "J", "P");
 
-            const tPercent = Math.round((scores.T / (scores.T + scores.F || 1)) * 100);
-            const fPercent = 100 - tPercent;
-
-            const jPercent = Math.round((scores.J / (scores.J + scores.P || 1)) * 100);
-            const pPercent = 100 - jPercent;
-
-            const axisE = (scores.E >= scores.I) ? 'E' : 'I';
-            const axisS = (scores.S >= scores.N) ? 'S' : 'N';
-            const axisT = (scores.T >= scores.F) ? 'T' : 'F';
-            const axisJ = (scores.J >= scores.P) ? 'J' : 'P';
-
-            finalCode = axisE + axisS + axisT + axisJ;
+            finalCode = axEI.letter + axSN.letter + axTF.letter + axJP.letter;
             const profile = typeProfiles[finalCode] || typeProfiles["INTJ"];
 
             document.getElementById('result-code').innerText = finalCode;
@@ -1144,27 +1261,39 @@
             document.getElementById('result-cognitive').innerHTML = profile.cognitive;
             document.getElementById('result-desc').innerText = profile.desc;
 
-            document.getElementById('bar-e').style.width = ePercent + '%';
-            document.getElementById('bar-i').style.width = iPercent + '%';
-            document.getElementById('lbl-e').innerText = `Extraversion (E) ${ePercent}%`;
-            document.getElementById('lbl-i').innerText = `Introversion (I) ${iPercent}%`;
+            document.getElementById('bar-e').style.width = axEI.pctA + '%';
+            document.getElementById('bar-i').style.width = axEI.pctB + '%';
+            document.getElementById('lbl-e').innerText = `Extraversion (E) ${axEI.pctA}%`;
+            document.getElementById('lbl-i').innerText = `Introversion (I) ${axEI.pctB}%`;
 
-            document.getElementById('bar-s').style.width = sPercent + '%';
-            document.getElementById('bar-n').style.width = nPercent + '%';
-            document.getElementById('lbl-s').innerText = `Sensing (S) ${sPercent}%`;
-            document.getElementById('lbl-n').innerText = `Intuition (N) ${nPercent}%`;
+            document.getElementById('bar-s').style.width = axSN.pctA + '%';
+            document.getElementById('bar-n').style.width = axSN.pctB + '%';
+            document.getElementById('lbl-s').innerText = `Sensing (S) ${axSN.pctA}%`;
+            document.getElementById('lbl-n').innerText = `Intuition (N) ${axSN.pctB}%`;
 
-            document.getElementById('bar-t').style.width = tPercent + '%';
-            document.getElementById('bar-f').style.width = fPercent + '%';
-            document.getElementById('lbl-t').innerText = `Thinking (T) ${tPercent}%`;
-            document.getElementById('lbl-f').innerText = `Feeling (F) ${fPercent}%`;
+            document.getElementById('bar-t').style.width = axTF.pctA + '%';
+            document.getElementById('bar-f').style.width = axTF.pctB + '%';
+            document.getElementById('lbl-t').innerText = `Thinking (T) ${axTF.pctA}%`;
+            document.getElementById('lbl-f').innerText = `Feeling (F) ${axTF.pctB}%`;
 
-            document.getElementById('bar-j').style.width = jPercent + '%';
-            document.getElementById('bar-p').style.width = pPercent + '%';
-            document.getElementById('lbl-j').innerText = `Judging (J) ${jPercent}%`;
-            document.getElementById('lbl-p').innerText = `Perceiving (P) ${pPercent}%`;
+            document.getElementById('bar-j').style.width = axJP.pctA + '%';
+            document.getElementById('bar-p').style.width = axJP.pctB + '%';
+            document.getElementById('lbl-j').innerText = `Judging (J) ${axJP.pctA}%`;
+            document.getElementById('lbl-p').innerText = `Perceiving (P) ${axJP.pctB}%`;
 
             document.getElementById('btn-encyclopedia').href = '/en/mbti/' + finalCode.toLowerCase() + '.html';
+
+            const answeredCount = answerHistory.filter(h => Object.keys(h).length > 0).length;
+            const isPartial = answeredCount < questions.length;
+            const warnBox = document.getElementById('accuracy-warning');
+            if (warnBox) {
+                if (isPartial) {
+                    warnBox.style.display = 'block';
+                    document.getElementById('warn-answered-count').innerText = answeredCount;
+                } else {
+                    warnBox.style.display = 'none';
+                }
+            }
 
             showScreen('screen-result');
         }
