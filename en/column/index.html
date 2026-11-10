@@ -166,7 +166,7 @@
 
         <!-- Column 2: MBTI and Nen -->
         <!-- New Featured Column: Adult Gon Analysis -->
-        <a href="/en/column/gon-analysis.html" class="column-card" style="border-left: 4px solid #ef4444; position: relative;">
+        <a href="/en/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
             <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">NEW DEEP DIVE</span>
             <span style="font-size:12px; color:#ef4444; font-weight:bold;">Character Psychology | Narrative Deconstruction</span>
             <h3>[Column] Why Did Gon Transform into 'Adult Gon'? The Trauma of Kite and the Terrifying Truth of Pure Innocence</h3>
@@ -176,7 +176,7 @@
             <span style="font-size:12px; color:#64748b;">Editor: TESTYOUR · Read time ~9 min</span>
         </a>
 
-        <a href="/en/column/mbti-nen.html" class="column-card" style="border-left: 4px solid #ff3b30;">
+        <a href="/en/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
             <span style="font-size:12px; color:#ff3b30; font-weight:bold;">Personality Theory & MBTI</span>
             <h3>[Essay] The 6 Nen Categories and MBTI 16 Types: A Surprising Parallel</h3>
             <p>
@@ -186,7 +186,7 @@
         </a>
 
         <!-- Column 3: Leadership in HxH -->
-        <a href="/en/column/leadership.html" class="column-card" style="border-left: 4px solid #a855f7;">
+        <a href="/en/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
             <span style="font-size:12px; color:#a855f7; font-weight:bold;">Organizational Dynamics</span>
             <h3>[Essay] 4 Leadership Archetypes in Hunter x Hunter</h3>
             <p>
@@ -225,5 +225,12 @@
         </p>
     </footer>
 
+    <script src="/column/columns-data.js"></script>
+    <script src="/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initColumnIndexPage();
+        });
+    </script>
 </body>
 </html>

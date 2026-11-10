@@ -164,7 +164,7 @@
 
         <!-- 칼럼 2: MBTI와 넨의 상관관계 -->
         <!-- 신규 추천 칼럼: 곤육몬 심층 분석 -->
-        <a href="/column/gon-analysis.html" class="column-card" style="border-left: 4px solid #ef4444; position: relative;">
+        <a href="/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
             <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">NEW 심층 분석</span>
             <span style="font-size:12px; color:#ef4444; font-weight:bold;">서사 심리학 | 캐릭터 심층 해부</span>
             <h3>[칼럼] 곤은 왜 '곤육몬'이 되었을까? 카이토라는 결핍과 순수함이 낳은 잔혹한 괴물</h3>
@@ -174,7 +174,7 @@
             <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 9분</span>
         </a>
 
-        <a href="/column/mbti-nen.html" class="column-card" style="border-left: 4px solid #ff3b30;">
+        <a href="/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
             <span style="font-size:12px; color:#ff3b30; font-weight:bold;">성격 심리학 | MBTI 비교 분석</span>
             <h3>[칼럼] 넨(念) 6대 계통과 MBTI 16가지 성격 유형의 심층 상관관계 분석</h3>
             <p>
@@ -184,7 +184,7 @@
         </a>
 
         <!-- 칼럼 3: 헌터X헌터 4대 리더십 -->
-        <a href="/column/leadership.html" class="column-card" style="border-left: 4px solid #a855f7;">
+        <a href="/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
             <span style="font-size:12px; color:#a855f7; font-weight:bold;">조직 심리학 | 직장인 리더십</span>
             <h3>[칼럼] 직장인 시선으로 본 헌터X헌터의 4대 리더십 모델</h3>
             <p>
@@ -212,7 +212,8 @@
             <a href="/column">심리 칼럼</a> |
             <a href="/about.html">소개</a> |
             <a href="/privacy.html">개인정보처리방침</a> |
-            <a href="/terms.html">이용약관</a>
+            <a href="/terms.html">이용약관</a> |
+            <a href="/admin.html" style="color:#64748b; font-size:11px;">🔒 관리자</a>
         </div>
         <p style="margin: 6px 0; color: #64748b; font-size: 12px;">
             본 사이트의 심리 칼럼 및 도감 자료는 에듀테인먼트 및 성격 심리학 비교 연구 목적으로 기획된 비공식 비상업적 팬 콘텐츠입니다.
@@ -222,5 +223,12 @@
         </p>
     </footer>
 
+    <script src="/column/columns-data.js"></script>
+    <script src="/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initColumnIndexPage();
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTYOUR 콘텐츠 관리자 센터 (Admin Console)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: #111827;
+            border-bottom: 2px solid #ef4444;
+            padding: 16px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #ef4444;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .admin-badge {
+            background: rgba(239, 68, 68, 0.18);
+            border: 1px solid #ef4444;
+            color: #f87171;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .nav-btn {
+            background: #1e293b;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            border: 1px solid #334155;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .nav-btn:hover { background: #334155; color: #fff; }
+
+        .container {
+            max-width: 1040px;
+            margin: 36px auto;
+            padding: 0 20px 80px;
+        }
+
+        /* Login Card */
+        .login-card {
+            max-width: 440px;
+            margin: 70px auto;
+            background: #161a24;
+            border: 1px solid #334155;
+            border-radius: 18px;
+            padding: 36px 32px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+        .text-input {
+            width: 100%;
+            padding: 13px 16px;
+            background: #0f1117;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14.5px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .text-input:focus { border-color: #ef4444; }
+        .primary-btn {
+            width: 100%;
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15.5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .primary-btn:hover { background: #dc2626; }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: #161a24;
+            border: 1px solid #2d3748;
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .stat-title { font-size: 13px; color: #94a3b8; margin: 0 0 6px 0; font-weight: 600; }
+        .stat-value { font-size: 28px; font-weight: 900; color: #f8fafc; margin: 0; }
+
+        /* Column Cards in Admin */
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .column-admin-card {
+            background: #161a24;
+            border: 1px solid #2d3748;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s;
+        }
+        .column-admin-card:hover { border-color: #475569; }
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 16px;
+        }
+        .col-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #f8fafc;
+            margin: 0 0 6px 0;
+        }
+        .col-desc {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.65;
+            margin: 0 0 16px 0;
+        }
+        .status-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .status-pill.published {
+            background: rgba(16, 185, 129, 0.18);
+            border: 1px solid #10b981;
+            color: #10b981;
+        }
+        .status-pill.draft {
+            background: rgba(234, 179, 8, 0.18);
+            border: 1px solid #eab308;
+            color: #facc15;
+        }
+        .actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid #2d3748;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .action-btn:hover { background: #334155; color: #fff; }
+        .action-btn.publish {
+            background: #10b981;
+            color: #fff;
+            border-color: #10b981;
+        }
+        .action-btn.publish:hover { background: #059669; }
+        .action-btn.unpublish {
+            background: #475569;
+            color: #e2e8f0;
+            border-color: #475569;
+        }
+        .action-btn.inspect {
+            background: #312e81;
+            color: #a5b4fc;
+            border-color: #4338ca;
+        }
+        .action-btn.inspect:hover { background: #3730a3; color: #fff; }
+
+        /* Sync Box */
+        .sync-box {
+            background: linear-gradient(135deg, #181d2c 0%, #101522 100%);
+            border: 1px solid #3b82f6;
+            border-radius: 16px;
+            padding: 26px;
+            margin-top: 40px;
+        }
+        .sync-box h3 { margin: 0 0 10px 0; color: #93c5fd; font-size: 18px; }
+        .sync-box p { margin: 0 0 18px 0; color: #cbd5e1; font-size: 14px; line-height: 1.6; }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #1e293b;
+            color: #fff;
+            border-left: 4px solid #ef4444;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            z-index: 999999;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-group">
+            <a href="/" class="logo">TESTYOUR</a>
+            <span class="admin-badge">ADMIN CONSOLE</span>
+        </div>
+        <div class="nav-actions">
+            <a href="/column/" class="nav-btn" target="_blank">🌐 칼럼 페이지 보기</a>
+            <button id="logout-btn" class="nav-btn" style="display:none;" onclick="handleLogout()">로그아웃</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- 1. LOGIN SCREEN -->
+        <div id="login-section" class="login-card">
+            <div style="font-size: 46px; margin-bottom: 12px;">🛡️</div>
+            <h2 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 23px;">관리자 로그인</h2>
+            <p style="color: #94a3b8; font-size: 13.5px; margin: 0 0 26px 0;">칼럼 비공개 초안 검토 및 일반인 게시 관리</p>
+            
+            <form id="admin-login-form">
+                <div class="input-group">
+                    <label>관리자 비밀번호</label>
+                    <input type="password" id="login-pwd" class="text-input" placeholder="비밀번호 입력 (기본: testyour777!)" required>
+                </div>
+                <div style="margin-bottom: 22px; text-align: left; display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="login-remember" checked style="accent-color: #ef4444; cursor: pointer;">
+                    <label for="login-remember" style="font-size: 13px; color: #94a3b8; cursor: pointer;">로그인 상태 유지</label>
+                </div>
+                <button type="submit" class="primary-btn">대시보드 접속</button>
+                <div id="login-error-msg" style="color: #f87171; font-size: 13px; margin-top: 14px; display: none;">
+                    비밀번호가 일치하지 않습니다.
+                </div>
+            </form>
+        </div>
+
+        <!-- 2. ADMIN DASHBOARD SCREEN -->
+        <div id="dashboard-section" style="display:none;">
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-title">총 관리 칼럼</p>
+                    <p class="stat-value" id="stat-total">3</p>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #10b981;">
+                    <p class="stat-title">전체 공개 (Live)</p>
+                    <p class="stat-value" style="color:#10b981;" id="stat-published">2</p>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #eab308;">
+                    <p class="stat-title">비공개 초안 (검토 중)</p>
+                    <p class="stat-value" style="color:#facc15;" id="stat-draft">1</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <span>📑 칼럼 게시 관리 (Publishing Control)</span>
+                <span style="font-size: 13px; color: #94a3b8; font-weight: normal;">* 버튼 클릭 시 실시간 반영</span>
+            </div>
+
+            <div id="column-list-container">
+                <!-- Javascript will dynamically inject columns here -->
+            </div>
+
+            <!-- GITHUB SYNC & PERMANENT DEPLOY -->
+            <div class="sync-box">
+                <h3>🚀 GitHub 실서버 영구 반영 & 배포</h3>
+                <p>
+                    현재 페이지에서 <strong>[게시하기]</strong> 버튼을 누르면 관리자 브라우저와 프리뷰에서는 즉시 공개 상태가 적용됩니다.<br>
+                    실제 서버(testyour.uk)의 모든 방문자에게 영구적으로 반영하려면 아래에서 GitHub 토큰을 입력하고 1-클릭으로 동기화할 수 있습니다.
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                    <input type="password" id="gh-token-input" class="text-input" placeholder="GitHub Personal Access Token (ghp_...)" style="max-width: 420px;">
+                    <button class="nav-btn" style="background:#2563eb; color:#fff; border-color:#2563eb; padding: 12px 20px; font-weight: bold;" onclick="syncToGitHub()">
+                        🚀 GitHub에 게시 상태 영구 배포
+                    </button>
+                    <button class="nav-btn" style="padding: 12px 18px;" onclick="downloadColumnsDataJs()">
+                        💾 columns-data.js 다운로드
+                    </button>
+                </div>
+                <div id="gh-sync-status" style="margin-top: 12px; font-size: 13px;"></div>
+            </div>
+
+            <!-- INSPECTOR RESULT MODAL / AREA -->
+            <div id="inspect-result-box" style="display:none; margin-top:24px; background:#161a24; border:1px solid #334155; border-radius:14px; padding:20px;">
+                <h4 id="inspect-title" style="margin:0 0 10px 0; color:#f8fafc;"></h4>
+                <div id="inspect-content" style="font-size:13.5px; line-height:1.7;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="/column/columns-data.js"></script>
+    <script src="/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            checkAuth();
+
+            // Load saved GitHub token if available
+            const savedToken = localStorage.getItem("testyour_gh_token");
+            if (savedToken) {
+                document.getElementById("gh-token-input").value = savedToken;
+            }
+
+            document.getElementById("admin-login-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const pwd = document.getElementById("login-pwd").value.trim();
+                const remember = document.getElementById("login-remember").checked;
+                const ok = await adminLogin(pwd, remember);
+                if (ok) {
+                    showAdminToast("🎉 관리자 로그인 성공!");
+                    checkAuth();
+                } else {
+                    document.getElementById("login-error-msg").style.display = "block";
+                }
+            });
+        });
+
+        function checkAuth() {
+            const loggedIn = isAdminLoggedIn();
+            const loginSec = document.getElementById("login-section");
+            const dashSec = document.getElementById("dashboard-section");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (loggedIn) {
+                loginSec.style.display = "none";
+                dashSec.style.display = "block";
+                logoutBtn.style.display = "block";
+                renderDashboardColumns();
+            } else {
+                loginSec.style.display = "block";
+                dashSec.style.display = "none";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        function handleLogout() {
+            adminLogout();
+        }
+
+        function renderDashboardColumns() {
+            const cols = getTestyourColumns();
+            const container = document.getElementById("column-list-container");
+            container.innerHTML = "";
+
+            let publishedCount = 0;
+            let draftCount = 0;
+
+            cols.forEach(col => {
+                const isPublished = col.status === "published";
+                if (isPublished) publishedCount++; else draftCount++;
+
+                const card = document.createElement("div");
+                card.className = "column-admin-card";
+                card.style.borderLeft = `4px solid ${isPublished ? '#10b981' : '#eab308'}`;
+
+                card.innerHTML = `
+                    <div class="column-header">
+                        <div>
+                            <span style="font-size: 12px; color: ${isPublished ? '#10b981' : '#facc15'}; font-weight: bold; margin-bottom: 4px; display: block;">
+                                ${col.category}
+                            </span>
+                            <h3 class="col-title">${col.title}</h3>
+                            <p class="col-desc">${col.description}</p>
+                        </div>
+                        <div>
+                            <span class="status-pill ${isPublished ? 'published' : 'draft'}">
+                                ${isPublished ? '🟢 전체 공개 (Live)' : '🟡 비공개 초안 (Draft)'}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="actions-row">
+                        <div style="font-size: 12.5px; color: #64748b;">
+                            ID: <code>${col.id}</code> · URL: <code>${col.url}</code>
+                        </div>
+                        <div class="btn-group">
+                            <a href="${col.url}" target="_blank" class="action-btn">
+                                👁️ 본문 검토하기
+                            </a>
+                            <button type="button" class="action-btn inspect" onclick="inspectMarkdownLeaks('${col.url}', '${col.title.replace(/'/g, "\\'")}')">
+                                🚨 마크다운 누출 검사
+                            </button>
+                            <button type="button" class="action-btn ${isPublished ? 'unpublish' : 'publish'}" onclick="togglePublish('${col.id}', '${col.status}')">
+                                ${isPublished ? '🔒 비공개 초안으로 내리기' : '🚀 일반인에게 게시하기'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            document.getElementById("stat-total").innerText = cols.length;
+            document.getElementById("stat-published").innerText = publishedCount;
+            document.getElementById("stat-draft").innerText = draftCount;
+        }
+
+        function togglePublish(colId, currentStatus) {
+            const nextStatus = currentStatus === "published" ? "draft" : "published";
+            setColumnPublishStatus(colId, nextStatus);
+            showAdminToast(
+                nextStatus === "published"
+                    ? "🎉 게시 완료! 이제 모든 일반 방문자가 볼 수 있습니다."
+                    : "🔒 비공개 처리 완료! 관리자에게만 노출됩니다."
+            );
+            renderDashboardColumns();
+        }
+
+        async function inspectMarkdownLeaks(url, title) {
+            const box = document.getElementById("inspect-result-box");
+            const titleEl = document.getElementById("inspect-title");
+            const contentEl = document.getElementById("inspect-content");
+
+            box.style.display = "block";
+            titleEl.innerHTML = `🔍 <strong>${title}</strong> 마크다운 기호 누출 검사 결과`;
+            contentEl.innerHTML = "검사 중...";
+
+            try {
+                const res = await fetch(url);
+                const html = await res.text();
+
+                // Parse visible text (strip script & style)
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                doc.querySelectorAll("script, style").forEach(el => el.remove());
+                const text = doc.body.innerText;
+
+                const leaks = [];
+                const checkPatterns = [
+                    { pat: /\*\*/g, name: "** (볼드 별표)" },
+                    { pat: /__/g, name: "__ (언더스코어)" },
+                    { pat: /###\s/g, name: "### (마크다운 헤딩)" },
+                    { pat: /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, name: "[text](url) 마크다운 링크" }
+                ];
+
+                checkPatterns.forEach(({ pat, name }) => {
+                    let match;
+                    while ((match = pat.exec(text)) !== null) {
+                        const start = Math.max(0, match.index - 30);
+                        const end = Math.min(text.length, match.index + 30);
+                        leaks.push({
+                            type: name,
+                            snippet: text.substring(start, end).replace(/\n/g, " ").trim()
+                        });
+                    }
+                });
+
+                if (leaks.length === 0) {
+                    contentEl.innerHTML = `
+                        <div style="color: #10b981; font-weight: bold; font-size: 15px; margin-bottom: 6px;">
+                            ✅ 완벽합니다! 본문 텍스트 내 마크다운 문법 기호 누출이 0건입니다.
+                        </div>
+                        <p style="color: #94a3b8; margin: 0;">독자에게 AI 복붙 느낌을 주는 어색한 별표나 샵 기호가 전혀 없습니다. 안심하고 게시하셔도 좋습니다.</p>
+                    `;
+                } else {
+                    let listHtml = leaks.map(l => `<li><strong>${l.type}</strong>: <code>...${l.snippet}...</code></li>`).join("");
+                    contentEl.innerHTML = `
+                        <div style="color: #ef4444; font-weight: bold; font-size: 15px; margin-bottom: 6px;">
+                            ⚠️ ${leaks.length}건의 마크다운 기호가 본문에서 감지되었습니다!
+                        </div>
+                        <ul style="color: #fca5a5; margin: 0 0 10px 20px;">${listHtml}</ul>
+                        <p style="color: #cbd5e1; margin: 0;">민심 보호를 위해 게시 전 해당 기호를 HTML 태그로 치환해 주세요.</p>
+                    `;
+                }
+            } catch (err) {
+                contentEl.innerHTML = `<span style="color:#f87171;">검사 실패: ${err.message}</span>`;
+            }
+        }
+
+        async function syncToGitHub() {
+            const tokenInput = document.getElementById("gh-token-input");
+            const token = tokenInput.value.trim();
+            const statusEl = document.getElementById("gh-sync-status");
+
+            if (!token) {
+                alert("GitHub 토큰을 입력해 주세요! (ghp_로 시작하는 Personal Access Token)");
+                return;
+            }
+
+            localStorage.setItem("testyour_gh_token", token);
+            statusEl.innerHTML = `<span style="color:#60a5fa;">⏳ GitHub 저장소에 변경사항을 커밋하는 중입니다...</span>`;
+
+            try {
+                const cols = getTestyourColumns();
+                const jsContent = generateColumnsDataJsContent(cols);
+
+                const repo = "seenabrolee/testyour-web";
+                const filePath = "column/columns-data.js";
+                const url = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+                // 1. Get current file SHA
+                const getRes = await fetch(url, {
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Accept": "application/vnd.github.v3+json"
+                    }
+                });
+
+                let sha = "";
+                if (getRes.ok) {
+                    const data = await getRes.json();
+                    sha = data.sha;
+                }
+
+                // 2. Put updated file
+                const putRes = await fetch(url, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Accept": "application/vnd.github.v3+json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: "Update column publishing status via Admin Console",
+                        content: btoa(unescape(encodeURIComponent(jsContent))),
+                        sha: sha || undefined,
+                        branch: "main"
+                    })
+                });
+
+                if (putRes.ok) {
+                    statusEl.innerHTML = `<span style="color:#10b981; font-weight:bold;">🎉 성공! GitHub main 브랜치에 배포 커밋이 완료되었습니다. (~30초 후 전체 실서버 반영)</span>`;
+                    showAdminToast("🎉 GitHub 영구 배포 완료!");
+                } else {
+                    const err = await putRes.json();
+                    statusEl.innerHTML = `<span style="color:#ef4444;">❌ 배포 실패: ${err.message}</span>`;
+                }
+            } catch (e) {
+                statusEl.innerHTML = `<span style="color:#ef4444;">❌ 오류: ${e.message}</span>`;
+            }
+        }
+
+        function generateColumnsDataJsContent(cols) {
+            return `// TESTYOUR 칼럼 데이터베이스 및 게시 상태 설정\nconst TESTYOUR_COLUMNS = ${JSON.stringify(cols.map(c => ({
+                id: c.id,
+                title: c.title,
+                title_en: c.title_en,
+                category: c.category,
+                category_en: c.category_en,
+                url: c.url,
+                url_en: c.url_en,
+                description: c.description,
+                description_en: c.description_en,
+                meta: c.meta,
+                meta_en: c.meta_en,
+                badge: c.badge,
+                borderColor: c.borderColor,
+                defaultStatus: c.status,
+                date: c.date
+            })), null, 2)};\n\nfunction getTestyourColumns() {\n  let overrides = {};\n  try {\n    const raw = localStorage.getItem("testyour_column_status_overrides");\n    if (raw) overrides = JSON.parse(raw);\n  } catch (e) {}\n  return TESTYOUR_COLUMNS.map(col => ({\n    ...col,\n    status: overrides[col.id] || col.defaultStatus\n  }));\n}\n\nfunction getColumnStatus(colId) {\n  const cols = getTestyourColumns();\n  const found = cols.find(c => c.id === colId);\n  return found ? found.status : "draft";\n}\n`;
+        }
+
+        function downloadColumnsDataJs() {
+            const cols = getTestyourColumns();
+            const content = generateColumnsDataJsContent(cols);
+            const blob = new Blob([content], { type: "text/javascript" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "columns-data.js";
+            a.click();
+            URL.revokeObjectURL(url);
+            showAdminToast("💾 columns-data.js 파일이 다운로드되었습니다.");
+        }
+    </script>
+</body>
+</html>
