@@ -41,7 +41,7 @@
         
         .container {
             width: 100%;
-            max-width: 540px;
+            max-width: 600px;
             background-color: #161a24;
             min-height: 100vh;
             display: flex;
@@ -416,26 +416,16 @@
             border-radius: 12px;
             padding: 13px 10px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            cursor: default;
+            user-select: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
             min-width: 0;
-            -webkit-tap-highlight-color: transparent;
         }
-        .pole-card:hover {
-            transform: translateY(-2px);
-        }
-        .pole-card.pole-a:hover {
-            border-color: #38bdf8;
-            background: rgba(56, 189, 248, 0.08);
-        }
-        .pole-card.pole-b:hover {
-            border-color: #c084fc;
-            background: rgba(192, 132, 252, 0.08);
-        }
+        .pole-card.pole-a { border-color: rgba(56, 189, 248, 0.25); }
+        .pole-card.pole-b { border-color: rgba(192, 132, 252, 0.25); }
         .pole-badge {
             font-size: 11.5px;
             font-weight: 800;
@@ -455,19 +445,17 @@
             border: 1px solid rgba(192, 132, 252, 0.3);
         }
         .pole-text {
-            font-size: clamp(11px, 2.9vw, 13.5px);
+            font-size: clamp(10.5px, 2.75vw, 13.5px);
             font-weight: 600;
             line-height: 1.3;
             color: #f1f5f9;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         @media (max-width: 440px) {
-            .screen { padding: 26px 14px 40px; }
-            .poles-row { gap: 7px; }
+            .screen { padding: 26px 12px 40px; }
+            .poles-row { gap: 6px; }
             .pole-card { padding: 11px 6px; gap: 4px; }
-            .pole-badge { font-size: 10.5px; padding: 2px 5px; }
+            .pole-badge { font-size: 10px; padding: 2px 5px; }
         }
         .spectrum-bar-wrap {
             background: rgba(15, 23, 42, 0.7);
@@ -764,7 +752,7 @@
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "기 빨려... 탈출각",
+                        "text": "슬슬 집 갈 각을 잰다",
                         "scoreKey": "I"
                 }
         },
@@ -780,11 +768,11 @@
                 "category": "에너지 방향 & 낯선 자리",
                 "q": "아는 사람이 거의 없는 낯선 모임이나 파티에 갔을 때 나는?",
                 "poleA": {
-                        "text": "먼저 다가가 말 건다",
+                        "text": "먼저 다가가 말을 건다",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "구석에서 폰 보며 관찰",
+                        "text": "조용히 구석에 있는다",
                         "scoreKey": "I"
                 }
         },
@@ -800,11 +788,11 @@
                 "category": "에너지 방향 & 생각 정리",
                 "q": "재밌는 아이디어나 고민거리가 생겼을 때 나의 생각 정리법은?",
                 "poleA": {
-                        "text": "말하면서 생각 정리",
+                        "text": "말로 떠들며 정리한다",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "혼자 속으로 다 정리",
+                        "text": "혼자 속으로 정리한다",
                         "scoreKey": "I"
                 }
         },
@@ -820,11 +808,11 @@
                 "category": "에너지 방향 & 멘탈 힐링",
                 "q": "한 주 동안 기가 쫙 빨려서 멘탈이 방전되었을 때 나의 충전법은?",
                 "poleA": {
-                        "text": "밖에 나가 사람 만남",
+                        "text": "밖에 나가 사람을 만남",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "집에 박혀 혼자 충전",
+                        "text": "집에 박혀 혼자 쉰다",
                         "scoreKey": "I"
                 }
         },
@@ -840,11 +828,11 @@
                 "category": "에너지 방향 & 스마트폰 연락",
                 "q": "카톡이나 전화 연락에 대한 나의 솔직한 평소 모습은?",
                 "poleA": {
-                        "text": "귀찮을 땐 바로 통화",
+                        "text": "타자보다 통화가 편함",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "전화 흠칫·몰아 답장",
+                        "text": "전화 부담, 톡은 몰아서",
                         "scoreKey": "I"
                 }
         },
@@ -860,11 +848,11 @@
                 "category": "정보 인식 & 새 기기/앱 학습",
                 "q": "새로운 전자기기를 사거나 새로운 앱을 깔았을 때 나는?",
                 "poleA": {
-                        "text": "설명서 보고 차근차근",
+                        "text": "설명서 보며 차근차근",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "막 눌러보며 감 파악",
+                        "text": "일단 막 눌러보며 파악",
                         "scoreKey": "N"
                 }
         },
@@ -880,11 +868,11 @@
                 "category": "정보 인식 & 영화/드라마 감상",
                 "q": "영화나 드라마를 보고 친구와 대화할 때 더 꽂히는 부분은?",
                 "poleA": {
-                        "text": "연기·명장면·팩트",
+                        "text": "명장면과 결말 이야기",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "숨은 복선·결말 상상",
+                        "text": "숨은 복선과 뒷이야기",
                         "scoreKey": "N"
                 }
         },
@@ -900,11 +888,11 @@
                 "category": "정보 인식 & 문제 해결 방식",
                 "q": "일상이나 업무에서 자주 삐걱거리는 문제를 해결할 때 나는?",
                 "poleA": {
-                        "text": "검증된 방법부터 조치",
+                        "text": "검증된 해결책부터 찾음",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "근본 원인·새 판 짜기",
+                        "text": "근본부터 새 판을 짠다",
                         "scoreKey": "N"
                 }
         },
@@ -920,11 +908,11 @@
                 "category": "정보 인식 & 설명하는 화법",
                 "q": "친구에게 있었던 일이나 정보를 설명할 때 나의 말하기 스타일은?",
                 "poleA": {
-                        "text": "시간순으로 팩트 설명",
+                        "text": "시간 순으로 팩트를 설명",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "결론부터 비유로 설명",
+                        "text": "핵심과 느낌 위주로 설명",
                         "scoreKey": "N"
                 }
         },
@@ -940,11 +928,11 @@
                 "category": "정보 인식 & 혼자 멍때릴 때",
                 "q": "혼자 멍하니 창밖을 보거나 산책할 때 머릿속을 스치는 생각은?",
                 "poleA": {
-                        "text": "눈앞의 현실적인 생각",
+                        "text": "눈앞에 닥친 현실 생각",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "미래·삶 끝없는 공상",
+                        "text": "먼 미래와 끝없는 공상",
                         "scoreKey": "N"
                 }
         },
@@ -960,11 +948,11 @@
                 "category": "판단 기준 & 친구 고민 위로",
                 "q": "친구가 “나 오늘 너무 억울하게 깨졌어...”라며 울적해할 때 나의 반응은?",
                 "poleA": {
-                        "text": "“누가 왜?” 상황 파악",
+                        "text": "“왜 그랬대?” 상황 파악",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "“속상해” 감정 공감",
+                        "text": "“속상했겠다” 감정 공감",
                         "scoreKey": "F"
                 }
         },
@@ -981,11 +969,11 @@
                 "category": "판단 기준 & 친구 옷 평가",
                 "q": "친구가 비싼 옷을 사고 “나 이거 어때? 솔직하게 말해줘!” 했는데 별로라면?",
                 "poleA": {
-                        "text": "안 어울리면 솔직 조언",
+                        "text": "솔직히 안 어울린다 말함",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "어떻게든 예쁘다 칭찬",
+                        "text": "기분 안 상하게 칭찬함",
                         "scoreKey": "F"
                 }
         },
@@ -1005,7 +993,7 @@
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "말투 때문에 상처받음",
+                        "text": "날카로운 말투에 상처",
                         "scoreKey": "F"
                 }
         },
@@ -1021,11 +1009,11 @@
                 "category": "판단 기준 & 멋지다고 느끼는 사람",
                 "q": "누군가를 보고 “이 사람 진짜 멋있다, 배울 점 많다”라고 느끼는 순간은?",
                 "poleA": {
-                        "text": "일 잘하는 프로페셔널",
+                        "text": "일 잘하는 유능한 능력",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "마음 헤아리는 다정함",
+                        "text": "주변 챙기는 다정한 인품",
                         "scoreKey": "F"
                 }
         },
@@ -1041,7 +1029,7 @@
                 "category": "판단 기준 & 팀원 버벅거릴 때",
                 "q": "팀 과제나 프로젝트에서 한 사람이 계속 버벅거리며 진도를 못 따라올 때?",
                 "poleA": {
-                        "text": "냉정하게 역할 재배정",
+                        "text": "냉정하게 역할을 재배정",
                         "scoreKey": "T"
                 },
                 "poleB": {
@@ -1061,7 +1049,7 @@
                 "category": "생활 양식 & 여행 스타일",
                 "q": "친구와 3박 4일 여행을 가기로 했을 때 나의 진짜 스타일은?",
                 "poleA": {
-                        "text": "동선·플랜B까지 계획",
+                        "text": "일정과 플랜B 미리 짬",
                         "scoreKey": "J"
                 },
                 "poleB": {
@@ -1081,11 +1069,11 @@
                 "category": "생활 양식 & 과제/마감 스타일",
                 "q": "2주 뒤 마감인 굵직한 과제나 업무가 주어졌을 때 나의 행동은?",
                 "poleA": {
-                        "text": "미리 나눠 일찍 끝냄",
+                        "text": "미리 나눠서 일찍 끝냄",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "마감 직전 벼락치기",
+                        "text": "미루다 막판에 벼락치기",
                         "scoreKey": "P"
                 }
         },
@@ -1101,7 +1089,7 @@
                 "category": "생활 양식 & 방/바탕화면 정리",
                 "q": "지금 내 방 책상 위나 컴퓨터 바탕화면의 실제 상태는?",
                 "poleA": {
-                        "text": "제자리에 깔끔히 정돈",
+                        "text": "항상 제자리에 깔끔 정돈",
                         "scoreKey": "J"
                 },
                 "poleB": {
@@ -1125,7 +1113,7 @@
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "오히려 좋아! 자유시간",
+                        "text": "오히려 좋아! 푹 쉰다",
                         "scoreKey": "P"
                 }
         },
@@ -1141,11 +1129,11 @@
                 "category": "생활 양식 & 쇼핑 결제 방식",
                 "q": "사고 싶었던 물건을 쇼핑할 때 나의 최종 결제 방식은?",
                 "poleA": {
-                        "text": "비교 끝내고 깔끔 결제",
+                        "text": "꼼꼼히 비교하고 결제함",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "순간 꽂히면 즉흥 지름",
+                        "text": "꽂히면 바로 질러버림",
                         "scoreKey": "P"
                 }
         }
@@ -1367,11 +1355,11 @@ const mbtiResults = {
             container.innerHTML = `
                 <div class="bipolar-wrap">
                     <div class="poles-row">
-                        <div class="pole-card pole-a" onclick="handleSpectrumChoice('a2', this)">
+                        <div class="pole-card pole-a">
                             <span class="pole-badge">A</span>
                             <span class="pole-text">${qData.poleA.text}</span>
                         </div>
-                        <div class="pole-card pole-b" onclick="handleSpectrumChoice('b2', this)">
+                        <div class="pole-card pole-b">
                             <span class="pole-badge">B</span>
                             <span class="pole-text">${qData.poleB.text}</span>
                         </div>

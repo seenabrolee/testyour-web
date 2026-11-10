@@ -28,7 +28,7 @@
         }
         .container {
             width: 100%;
-            max-width: 540px;
+            max-width: 600px;
             background-color: #161a24;
             min-height: 100vh;
             display: flex;
@@ -367,26 +367,16 @@
             border-radius: 12px;
             padding: 13px 10px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            cursor: default;
+            user-select: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
             min-width: 0;
-            -webkit-tap-highlight-color: transparent;
         }
-        .pole-card:hover {
-            transform: translateY(-2px);
-        }
-        .pole-card.pole-a:hover {
-            border-color: #38bdf8;
-            background: rgba(56, 189, 248, 0.08);
-        }
-        .pole-card.pole-b:hover {
-            border-color: #c084fc;
-            background: rgba(192, 132, 252, 0.08);
-        }
+        .pole-card.pole-a { border-color: rgba(56, 189, 248, 0.25); }
+        .pole-card.pole-b { border-color: rgba(192, 132, 252, 0.25); }
         .pole-badge {
             font-size: 11.5px;
             font-weight: 800;
@@ -406,19 +396,17 @@
             border: 1px solid rgba(192, 132, 252, 0.3);
         }
         .pole-text {
-            font-size: clamp(11px, 2.9vw, 13.5px);
+            font-size: clamp(10.5px, 2.75vw, 13.5px);
             font-weight: 600;
             line-height: 1.3;
             color: #f1f5f9;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         @media (max-width: 440px) {
-            .screen { padding: 26px 14px 40px; }
-            .poles-row { gap: 7px; }
+            .screen { padding: 26px 12px 40px; }
+            .poles-row { gap: 6px; }
             .pole-card { padding: 11px 6px; gap: 4px; }
-            .pole-badge { font-size: 10.5px; padding: 2px 5px; }
+            .pole-badge { font-size: 10px; padding: 2px 5px; }
         }
         .spectrum-bar-wrap {
             background: rgba(15, 23, 42, 0.7);
@@ -1187,11 +1175,11 @@ const typeProfiles = {
             container.innerHTML = `
                 <div class="bipolar-wrap">
                     <div class="poles-row">
-                        <div class="pole-card pole-a" onclick="handleSpectrumChoice('a2', this)">
+                        <div class="pole-card pole-a">
                             <span class="pole-badge">A</span>
                             <span class="pole-text">${q.poleA.text}</span>
                         </div>
-                        <div class="pole-card pole-b" onclick="handleSpectrumChoice('b2', this)">
+                        <div class="pole-card pole-b">
                             <span class="pole-badge">B</span>
                             <span class="pole-text">${q.poleB.text}</span>
                         </div>
