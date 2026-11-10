@@ -346,6 +346,116 @@
             font-weight: 700;
             font-size: 15px;
         }
+    
+        /* Bipolar 5-Circle Spectrum Styles */
+        .bipolar-wrap {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .pole-card {
+            background: #181d2a;
+            border: 1.5px solid #283347;
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pole-card:hover {
+            transform: translateY(-2px);
+        }
+        .pole-card.pole-a:hover {
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+        }
+        .pole-card.pole-b:hover {
+            border-color: #c084fc;
+            background: rgba(192, 132, 252, 0.08);
+        }
+        .pole-badge {
+            font-size: 13px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+        .pole-a .pole-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .pole-b .pole-badge {
+            background: rgba(192, 132, 252, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(192, 132, 252, 0.3);
+        }
+        .pole-text {
+            font-size: 14.5px;
+            font-weight: 600;
+            line-height: 1.48;
+            color: #f1f5f9;
+        }
+        .spectrum-bar-wrap {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 16px 14px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .spectrum-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 0 4px;
+        }
+        .label-a { color: #38bdf8; }
+        .label-mid { color: #64748b; }
+        .label-b { color: #c084fc; }
+        .spectrum-circles {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 360px;
+            padding: 4px 8px;
+        }
+        .circle-btn {
+            border-radius: 50%;
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .circle-btn.c-a2 { width: 44px; height: 44px; border: 3px solid #38bdf8; }
+        .circle-btn.c-a1 { width: 34px; height: 34px; border: 2.5px solid #38bdf8; opacity: 0.8; }
+        .circle-btn.c-mid { width: 26px; height: 26px; border: 2px solid #64748b; opacity: 0.6; }
+        .circle-btn.c-b1 { width: 34px; height: 34px; border: 2.5px solid #c084fc; opacity: 0.8; }
+        .circle-btn.c-b2 { width: 44px; height: 44px; border: 3px solid #c084fc; }
+
+        .circle-btn.c-a2:hover, .circle-btn.c-a2.active { background: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); transform: scale(1.15); }
+        .circle-btn.c-a1:hover, .circle-btn.c-a1.active { background: #38bdf8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); transform: scale(1.15); opacity: 1; }
+        .circle-btn.c-mid:hover, .circle-btn.c-mid.active { background: #94a3b8; box-shadow: 0 0 8px rgba(148, 163, 184, 0.5); transform: scale(1.15); opacity: 1; }
+        .circle-btn.c-b1:hover, .circle-btn.c-b1.active { background: #c084fc; box-shadow: 0 0 10px rgba(192, 132, 252, 0.5); transform: scale(1.15); opacity: 1; }
+        .circle-btn.c-b2:hover, .circle-btn.c-b2.active { background: #c084fc; box-shadow: 0 0 15px rgba(192, 132, 252, 0.6); transform: scale(1.15); }
+
     </style>
     <script src="/lang-banner.js" defer></script>
 </head>
@@ -468,34 +578,6 @@
     <script>
         const questions = [
         {
-                "category": "Energy Direction & Social Stamina",
-                "q": "When a gathering or dinner with friends/coworkers doesn't end at round one and someone shouts 'Who's down for round two?!', what is your genuine reaction?",
-                "choices": [
-                        {
-                                "text": "The night is just getting started! Ending now would be such a waste—I'm down to go all the way.",
-                                "scores": {
-                                        "E": 3
-                                }
-                        },
-                        {
-                                "text": "If the vibe is good, I'll happily join round two, but I'll make a graceful exit before it gets too late.",
-                                "scores": {
-                                        "E": 1
-                                }
-                        },
-                        {
-                                "text": "My social battery is flashing at 10%... I'm quietly looking for the right moment to slip away.",
-                                "scores": {
-                                        "I": 1
-                                }
-                        },
-                        {
-                                "text": "Please just let me go home... My soul has already clocked out, and I'm actively plotting my escape route.",
-                                "scores": {
-                                        "I": 3
-                                }
-                        }
-                ],
                 "id": 1,
                 "dim": "EI",
                 "tags": [
@@ -503,37 +585,19 @@
                         "party",
                         "social_energy",
                         "friends"
-                ]
+                ],
+                "category": "Energy Direction & Social Stamina",
+                "q": "When a gathering with friends/colleagues goes past round one and people shout 'Who's down for round two?!', my genuine reaction is:",
+                "poleA": {
+                        "text": "“The night is just starting!” I'm all in until the end.",
+                        "scoreKey": "E"
+                },
+                "poleB": {
+                        "text": "“My battery is at 10%...” I quietly plot my exit strategy.",
+                        "scoreKey": "I"
+                }
         },
         {
-                "category": "Energy Flow & Socializing",
-                "q": "You find yourself at a gathering or party where you barely know anyone. What is your natural behavior?",
-                "choices": [
-                        {
-                                "text": "I despise awkward silence! I walk up, introduce myself, and liven up the room in no time.",
-                                "scores": {
-                                        "E": 3
-                                }
-                        },
-                        {
-                                "text": "I strike up casual small talk with whoever is sitting next to me or makes eye contact.",
-                                "scores": {
-                                        "E": 1
-                                }
-                        },
-                        {
-                                "text": "If someone talks to me, I chat warmly, but I rarely go out of my way to initiate.",
-                                "scores": {
-                                        "I": 1
-                                }
-                        },
-                        {
-                                "text": "I stick to a quiet corner browsing my phone, thinking 'I really want to go home now.'",
-                                "scores": {
-                                        "I": 3
-                                }
-                        }
-                ],
                 "id": 2,
                 "dim": "EI",
                 "tags": [
@@ -541,37 +605,19 @@
                         "party",
                         "social_energy",
                         "people"
-                ]
+                ],
+                "category": "Energy Direction & Unfamiliar Gatherings",
+                "q": "When arriving at a party or event where I barely know anyone:",
+                "poleA": {
+                        "text": "I hate awkward silence! I introduce myself first and break the ice.",
+                        "scoreKey": "E"
+                },
+                "poleB": {
+                        "text": "I observe from the corner on my phone... 'I wanna go home.'",
+                        "scoreKey": "I"
+                }
         },
         {
-                "category": "Energy Flow & Thinking Process",
-                "q": "When a spark of an idea or a dilemma pops into your mind, how do you usually untangle it?",
-                "choices": [
-                        {
-                                "text": "By talking it out out loud with friends or colleagues—my thoughts clarify as I speak.",
-                                "scores": {
-                                        "E": 3
-                                }
-                        },
-                        {
-                                "text": "By tossing 'What do you think of this?' to people around me and refining it from feedback.",
-                                "scores": {
-                                        "E": 1
-                                }
-                        },
-                        {
-                                "text": "By jotting it down in my notes, mulling it over alone, and only sharing once it's organized.",
-                                "scores": {
-                                        "I": 1
-                                }
-                        },
-                        {
-                                "text": "By simulating it completely in my head—I rarely bring it up until I reach a firm conclusion.",
-                                "scores": {
-                                        "I": 3
-                                }
-                        }
-                ],
                 "id": 3,
                 "dim": "EI",
                 "tags": [
@@ -579,37 +625,19 @@
                         "communication",
                         "work",
                         "ideas"
-                ]
+                ],
+                "category": "Energy Direction & Organizing Thoughts",
+                "q": "When a creative idea or serious concern pops up, how do I process it?",
+                "poleA": {
+                        "text": "Talking it out loud with others helps me clarify my thoughts.",
+                        "scoreKey": "E"
+                },
+                "poleB": {
+                        "text": "I write it down or work through it completely in my head first.",
+                        "scoreKey": "I"
+                }
         },
         {
-                "category": "Energy Flow & Mental Recharge",
-                "q": "After a soul-draining week where your social battery is at 0%, how do you genuinely recharge?",
-                "choices": [
-                        {
-                                "text": "Meet up with lively people, laugh loudly, and eat great food to shake off the fatigue.",
-                                "scores": {
-                                        "E": 3
-                                }
-                        },
-                        {
-                                "text": "Go outside for a drive, a walk, or shopping to clear my head with fresh air.",
-                                "scores": {
-                                        "E": 1
-                                }
-                        },
-                        {
-                                "text": "Order some comfort food at home and binge-watch a series or play video games to unwind.",
-                                "scores": {
-                                        "I": 1
-                                }
-                        },
-                        {
-                                "text": "Mute all notifications, draw the blackout curtains, and sleep in bed all day with zero interruptions.",
-                                "scores": {
-                                        "I": 3
-                                }
-                        }
-                ],
                 "id": 4,
                 "dim": "EI",
                 "tags": [
@@ -617,37 +645,19 @@
                         "recharge",
                         "stress",
                         "alone"
-                ]
+                ],
+                "category": "Energy Direction & Recharging Battery",
+                "q": "When my social and mental energy is completely depleted after a hard week:",
+                "poleA": {
+                        "text": "Meeting friends for good food or getting outdoors restores my mood.",
+                        "scoreKey": "E"
+                },
+                "poleB": {
+                        "text": "Muting all notifications and staying completely alone in bed recharges me.",
+                        "scoreKey": "I"
+                }
         },
         {
-                "category": "Energy Flow & Messaging Habits",
-                "q": "What best describes your honest everyday messaging (texts, calls, DMs) habits?",
-                "choices": [
-                        {
-                                "text": "Active in group chats, and if texting gets tedious, I just hit the call button right away.",
-                                "scores": {
-                                        "E": 3
-                                }
-                        },
-                        {
-                                "text": "I frequently share funny memes, photos, and enjoy playful back-and-forth banter.",
-                                "scores": {
-                                        "E": 1
-                                }
-                        },
-                        {
-                                "text": "Quick to reply to purposeful messages, but aimless, never-ending small talk exhausts me.",
-                                "scores": {
-                                        "I": 1
-                                }
-                        },
-                        {
-                                "text": "Incoming calls give me an instant jump; I let notifications stack up and reply in bulk when ready.",
-                                "scores": {
-                                        "I": 3
-                                }
-                        }
-                ],
                 "id": 5,
                 "dim": "EI",
                 "tags": [
@@ -655,37 +665,19 @@
                         "communication",
                         "friends",
                         "daily"
-                ]
+                ],
+                "category": "Energy Direction & Phone Communication",
+                "q": "My honest daily habit regarding phone calls and group chats:",
+                "poleA": {
+                        "text": "I love active group chats, and I'll call directly if texting feels too slow.",
+                        "scoreKey": "E"
+                },
+                "poleB": {
+                        "text": "Incoming calls give me an instant reflex flinch; I reply to texts in batches.",
+                        "scoreKey": "I"
+                }
         },
         {
-                "category": "Perception & Learning Style",
-                "q": "When you buy a brand-new gadget (smartphone/tablet) or install a new app, how do you explore it?",
-                "choices": [
-                        {
-                                "text": "I follow the manual or step-by-step tutorial to master the official basics first.",
-                                "scores": {
-                                        "S": 3
-                                }
-                        },
-                        {
-                                "text": "I search up user tip videos or setup guides to see how people actually use it.",
-                                "scores": {
-                                        "S": 1
-                                }
-                        },
-                        {
-                                "text": "Skip the instructions! I tap through menus and figure out how it works by intuition.",
-                                "scores": {
-                                        "N": 1
-                                }
-                        },
-                        {
-                                "text": "I barely look at basics; I immediately start daydreaming about creative ways to apply it.",
-                                "scores": {
-                                        "N": 3
-                                }
-                        }
-                ],
                 "id": 6,
                 "dim": "SN",
                 "tags": [
@@ -693,37 +685,19 @@
                         "work",
                         "practical",
                         "tech"
-                ]
+                ],
+                "category": "Information Gathering & New Tech",
+                "q": "When getting a new tech gadget or downloading a new app:",
+                "poleA": {
+                        "text": "I follow the official guide or recommended settings step by step.",
+                        "scoreKey": "S"
+                },
+                "poleB": {
+                        "text": "Skip the manual! I tap everything intuitively and imagine new uses.",
+                        "scoreKey": "N"
+                }
         },
         {
-                "category": "Perception & Story Reflection",
-                "q": "Right after watching a great movie or show, what catches your attention when discussing it with friends?",
-                "choices": [
-                        {
-                                "text": "The actors' nuanced acting, stunning cinematography, and how accurate the real-world details were.",
-                                "scores": {
-                                        "S": 3
-                                }
-                        },
-                        {
-                                "text": "The standout iconic scenes, memorable quotes, and the concrete twists in the plot.",
-                                "scores": {
-                                        "S": 1
-                                }
-                        },
-                        {
-                                "text": "'What if there's a Season 2?' or 'What if the protagonist chose differently?'—exploring alternate scenarios.",
-                                "scores": {
-                                        "N": 1
-                                }
-                        },
-                        {
-                                "text": "The philosophical metaphors, hidden foreshadowing, and the profound message behind the ending.",
-                                "scores": {
-                                        "N": 3
-                                }
-                        }
-                ],
                 "id": 7,
                 "dim": "SN",
                 "tags": [
@@ -731,37 +705,19 @@
                         "friends",
                         "thought",
                         "story"
-                ]
+                ],
+                "category": "Information Gathering & Watching Shows",
+                "q": "When discussing a great movie or series with friends, I focus more on:",
+                "poleA": {
+                        "text": "Acting performances, memorable scenes, and concrete plot events.",
+                        "scoreKey": "S"
+                },
+                "poleB": {
+                        "text": "Subtle metaphors, hidden foreshadowing, and theories for Season 2.",
+                        "scoreKey": "N"
+                }
         },
         {
-                "category": "Perception & Problem Solving",
-                "q": "When tackling a recurring frustration in your daily routine or work, what is your initial instinct?",
-                "choices": [
-                        {
-                                "text": "Look for a proven, time-tested solution that has already worked reliably in the past.",
-                                "scores": {
-                                        "S": 3
-                                }
-                        },
-                        {
-                                "text": "Take practical, immediate action to put out the fire right in front of my eyes.",
-                                "scores": {
-                                        "S": 1
-                                }
-                        },
-                        {
-                                "text": "Question the big picture: 'What is the underlying root cause that keeps causing this?'",
-                                "scores": {
-                                        "N": 1
-                                }
-                        },
-                        {
-                                "text": "Tear down the conventional routine entirely and design a completely novel, experimental paradigm.",
-                                "scores": {
-                                        "N": 3
-                                }
-                        }
-                ],
                 "id": 8,
                 "dim": "SN",
                 "tags": [
@@ -769,37 +725,19 @@
                         "problem_solving",
                         "practical",
                         "ideas"
-                ]
+                ],
+                "category": "Information Gathering & Problem Solving",
+                "q": "When fixing a recurring friction in my daily routine or work:",
+                "poleA": {
+                        "text": "I reach for proven, verified solutions and immediate tangible fixes.",
+                        "scoreKey": "S"
+                },
+                "poleB": {
+                        "text": "“What is the root cause?” I want to redesign the bigger picture.",
+                        "scoreKey": "N"
+                }
         },
         {
-                "category": "Perception & Communication Style",
-                "q": "When explaining an event or briefing someone on information, what is your storytelling style?",
-                "choices": [
-                        {
-                                "text": "Step-by-step chronological facts: where, when, who, and exactly what was said.",
-                                "scores": {
-                                        "S": 3
-                                }
-                        },
-                        {
-                                "text": "Lively storytelling with vivid descriptions of concrete scenes and tangible examples.",
-                                "scores": {
-                                        "S": 1
-                                }
-                        },
-                        {
-                                "text": "Bottom-line first: deliver the core takeaway and general context before any details.",
-                                "scores": {
-                                        "N": 1
-                                }
-                        },
-                        {
-                                "text": "'It felt exactly like...' using vivid analogies, metaphors, and conceptual imagery to capture the vibe.",
-                                "scores": {
-                                        "N": 3
-                                }
-                        }
-                ],
                 "id": 9,
                 "dim": "SN",
                 "tags": [
@@ -807,37 +745,19 @@
                         "communication",
                         "friends",
                         "speech"
-                ]
+                ],
+                "category": "Information Gathering & Explaining Things",
+                "q": "When explaining an incident or piece of news to a friend, my style is:",
+                "poleA": {
+                        "text": "Chronological, precise facts: where, when, who, and what happened.",
+                        "scoreKey": "S"
+                },
+                "poleB": {
+                        "text": "Leading with the core takeaway, using colorful metaphors and impressions.",
+                        "scoreKey": "N"
+                }
         },
         {
-                "category": "Perception & Mind Wandering",
-                "q": "When daydreaming or taking a quiet walk alone, where does your mind naturally drift?",
-                "choices": [
-                        {
-                                "text": "Tangible reality: 'What should I eat tonight?', the cute dog passing by, my outfit for tomorrow.",
-                                "scores": {
-                                        "S": 3
-                                }
-                        },
-                        {
-                                "text": "Today's to-do list, recent memorable moments, and real memories from this past week.",
-                                "scores": {
-                                        "S": 1
-                                }
-                        },
-                        {
-                                "text": "Bizarre, sprawling 'what if' scenarios (e.g., 'What would I do if aliens invaded right now?').",
-                                "scores": {
-                                        "N": 1
-                                }
-                        },
-                        {
-                                "text": "Where I'll be in 10 years, how the world is shifting, and the deeper philosophy of life.",
-                                "scores": {
-                                        "N": 3
-                                }
-                        }
-                ],
                 "id": 10,
                 "dim": "SN",
                 "tags": [
@@ -845,37 +765,19 @@
                         "thought",
                         "alone",
                         "leisure"
-                ]
+                ],
+                "category": "Information Gathering & Daydreaming",
+                "q": "When zoning out while walking or staring out the window, my mind wanders to:",
+                "poleA": {
+                        "text": "“What should I eat tonight?”, recent events, and immediate surroundings.",
+                        "scoreKey": "S"
+                },
+                "poleB": {
+                        "text": "Life in 10 years, hypothetical universes, and deep philosophical musings.",
+                        "scoreKey": "N"
+                }
         },
         {
-                "category": "Judgment & Comforting Style",
-                "q": "A close friend vents: 'I made a huge mistake at work today and got chewed out badly...' Your instinct?",
-                "choices": [
-                        {
-                                "text": "'What happened? Who said what?' (Analyzing the timeline and calculating solutions in my head)",
-                                "scores": {
-                                        "T": 3
-                                }
-                        },
-                        {
-                                "text": "Listen carefully, then gently point out constructive takeaways so it doesn't happen again.",
-                                "scores": {
-                                        "T": 1
-                                }
-                        },
-                        {
-                                "text": "'You must have felt awful...' Take their side first, buy them comfort food, and lift their spirits.",
-                                "scores": {
-                                        "F": 1
-                                }
-                        },
-                        {
-                                "text": "'Are you serious?! That's so unfair!' Empathize fully, getting angry and comforting them from the heart.",
-                                "scores": {
-                                        "F": 3
-                                }
-                        }
-                ],
                 "id": 11,
                 "dim": "TF",
                 "tags": [
@@ -883,37 +785,19 @@
                         "friends",
                         "empathy_logic",
                         "comfort"
-                ]
+                ],
+                "category": "Decision Making & Comforting Friends",
+                "q": "When a close friend vents: “I got completely crushed at work/school today...”",
+                "poleA": {
+                        "text": "“What happened? Who did that?” (Analyzing facts & calculating solutions)",
+                        "scoreKey": "T"
+                },
+                "poleB": {
+                        "text": "“Oh no, you must be so upset...” (Empathy first & taking their side)",
+                        "scoreKey": "F"
+                }
         },
         {
-                "category": "Judgment & Honesty vs Tact",
-                "q": "A friend proudly shows off an expensive new outfit and asks: 'Be honest, how does it look?' but it really doesn't suit them...",
-                "choices": [
-                        {
-                                "text": "'Honestly, it really doesn't fit your frame or tone. Do you have the receipt? I'd exchange it.'",
-                                "scores": {
-                                        "T": 3
-                                }
-                        },
-                        {
-                                "text": "'The piece itself is nice, but maybe pair it with different shoes or pants to pull it together.'",
-                                "scores": {
-                                        "T": 1
-                                }
-                        },
-                        {
-                                "text": "'Ooh, that's a bold new look!' Soften it tactfully so I don't crush their excitement.",
-                                "scores": {
-                                        "F": 1
-                                }
-                        },
-                        {
-                                "text": "They're already so thrilled—I find something genuinely nice to compliment (the color, texture) so they feel great.",
-                                "scores": {
-                                        "F": 3
-                                }
-                        }
-                ],
                 "id": 12,
                 "dim": "TF",
                 "tags": [
@@ -922,37 +806,19 @@
                         "shopping",
                         "communication",
                         "honesty"
-                ]
+                ],
+                "category": "Decision Making & Honest Feedback",
+                "q": "A friend excitedly bought an expensive outfit and asks: “Be honest, how do I look?” but it looks unflattering:",
+                "poleA": {
+                        "text": "Honestly, it doesn't flatter you. If you have the receipt, I'd exchange it!",
+                        "scoreKey": "T"
+                },
+                "poleB": {
+                        "text": "I don't want to ruin their excitement, so I find whatever looks good to praise.",
+                        "scoreKey": "F"
+                }
         },
         {
-                "category": "Judgment & Receiving Criticism",
-                "q": "During a debate or discussion, someone sharply points out a logical flaw in your point. Your inner reaction?",
-                "choices": [
-                        {
-                                "text": "'Good point, they're right!' Zero hard feelings—facts are facts, so I adjust my view immediately.",
-                                "scores": {
-                                        "T": 3
-                                }
-                        },
-                        {
-                                "text": "Mentally cross-check their counterpoint for flaws and prepare a tighter, data-backed rebuttal.",
-                                "scores": {
-                                        "T": 1
-                                }
-                        },
-                        {
-                                "text": "Even if they're right, did they have to say it so bluntly? The awkward tension makes me uncomfortable.",
-                                "scores": {
-                                        "F": 1
-                                }
-                        },
-                        {
-                                "text": "Regardless of who is right, their harsh, dismissive tone feels personal and genuinely stings.",
-                                "scores": {
-                                        "F": 3
-                                }
-                        }
-                ],
                 "id": 13,
                 "dim": "TF",
                 "tags": [
@@ -960,37 +826,19 @@
                         "work",
                         "feedback",
                         "logic"
-                ]
+                ],
+                "category": "Decision Making & Handling Criticism",
+                "q": "During a debate, someone sharply points out a factual flaw in my argument:",
+                "poleA": {
+                        "text": "If the facts are right, no hurt feelings—I immediately accept and adjust.",
+                        "scoreKey": "T"
+                },
+                "poleB": {
+                        "text": "Even if true, being called out bluntly like that stings and upsets me.",
+                        "scoreKey": "F"
+                }
         },
         {
-                "category": "Judgment & Admired Traits",
-                "q": "What makes you truly look at someone and think, 'That person is genuinely admirable'?",
-                "choices": [
-                        {
-                                "text": "Unshakable competence and sharp logic that cuts through complex messes without being swayed by emotions.",
-                                "scores": {
-                                        "T": 3
-                                }
-                        },
-                        {
-                                "text": "Strong principles, consistency, and an uncompromising sense of fairness in all situations.",
-                                "scores": {
-                                        "T": 1
-                                }
-                        },
-                        {
-                                "text": "Warm attentiveness, thoughtfulness toward others, and the ability to make everyone feel comfortable.",
-                                "scores": {
-                                        "F": 1
-                                }
-                        },
-                        {
-                                "text": "Deep empathy, emotional maturity, and genuine compassion for the vulnerable and overlooked.",
-                                "scores": {
-                                        "F": 3
-                                }
-                        }
-                ],
                 "id": 14,
                 "dim": "TF",
                 "tags": [
@@ -998,37 +846,19 @@
                         "values",
                         "people",
                         "character"
-                ]
+                ],
+                "category": "Decision Making & Admirable Traits",
+                "q": "When looking at someone and thinking “Wow, they are truly admirable”:",
+                "poleA": {
+                        "text": "Their razor-sharp competence and ability to solve hard problems without drama.",
+                        "scoreKey": "T"
+                },
+                "poleB": {
+                        "text": "Their genuine kindness, warmth, and deep empathy for vulnerable people.",
+                        "scoreKey": "F"
+                }
         },
         {
-                "category": "Judgment & Team Friction",
-                "q": "During a group project, one member keeps struggling and falling behind on their deliverable. How do you handle it?",
-                "choices": [
-                        {
-                                "text": "If the outcome tanks, everyone suffers. Reassign their critical parts to a stronger member or address it directly.",
-                                "scores": {
-                                        "T": 3
-                                }
-                        },
-                        {
-                                "text": "Objectively identify where they're stuck and narrow down their task to something manageable.",
-                                "scores": {
-                                        "T": 1
-                                }
-                        },
-                        {
-                                "text": "Encourage them so they don't feel discouraged or guilty, looking for ways to pace the work together.",
-                                "scores": {
-                                        "F": 1
-                                }
-                        },
-                        {
-                                "text": "I dread team tension more than extra work; I'd rather quietly pick up their slack to protect morale.",
-                                "scores": {
-                                        "F": 3
-                                }
-                        }
-                ],
                 "id": 15,
                 "dim": "TF",
                 "tags": [
@@ -1036,37 +866,19 @@
                         "teamwork",
                         "problem_solving",
                         "feedback"
-                ]
+                ],
+                "category": "Decision Making & Struggling Teammates",
+                "q": "In a team project when one member is lagging behind and slowing progress:",
+                "poleA": {
+                        "text": "The final deliverable matters most—reassign their tasks or address it directly.",
+                        "scoreKey": "T"
+                },
+                "poleB": {
+                        "text": "I don't want them to feel discouraged, so I encourage them and help them catch up.",
+                        "scoreKey": "F"
+                }
         },
         {
-                "category": "Lifestyle & Travel Prep",
-                "q": "You're heading on a 4-day trip with a friend! What is your real travel preparation style?",
-                "choices": [
-                        {
-                                "text": "Hourly itineraries, restaurant opening days, backup dining plans organized in a neat spreadsheet or map.",
-                                "scores": {
-                                        "J": 3
-                                }
-                        },
-                        {
-                                "text": "Key landmarks and hotel booked, with a solid daily outline sketched out in advance.",
-                                "scores": {
-                                        "J": 1
-                                }
-                        },
-                        {
-                                "text": "Hotel booked, but the daily schedule is left open to decide based on the weather and morning vibe.",
-                                "scores": {
-                                        "P": 1
-                                }
-                        },
-                        {
-                                "text": "Flight is booked, that's enough! Restaurants? I'll wander into whichever alleyway smells best!",
-                                "scores": {
-                                        "P": 3
-                                }
-                        }
-                ],
                 "id": 16,
                 "dim": "JP",
                 "tags": [
@@ -1074,37 +886,19 @@
                         "lifestyle",
                         "planning",
                         "friends"
-                ]
+                ],
+                "category": "Lifestyle & Trip Planning",
+                "q": "When planning a 4-day trip with friends, my genuine style is:",
+                "poleA": {
+                        "text": "I feel at peace only when the daily itinerary, reservations, and Plan B are set.",
+                        "scoreKey": "J"
+                },
+                "poleB": {
+                        "text": "Book the hotel, and let each day's mood and spontaneous discoveries guide us.",
+                        "scoreKey": "P"
+                }
         },
         {
-                "category": "Lifestyle & Deadlines",
-                "q": "You are assigned a major assignment or project due in two weeks. What is your typical workflow curve?",
-                "choices": [
-                        {
-                                "text": "Break it into daily milestones on Day 1, finish it 2-3 days early, and review at leisure.",
-                                "scores": {
-                                        "J": 3
-                                }
-                        },
-                        {
-                                "text": "Draft the outline and structure early on, steadily working through it to avoid last-minute rush.",
-                                "scores": {
-                                        "J": 1
-                                }
-                        },
-                        {
-                                "text": "Procrastinate casually, then turn up the heat once the deadline is a few days away.",
-                                "scores": {
-                                        "P": 1
-                                }
-                        },
-                        {
-                                "text": "All-nighter sprint the night before! Strangely, the extreme panic of the final hour unlocks my superpower.",
-                                "scores": {
-                                        "P": 3
-                                }
-                        }
-                ],
                 "id": 17,
                 "dim": "JP",
                 "tags": [
@@ -1112,37 +906,19 @@
                         "deadline",
                         "planning",
                         "stress"
-                ]
+                ],
+                "category": "Lifestyle & Managing Deadlines",
+                "q": "When assigned a major project or paper due in two weeks:",
+                "poleA": {
+                        "text": "I split the work across days and finish it ahead of the deadline to review.",
+                        "scoreKey": "J"
+                },
+                "poleB": {
+                        "text": "I take it easy until the pressure kicks in right before the deadline, then sprint.",
+                        "scoreKey": "P"
+                }
         },
         {
-                "category": "Lifestyle & Organization",
-                "q": "What is the honest state of your workspace desk and computer desktop right now?",
-                "choices": [
-                        {
-                                "text": "Everything has its designated spot, and desktop files are neatly filed into structured folders.",
-                                "scores": {
-                                        "J": 3
-                                }
-                        },
-                        {
-                                "text": "Frequently used items stay out, but I do a quick tidy-up before heading to sleep or after finishing work.",
-                                "scores": {
-                                        "J": 1
-                                }
-                        },
-                        {
-                                "text": "Somewhat chaotic, but it's an 'organized mess'—in my head, I know exactly where everything is.",
-                                "scores": {
-                                        "P": 1
-                                }
-                        },
-                        {
-                                "text": "Pure chaos... it accumulates naturally, and I only do a massive deep clean once in a blue moon.",
-                                "scores": {
-                                        "P": 3
-                                }
-                        }
-                ],
                 "id": 18,
                 "dim": "JP",
                 "tags": [
@@ -1150,37 +926,19 @@
                         "organization",
                         "alone",
                         "daily"
-                ]
+                ],
+                "category": "Lifestyle & Desk / Desktop Organization",
+                "q": "The actual state of my desk or computer desktop right now:",
+                "poleA": {
+                        "text": "Everything has its designated spot and folders are neatly labeled.",
+                        "scoreKey": "J"
+                },
+                "poleB": {
+                        "text": "Organized chaos—I roughly know where things are, but clean up only when necessary.",
+                        "scoreKey": "P"
+                }
         },
         {
-                "category": "Lifestyle & Sudden Changes",
-                "q": "You had your entire weekend schedule mapped out, but your plans get cancelled suddenly on Saturday morning. Your reaction?",
-                "choices": [
-                        {
-                                "text": "Ugh... my whole plan is ruined. Having my schedule thrown off genuinely stresses me out.",
-                                "scores": {
-                                        "J": 3
-                                }
-                        },
-                        {
-                                "text": "A bit annoying, but I quickly reorganize my day with backup errands, chores, or study.",
-                                "scores": {
-                                        "J": 1
-                                }
-                        },
-                        {
-                                "text": "A little bummed, but oh well! I'll just relax at home and catch up on a good movie.",
-                                "scores": {
-                                        "P": 1
-                                }
-                        },
-                        {
-                                "text": "'Honestly, even better! Surprise free time!' I spontaneously head out somewhere else or do whatever feels exciting.",
-                                "scores": {
-                                        "P": 3
-                                }
-                        }
-                ],
                 "id": 19,
                 "dim": "JP",
                 "tags": [
@@ -1188,37 +946,19 @@
                         "friends",
                         "planning",
                         "recharge"
-                ]
+                ],
+                "category": "Lifestyle & Sudden Plan Cancellation",
+                "q": "When a weekend outing gets cancelled suddenly on the morning of:",
+                "poleA": {
+                        "text": "“Ugh... my whole schedule is thrown off.” (Stressed by disrupted plans)",
+                        "scoreKey": "J"
+                },
+                "poleB": {
+                        "text": "“Honestly, even better! Surprise free time!” (Happily lounging in bed)",
+                        "scoreKey": "P"
+                }
         },
         {
-                "category": "Lifestyle & Purchasing Decisions",
-                "q": "When shopping for something you've wanted for a while (gadget, coat), how do you finalize the purchase?",
-                "choices": [
-                        {
-                                "text": "Set strict criteria and budget, compare options, buy decisively, and never look back with second thoughts.",
-                                "scores": {
-                                        "J": 3
-                                }
-                        },
-                        {
-                                "text": "Leave it in the cart for a few days to think it through, then check out cleanly on the planned date.",
-                                "scores": {
-                                        "J": 1
-                                }
-                        },
-                        {
-                                "text": "Stash dozens of options in my cart and keep agonizing, adding and removing items right up until checkout.",
-                                "scores": {
-                                        "P": 1
-                                }
-                        },
-                        {
-                                "text": "Contemplate forever, but the moment I visit a shop or browse online and feel a strong spark, I pull the trigger instantly.",
-                                "scores": {
-                                        "P": 3
-                                }
-                        }
-                ],
                 "id": 20,
                 "dim": "JP",
                 "tags": [
@@ -1226,7 +966,17 @@
                         "lifestyle",
                         "planning",
                         "practical"
-                ]
+                ],
+                "category": "Lifestyle & Shopping Decisions",
+                "q": "When shopping for something I've wanted to buy:",
+                "poleA": {
+                        "text": "I set a budget, compare options thoroughly, and buy without second-guessing.",
+                        "scoreKey": "J"
+                },
+                "poleB": {
+                        "text": "I keep dozens of tabs open for days, but often make the final buy on an impulse.",
+                        "scoreKey": "P"
+                }
         }
 ];
 
@@ -1411,15 +1161,57 @@ const typeProfiles = {
             document.getElementById('btn-prev').style.display = currentQ > 0 ? 'inline-block' : 'none';
 
             const container = document.getElementById('choices-container');
-            container.innerHTML = '';
+            container.innerHTML = `
+                <div class="bipolar-wrap">
+                    <div class="pole-card pole-a" onclick="handleSpectrumChoice('a2', this)">
+                        <span class="pole-badge">A</span>
+                        <span class="pole-text">${q.poleA.text}</span>
+                    </div>
 
-            q.choices.forEach((c, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'choice-btn';
-                btn.innerHTML = `<span class="choice-num">${idx + 1}</span><span>${c.text}</span>`;
-                btn.onclick = () => handleChoice(c.scores);
-                container.appendChild(btn);
-            });
+                    <div class="spectrum-bar-wrap">
+                        <div class="spectrum-labels">
+                            <span class="label-a">Strongly A</span>
+                            <span class="label-mid">Neutral</span>
+                            <span class="label-b">Strongly B</span>
+                        </div>
+                        <div class="spectrum-circles">
+                            <button class="circle-btn c-a2" title="Strongly A" onclick="handleSpectrumChoice('a2', this)"></button>
+                            <button class="circle-btn c-a1" title="Leaning A" onclick="handleSpectrumChoice('a1', this)"></button>
+                            <button class="circle-btn c-mid" title="Neutral" onclick="handleSpectrumChoice('mid', this)"></button>
+                            <button class="circle-btn c-b1" title="Leaning B" onclick="handleSpectrumChoice('b1', this)"></button>
+                            <button class="circle-btn c-b2" title="Strongly B" onclick="handleSpectrumChoice('b2', this)"></button>
+                        </div>
+                    </div>
+
+                    <div class="pole-card pole-b" onclick="handleSpectrumChoice('b2', this)">
+                        <span class="pole-badge">B</span>
+                        <span class="pole-text">${q.poleB.text}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        let isAdvancing = false;
+
+        function handleSpectrumChoice(type, el) {
+            if (isAdvancing) return;
+            isAdvancing = true;
+
+            const q = activeQuestions[currentQ];
+            let scoreObj = {};
+            if (type === 'a2') scoreObj = { [q.poleA.scoreKey]: 3 };
+            else if (type === 'a1') scoreObj = { [q.poleA.scoreKey]: 1 };
+            else if (type === 'mid') scoreObj = {};
+            else if (type === 'b1') scoreObj = { [q.poleB.scoreKey]: 1 };
+            else if (type === 'b2') scoreObj = { [q.poleB.scoreKey]: 3 };
+
+            const btn = document.querySelector(`.circle-btn.c-${type}`);
+            if (btn) btn.classList.add('active');
+
+            setTimeout(() => {
+                isAdvancing = false;
+                handleChoice(scoreObj);
+            }, 220);
         }
 
         function handleChoice(scoreObj) {
