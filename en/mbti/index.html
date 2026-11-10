@@ -352,20 +352,28 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 8px;
+        }
+        .poles-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
         }
         .pole-card {
             background: #181d2a;
             border: 1.5px solid #283347;
             border-radius: 12px;
-            padding: 14px 16px;
-            text-align: left;
+            padding: 13px 10px;
+            text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 6px;
+            min-width: 0;
             -webkit-tap-highlight-color: transparent;
         }
         .pole-card:hover {
@@ -380,10 +388,10 @@
             background: rgba(192, 132, 252, 0.08);
         }
         .pole-badge {
-            font-size: 13px;
+            font-size: 11.5px;
             font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 8px;
+            padding: 2px 6px;
+            border-radius: 6px;
             flex-shrink: 0;
             letter-spacing: 0.5px;
         }
@@ -398,10 +406,19 @@
             border: 1px solid rgba(192, 132, 252, 0.3);
         }
         .pole-text {
-            font-size: 14.5px;
+            font-size: clamp(11px, 2.9vw, 13.5px);
             font-weight: 600;
-            line-height: 1.48;
+            line-height: 1.3;
             color: #f1f5f9;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 440px) {
+            .screen { padding: 26px 14px 40px; }
+            .poles-row { gap: 7px; }
+            .pole-card { padding: 11px 6px; gap: 4px; }
+            .pole-badge { font-size: 10.5px; padding: 2px 5px; }
         }
         .spectrum-bar-wrap {
             background: rgba(15, 23, 42, 0.7);
@@ -595,11 +612,11 @@
                 "category": "Energy Direction & Social Stamina",
                 "q": "When a gathering with friends/colleagues goes past round one and people shout 'Who's down for round two?!', my genuine reaction is:",
                 "poleA": {
-                        "text": "“The night is just starting!” I'm all in until the end.",
+                        "text": "Party till the end!",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "“My battery is at 10%...” I quietly plot my exit strategy.",
+                        "text": "Quietly sneak out",
                         "scoreKey": "I"
                 }
         },
@@ -615,11 +632,11 @@
                 "category": "Energy Direction & Unfamiliar Gatherings",
                 "q": "When arriving at a party or event where I barely know anyone:",
                 "poleA": {
-                        "text": "I hate awkward silence! I introduce myself first and break the ice.",
+                        "text": "Break the ice first",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "I observe from the corner on my phone... 'I wanna go home.'",
+                        "text": "Observe on my phone",
                         "scoreKey": "I"
                 }
         },
@@ -635,11 +652,11 @@
                 "category": "Energy Direction & Organizing Thoughts",
                 "q": "When a creative idea or serious concern pops up, how do I process it?",
                 "poleA": {
-                        "text": "Talking it out loud with others helps me clarify my thoughts.",
+                        "text": "Think out loud",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "I write it down or work through it completely in my head first.",
+                        "text": "Sort it in my head",
                         "scoreKey": "I"
                 }
         },
@@ -655,11 +672,11 @@
                 "category": "Energy Direction & Recharging Battery",
                 "q": "When my social and mental energy is completely depleted after a hard week:",
                 "poleA": {
-                        "text": "Meeting friends for good food or getting outdoors restores my mood.",
+                        "text": "Go out & socialize",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "Muting all notifications and staying completely alone in bed recharges me.",
+                        "text": "Stay home alone",
                         "scoreKey": "I"
                 }
         },
@@ -675,11 +692,11 @@
                 "category": "Energy Direction & Phone Communication",
                 "q": "My honest daily habit regarding phone calls and group chats:",
                 "poleA": {
-                        "text": "I love active group chats, and I'll call directly if texting feels too slow.",
+                        "text": "Call right away",
                         "scoreKey": "E"
                 },
                 "poleB": {
-                        "text": "Incoming calls give me an instant reflex flinch; I reply to texts in batches.",
+                        "text": "Avoid calls, text",
                         "scoreKey": "I"
                 }
         },
@@ -695,11 +712,11 @@
                 "category": "Information Gathering & New Tech",
                 "q": "When getting a new tech gadget or downloading a new app:",
                 "poleA": {
-                        "text": "I follow the official guide or recommended settings step by step.",
+                        "text": "Follow the manual",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "Skip the manual! I tap everything intuitively and imagine new uses.",
+                        "text": "Tap by intuition",
                         "scoreKey": "N"
                 }
         },
@@ -715,11 +732,11 @@
                 "category": "Information Gathering & Watching Shows",
                 "q": "When discussing a great movie or series with friends, I focus more on:",
                 "poleA": {
-                        "text": "Acting performances, memorable scenes, and concrete plot events.",
+                        "text": "Acting & plot facts",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "Subtle metaphors, hidden foreshadowing, and theories for Season 2.",
+                        "text": "Metaphors & theories",
                         "scoreKey": "N"
                 }
         },
@@ -735,11 +752,11 @@
                 "category": "Information Gathering & Problem Solving",
                 "q": "When fixing a recurring friction in my daily routine or work:",
                 "poleA": {
-                        "text": "I reach for proven, verified solutions and immediate tangible fixes.",
+                        "text": "Use proven fixes",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "“What is the root cause?” I want to redesign the bigger picture.",
+                        "text": "Rethink big picture",
                         "scoreKey": "N"
                 }
         },
@@ -755,11 +772,11 @@
                 "category": "Information Gathering & Explaining Things",
                 "q": "When explaining an incident or piece of news to a friend, my style is:",
                 "poleA": {
-                        "text": "Chronological, precise facts: where, when, who, and what happened.",
+                        "text": "Chronological facts",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "Leading with the core takeaway, using colorful metaphors and impressions.",
+                        "text": "Core point & vibe",
                         "scoreKey": "N"
                 }
         },
@@ -775,11 +792,11 @@
                 "category": "Information Gathering & Daydreaming",
                 "q": "When zoning out while walking or staring out the window, my mind wanders to:",
                 "poleA": {
-                        "text": "“What should I eat tonight?”, recent events, and immediate surroundings.",
+                        "text": "Dinner & reality",
                         "scoreKey": "S"
                 },
                 "poleB": {
-                        "text": "Life in 10 years, hypothetical universes, and deep philosophical musings.",
+                        "text": "Future & daydreams",
                         "scoreKey": "N"
                 }
         },
@@ -795,11 +812,11 @@
                 "category": "Decision Making & Comforting Friends",
                 "q": "When a close friend vents: “I got completely crushed at work/school today...”",
                 "poleA": {
-                        "text": "“What happened? Who did that?” (Analyzing facts & calculating solutions)",
+                        "text": "\"Who & why?\" Fix it",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "“Oh no, you must be so upset...” (Empathy first & taking their side)",
+                        "text": "\"So sorry!\" Empathy",
                         "scoreKey": "F"
                 }
         },
@@ -816,11 +833,11 @@
                 "category": "Decision Making & Honest Feedback",
                 "q": "A friend excitedly bought an expensive outfit and asks: “Be honest, how do I look?” but it looks unflattering:",
                 "poleA": {
-                        "text": "Honestly, it doesn't flatter you. If you have the receipt, I'd exchange it!",
+                        "text": "Honest: exchange it",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "I don't want to ruin their excitement, so I find whatever looks good to praise.",
+                        "text": "Praise to stay kind",
                         "scoreKey": "F"
                 }
         },
@@ -836,11 +853,11 @@
                 "category": "Decision Making & Handling Criticism",
                 "q": "During a debate, someone sharply points out a factual flaw in my argument:",
                 "poleA": {
-                        "text": "If the facts are right, no hurt feelings—I immediately accept and adjust.",
+                        "text": "Accept facts fast",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "Even if true, being called out bluntly like that stings and upsets me.",
+                        "text": "Stung by blunt tone",
                         "scoreKey": "F"
                 }
         },
@@ -856,11 +873,11 @@
                 "category": "Decision Making & Admirable Traits",
                 "q": "When looking at someone and thinking “Wow, they are truly admirable”:",
                 "poleA": {
-                        "text": "Their razor-sharp competence and ability to solve hard problems without drama.",
+                        "text": "Sharp competence",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "Their genuine kindness, warmth, and deep empathy for vulnerable people.",
+                        "text": "Warmth & kindness",
                         "scoreKey": "F"
                 }
         },
@@ -876,11 +893,11 @@
                 "category": "Decision Making & Struggling Teammates",
                 "q": "In a team project when one member is lagging behind and slowing progress:",
                 "poleA": {
-                        "text": "The final deliverable matters most—reassign their tasks or address it directly.",
+                        "text": "Reassign roles fast",
                         "scoreKey": "T"
                 },
                 "poleB": {
-                        "text": "I don't want them to feel discouraged, so I encourage them and help them catch up.",
+                        "text": "Encourage & help",
                         "scoreKey": "F"
                 }
         },
@@ -896,11 +913,11 @@
                 "category": "Lifestyle & Trip Planning",
                 "q": "When planning a 4-day trip with friends, my genuine style is:",
                 "poleA": {
-                        "text": "I feel at peace only when the daily itinerary, reservations, and Plan B are set.",
+                        "text": "Detailed Plan A & B",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "Book the hotel, and let each day's mood and spontaneous discoveries guide us.",
+                        "text": "Hotel only, wing it",
                         "scoreKey": "P"
                 }
         },
@@ -916,11 +933,11 @@
                 "category": "Lifestyle & Managing Deadlines",
                 "q": "When assigned a major project or paper due in two weeks:",
                 "poleA": {
-                        "text": "I split the work across days and finish it ahead of the deadline to review.",
+                        "text": "Finish days early",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "I take it easy until the pressure kicks in right before the deadline, then sprint.",
+                        "text": "Crunch at deadline",
                         "scoreKey": "P"
                 }
         },
@@ -936,11 +953,11 @@
                 "category": "Lifestyle & Desk / Desktop Organization",
                 "q": "The actual state of my desk or computer desktop right now:",
                 "poleA": {
-                        "text": "Everything has its designated spot and folders are neatly labeled.",
+                        "text": "Everything in place",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "Organized chaos—I roughly know where things are, but clean up only when necessary.",
+                        "text": "Organized chaos",
                         "scoreKey": "P"
                 }
         },
@@ -956,11 +973,11 @@
                 "category": "Lifestyle & Sudden Plan Cancellation",
                 "q": "When a weekend outing gets cancelled suddenly on the morning of:",
                 "poleA": {
-                        "text": "“Ugh... my whole schedule is thrown off.” (Stressed by disrupted plans)",
+                        "text": "Stressed by changes",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "“Honestly, even better! Surprise free time!” (Happily lounging in bed)",
+                        "text": "Nice! Free time",
                         "scoreKey": "P"
                 }
         },
@@ -976,11 +993,11 @@
                 "category": "Lifestyle & Shopping Decisions",
                 "q": "When shopping for something I've wanted to buy:",
                 "poleA": {
-                        "text": "I set a budget, compare options thoroughly, and buy without second-guessing.",
+                        "text": "Compare & buy smart",
                         "scoreKey": "J"
                 },
                 "poleB": {
-                        "text": "I keep dozens of tabs open for days, but often make the final buy on an impulse.",
+                        "text": "Buy on impulse",
                         "scoreKey": "P"
                 }
         }
@@ -1169,9 +1186,15 @@ const typeProfiles = {
             const container = document.getElementById('choices-container');
             container.innerHTML = `
                 <div class="bipolar-wrap">
-                    <div class="pole-card pole-a" onclick="handleSpectrumChoice('a2', this)">
-                        <span class="pole-badge">A</span>
-                        <span class="pole-text">${q.poleA.text}</span>
+                    <div class="poles-row">
+                        <div class="pole-card pole-a" onclick="handleSpectrumChoice('a2', this)">
+                            <span class="pole-badge">A</span>
+                            <span class="pole-text">${q.poleA.text}</span>
+                        </div>
+                        <div class="pole-card pole-b" onclick="handleSpectrumChoice('b2', this)">
+                            <span class="pole-badge">B</span>
+                            <span class="pole-text">${q.poleB.text}</span>
+                        </div>
                     </div>
 
                     <div class="spectrum-bar-wrap">
@@ -1187,11 +1210,6 @@ const typeProfiles = {
                             <button class="circle-btn c-b1" title="Leaning B" onclick="handleSpectrumChoice('b1', this)"></button>
                             <button class="circle-btn c-b2" title="Strongly B" onclick="handleSpectrumChoice('b2', this)"></button>
                         </div>
-                    </div>
-
-                    <div class="pole-card pole-b" onclick="handleSpectrumChoice('b2', this)">
-                        <span class="pole-badge">B</span>
-                        <span class="pole-text">${q.poleB.text}</span>
                     </div>
                 </div>
             `;
