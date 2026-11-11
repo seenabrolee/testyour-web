@@ -16,7 +16,7 @@ const TESTYOUR_COLUMNS = [
     meta_en: "Editor: TESTYOUR · 9 min read",
     badge: "NEW 심층 분석",
     borderColor: "#ef4444",
-    defaultStatus: "draft", // 관리자가 승인/게시하기 전까지 기본 비공개(초안) 상태
+    defaultStatus: "published", // 검수 완료 및 정식 공개 게시됨
     date: "2026-11-10"
   },
   {
