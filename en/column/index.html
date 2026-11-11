@@ -7,8 +7,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personality Insights & Workplace Essays | TESTYOUR</title>
-    <meta name="description" content="Thoughtful essays by Editor TESTYOUR covering corporate survival, Carl Jung's cognitive typologies compared with Hunter x Hunter Nen, and crisis leadership models.">
+    <title>Columns Archive (Psychology · Manga · Music) | TESTYOUR</title>
+    <meta name="description" content="Explore TESTYOUR columns across three themes: Psychology (MBTI & workplace leadership), Manga (Hunter x Hunter character analyses), and Music (K-pop & sound listening notes).">
     <link rel="canonical" href="https://testyour.uk/en/column/">
     
     <style>
@@ -92,6 +92,59 @@
             line-height: 1.7;
         }
 
+        .topic-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0 0 28px 0;
+        }
+        .topic-tab {
+            background: #161a24;
+            color: #94a3b8;
+            border: 1px solid #2d3748;
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s;
+            font-family: inherit;
+        }
+        .topic-tab:hover { color: #f8fafc; border-color: #64748b; }
+        .topic-tab.active {
+            background: #ff3b30;
+            color: #fff;
+            border-color: #ff3b30;
+        }
+        .topic-section { margin-bottom: 34px; }
+        .topic-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-bottom: 1px solid #262c3a;
+            padding-bottom: 10px;
+            margin: 0 0 16px 0;
+        }
+        .topic-heading h2 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 800;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .topic-count {
+            font-size: 12px;
+            color: #94a3b8;
+            background: #161a24;
+            border: 1px solid #2d3748;
+            padding: 2px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
         .cta-banner {
             background: linear-gradient(135deg, #2a151b 0%, #1a1e29 100%);
             border: 1px solid #ff3b30;
@@ -153,79 +206,103 @@
 
     <main class="container">
         <nav class="breadcrumb">
-            <a href="/en/">Home</a> &gt; <span>Essays & Editorials</span>
+            <a href="/en/">Home</a> &gt; <span>Columns (Psychology · Manga · Music)</span>
         </nav>
 
         <div class="article-header">
-            <span class="article-category">ESSAY & EDITORIAL</span>
-            <h1 class="article-title">Personality Insights & Workplace Essays</h1>
+            <span class="article-category">COLUMN ARCHIVE</span>
+            <h1 class="article-title">TESTYOUR Columns: Psychology · Manga · Music</h1>
             <p style="color:#94a3b8; font-size:15px; margin:0;">
-                Original reflections by Editor TESTYOUR exploring office dynamics, Jungian cognitive archetypes, and character-driven leadership.
+                Organized into three sections: workplace &amp; Jungian psychology essays, narrative manga character analyses, and close K-pop listening reviews.
             </p>
         </div>
 
-        <!-- Music Review #5: RESCENE Inside Out -->
-        <a href="/en/column/5.html" class="column-card" data-column-id="music-5" style="border-left: 4px solid #06b6d4; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(6, 182, 212, 0.2); color: #22d3ee; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border:1px solid #06b6d4;">🎧 MUSIC REVIEW #5</span>
-            <span style="font-size:12px; color:#22d3ee; font-weight:bold;">Creator's Listening Notes #5 | K-Pop Sound &amp; Arrangement</span>
-            <h3>[Music Review #5] RESCENE 'Inside Out' Review: Razor-Sharp Metallic Edge &amp; Chromatic Sharp (#) Twist</h3>
-            <p>
-                Flipping their signature dreamy fragrance inside out on mini-album PULSE: why 'Inside Out' commands co-title energy, and how an intentional sharp (#) vocal inflection in the brief post-chorus bridge shines over a clean, restrained beat.
-            </p>
-            <span style="font-size:12px; color:#64748b;">Author: TESTYOUR Creator · Read time ~7 min</span>
-        </a>
+        <div class="topic-tabs" role="tablist" aria-label="Column topic filter">
+            <button type="button" class="topic-tab active" data-topic-filter="all" aria-pressed="true">All (5)</button>
+            <button type="button" class="topic-tab" data-topic-filter="psychology" aria-pressed="false">🧠 Psychology (2)</button>
+            <button type="button" class="topic-tab" data-topic-filter="manga" aria-pressed="false">📖 Manga &amp; Anime (2)</button>
+            <button type="button" class="topic-tab" data-topic-filter="music" aria-pressed="false">🎧 Music (1)</button>
+        </div>
 
-        <!-- Owner's Pick Column: Leorio Fan Essay -->
-        <a href="/en/column/leorio-love.html" class="column-card" data-column-id="leorio-love" style="border-left: 4px solid #eab308; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(234, 179, 8, 0.2); color: #facc15; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #eab308;">💼 OWNER'S PICK</span>
-            <span style="font-size:12px; color:#facc15; font-weight:bold;">Owner's Personal Pick | Character Appreciation</span>
-            <h3>[Column] Why Leorio Paradinight Is My All-Time Favorite Character in Hunter x Hunter</h3>
-            <p>
-                Surrounded by prodigies and monsters, why does the site creator choose a 19-year-old med student in a crumpled suit as #1? Exploring his hidden promise, 8-ton Testing Gate grit, medical Emission Hatsu, and unforgettable Election warp punch.
-            </p>
-            <span style="font-size:12px; color:#64748b;">Author: TESTYOUR Creator · Read time ~7 min</span>
-        </a>
+        <!-- 1. Psychology -->
+        <section class="topic-section" data-topic="psychology">
+            <div class="topic-heading">
+                <h2>🧠 Psychology <span style="font-size:13px; font-weight:500; color:#94a3b8;">MBTI · Organizational Dynamics</span></h2>
+                <span class="topic-count">2 essays</span>
+            </div>
 
-        <!-- New Featured Column: Adult Gon Analysis -->
-        <a href="/en/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">NEW DEEP DIVE</span>
-            <span style="font-size:12px; color:#ef4444; font-weight:bold;">Character Psychology | Narrative Deconstruction</span>
-            <h3>[Column] Why Did Gon Transform into 'Adult Gon'? The Trauma of Kite and the Terrifying Truth of Pure Innocence</h3>
-            <p>
-                "I don't care anymore... It doesn't matter if this is the end." Deconstructing the most shocking, self-destructive protagonist awakening in manga history. Kite's symbolic weight, the terrifying amoral nature of pure innocence, and the tragedy of Enhancer vows.
-            </p>
-            <span style="font-size:12px; color:#64748b;">Editor: TESTYOUR · Read time ~9 min</span>
-        </a>
+            <a href="/en/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
+                <span style="font-size:12px; color:#ff3b30; font-weight:bold;">Psychology | Personality Theory &amp; MBTI</span>
+                <h3>[Essay] The 6 Nen Categories and MBTI 16 Types: A Surprising Parallel</h3>
+                <p>
+                    Is Hisoka's aura personality diagnosis merely shonen fiction? An engaging deep-dive connecting Carl Jung's cognitive functions with real-world office behaviors and interpersonal dynamics.
+                </p>
+                <span style="font-size:12px; color:#64748b;">By TESTYOUR · 7 min read</span>
+            </a>
 
-        <a href="/en/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
-            <span style="font-size:12px; color:#ff3b30; font-weight:bold;">Personality Theory & MBTI</span>
-            <h3>[Essay] The 6 Nen Categories and MBTI 16 Types: A Surprising Parallel</h3>
-            <p>
-                Is Hisoka's aura personality diagnosis merely shonen fiction? An engaging deep-dive connecting Carl Jung's cognitive functions with real-world office behaviors and interpersonal dynamics.
-            </p>
-            <span style="font-size:12px; color:#64748b;">By TESTYOUR · 7 min read</span>
-        </a>
+            <a href="/en/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
+                <span style="font-size:12px; color:#a855f7; font-weight:bold;">Psychology | Organizational Leadership</span>
+                <h3>[Essay] 4 Leadership Archetypes in Hunter x Hunter</h3>
+                <p>
+                    If everyone acted like Gon, the entire team would implode within a month! Analyzing frontline breakthrough, cynical risk officer, system delegator, and evolving monarch models.
+                </p>
+                <span style="font-size:12px; color:#64748b;">By TESTYOUR · 8 min read</span>
+            </a>
+        </section>
 
-        <!-- Column 3: Leadership in HxH -->
-        <a href="/en/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
-            <span style="font-size:12px; color:#a855f7; font-weight:bold;">Organizational Dynamics</span>
-            <h3>[Essay] 4 Leadership Archetypes in Hunter x Hunter</h3>
-            <p>
-                If everyone acted like Gon, the entire team would implode within a month! Analyzing frontline breakthrough, cynical risk officer, system delegator, and evolving monarch models.
-            </p>
-            <span style="font-size:12px; color:#64748b;">By TESTYOUR · 8 min read</span>
-        </a>
+        <!-- 2. Manga & Anime -->
+        <section class="topic-section" data-topic="manga">
+            <div class="topic-heading">
+                <h2>📖 Manga &amp; Anime <span style="font-size:13px; font-weight:500; color:#94a3b8;">Character Analysis · Narrative</span></h2>
+                <span class="topic-count">2 essays</span>
+            </div>
+
+            <a href="/en/column/leorio-love.html" class="column-card" data-column-id="leorio-love" style="border-left: 4px solid #eab308; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(234, 179, 8, 0.2); color: #facc15; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #eab308;">💼 OWNER'S PICK</span>
+                <span style="font-size:12px; color:#facc15; font-weight:bold;">Manga | Character Appreciation</span>
+                <h3>[Column] Why Leorio Paradinight Is My All-Time Favorite Character in Hunter x Hunter</h3>
+                <p>
+                    Surrounded by prodigies and monsters, why does the site creator choose a 19-year-old med student in a crumpled suit as #1? Exploring his hidden promise, 8-ton Testing Gate grit, medical Emission Hatsu, and Election warp punch.
+                </p>
+                <span style="font-size:12px; color:#64748b;">Author: TESTYOUR Creator · Read time ~7 min</span>
+            </a>
+
+            <a href="/en/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">DEEP DIVE</span>
+                <span style="font-size:12px; color:#ef4444; font-weight:bold;">Manga | Narrative Deconstruction</span>
+                <h3>[Column] Why Did Gon Transform into 'Adult Gon'? The Trauma of Kite and the Terrifying Truth of Pure Innocence</h3>
+                <p>
+                    "I don't care anymore... It doesn't matter if this is the end." Deconstructing the most shocking, self-destructive protagonist awakening in manga history. Kite's symbolic weight, the terrifying amoral nature of pure innocence, and the tragedy of Enhancer vows.
+                </p>
+                <span style="font-size:12px; color:#64748b;">Editor: TESTYOUR · Read time ~9 min</span>
+            </a>
+        </section>
+
+        <!-- 3. Music -->
+        <section class="topic-section" data-topic="music">
+            <div class="topic-heading">
+                <h2>🎧 Music <span style="font-size:13px; font-weight:500; color:#94a3b8;">Listening Notes · Sound Critique</span></h2>
+                <span class="topic-count">1 review</span>
+            </div>
+
+            <a href="/en/column/5.html" class="column-card" data-column-id="music-5" style="border-left: 4px solid #06b6d4; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(6, 182, 212, 0.2); color: #22d3ee; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border:1px solid #06b6d4;">🎧 MUSIC #1</span>
+                <span style="font-size:12px; color:#22d3ee; font-weight:bold;">Music | Creator's Listening Notes #1</span>
+                <h3>[Music Review #1] RESCENE 'Inside Out' Review: Razor-Sharp Metallic Edge &amp; Chromatic Sharp (#) Twist</h3>
+                <p>
+                    Flipping their signature dreamy fragrance inside out on mini-album PULSE: why 'Inside Out' commands co-title energy, and how an intentional sharp (#) vocal inflection in the brief post-chorus bridge shines over a clean, restrained beat.
+                </p>
+                <span style="font-size:12px; color:#64748b;">Author: TESTYOUR Creator · Read time ~7 min</span>
+            </a>
+        </section>
 
         <section style="background:#12151e; border:1px solid #262c3a; border-radius:14px; padding:22px; margin:32px 0; line-height:1.8; color:#cbd5e1;">
-            <h2 style="margin:0 0 12px 0; font-size:18px; color:#f8fafc;">✍️ Editorial Perspective &amp; Recommended Reading Path</h2>
+            <h2 style="margin:0 0 12px 0; font-size:18px; color:#f8fafc;">✍️ Editorial Archive Overview: Psychology · Manga · Music</h2>
             <p style="font-size:14px; color:#94a3b8; margin:0 0 12px 0;">
-                The TESTYOUR Column Archive examines the intersection where <strong>subculture storytelling</strong> meets <strong>organizational psychology and Jungian typology</strong>. Choices made by fictional protagonists under extreme pressure often act as an unflinching mirror for everyday workplace burnout, boundary setting, and blind spots in human empathy.
-            </p>
-            <p style="font-size:14px; color:#94a3b8; margin:0 0 12px 0;">
-                Every essay in our archive goes far beyond surface-level plot summaries to examine structural human psychology. In our flagship deconstruction of <strong>Gon Freecss ('Adult Gon')</strong>, we trace how unyielding childhood innocence and father-figure trauma around Kite culminate in the most chilling Nen vow in shonen history. In our comparative study of <strong>the 6 Nen Categories and 16 MBTI Types</strong>, we connect Hisoka's aura taxonomy and Kastro's tragic "Memory Overload" at Heavens Arena to the cognitive burnout modern professionals suffer when forcing themselves into unnatural career roles. Finally, our <strong>Organizational Leadership</strong> essay contrasts frontline catalysts, risk officers, and decentralized systems architects.
+                The TESTYOUR Column Archive spans three distinct tracks: <strong>Psychology</strong> pairs Carl Jung's cognitive typology with real-world workplace leadership; <strong>Manga</strong> unpacks character arcs and moral ambiguity in narrative series; and <strong>Music</strong> captures close listening notes on arrangement, harmony, and production detail.
             </p>
             <p style="font-size:14px; color:#94a3b8; margin:0;">
-                If this is your first visit, we recommend taking our <a href="/en/mbti/" style="color:#38bdf8; text-decoration:underline;">30-Scenario MBTI Assessment</a> or <a href="/en/nen/" style="color:#f15f79; text-decoration:underline;">Water Divination Nen Test</a> first, then reading how those innate traits scale up under tragedy (Adult Gon Deconstruction) or modern office stress (4 Leadership Archetypes).
+                If this is your first visit, try our <a href="/en/mbti/" style="color:#38bdf8; text-decoration:underline;">30-Scenario MBTI Assessment</a> or <a href="/en/nen/" style="color:#f15f79; text-decoration:underline;">Water Divination Nen Test</a> first, then browse whichever column track catches your eye.
             </p>
         </section>
         <div class="cta-banner">
@@ -263,6 +340,33 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             initColumnIndexPage();
+
+            const tabs = document.querySelectorAll(".topic-tab");
+            const sections = document.querySelectorAll(".topic-section");
+
+            function applyTopicFilter(topic) {
+                tabs.forEach(t => {
+                    const active = t.getAttribute("data-topic-filter") === topic;
+                    t.classList.toggle("active", active);
+                    t.setAttribute("aria-pressed", active ? "true" : "false");
+                });
+                sections.forEach(sec => {
+                    const secTopic = sec.getAttribute("data-topic");
+                    sec.style.display = (topic === "all" || secTopic === topic) ? "" : "none";
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    applyTopicFilter(tab.getAttribute("data-topic-filter"));
+                });
+            });
+
+            const params = new URLSearchParams(window.location.search);
+            const initialTopic = params.get("topic");
+            if (initialTopic && ["psychology", "manga", "music"].includes(initialTopic)) {
+                applyTopicFilter(initialTopic);
+            }
         });
     </script>
 </body>

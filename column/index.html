@@ -7,8 +7,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>심리 분석 & 직장인 에세이 칼럼 | TESTYOUR</title>
-    <meta name="description" content="에디터 테스트유어의 직장인 생존 에세이, 헌터X헌터 넨 능력과 MBTI 심리유형론, 위기 상황에서의 리더십 분석을 담은 솔직 담백한 칼럼 아카이브입니다.">
+    <title>칼럼 아카이브 (심리 · 만화 · 음악) | TESTYOUR</title>
+    <meta name="description" content="테스트유어의 심리(MBTI·직장인 리더십), 만화(헌터×헌터 캐릭터 서사·애정 해부), 음악(K-POP·사운드 감상 노트) 칼럼 모음입니다.">
     <link rel="canonical" href="https://testyour.uk/column/">
     
     <style>
@@ -92,6 +92,59 @@
             line-height: 1.7;
         }
 
+        .topic-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0 0 28px 0;
+        }
+        .topic-tab {
+            background: #161a24;
+            color: #94a3b8;
+            border: 1px solid #2d3748;
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s;
+            font-family: inherit;
+        }
+        .topic-tab:hover { color: #f8fafc; border-color: #64748b; }
+        .topic-tab.active {
+            background: #ff3b30;
+            color: #fff;
+            border-color: #ff3b30;
+        }
+        .topic-section { margin-bottom: 34px; }
+        .topic-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-bottom: 1px solid #262c3a;
+            padding-bottom: 10px;
+            margin: 0 0 16px 0;
+        }
+        .topic-heading h2 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 800;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .topic-count {
+            font-size: 12px;
+            color: #94a3b8;
+            background: #161a24;
+            border: 1px solid #2d3748;
+            padding: 2px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
         .cta-banner {
             background: linear-gradient(135deg, #2a151b 0%, #1a1e29 100%);
             border: 1px solid #ff3b30;
@@ -151,79 +204,103 @@
 
     <main class="container">
         <nav class="breadcrumb">
-            <a href="/">홈</a> &gt; <span>심리 & 일상 칼럼</span>
+            <a href="/">홈</a> &gt; <span>칼럼 (심리 · 만화 · 음악)</span>
         </nav>
 
         <div class="article-header">
-            <span class="article-category">ESSAY & EDITORIAL</span>
-            <h1 class="article-title">심리 분석 & 직장인 에세이 칼럼</h1>
+            <span class="article-category">COLUMN ARCHIVE</span>
+            <h1 class="article-title">테스트유어 칼럼: 심리 · 만화 · 음악</h1>
             <p style="color:#94a3b8; font-size:15px; margin:0;">
-                에디터 테스트유어가 직장 생활의 리얼한 번아웃과 서브컬처 세계관, 성격 심리학의 이면을 솔직 담백한 시선으로 기록한 글 모음입니다.
+                성격·직장인 심리 이야기부터 만화 캐릭터 분석, 그리고 직접 들으면서 느낀 음악 감상 노트까지 주제별로 묶어둔 글 모음이다.
             </p>
         </div>
 
-        <!-- 음악 평론 #5: 리센느 백화요란 감상평 -->
-        <a href="/column/5.html" class="column-card" data-column-id="music-5" style="border-left: 4px solid #06b6d4; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(6, 182, 212, 0.2); color: #22d3ee; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #06b6d4;">🎧 음악 평론 #5</span>
-            <span style="font-size:12px; color:#22d3ee; font-weight:bold;">주인장의 음악 감상 노트 #5 | 사운드 &amp; 편곡 리뷰</span>
-            <h3>[음악 평론 #5] 리센느 〈백화요란 (Inside Out)〉 감상평: 향기를 뚫고 나온 '쇠맛', 반음(#)의 세련미</h3>
-            <p>
-                기존의 몽환적 플로럴 결을 뒤집어(Inside Out) 꺼내 든 리센느 《PULSE》의 선명한 쇠맛. 더블 타이틀급으로 밀어 올린 제작진의 고심부터, 심플한 비트 위 후렴 끝 짧은 브릿지에서 샵(#) 반음으로 살짝 비틀어 낸 2초의 미학까지 직접 짚어봅니다.
-            </p>
-            <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 주인장 · 읽는 시간 약 7분</span>
-        </a>
+        <div class="topic-tabs" role="tablist" aria-label="칼럼 카테고리 필터">
+            <button type="button" class="topic-tab active" data-topic-filter="all" aria-pressed="true">전체 (5)</button>
+            <button type="button" class="topic-tab" data-topic-filter="psychology" aria-pressed="false">🧠 심리 (2)</button>
+            <button type="button" class="topic-tab" data-topic-filter="manga" aria-pressed="false">📖 만화 (2)</button>
+            <button type="button" class="topic-tab" data-topic-filter="music" aria-pressed="false">🎧 음악 (1)</button>
+        </div>
 
-        <!-- 주인장 최애 칼럼: 레오리오 팬 에세이 -->
-        <a href="/column/leorio-love.html" class="column-card" data-column-id="leorio-love" style="border-left: 4px solid #eab308; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(234, 179, 8, 0.2); color: #facc15; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #eab308;">💼 주인장 픽</span>
-            <span style="font-size:12px; color:#facc15; font-weight:bold;">주인장 사심 에세이 | 캐릭터 애정 해부</span>
-            <h3>[칼럼] 내가 &lt;헌터×헌터&gt;에서 레오리오를 최애로 꼽는 이유</h3>
-            <p>
-                어릴 땐 천재와 암살자가 멋져 보였지만, 어른이 되고 나니 정장 안주머니에 뜨거운 의리를 품은 19세 의대생이 제일 멋있더라. 시련의 문 8톤 피지컬부터 원격 초음파 하츠, 진 프릭스 턱을 날린 한 방까지 주인장의 사심 100% 헌정 칼럼!
-            </p>
-            <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 주인장 · 읽는 시간 약 7분</span>
-        </a>
+        <!-- 1. 심리 꼭지 -->
+        <section class="topic-section" data-topic="psychology">
+            <div class="topic-heading">
+                <h2>🧠 심리 <span style="font-size:13px; font-weight:500; color:#94a3b8;">MBTI · 조직·인간관계 분석</span></h2>
+                <span class="topic-count">2편</span>
+            </div>
 
-        <!-- 신규 추천 칼럼: 곤육몬 심층 분석 -->
-        <a href="/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
-            <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">NEW 심층 분석</span>
-            <span style="font-size:12px; color:#ef4444; font-weight:bold;">서사 심리학 | 캐릭터 심층 해부</span>
-            <h3>[칼럼] 곤은 왜 '곤육몬'이 되었을까? 카이토라는 결핍과 순수함이 낳은 잔혹한 괴물</h3>
-            <p>
-                "더 이상 필요 없어... 끝이라도 좋아." 소년만화 클리셰를 산산조각 낸 곤의 자멸적 각성. 카이토가 곤에게 지녔던 아버지 이상의 무게, 선악의 구분이 없는 백지(白紙)의 광기, 그리고 스스로를 땔감으로 태워버린 강화계 넨의 종착지를 심층 분석합니다.
-            </p>
-            <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 9분</span>
-        </a>
+            <a href="/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
+                <span style="font-size:12px; color:#ff3b30; font-weight:bold;">심리 | 성격 심리학 · MBTI 비교</span>
+                <h3>[칼럼] 넨(念) 6대 계통과 MBTI 16가지 성격 유형의 심층 상관관계 분석</h3>
+                <p>
+                    히소카의 오오라 성격 진단은 단순한 만화적 허구일까? 칼 융의 인지기능과 16가지 성격 지표를 일상과 직장의 인간관계 관점에서 풀어낸 비교 에세이.
+                </p>
+                <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 7분</span>
+            </a>
 
-        <a href="/column/mbti-nen.html" class="column-card" data-column-id="mbti-nen" style="border-left: 4px solid #ff3b30;">
-            <span style="font-size:12px; color:#ff3b30; font-weight:bold;">성격 심리학 | MBTI 비교 분석</span>
-            <h3>[칼럼] 넨(念) 6대 계통과 MBTI 16가지 성격 유형의 심층 상관관계 분석</h3>
-            <p>
-                히소카의 오오라 성격 진단은 단순한 만화적 허구일까? 칼 융의 인지기능과 16가지 성격 지표를 일상과 직장의 인간관계 관점에서 유쾌하고 날카롭게 풀어낸 비교 에세이.
-            </p>
-            <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 7분</span>
-        </a>
+            <a href="/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
+                <span style="font-size:12px; color:#a855f7; font-weight:bold;">심리 | 조직 심리학 · 직장인 리더십</span>
+                <h3>[칼럼] 직장인 시선으로 본 헌터X헌터의 4대 리더십 모델</h3>
+                <p>
+                    팀원 모두가 곤 같으면 그 팀은 한 달 안에 터진다. 불나방형 곤, 팩폭형 참모 키르아, 시스템형 클로로, 성장형 군주 메르엠을 통해 본 현실 직장 생존 가이드.
+                </p>
+                <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 8분</span>
+            </a>
+        </section>
 
-        <!-- 칼럼 3: 헌터X헌터 4대 리더십 -->
-        <a href="/column/leadership.html" class="column-card" data-column-id="leadership" style="border-left: 4px solid #a855f7;">
-            <span style="font-size:12px; color:#a855f7; font-weight:bold;">조직 심리학 | 직장인 리더십</span>
-            <h3>[칼럼] 직장인 시선으로 본 헌터X헌터의 4대 리더십 모델</h3>
-            <p>
-                팀원 모두가 곤 같으면 그 팀은 한 달 안에 터집니다! 불나방형 곤, 팩폭형 참모 키르아, 시스템형 클로로, 성장형 군주 메르엠을 통해 본 현실 직장 생존 가이드.
-            </p>
-            <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 8분</span>
-        </a>
+        <!-- 2. 만화 꼭지 -->
+        <section class="topic-section" data-topic="manga">
+            <div class="topic-heading">
+                <h2>📖 만화 <span style="font-size:13px; font-weight:500; color:#94a3b8;">캐릭터 해부 · 서사 감상</span></h2>
+                <span class="topic-count">2편</span>
+            </div>
+
+            <a href="/column/leorio-love.html" class="column-card" data-column-id="leorio-love" style="border-left: 4px solid #eab308; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(234, 179, 8, 0.2); color: #facc15; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #eab308;">💼 주인장 픽</span>
+                <span style="font-size:12px; color:#facc15; font-weight:bold;">만화 | 캐릭터 애정 해부</span>
+                <h3>[칼럼] 내가 &lt;헌터×헌터&gt;에서 레오리오를 최애로 꼽는 이유</h3>
+                <p>
+                    어릴 땐 천재와 암살자가 멋져 보였지만, 어른이 되고 나니 정장 안주머니에 의리를 품은 19세 의대생이 제일 오래 남더라. 시련의 문 8톤 피지컬부터 원격 초음파 하츠, 진 프릭스 턱을 날린 한 방까지 정리한 글.
+                </p>
+                <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 주인장 · 읽는 시간 약 7분</span>
+            </a>
+
+            <a href="/column/gon-analysis.html" class="column-card" data-column-id="gon-analysis" style="border-left: 4px solid #ef4444; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.2); color: #ef4444; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #ef4444;">심층 분석</span>
+                <span style="font-size:12px; color:#ef4444; font-weight:bold;">만화 | 서사 심리 · 캐릭터 해부</span>
+                <h3>[칼럼] 곤은 왜 '곤육몬'이 되었을까? 카이토라는 결핍과 순수함이 낳은 잔혹한 괴물</h3>
+                <p>
+                    "더 이상 필요 없어... 끝이라도 좋아." 소년만화 클리셰를 산산조각 낸 곤의 자멸적 각성. 카이토의 팔이 잘렸을 때와 목이 잘렸을 때의 심리적 차이, 선악이 없는 순수함의 광기를 짚어봤다.
+                </p>
+                <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 · 읽는 시간 약 9분</span>
+            </a>
+        </section>
+
+        <!-- 3. 음악 꼭지 -->
+        <section class="topic-section" data-topic="music">
+            <div class="topic-heading">
+                <h2>🎧 음악 <span style="font-size:13px; font-weight:500; color:#94a3b8;">주인장의 음감 노트 · 사운드 리뷰</span></h2>
+                <span class="topic-count">1편</span>
+            </div>
+
+            <a href="/column/5.html" class="column-card" data-column-id="music-5" style="border-left: 4px solid #06b6d4; position: relative;">
+                <span style="position: absolute; top: 16px; right: 16px; background: rgba(6, 182, 212, 0.2); color: #22d3ee; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; border: 1px solid #06b6d4;">🎧 음악 #1</span>
+                <span style="font-size:12px; color:#22d3ee; font-weight:bold;">음악 | 주인장의 음악 감상 노트 #1</span>
+                <h3>[음악 감상 #1] 리센느 〈백화요란 (Inside Out)〉 감상평: 향기를 뚫고 나온 '쇠맛', 반음(#)의 세련미</h3>
+                <p>
+                    기존의 몽환적 플로럴 결을 뒤집어(Inside Out) 꺼내 든 리센느 《PULSE》의 선명한 쇠맛. 더블 타이틀 느낌으로 밀어 올린 제작진의 고심부터, 심플한 비트 위 후렴 끝 짧은 브릿지에서 샵(#)으로 살짝 꺾어 부르는 포인트까지 직접 짚어봤다.
+                </p>
+                <span style="font-size:12px; color:#64748b;">에디터: 테스트유어 주인장 · 읽는 시간 약 7분</span>
+            </a>
+        </section>
 
         <section style="background:#12151e; border:1px solid #262c3a; border-radius:14px; padding:22px; margin:32px 0; line-height:1.85; color:#cbd5e1;">
-            <h2 style="margin:0 0 12px 0; font-size:18px; color:#f8fafc;">✍️ 에디터의 아카이브 소개 &amp; 추천 읽는 순서</h2>
+            <h2 style="margin:0 0 12px 0; font-size:18px; color:#f8fafc;">✍️ 칼럼 아카이브 안내 (심리 · 만화 · 음악)</h2>
             <p style="font-size:14px; color:#94a3b8; margin:0 0 12px 0;">
-                TESTYOUR 심리 칼럼 아카이브는 <strong>서브컬처의 강렬한 서사</strong>와 <strong>현실 조직 심리학, 칼 융의 성격유형론</strong>이 만나는 교차점을 탐구합니다. 만화나 이야기 속 인물들이 극한 상황에서 내리는 선택은, 종종 우리가 일상과 직장에서 마주하는 번아웃, 책임감, 대인관계 갈등의 민낯을 가장 선명하게 비추는 거울이 되곤 합니다.
-            </p>
-            <p style="font-size:14px; color:#94a3b8; margin:0 0 12px 0;">
-                특히 본 아카이브의 모든 에세이는 흔한 요약본이나 피상적인 줄거리 나열을 지양합니다. <strong>[곤 프릭스 심층 분석]</strong>에서는 소년만화 주인공의 성장이 어떻게 도덕적 양면성과 자멸적 서약(곤육몬)으로 귀결되는지를 카이토라는 정신적 지주의 상실과 연결해 해부하며, <strong>[넨 6대 계통과 MBTI 상관관계]</strong>에서는 히소카의 오오라 성격 진단과 천공격투장 카스트로의 '메모리 과부하' 비극을 통해 현대 직장인이 자신의 주기능(100%)을 외면할 때 겪는 번아웃을 짚어냅니다. 이어지는 <strong>[헌터X헌터 4대 리더십 모델]</strong>은 곤, 키르아, 크라피카, 클로로, 메르엠이라는 다섯 의사결정자의 명암을 통해 오늘날 조직에서 살아남는 현실적인 협업 전략을 제시합니다.
+                TESTYOUR 칼럼은 크게 세 갈래로 나눠서 쌓아가고 있다. <strong>심리</strong> 꼭지에서는 MBTI 인지기능과 직장 내 조직 리더십처럼 현실 대인관계에서 바로 마주치는 성향 이야기를 다루고, <strong>만화</strong> 꼭지에서는 &lt;헌터×헌터&gt;를 비롯한 작품 속 인물들의 서사와 매력을 파고든다. <strong>음악</strong> 꼭지에서는 평소 이어폰으로 반복 재생하며 귀에 꽂혔던 곡들의 사운드와 편곡 포인트를 편하게 기록한다.
             </p>
             <p style="font-size:14px; color:#94a3b8; margin:0;">
-                처음 방문하셨다면 먼저 <a href="/mbti/" style="color:#38bdf8; text-decoration:underline;">30가지 일상 시나리오 MBTI 검사</a> 또는 <a href="/nen/" style="color:#a78bfa; text-decoration:underline;">수견식 넨 테스트</a>로 자신의 기본 기질을 확인한 뒤, 그 성향이 서사 속 비극(곤 프릭스 분석)이나 직장 내 협업(4대 리더십 모델)과 어떻게 이어지는지 칼럼을 통해 비교해 보시는 것을 추천합니다.
+                테스트가 먼저 궁금하다면 <a href="/mbti/" style="color:#38bdf8; text-decoration:underline;">30가지 일상 시나리오 MBTI 검사</a>나 <a href="/nen/" style="color:#a78bfa; text-decoration:underline;">수견식 넨 테스트</a>로 기본 성향부터 확인한 뒤, 관심 있는 꼭지의 글을 골라 읽어보는 것도 좋다.
             </p>
         </section>
         <div class="cta-banner">
@@ -261,6 +338,33 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             initColumnIndexPage();
+
+            const tabs = document.querySelectorAll(".topic-tab");
+            const sections = document.querySelectorAll(".topic-section");
+
+            function applyTopicFilter(topic) {
+                tabs.forEach(t => {
+                    const active = t.getAttribute("data-topic-filter") === topic;
+                    t.classList.toggle("active", active);
+                    t.setAttribute("aria-pressed", active ? "true" : "false");
+                });
+                sections.forEach(sec => {
+                    const secTopic = sec.getAttribute("data-topic");
+                    sec.style.display = (topic === "all" || secTopic === topic) ? "" : "none";
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    applyTopicFilter(tab.getAttribute("data-topic-filter"));
+                });
+            });
+
+            const params = new URLSearchParams(window.location.search);
+            const initialTopic = params.get("topic");
+            if (initialTopic && ["psychology", "manga", "music"].includes(initialTopic)) {
+                applyTopicFilter(initialTopic);
+            }
         });
     </script>
 </body>
