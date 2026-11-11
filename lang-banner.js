@@ -18,6 +18,7 @@
             if (path.startsWith('/nen')) target = '/en/nen/';
             else if (path.startsWith('/hxh')) target = '/en/hxh/';
             else if (path.startsWith('/mbti')) target = '/en/mbti/';
+            else if (path.startsWith('/picker')) target = '/en/picker/';
             else if (path.startsWith('/column')) target = '/en/column/';
             else if (path.includes('privacy')) target = '/en/privacy.html';
             else if (path.includes('terms')) target = '/en/terms.html';
@@ -64,6 +65,8 @@
                     'left: 0;' +
                     'right: 0;' +
                     'width: 100%;' +
+                    'box-sizing: border-box;' +
+                    'flex-shrink: 0;' +
                     'background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);' +
                     'color: #e2e8f0;' +
                     'border-bottom: 1px solid rgba(139, 92, 246, 0.4);' +
@@ -106,6 +109,13 @@
                         'padding: 4px 8px;' +
                         'margin-left: 4px;' +
                     '" aria-label="Close">✕</button>';
+
+                var bodyStyle = window.getComputedStyle(document.body);
+                if (bodyStyle && bodyStyle.display === 'flex') {
+                    document.body.style.flexDirection = 'column';
+                    document.body.style.alignItems = 'center';
+                    document.body.style.justifyContent = 'flex-start';
+                }
 
                 document.body.prepend(banner);
 
