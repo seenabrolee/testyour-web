@@ -177,7 +177,7 @@
                     '<img src="/hxh/images/leorio.jpg" alt="레오리오" style="width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #eab308; margin-bottom:12px;">' +
                     '<div style="display:inline-block; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">💼 이스터에그</div>' +
                     '<h3 style="margin:0 0 10px 0; color:#f8fafc; font-size:20px; font-weight:900;">주인장은 레오리오 팬입니다</h3>' +
-                    '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.7;">그냥 사소한 얘기 하나.<br>이 사이트 만든 사람도 헌터×헌터에서는 결국 <strong>레오리오</strong>를 제일 좋아합니다.</p>' +
+                    '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.7;">그냥 사소한 얘기 하나.<br>이 사이트 만든 사람도 헌터×헌터에서는 <strong>레오리오</strong>를 제일 좋아합니다.</p>' +
                     '<div style="display:flex; flex-direction:column; gap:8px;">' +
                         '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">📖 레오리오 관련 칼럼 보러가기 &rarr;</a>' +
                         '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">🕶️ 레오리오 도감 페이지</a>' +
