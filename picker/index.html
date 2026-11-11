@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9653471283283627"
+     crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공정한 랜덤 추첨기 &amp; 제비뽑기 (N명 중 K명 선별 · 팀 나누기) | TESTYOUR</title>
+    <meta name="description" content="이름 15개를 넣으면 원하는 인원 5명만 공정하게 선별하는 무료 웹 제비뽑기·랜덤 추첨기 및 조 편성 도구입니다. 암호학적 난수 알고리즘을 사용해 편향 없는 추첨 결과를 제공합니다.">
+    <meta property="og:title" content="공정한 랜덤 추첨기 &amp; 제비뽑기 (N명 선별 · 팀 나누기) | TESTYOUR">
+    <meta property="og:description" content="참가자 명단을 붙여넣고 뽑을 인원수만 정하면 즉시 공정하게 선별! 추가 추첨, 결과 복사, 랜덤 팀 배정까지 무료로 사용해 보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://testyour.uk/picker/">
+    <link rel="canonical" href="https://testyour.uk/picker/">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0f1117;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            word-break: keep-all;
+            line-height: 1.75;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            background-color: #161a24;
+            box-shadow: 0 0 28px rgba(0, 0, 0, 0.55);
+            display: flex;
+            flex-direction: column;
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid #262c3a;
+        }
+        .header-bar .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: #10b981;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .lang-switch {
+            font-size: 13px;
+            background: rgba(255,255,255,0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .lang-switch a { text-decoration: none; color: #94a3b8; font-weight: 600; }
+        .lang-switch a.active { color: #10b981; font-weight: 800; }
+
+        .content {
+            padding: 28px 20px 45px;
+            flex-grow: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.14);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 26px;
+            font-weight: 900;
+            color: #f8fafc;
+            line-height: 1.35;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 0 0 22px 0;
+        }
+
+        /* Mode Tabs */
+        .mode-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: #0f1117;
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid #262c3a;
+            margin-bottom: 20px;
+        }
+        .mode-tab {
+            padding: 10px 8px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #94a3b8;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .mode-tab.active {
+            background: #10b981;
+            color: #06281e;
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Input Card */
+        .tool-card {
+            background: #12151e;
+            border: 1px solid #283347;
+            border-radius: 16px;
+            padding: 20px 18px;
+            margin-bottom: 20px;
+        }
+        .label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .label-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        .count-pill {
+            font-size: 12px;
+            font-weight: 700;
+            color: #34d399;
+            background: rgba(16, 185, 129, 0.14);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        textarea.names-input {
+            width: 100%;
+            min-height: 135px;
+            background: #0b0d13;
+            border: 1.5px solid #2d3748;
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: #f8fafc;
+            font-size: 14px;
+            line-height: 1.65;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        textarea.names-input:focus {
+            border-color: #10b981;
+        }
+        .quick-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .chip-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .chip-btn {
+            background: #1e2433;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 6px 11px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .chip-btn:hover { background: #2b354b; color: #fff; border-color: #475569; }
+        .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            color: #94a3b8;
+            cursor: pointer;
+            user-select: none;
+        }
+        .checkbox-label input { accent-color: #10b981; width: 15px; height: 15px; cursor: pointer; }
+
+        /* Count Controls */
+        .settings-box {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #262c3a;
+        }
+        .stepper-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .stepper-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #1e2433;
+            color: #f8fafc;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-btn:hover { background: #334155; }
+        .num-input {
+            width: 68px;
+            height: 36px;
+            text-align: center;
+            background: #0b0d13;
+            border: 1.5px solid #334155;
+            border-radius: 8px;
+            color: #34d399;
+            font-size: 16px;
+            font-weight: 800;
+            outline: none;
+            font-family: inherit;
+        }
+        .preset-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.28);
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .preset-btn:hover { background: rgba(16, 185, 129, 0.22); }
+
+        .options-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .draw-btn {
+            width: 100%;
+            margin-top: 18px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #042017;
+            border: none;
+            border-radius: 12px;
+            font-size: 16.5px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+            font-family: inherit;
+        }
+        .draw-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16, 185, 129, 0.42); }
+        .draw-btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+        /* Result Area */
+        .result-box {
+            display: none;
+            background: linear-gradient(165deg, #102420 0%, #12151e 100%);
+            border: 1.5px solid #10b981;
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin-bottom: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+        .result-box.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .result-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 800;
+            color: #34d399;
+        }
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .winner-card {
+            background: #161d2b;
+            border: 1.5px solid rgba(52, 211, 153, 0.45);
+            border-radius: 10px;
+            padding: 12px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+        .winner-rank {
+            background: #10b981;
+            color: #05261b;
+            font-size: 11.5px;
+            font-weight: 900;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .winner-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: #f8fafc;
+            word-break: break-word;
+        }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .team-card {
+            background: #161d2b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .team-card h4 {
+            margin: 0 0 8px 0;
+            color: #34d399;
+            font-size: 14.5px;
+            border-bottom: 1px solid #263144;
+            padding-bottom: 6px;
+        }
+        .team-members {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 13.5px;
+            color: #e2e8f0;
+        }
+
+        .remaining-box {
+            background: rgba(15, 17, 23, 0.65);
+            border: 1px solid #283347;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            font-size: 12.5px;
+            color: #94a3b8;
+        }
+        .result-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .sec-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 11px 14px;
+            border-radius: 9px;
+            border: 1px solid #334155;
+            background: #1e2433;
+            color: #f1f5f9;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .sec-btn:hover { background: #2d3748; }
+        .sec-btn.accent {
+            background: rgba(16, 185, 129, 0.16);
+            border-color: #10b981;
+            color: #34d399;
+        }
+        .sec-btn.accent:hover { background: rgba(16, 185, 129, 0.28); }
+
+        /* Slot Roll Overlay Animation */
+        .rolling-banner {
+            display: none;
+            text-align: center;
+            padding: 22px 14px;
+            background: #12151e;
+            border: 1.5px dashed #10b981;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+        .rolling-banner.active { display: block; }
+        .rolling-name {
+            font-size: 24px;
+            font-weight: 900;
+            color: #34d399;
+            margin: 6px 0;
+        }
+
+        /* Editorial Guide */
+        .guide-section {
+            margin-top: 32px;
+            background: #12151e;
+            border: 1px solid #262c3a;
+            border-radius: 16px;
+            padding: 22px 18px;
+            line-height: 1.85;
+            color: #cbd5e1;
+        }
+        .guide-section h2 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            color: #34d399;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 8px;
+        }
+        .guide-section h3 {
+            margin: 18px 0 6px 0;
+            font-size: 14.5px;
+            color: #a7f3d0;
+        }
+        .guide-section p {
+            margin: 0 0 12px 0;
+            font-size: 13.5px;
+            color: #94a3b8;
+        }
+        .guide-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        .guide-section li { margin-bottom: 6px; }
+
+        .footer {
+            border-top: 1px solid #262c3a;
+            padding: 24px 20px 36px;
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            background: #0f1117;
+        }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 6px; }
+        .footer-links a:hover { color: #10b981; }
+    </style>
+    <script src="/lang-banner.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <a href="/" class="logo">TESTYOUR</a>
+            <div class="lang-switch">
+                <a href="/picker/" class="active">KO</a>
+                <span style="color:#475569; margin:0 4px;">|</span>
+                <a href="/en/picker/">EN</a>
+            </div>
+        </div>
+
+        <main class="content">
+            <span class="hero-badge">FAIR RANDOM PICKER &amp; TEAM DRAW</span>
+            <h1>공정한 랜덤 뽑기 &amp; 명단 추첨기</h1>
+            <p class="subtitle">이름 15개를 넣고 원하는 인원 5명만 깔끔하게 선별하거나, 랜덤 팀(조)을 즉시 나눌 수 있습니다.</p>
+
+            <!-- Mode Selector -->
+            <div class="mode-tabs">
+                <button type="button" id="tab-pick" class="mode-tab active" onclick="switchMode('pick')">🎯 N명 선별 뽑기</button>
+                <button type="button" id="tab-team" class="mode-tab" onclick="switchMode('team')">👥 랜덤 팀(조) 나누기</button>
+            </div>
+
+            <!-- Input Card -->
+            <div class="tool-card">
+                <div class="label-row">
+                    <span class="label-title">참가자 이름 입력 (줄바꿈, 쉼표, 띄어쓰기 구분)</span>
+                    <span id="participant-count-pill" class="count-pill">현재 입력: 0명</span>
+                </div>
+
+                <textarea id="names-textarea" class="names-input" placeholder="예: 김민준, 이서연, 박도윤, 최지우, 정하은...&#10;또는 한 줄에 이름 하나씩 붙여넣기 하세요!"></textarea>
+
+                <div class="quick-bar">
+                    <div class="chip-group">
+                        <button type="button" class="chip-btn" onclick="fillSampleNames()">📝 15명 예시 채우기</button>
+                        <button type="button" class="chip-btn" onclick="clearAllNames()">🧹 비우기</button>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="chk-dedupe" checked onchange="updateCounts()">
+                        중복 이름 자동 제거
+                    </label>
+                </div>
+
+                <!-- Settings for Pick Mode -->
+                <div id="settings-pick" class="settings-box">
+                    <div class="label-row" style="margin-bottom:10px;">
+                        <span class="label-title">뽑을 인원 수</span>
+                        <div class="preset-row">
+                            <button type="button" class="preset-btn" onclick="setPickCount(1)">1명</button>
+                            <button type="button" class="preset-btn" onclick="setPickCount(2)">2명</button>
+                            <button type="button" class="preset-btn" onclick="setPickCount(3)">3명</button>
+                            <button type="button" class="preset-btn" onclick="setPickCount(5)">5명</button>
+                            <button type="button" class="preset-btn" onclick="setPickCount(10)">10명</button>
+                        </div>
+                    </div>
+                    <div class="stepper-row">
+                        <div class="stepper-group">
+                            <button type="button" class="step-btn" onclick="adjustCount('pick-count', -1)">−</button>
+                            <input type="number" id="pick-count" class="num-input" value="5" min="1" max="500">
+                            <button type="button" class="step-btn" onclick="adjustCount('pick-count', 1)">+</button>
+                            <span style="font-size:14px; color:#cbd5e1; font-weight:600;">명 선별</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings for Team Mode -->
+                <div id="settings-team" class="settings-box" style="display:none;">
+                    <div class="label-row" style="margin-bottom:10px;">
+                        <span class="label-title">나눌 팀(조) 개수</span>
+                        <div class="preset-row">
+                            <button type="button" class="preset-btn" onclick="setTeamCount(2)">2팀</button>
+                            <button type="button" class="preset-btn" onclick="setTeamCount(3)">3팀</button>
+                            <button type="button" class="preset-btn" onclick="setTeamCount(4)">4팀</button>
+                            <button type="button" class="preset-btn" onclick="setTeamCount(5)">5팀</button>
+                        </div>
+                    </div>
+                    <div class="stepper-row">
+                        <div class="stepper-group">
+                            <button type="button" class="step-btn" onclick="adjustCount('team-count', -1)">−</button>
+                            <input type="number" id="team-count" class="num-input" value="3" min="2" max="50">
+                            <button type="button" class="step-btn" onclick="adjustCount('team-count', 1)">+</button>
+                            <span style="font-size:14px; color:#cbd5e1; font-weight:600;">개 팀으로 균등 배정</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="chk-rank" checked>
+                        당첨 순번(1~N번) 표시
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="chk-anim" checked>
+                        추첨 연출 효과 사용
+                    </label>
+                </div>
+
+                <button type="button" id="btn-draw" class="draw-btn" onclick="runDraw(false)">🎯 지금 바로 뽑기 시작!</button>
+            </div>
+
+            <!-- Rolling Animation Box -->
+            <div id="rolling-box" class="rolling-banner">
+                <div style="font-size:12.5px; color:#94a3b8; font-weight:700;">무작위 공정 추첨 중...</div>
+                <div id="rolling-name" class="rolling-name">추첨 준비</div>
+            </div>
+
+            <!-- Results Box -->
+            <section id="result-box" class="result-box">
+                <div class="result-header">
+                    <h2 id="result-heading" class="result-title">🎉 당첨자 발표</h2>
+                    <span id="result-meta" style="font-size:12px; color:#94a3b8;"></span>
+                </div>
+
+                <div id="result-body"></div>
+
+                <div id="remaining-wrap" class="remaining-box" style="display:none;">
+                    <strong>남은 대기자 (<span id="remaining-count">0</span>명):</strong>
+                    <span id="remaining-list"></span>
+                </div>
+
+                <div class="result-actions">
+                    <button type="button" class="sec-btn accent" onclick="copyResultText()">📋 결과 복사하기</button>
+                    <button type="button" id="btn-draw-remaining" class="sec-btn" onclick="runDraw(true)">➕ 남은 인원 중 추가 뽑기</button>
+                    <button type="button" id="btn-redraw" class="sec-btn" onclick="runDraw(false)">🔁 전체 명단 다시 뽑기</button>
+                </div>
+            </section>
+
+            <!-- Editorial Guide Section (AdSense Quality Standard) -->
+            <section class="guide-section">
+                <h2>📖 무작위 추첨 공정성 원리 및 활용 가이드</h2>
+                <p>
+                    회식 자리 경품 추첨이나 팀 프로젝트 조 배정, 온라인 이벤트 당첨자를 뽑을 때 가장 중요한 것은 <strong>'누구에게나 완벽히 동등한 확률이 적용되는가'</strong>입니다. TESTYOUR의 랜덤 뽑기 도구는 별도 프로그램 설치나 회원가입 없이 웹 브라우저에서 바로 공정한 선별 작업을 수행할 수 있도록 설계되었습니다.
+                </p>
+
+                <h3>1. 왜 일반 랜덤 정렬 대신 '피셔-예이츠(Fisher-Yates) + 암호학적 난수'를 쓰나요?</h3>
+                <p>
+                    간단하게 만들어진 일부 웹 뽑기 도구는 자바스크립트의 <code>Array.sort(() =&gt; Math.random() - 0.5)</code> 방식을 사용하곤 합니다. 하지만 이 방식은 브라우저 엔진의 정렬 알고리즘 특성상 특정 위치의 이름이 더 자주 뽑히거나 덜 뽑히는 통계적 편향이 발생할 수 있습니다.
+                </p>
+                <p>
+                    본 추첨기는 브라우저 표준 Web Crypto API의 암호학적 난수 생성기(<code>crypto.getRandomValues</code>)와 <strong>기각 샘플링(Rejection Sampling) 기반 피셔-예이츠 셔플</strong>을 결합해, 입력된 모든 참가자가 정확히 동일한 확률(1/N)로 선택되도록 보장합니다.
+                </p>
+
+                <h3>2. 실생활에서 이렇게 활용해 보세요</h3>
+                <ul>
+                    <li><strong>회사·모임 인원 선별:</strong> 15명~50명 이상의 워크숍 명단 중 당첨자 5명만 추리거나, 점심 커피 내기 당번 뽑기</li>
+                    <li><strong>발표 순서 &amp; 조 편성:</strong> 스터디나 동아리 모임에서 이름만 붙여넣고 3~5개 팀으로 즉시 균등 배분</li>
+                    <li><strong>추가/패자부활 추첨:</strong> 1차로 5명을 뽑은 뒤, 이미 당첨된 사람을 빼고 <code>남은 인원 중 추가 뽑기</code> 버튼으로 결원 보충</li>
+                </ul>
+
+                <h3>3. 자주 묻는 질문 (FAQ)</h3>
+                <p>
+                    <strong>Q. 입력한 이름이나 개인 명단이 서버에 저장되나요?</strong><br>
+                    아니요. 참가자 명단 파싱부터 난수 생성, 결과 출력까지 <strong>모든 연산은 사용자의 브라우저 기기 안에서만 오프라인처럼 동작</strong>하며, 입력하신 이름은 외부 서버로 전송되거나 기록되지 않습니다.
+                </p>
+                <p style="margin-bottom: 0;">
+                    <strong>Q. 엑셀이나 카톡에서 복사한 명단을 그대로 붙여넣어도 되나요?</strong><br>
+                    네. 줄바꿈(엔터), 쉼표(,), 띄어쓰기를 자동으로 구분해 인식하며, 빈 줄이나 불필요한 여백을 깔끔하게 정리해 줍니다. 동명이인이 아니라면 '중복 이름 자동 제거' 옵션을 켜 두어 실수로 한 사람이 두 번 들어가는 것을 막을 수 있습니다.
+                </p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="/">홈</a> |
+                <a href="/mbti/">MBTI 검사</a> |
+                <a href="/nen/">넨 테스트</a> |
+                <a href="/hxh/">캐릭터 테스트</a> |
+                <a href="/column/">심리 칼럼</a> |
+                <a href="/about.html">소개</a> |
+                <a href="/privacy.html">개인정보처리방침</a> |
+                <a href="/terms.html">이용약관</a>
+            </div>
+            <p style="margin: 4px 0;">본 랜덤 추첨 도구는 100% 브라우저 내부 연산으로 동작하며 어떠한 명단 데이터도 수집하지 않습니다.</p>
+            <p style="margin: 0;">&copy; 2026 TESTYOUR. All rights reserved. 문의: contact@testyour.uk</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentMode = "pick";
+        let currentWinners = [];
+        let currentRemaining = [];
+        let lastTeams = [];
+        let isRolling = false;
+
+        const SAMPLE_KO_15 = [
+            "김민준", "이서연", "박도윤", "최지우", "정하은",
+            "강시우", "조수아", "윤서준", "장지호", "임채원",
+            "한예준", "오서현", "신우진", "권민서", "황준서"
+        ];
+
+        function parseParticipants() {
+            const raw = document.getElementById("names-textarea").value;
+            let list = raw
+                .split(/[\n,\t\s]+/)
+                .map(s => s.trim())
+                .filter(s => s.length > 0);
+
+            if (document.getElementById("chk-dedupe").checked) {
+                const seen = new Set();
+                list = list.filter(item => {
+                    if (seen.has(item)) return false;
+                    seen.add(item);
+                    return true;
+                });
+            }
+            return list;
+        }
+
+        function updateCounts() {
+            const list = parseParticipants();
+            document.getElementById("participant-count-pill").innerText = `현재 입력: ${list.length}명`;
+        }
+
+        document.getElementById("names-textarea").addEventListener("input", updateCounts);
+
+        function fillSampleNames() {
+            document.getElementById("names-textarea").value = SAMPLE_KO_15.join(", ");
+            updateCounts();
+        }
+
+        function clearAllNames() {
+            document.getElementById("names-textarea").value = "";
+            currentWinners = [];
+            currentRemaining = [];
+            lastTeams = [];
+            document.getElementById("result-box").classList.remove("active");
+            updateCounts();
+        }
+
+        function switchMode(mode) {
+            currentMode = mode;
+            document.getElementById("tab-pick").classList.toggle("active", mode === "pick");
+            document.getElementById("tab-team").classList.toggle("active", mode === "team");
+            document.getElementById("settings-pick").style.display = mode === "pick" ? "block" : "none";
+            document.getElementById("settings-team").style.display = mode === "team" ? "block" : "none";
+            document.getElementById("btn-draw").innerText = mode === "pick"
+                ? "🎯 지금 바로 뽑기 시작!"
+                : "👥 랜덤 팀 배정 시작!";
+            document.getElementById("result-box").classList.remove("active");
+        }
+
+        function adjustCount(inputId, delta) {
+            const el = document.getElementById(inputId);
+            const min = parseInt(el.min, 10) || 1;
+            const max = parseInt(el.max, 10) || 500;
+            let val = parseInt(el.value, 10) || min;
+            val = Math.max(min, Math.min(max, val + delta));
+            el.value = val;
+        }
+
+        function setPickCount(n) {
+            document.getElementById("pick-count").value = n;
+        }
+
+        function setTeamCount(n) {
+            document.getElementById("team-count").value = n;
+        }
+
+        // Unbiased uniform random integer in [0, max) using Web Crypto API rejection sampling
+        function secureRandomInt(max) {
+            if (max <= 1) return 0;
+            if (window.crypto && window.crypto.getRandomValues) {
+                const limit = Math.floor(0x100000000 / max) * max;
+                const buf = new Uint32Array(1);
+                while (true) {
+                    window.crypto.getRandomValues(buf);
+                    if (buf[0] < limit) {
+                        return buf[0] % max;
+                    }
+                }
+            }
+            return Math.floor(Math.random() * max);
+        }
+
+        function fisherYatesShuffle(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = secureRandomInt(i + 1);
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function runDraw(fromRemaining) {
+            if (isRolling) return;
+
+            const pool = fromRemaining ? [...currentRemaining] : parseParticipants();
+            if (pool.length === 0) {
+                alert(fromRemaining ? "남아있는 대기자가 더 이상 없습니다!" : "먼저 참가자 이름을 1명 이상 입력해 주세요.");
+                return;
+            }
+
+            if (currentMode === "pick") {
+                const k = parseInt(document.getElementById("pick-count").value, 10) || 1;
+                if (k < 1) {
+                    alert("뽑을 인원 수는 최소 1명 이상이어야 합니다.");
+                    return;
+                }
+                if (k > pool.length) {
+                    alert(`현재 후보(${pool.length}명)보다 뽑을 인원(${k}명)이 많습니다. 후보 수 이하로 입력해 주세요.`);
+                    return;
+                }
+
+                executeWithAnimation(pool, () => {
+                    const shuffled = fisherYatesShuffle(pool);
+                    currentWinners = shuffled.slice(0, k);
+                    currentRemaining = shuffled.slice(k);
+                    renderPickResults(pool.length);
+                });
+            } else {
+                const teamsN = parseInt(document.getElementById("team-count").value, 10) || 2;
+                if (teamsN < 2 || teamsN > pool.length) {
+                    alert(`팀 개수는 2개 이상, 전체 인원(${pool.length}명) 이하로 설정해 주세요.`);
+                    return;
+                }
+
+                executeWithAnimation(pool, () => {
+                    const shuffled = fisherYatesShuffle(pool);
+                    lastTeams = Array.from({ length: teamsN }, () => []);
+                    shuffled.forEach((name, idx) => {
+                        lastTeams[idx % teamsN].push(name);
+                    });
+                    renderTeamResults(pool.length);
+                });
+            }
+        }
+
+        function executeWithAnimation(pool, onComplete) {
+            const useAnim = document.getElementById("chk-anim").checked;
+            const resBox = document.getElementById("result-box");
+            const rollBox = document.getElementById("rolling-box");
+            const rollNameEl = document.getElementById("rolling-name");
+            const drawBtn = document.getElementById("btn-draw");
+
+            if (!useAnim) {
+                onComplete();
+                return;
+            }
+
+            isRolling = true;
+            drawBtn.disabled = true;
+            resBox.classList.remove("active");
+            rollBox.classList.add("active");
+
+            let ticks = 0;
+            const timer = setInterval(() => {
+                rollNameEl.innerText = pool[secureRandomInt(pool.length)];
+                ticks++;
+                if (ticks >= 10) {
+                    clearInterval(timer);
+                    rollBox.classList.remove("active");
+                    drawBtn.disabled = false;
+                    isRolling = false;
+                    onComplete();
+                }
+            }, 65);
+        }
+
+        function renderPickResults(poolTotal) {
+            const showRank = document.getElementById("chk-rank").checked;
+            document.getElementById("result-heading").innerText = `🎉 선별 완료 (${currentWinners.length}명 당첨)`;
+            document.getElementById("result-meta").innerText = `대상 ${poolTotal}명 중 ${currentWinners.length}명 선별`;
+
+            const html = currentWinners.map((name, idx) => `
+                <div class="winner-card">
+                    ${showRank ? `<span class="winner-rank">${idx + 1}</span>` : `<span class="winner-rank">★</span>`}
+                    <span class="winner-name">${escapeHtml(name)}</span>
+                </div>
+            `).join("");
+
+            document.getElementById("result-body").innerHTML = `<div class="winners-grid">${html}</div>`;
+
+            const remWrap = document.getElementById("remaining-wrap");
+            const remBtn = document.getElementById("btn-draw-remaining");
+            if (currentRemaining.length > 0) {
+                remWrap.style.display = "block";
+                document.getElementById("remaining-count").innerText = currentRemaining.length;
+                document.getElementById("remaining-list").innerText = currentRemaining.join(", ");
+                remBtn.style.display = "inline-block";
+            } else {
+                remWrap.style.display = "none";
+                remBtn.style.display = "none";
+            }
+
+            document.getElementById("btn-redraw").innerText = "🔁 전체 명단 다시 뽑기";
+            document.getElementById("result-box").classList.add("active");
+        }
+
+        function renderTeamResults(total) {
+            document.getElementById("result-heading").innerText = `👥 ${lastTeams.length}개 팀 배정 완료`;
+            document.getElementById("result-meta").innerText = `총 ${total}명 균등 배정`;
+
+            const html = lastTeams.map((members, idx) => `
+                <div class="team-card">
+                    <h4>${idx + 1}조 (${members.length}명)</h4>
+                    <ol class="team-members">
+                        ${members.map(m => `<li>${escapeHtml(m)}</li>`).join("")}
+                    </ol>
+                </div>
+            `).join("");
+
+            document.getElementById("result-body").innerHTML = `<div class="teams-grid">${html}</div>`;
+            document.getElementById("remaining-wrap").style.display = "none";
+            document.getElementById("btn-draw-remaining").style.display = "none";
+            document.getElementById("btn-redraw").innerText = "🔁 팀 다시 섞기";
+            document.getElementById("result-box").classList.add("active");
+        }
+
+        function copyResultText() {
+            let text = "";
+            if (currentMode === "pick") {
+                const list = currentWinners.map((n, i) => `${i + 1}. ${n}`).join("\n");
+                text = `[TESTYOUR 랜덤 추첨 결과 - ${currentWinners.length}명 선별]\n${list}`;
+            } else {
+                const teamsTxt = lastTeams.map((m, i) => `[${i + 1}조] ${m.join(", ")}`).join("\n");
+                text = `[TESTYOUR 랜덤 팀 배정 결과]\n${teamsTxt}`;
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert("결과가 클립보드에 복사되었습니다!");
+                }).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand("copy");
+                alert("결과가 클립보드에 복사되었습니다!");
+            } catch (e) {
+                prompt("아래 내용을 복사하세요:", text);
+            }
+            document.body.removeChild(ta);
+        }
+    </script>
+</body>
+</html>
