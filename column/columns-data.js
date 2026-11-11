@@ -3,6 +3,23 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "music-5",
+    title: "[음악 평론 #5] 리센느 〈백화요란 (Inside Out)〉 감상평: 향기를 뚫고 나온 '쇠맛', 반음(#)의 세련미",
+    title_en: "[Music Review #5] RESCENE 'Inside Out' Review: A Sleek Metallic Edge and Chromatic Sharp (#) Twist",
+    category: "주인장의 음악 감상 노트 #5 | 사운드 & 편곡 리뷰",
+    category_en: "Creator's Listening Notes #5 | Sound & Arrangement Review",
+    url: "/column/5.html",
+    url_en: "/en/column/5.html",
+    description: "기존의 몽환적 플로럴 결을 비튼 리센느 미니 4집 《PULSE》의 쇠맛 전환과 더블 타이틀급 존재감. 심플한 비트 위, 후렴 뒤 짧은 브릿지에서 보컬이 샵(#) 반음으로 살짝 꺾이며 불협화음 대신 독보적 세련미를 빚어내는 순간을 짚어봅니다.",
+    description_en: "Reviewing RESCENE's bold metallic pivot on mini-album PULSE, co-title promotion conviction, and how a delicate post-chorus sharp (#) vocal inflection shines cleanly over a restrained beat.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 7분",
+    meta_en: "Author: TESTYOUR Creator · 7 min read",
+    badge: "음악 평론 #5 🎧",
+    borderColor: "#06b6d4",
+    defaultStatus: "published",
+    date: "2026-11-11"
+  },
+  {
     id: "leorio-love",
     title: "[칼럼] 내가 <헌터×헌터>에서 레오리오를 최애로 꼽는 이유",
     title_en: "[Column] Why Leorio Paradinight Is My All-Time Favorite Character in Hunter x Hunter",
