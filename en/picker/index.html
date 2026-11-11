@@ -433,7 +433,7 @@
 
             <div class="tool-card">
                 <div class="label-row">
-                    <span class="label-title">Enter Names (separated by new line, comma, or space)</span>
+                    <span class="label-title">Enter Participant Names</span>
                     <span id="participant-count-pill" class="count-pill">Entries: 0</span>
                 </div>
 
@@ -448,6 +448,24 @@
                         <input type="checkbox" id="chk-dedupe" checked onchange="updateCounts()">
                         Remove duplicate names
                     </label>
+                </div>
+
+                <div class="sep-bar" style="margin-top:10px; padding:10px 12px; background:#0b0d13; border:1px solid #262c3a; border-radius:10px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                    <span style="font-size:12.5px; color:#94a3b8; font-weight:700;">Split by (uncheck any):</span>
+                    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-newline" checked onchange="updateCounts()">
+                            New line
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-comma" checked onchange="updateCounts()">
+                            Comma (,)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-space" checked onchange="updateCounts()">
+                            Space
+                        </label>
+                    </div>
                 </div>
 
                 <div id="settings-pick" class="settings-box">
@@ -557,8 +575,8 @@
                     Never. Everything executes 100% locally in your browser's memory—no personal lists leave your device.
                 </p>
                 <p style="margin-bottom: 0;">
-                    <strong>How does duplicate removal handle repeated names?</strong><br>
-                    With "Remove duplicate names" checked, accidental double entries are automatically merged into one entry before shuffling, ensuring everyone gets exactly one fair ticket.
+                    <strong>How do full names with spaces (like "John Doe") and duplicates work?</strong><br>
+                    By default, new lines, commas, and spaces all separate entries. Simply uncheck the <strong>Space</strong> delimiter option above if your list contains first-and-last names separated by spaces (such as "John Doe, Jane Smith" or one full name per line). With "Remove duplicate names" checked, accidental double entries are automatically merged into one entry before shuffling.
                 </p>
             </section>
         </main>
@@ -594,10 +612,26 @@
 
         function parseParticipants() {
             const raw = document.getElementById("names-textarea").value;
-            let list = raw
-                .split(/[\n,\t\s]+/)
-                .map(s => s.trim())
-                .filter(s => s.length > 0);
+            const useNewline = document.getElementById("chk-sep-newline").checked;
+            const useComma = document.getElementById("chk-sep-comma").checked;
+            const useSpace = document.getElementById("chk-sep-space").checked;
+
+            const parts = [];
+            if (useNewline) parts.push("\\r?\\n");
+            if (useComma) parts.push(",");
+            if (useSpace) parts.push("[ \\t]+");
+
+            let list;
+            if (parts.length === 0) {
+                const trimmed = raw.trim();
+                list = trimmed ? [trimmed] : [];
+            } else {
+                const regex = new RegExp(parts.join("|"));
+                list = raw
+                    .split(regex)
+                    .map(s => s.trim())
+                    .filter(s => s.length > 0);
+            }
 
             if (document.getElementById("chk-dedupe").checked) {
                 const seen = new Set();
@@ -618,7 +652,10 @@
         document.getElementById("names-textarea").addEventListener("input", updateCounts);
 
         function fillSampleNames() {
-            document.getElementById("names-textarea").value = SAMPLE_EN_15.join(", ");
+            const sep = document.getElementById("chk-sep-comma").checked
+                ? ", "
+                : (document.getElementById("chk-sep-newline").checked ? "\n" : " ");
+            document.getElementById("names-textarea").value = SAMPLE_EN_15.join(sep);
             updateCounts();
         }
 

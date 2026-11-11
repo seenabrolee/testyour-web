@@ -520,7 +520,7 @@
             <!-- Input Card -->
             <div class="tool-card">
                 <div class="label-row">
-                    <span class="label-title">참가자 이름 입력 (줄바꿈, 쉼표, 띄어쓰기 구분)</span>
+                    <span class="label-title">참가자 명단 입력</span>
                     <span id="participant-count-pill" class="count-pill">현재 입력: 0명</span>
                 </div>
 
@@ -535,6 +535,24 @@
                         <input type="checkbox" id="chk-dedupe" checked onchange="updateCounts()">
                         중복 이름 자동 제거
                     </label>
+                </div>
+
+                <div class="sep-bar" style="margin-top:10px; padding:10px 12px; background:#0b0d13; border:1px solid #262c3a; border-radius:10px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                    <span style="font-size:12.5px; color:#94a3b8; font-weight:700;">구분 기준 (필요시 해제):</span>
+                    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-newline" checked onchange="updateCounts()">
+                            줄바꿈
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-comma" checked onchange="updateCounts()">
+                            쉼표(,)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chk-sep-space" checked onchange="updateCounts()">
+                            띄어쓰기
+                        </label>
+                    </div>
                 </div>
 
                 <!-- Settings for Pick Mode -->
@@ -649,8 +667,8 @@
                     아니요. 참가자 명단 파싱부터 난수 생성, 결과 출력까지 <strong>모든 연산은 사용자의 브라우저 기기 안에서만 오프라인처럼 동작</strong>하며, 입력하신 이름은 외부 서버로 전송되거나 기록되지 않습니다.
                 </p>
                 <p style="margin-bottom: 0;">
-                    <strong>Q. 엑셀이나 카톡에서 복사한 명단을 그대로 붙여넣어도 되나요?</strong><br>
-                    네. 줄바꿈(엔터), 쉼표(,), 띄어쓰기를 자동으로 구분해 인식하며, 빈 줄이나 불필요한 여백을 깔끔하게 정리해 줍니다. 동명이인이 아니라면 '중복 이름 자동 제거' 옵션을 켜 두어 실수로 한 사람이 두 번 들어가는 것을 막을 수 있습니다.
+                    <strong>Q. 엑셀이나 카톡에서 복사한 명단을 그대로 붙여넣어도 되나요? 이름에 띄어쓰기가 들어가면 어떻게 하나요?</strong><br>
+                    네. 기본값으로 줄바꿈(엔터), 쉼표(,), 띄어쓰기를 모두 구분자로 인식하며, 만약 <strong>'홍 길동'</strong>이나 <strong>'개발 1팀'</strong>처럼 띄어쓰기가 포함된 항목을 하나로 유지하고 싶다면 상단의 <strong>'띄어쓰기'</strong> 체크박스를 해제하시면 됩니다. 동명이인이 아니라면 '중복 이름 자동 제거' 옵션을 켜 두어 실수로 한 사람이 두 번 들어가는 것을 막을 수 있습니다.
                 </p>
             </section>
         </main>
@@ -686,10 +704,26 @@
 
         function parseParticipants() {
             const raw = document.getElementById("names-textarea").value;
-            let list = raw
-                .split(/[\n,\t\s]+/)
-                .map(s => s.trim())
-                .filter(s => s.length > 0);
+            const useNewline = document.getElementById("chk-sep-newline").checked;
+            const useComma = document.getElementById("chk-sep-comma").checked;
+            const useSpace = document.getElementById("chk-sep-space").checked;
+
+            const parts = [];
+            if (useNewline) parts.push("\\r?\\n");
+            if (useComma) parts.push(",");
+            if (useSpace) parts.push("[ \\t]+");
+
+            let list;
+            if (parts.length === 0) {
+                const trimmed = raw.trim();
+                list = trimmed ? [trimmed] : [];
+            } else {
+                const regex = new RegExp(parts.join("|"));
+                list = raw
+                    .split(regex)
+                    .map(s => s.trim())
+                    .filter(s => s.length > 0);
+            }
 
             if (document.getElementById("chk-dedupe").checked) {
                 const seen = new Set();
@@ -710,7 +744,10 @@
         document.getElementById("names-textarea").addEventListener("input", updateCounts);
 
         function fillSampleNames() {
-            document.getElementById("names-textarea").value = SAMPLE_KO_15.join(", ");
+            const sep = document.getElementById("chk-sep-comma").checked
+                ? ", "
+                : (document.getElementById("chk-sep-newline").checked ? "\n" : " ");
+            document.getElementById("names-textarea").value = SAMPLE_KO_15.join(sep);
             updateCounts();
         }
 
