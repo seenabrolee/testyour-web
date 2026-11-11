@@ -11,10 +11,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>히소카의 수견식 | 넨 계통 테스트 | TESTYOUR</title>
+    <meta name="description" content="히소카의 오오라 성격 진단과 심원류 수견식(水見式) 원리를 기반으로 한 정밀 넨 6대 계통(강화·변화·방출·구현화·조작·특질계) 심리 테스트 및 육각형 시너지 분석.">
+    <link rel="canonical" href="https://testyour.uk/nen/">
     
     <meta property="og:title" content="나의 넨(念) 계통은? 수견식 테스트">
     <meta property="og:description" content="히소카의 오라별 성격 진단! 강화계? 변화계? 특질계? 나의 넨 계통을 알아보세요!">
-    <meta property="og:url" content="https://testyour.uk/nen">
+    <meta property="og:url" content="https://testyour.uk/nen/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://testyour.uk/nen/images/divination_hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -149,19 +151,6 @@
         }
         .result-desc strong { color: #8b5cf6; }
         
-        .ad-container {
-            width: 100%;
-            padding: 30px 20px;
-            background-color: rgba(0,0,0,0.3);
-            border: 2px dashed rgba(255,255,255,0.2);
-            border-radius: 10px;
-            margin: 20px 0;
-            cursor: pointer;
-            box-sizing: border-box;
-            transition: all 0.3s;
-        }
-        .ad-container:hover { border-color: #8b5cf6; background-color: rgba(139,92,246,0.1); }
-        
         .contact-text { margin-top: 30px; font-size: 14px; color: #888; }
         .contact-link { color: #8b5cf6; text-decoration: underline; cursor: pointer; }
         
@@ -285,6 +274,10 @@
                     <a href="/nen/manipulation.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">🟠 조작계 상세 도감 &rarr;</a>
                     <a href="/nen/specialization.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">🔴 특질계 상세 도감 &rarr;</a>
                 </div>
+                <h4 style="color: #a78bfa; font-size: 14px; margin: 14px 0 6px 0;">⚖️ 토가시 요시히로 공식 발현 통계 보정 &amp; 특질계 판정 기준</h4>
+                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
+                    원작자 토가시 요시히로 전시회(冨樫義博展)에서 공개된 공식 설정 자료에 따르면, 인간이 선천적으로 타고나는 넨 6대 계통의 인구 분포는 <strong>강화계 27%, 방출계 24%, 변화계 19%, 조작계 15%, 구현화계 15%, 그리고 특질계 0.033%</strong>로 설계되어 있습니다. 본 수견식 테스트는 이 공식 발현 비율 가중치를 알고리즘에 반영하는 동시에, 기존 5대 계통의 문법으로 설명되지 않는 독창적·비정형적 선택지를 일관되게 고른 응답자에게만 <strong>특질계(Specialization)</strong>가 각성되도록 정밀한 임계치 검증 로직을 적용했습니다.
+                </p>
                 <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
                     👉 심층 칼럼 함께 읽기: <a href="/column/mbti-nen.html" style="color: #8b5cf6; text-decoration: underline;">넨 6대 계통과 MBTI 16가지 성격 유형의 상관관계 분석</a>
                 </p>
@@ -744,13 +737,6 @@
             document.getElementById('result-desc').innerHTML = desc;
         }
 
-        function unlockResult() {
-            
-            const adEl = document.getElementById('ad-container'); if (adEl) adEl.style.display = 'none';
-            document.getElementById('detailed-result').style.display = 'block';
-            document.getElementById('detailed-result').style.animation = 'fadeIn 0.5s ease-in-out';
-        }
-
         function copyShareUrl(url) {
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(url).catch(() => {});
@@ -779,7 +765,6 @@
             if (p && nenTypes[p]) {
                 window.currentResultKey = p;
                 applyResultToUI(p, null, null);
-                const adEl = document.getElementById('ad-container'); if (adEl) adEl.style.display = 'block';
                 document.getElementById('detailed-result').style.display = 'block';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
                 showScreen('screen-result');

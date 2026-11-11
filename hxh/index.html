@@ -8,10 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나와 가장 닮은 헌터X헌터 캐릭터는? | TESTYOUR</title>
+    <meta name="description" content="헌터X헌터 8대 주역(곤 프릭스, 키르아, 크라피카, 레오리오, 히소카, 이르미, 클로로, 메르엠) 중 나와 가장 닮은 캐릭터는 누구일까? 원작 속 극한의 선택과 행동 심리학으로 알아보는 정밀 캐릭터 매칭 테스트.">
+    <link rel="canonical" href="https://testyour.uk/hxh/">
     
     <meta property="og:title" content="나와 가장 닮은 헌터X헌터 캐릭터는?">
     <meta property="og:description" content="성격 테스트로 알아보는 나의 헌터X헌터 캐릭터! 곤? 키르아? 히소카? 지금 바로 확인해보세요!">
-    <meta property="og:url" content="https://testyour.uk/hxh">
+    <meta property="og:url" content="https://testyour.uk/hxh/">
     <meta property="og:type" content="website">
     
     <style>
@@ -351,18 +353,6 @@
         }
         .result-desc strong { color: #ff3b30; }
         
-        .ad-container {
-            width: 100%;
-            padding: 30px 20px;
-            background-color: #1a1a1a;
-            border: 2px dashed #555;
-            border-radius: 10px;
-            margin: 20px 0;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .ad-container:hover { border-color: #ff3b30; background-color: #222; }
-        
         .contact-text { margin-top: 30px; font-size: 14px; color: #888; }
         .contact-link { color: #ff3b30; text-decoration: underline; cursor: pointer; }
         
@@ -596,6 +586,10 @@
                     <a href="/hxh/chrollo.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">클로로 루실플루 도감 &rarr;</a>
                     <a href="/hxh/meruem.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">메르엠 도감 &rarr;</a>
                 </div>
+                <h4 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">🧭 적응형 꼬리 질문(Adaptive Follow-up) 알고리즘 작동 원리</h4>
+                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
+                    본 테스트는 고정된 8문항만 기계적으로 묻지 않습니다. 수험생이 위기 상황에서 내린 첫 번째 선택(정면 돌파, 전략적 후퇴, 협상 및 규칙 설계, 심리적 도발 등)을 감지하여, 그 내면의 진짜 동기를 한 번 더 파고드는 <strong>맞춤형 꼬리 질문(Follow-up Question)</strong>을 실시간으로 큐(Queue)에 삽입합니다. 예를 들어 적의 도발에 침착하게 대응하는 선택지를 골랐더라도, 그것이 키르아식의 냉정한 승률 계산 때문인지, 크라피카식의 복수를 위한 인내 때문인지, 혹은 클로로식의 초연한 관망 때문인지를 2단계 분기 질문으로 정밀하게 구분해 냅니다. 결과 화면에서는 1위 매칭 캐릭터뿐만 아니라 내 안에 숨어 있는 2위·3위 잠재 성향 일치율(%)까지 함께 확인할 수 있습니다.
+                </p>
                 <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
                     👉 심층 분석 칼럼: <a href="/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">곤은 왜 '곤육몬'이 되었을까?</a> | <a href="/column/leadership.html" style="color: #a855f7; text-decoration: underline;">직장인 시선 4대 리더십 모델</a>
                 </p>
@@ -1656,13 +1650,6 @@
             document.getElementById('sub-match-list').innerHTML = subHtml;
         }
 
-        function unlockResult() {
-            
-            const adEl = document.getElementById('ad-container'); if (adEl) adEl.style.display = 'none';
-            document.getElementById('detailed-result').style.display = 'block';
-            document.getElementById('detailed-result').style.animation = 'fadeIn 0.5s ease-in-out';
-        }
-
         function copyShareUrl(url) {
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(url).catch(() => {});
@@ -1733,7 +1720,6 @@
                     { key: p === 'kurapika' ? 'leorio' : 'kurapika', pct: 40 }
                 ];
                 applyResultToUI(window.topResults);
-                const adEl = document.getElementById('ad-container'); if (adEl) adEl.style.display = 'block';
                 document.getElementById('detailed-result').style.display = 'block';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
                 showScreen('screen-result');
