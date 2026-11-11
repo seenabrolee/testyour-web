@@ -31,7 +31,7 @@ const TESTYOUR_COLUMNS = [
     description_en: "Among child prodigies and terrifying monsters, why does the site creator rank Leorio #1? A love letter to his hidden medical dream, 8-ton grit, and Election arc warp punch.",
     meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 7분",
     meta_en: "Author: TESTYOUR Creator · 7 min read",
-    badge: "주인장 최애 ♥",
+    badge: "주인장 픽",
     borderColor: "#eab308",
     defaultStatus: "published",
     date: "2026-11-11"
