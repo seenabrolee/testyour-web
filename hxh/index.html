@@ -1612,7 +1612,15 @@
             // Detailed View
             document.getElementById('result-quote').innerHTML = topChar.quote;
             document.getElementById('result-nen').innerText = '[' + topChar.nen + ']';
-            document.getElementById('result-desc-text').innerHTML = topChar.description;
+            let leorioEasterHtml = '';
+            if (topResults[0].key === 'leorio') {
+                leorioEasterHtml = '<div style="background:linear-gradient(135deg,#241e0d,#181c26); border:1.5px solid #eab308; border-radius:10px; padding:12px 14px; margin-bottom:16px; font-size:13.5px; line-height:1.6; color:#fef08a;">' +
+                    '<strong>💼 [히든 이스터에그 발견!] 축하합니다!</strong><br>' +
+                    '<span style="color:#e2e8f0;">사실 이 사이트 주인장의 평생 최애 캐릭터가 바로 <strong>레오리오</strong>입니다! 괴물들 사이에서 의리를 지켜낸 멋진 어른과 닮으셨군요!</span><br>' +
+                    '<a href="/column/leorio-love.html" style="color:#facc15; font-weight:bold; text-decoration:underline; display:inline-block; margin-top:6px;">👉 주인장의 레오리오 팬심 헌정 칼럼 읽기 &rarr;</a>' +
+                    '</div>';
+            }
+            document.getElementById('result-desc-text').innerHTML = leorioEasterHtml + topChar.description;
             
             // Stats
             let statsHtml = '';

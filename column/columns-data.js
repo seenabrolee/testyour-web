@@ -3,6 +3,23 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "leorio-love",
+    title: "[칼럼] 내가 <헌터×헌터>에서 레오리오를 최애로 꼽는 이유",
+    title_en: "[Column] Why Leorio Paradinight Is My All-Time Favorite Character in Hunter x Hunter",
+    category: "주인장 사심 에세이 | 캐릭터 애정 해부",
+    category_en: "Owner's Personal Pick | Character Appreciation",
+    url: "/column/leorio-love.html",
+    url_en: "/en/column/leorio-love.html",
+    description: "천재와 암살자, 괴물들이 득실거리는 헌터X헌터에서 주인장이 왜 하필 '레오리오'를 평생의 최애로 꼽을까? 속물 가면 뒤의 순수한 꿈, 8톤 시련의 문 피지컬, 원격 초음파 하츠와 진 프릭스 펀치의 감동을 기록한 에세이.",
+    description_en: "Among child prodigies and terrifying monsters, why does the site creator rank Leorio #1? A love letter to his hidden medical dream, 8-ton grit, and Election arc warp punch.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 7분",
+    meta_en: "Author: TESTYOUR Creator · 7 min read",
+    badge: "주인장 최애 ♥",
+    borderColor: "#eab308",
+    defaultStatus: "published",
+    date: "2026-11-11"
+  },
+  {
     id: "gon-analysis",
     title: "[칼럼] 곤은 왜 '곤육몬'이 되었을까? 카이토라는 결핍과 순수함이 낳은 잔혹한 괴물",
     title_en: "[Column] Why Did Gon Transform into 'Adult Gon'? The Cruel Monster Born of Absence and Pureness",

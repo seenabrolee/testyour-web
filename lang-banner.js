@@ -1,4 +1,4 @@
-// Smart Language Recommendation Banner for TESTYOUR
+// Smart Language Recommendation Banner + Leorio Superfan Easter Egg for TESTYOUR
 (function() {
     try {
         // 1. Crawler / Bot exemption (Prevent any AdSense / Search crawling issues)
@@ -11,14 +11,13 @@
         var isKoreanUser = userLang.startsWith('ko');
 
         // Case 1: On Korean page & user browser is non-Korean -> Suggest English
-        if (!isEnPage && !isKoreanUser) {
-            if (localStorage.getItem('dismiss_lang_banner_en') === 'true') return;
-
+        if (!isEnPage && !isKoreanUser && localStorage.getItem('dismiss_lang_banner_en') !== 'true') {
             var target = '/en/';
             if (path.startsWith('/nen')) target = '/en/nen/';
             else if (path.startsWith('/hxh')) target = '/en/hxh/';
             else if (path.startsWith('/mbti')) target = '/en/mbti/';
             else if (path.startsWith('/picker')) target = '/en/picker/';
+            else if (path.startsWith('/column/leorio-love')) target = '/en/column/leorio-love.html';
             else if (path.startsWith('/column')) target = '/en/column/';
             else if (path.includes('privacy')) target = '/en/privacy.html';
             else if (path.includes('terms')) target = '/en/terms.html';
@@ -32,9 +31,7 @@
             });
         }
         // Case 2: On English page & user browser is Korean -> Suggest Korean
-        else if (isEnPage && isKoreanUser) {
-            if (localStorage.getItem('dismiss_lang_banner_kr') === 'true') return;
-
+        else if (isEnPage && isKoreanUser && localStorage.getItem('dismiss_lang_banner_kr') !== 'true') {
             var krTarget = path.replace(/^\/en/, '') || '/';
             initBanner({
                 text: "한국어 페이지로 이동하시겠습니까?",
@@ -48,7 +45,6 @@
             function render() {
                 if (document.getElementById('smart-lang-banner')) return;
 
-                // Add keyframes style
                 if (!document.getElementById('lang-banner-style')) {
                     var st = document.createElement('style');
                     st.id = 'lang-banner-style';
@@ -59,7 +55,7 @@
 
                 var banner = document.createElement('div');
                 banner.id = 'smart-lang-banner';
-                banner.style.cssText = 
+                banner.style.cssText =
                     'position: sticky;' +
                     'top: 0;' +
                     'left: 0;' +
@@ -82,7 +78,7 @@
                     'z-index: 999999;' +
                     'animation: slideDownLangBanner 0.3s ease-out;';
 
-                banner.innerHTML = 
+                banner.innerHTML =
                     '<span style="display:inline-flex; align-items:center; gap:6px;">' +
                         '<span style="font-size:16px;">🌐</span>' +
                         '<span style="font-weight: 500;">' + cfg.text + '</span>' +
@@ -138,6 +134,106 @@
             } else {
                 render();
             }
+        }
+
+        // ============================================================
+        // 💼 Leorio Paradinight Superfan Site-Wide Easter Egg 🕶️
+        // ============================================================
+        if (typeof console !== 'undefined' && console.log) {
+            console.log(
+                '%c💼🕶️ [TESTYOUR SECRET] 사실 이 사이트 주인장은 레오리오(Leorio) 진성 팬입니다! %c(어느 페이지에서든 키보드로 leorio 를 입력하거나 푸터의 💼 버튼을 눌러보세요)',
+                'background:#eab308; color:#0f172a; font-weight:900; padding:4px 8px; border-radius:4px;',
+                'color:#fde047; font-weight:600;'
+            );
+        }
+
+        window.showLeorioEasterEgg = function() {
+            var old = document.getElementById('leorio-easter-modal');
+            if (old) old.remove();
+
+            var overlay = document.createElement('div');
+            overlay.id = 'leorio-easter-modal';
+            overlay.style.cssText =
+                'position:fixed; inset:0; background:rgba(0,0,0,0.78); backdrop-filter:blur(4px);' +
+                'z-index:9999999; display:flex; align-items:center; justify-content:center; padding:20px;';
+
+            var colUrl = isEnPage ? '/en/column/leorio-love.html' : '/column/leorio-love.html';
+            var docUrl = isEnPage ? '/en/hxh/leorio.html' : '/hxh/leorio.html';
+
+            overlay.innerHTML = isEnPage
+                ? '<div style="background:#161a24; border:2px solid #eab308; border-radius:18px; max-width:410px; width:100%; padding:28px 24px; text-align:center; box-shadow:0 20px 50px rgba(234,179,8,0.28); position:relative; font-family:Inter, sans-serif;">' +
+                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; font-size:20px; cursor:pointer;">✕</button>' +
+                    '<img src="/hxh/images/leorio.jpg" alt="Leorio Paradinight" style="width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #eab308; margin-bottom:12px;">' +
+                    '<div style="display:inline-block; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">💼 HIDDEN EASTER EGG FOUND!</div>' +
+                    '<h3 style="margin:0 0 10px 0; color:#f8fafc; font-size:20px; font-weight:900;">Certified Leorio Superfan Site</h3>' +
+                    '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.65;">Truth be told, among all the prodigies in <em>Hunter x Hunter</em>, the owner of TESTYOUR is a proud <strong>Leorio Paradinight #1 Fan</strong>! Real grit, zero pretense, all heart.</p>' +
+                    '<div style="display:flex; flex-direction:column; gap:8px;">' +
+                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">📖 Read: Why Leorio Is My Favorite &rarr;</a>' +
+                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">🕶️ View Leorio Character Dossier</a>' +
+                    '</div>' +
+                  '</div>'
+                : '<div style="background:#161a24; border:2px solid #eab308; border-radius:18px; max-width:410px; width:100%; padding:28px 24px; text-align:center; box-shadow:0 20px 50px rgba(234,179,8,0.28); position:relative; font-family:\'Noto Sans KR\', sans-serif; word-break:keep-all;">' +
+                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; font-size:20px; cursor:pointer;">✕</button>' +
+                    '<img src="/hxh/images/leorio.jpg" alt="레오리오" style="width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #eab308; margin-bottom:12px;">' +
+                    '<div style="display:inline-block; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">💼 히든 이스터에그 발견!</div>' +
+                    '<h3 style="margin:0 0 10px 0; color:#f8fafc; font-size:20px; font-weight:900;">주인장은 레오리오 찐팬입니다 ♥</h3>' +
+                    '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.7;">축하합니다! 숨은 이스터에그를 찾으셨네요.<br>사실 TESTYOUR 주인장의 평생 최애는 천재도 괴물도 아닌 정장 입은 의리남 <strong>레오리오 파라디나이트</strong>입니다!</p>' +
+                    '<div style="display:flex; flex-direction:column; gap:8px;">' +
+                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">📖 내가 레오리오를 최애로 꼽는 이유 &rarr;</a>' +
+                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">🕶️ 레오리오 상세 도감 바로가기</a>' +
+                    '</div>' +
+                  '</div>';
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay || e.target.id === 'leorio-egg-close') {
+                    overlay.remove();
+                }
+            });
+            document.body.appendChild(overlay);
+        };
+
+        // Typing "leorio" anywhere outside form inputs triggers the Easter egg
+        var keyBuf = '';
+        document.addEventListener('keydown', function(e) {
+            if (!e.key || e.key.length !== 1) return;
+            var tag = (document.activeElement && document.activeElement.tagName) || '';
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+            keyBuf = (keyBuf + e.key.toLowerCase()).slice(-6);
+            if (keyBuf === 'leorio') {
+                keyBuf = '';
+                window.showLeorioEasterEgg();
+            }
+        });
+
+        // Append subtle footer briefcase trigger across pages (not admin.html)
+        function attachFooterEasterEgg() {
+            if (path.indexOf('admin.html') !== -1 || document.getElementById('leorio-footer-egg')) return;
+            var targetFooter = document.querySelector('.footer-links, .footer-nav, footer.footer, div.footer');
+            if (!targetFooter) {
+                var privLink = document.querySelector('a[href*="privacy.html"]');
+                if (privLink && privLink.parentElement) targetFooter = privLink.parentElement;
+            }
+            if (!targetFooter) return;
+
+            var btn = document.createElement('button');
+            btn.id = 'leorio-footer-egg';
+            btn.type = 'button';
+            btn.textContent = isEnPage ? ' · 💼 Leorio♥' : ' · 💼 레오리오♥';
+            btn.title = isEnPage ? 'Secret Easter Egg: Owner loves Leorio!' : '비밀 이스터에그: 주인장은 레오리오 팬!';
+            btn.style.cssText =
+                'background:transparent; border:none; color:#94a3b8; opacity:0.62; font-size:11.5px;' +
+                'cursor:pointer; padding:2px 4px; transition:opacity 0.2s, color 0.2s; vertical-align:baseline;';
+            btn.onmouseenter = function() { btn.style.opacity = '1'; btn.style.color = '#facc15'; };
+            btn.onmouseleave = function() { btn.style.opacity = '0.62'; btn.style.color = '#94a3b8'; };
+            btn.onclick = window.showLeorioEasterEgg;
+
+            targetFooter.appendChild(btn);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', attachFooterEasterEgg);
+        } else {
+            attachFooterEasterEgg();
         }
     } catch (e) {
         // fail gracefully
