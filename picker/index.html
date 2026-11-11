@@ -498,7 +498,7 @@
 <body>
     <div class="container">
         <div class="header-bar">
-            <a href="/" class="logo">TESTYOUR</a>
+            <a href="/" class="logo" style="display:inline-flex; align-items:center; gap:8px;"><img src="/images/brand-mark.svg" alt="TESTYOUR 로고" width="22" height="22" style="border-radius:5px; flex-shrink:0;">TESTYOUR</a>
             <div class="lang-switch">
                 <a href="/picker/" class="active">KO</a>
                 <span style="color:#475569; margin:0 4px;">|</span>
@@ -513,8 +513,8 @@
 
             <!-- Mode Selector -->
             <div class="mode-tabs">
-                <button type="button" id="tab-pick" class="mode-tab active" onclick="switchMode('pick')">🎯 N명 선별 뽑기</button>
-                <button type="button" id="tab-team" class="mode-tab" onclick="switchMode('team')">👥 랜덤 팀(조) 나누기</button>
+                <button type="button" id="tab-pick" class="mode-tab active" onclick="switchMode('pick')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>N명 선별 뽑기</button>
+                <button type="button" id="tab-team" class="mode-tab" onclick="switchMode('team')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>랜덤 팀(조) 나누기</button>
             </div>
 
             <!-- Input Card -->
@@ -528,8 +528,8 @@
 
                 <div class="quick-bar">
                     <div class="chip-group">
-                        <button type="button" class="chip-btn" onclick="fillSampleNames()">📝 예시 명단 채우기</button>
-                        <button type="button" class="chip-btn" onclick="clearAllNames()">🧹 비우기</button>
+                        <button type="button" class="chip-btn" onclick="fillSampleNames()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="15" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>예시 명단 채우기</button>
+                        <button type="button" class="chip-btn" onclick="clearAllNames()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>비우기</button>
                     </div>
                     <label class="checkbox-label">
                         <input type="checkbox" id="chk-dedupe" checked onchange="updateCounts()">
@@ -609,7 +609,7 @@
                     </label>
                 </div>
 
-                <button type="button" id="btn-draw" class="draw-btn" onclick="runDraw(false)">🎯 지금 바로 뽑기 시작!</button>
+                <button type="button" id="btn-draw" class="draw-btn" onclick="runDraw(false)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>지금 바로 뽑기 시작!</button>
             </div>
 
             <!-- Rolling Animation Box -->
@@ -621,7 +621,7 @@
             <!-- Results Box -->
             <section id="result-box" class="result-box">
                 <div class="result-header">
-                    <h2 id="result-heading" class="result-title">🎉 당첨자 발표</h2>
+                    <h2 id="result-heading" class="result-title">당첨자 발표</h2>
                     <span id="result-meta" style="font-size:12px; color:#94a3b8;"></span>
                 </div>
 
@@ -633,15 +633,15 @@
                 </div>
 
                 <div class="result-actions">
-                    <button type="button" class="sec-btn accent" onclick="copyResultText()">📋 결과 복사하기</button>
-                    <button type="button" id="btn-draw-remaining" class="sec-btn" onclick="runDraw(true)">➕ 남은 인원 중 추가 뽑기</button>
-                    <button type="button" id="btn-redraw" class="sec-btn" onclick="runDraw(false)">🔁 전체 명단 다시 뽑기</button>
+                    <button type="button" class="sec-btn accent" onclick="copyResultText()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>결과 복사하기</button>
+                    <button type="button" id="btn-draw-remaining" class="sec-btn" onclick="runDraw(true)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>남은 인원 중 추가 뽑기</button>
+                    <button type="button" id="btn-redraw" class="sec-btn" onclick="runDraw(false)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg><span id="btn-redraw-label">전체 명단 다시 뽑기</span></button>
                 </div>
             </section>
 
             <!-- Editorial Guide Section (AdSense Quality Standard) -->
             <section class="guide-section">
-                <h2>📖 무작위 추첨 공정성 원리 및 활용 가이드</h2>
+                <h2>무작위 추첨 공정성 원리 및 활용 가이드</h2>
                 <p>
                     회식 자리 경품 추첨이나 팀 프로젝트 조 배정, 온라인 이벤트 당첨자를 뽑을 때 가장 중요한 것은 <strong>'누구에게나 완벽히 동등한 확률이 적용되는가'</strong>입니다. TESTYOUR의 랜덤 뽑기 도구는 별도 프로그램 설치나 회원가입 없이 웹 브라우저에서 바로 공정한 선별 작업을 수행할 수 있도록 설계되었습니다.
                 </p>
@@ -766,9 +766,9 @@
             document.getElementById("tab-team").classList.toggle("active", mode === "team");
             document.getElementById("settings-pick").style.display = mode === "pick" ? "block" : "none";
             document.getElementById("settings-team").style.display = mode === "team" ? "block" : "none";
-            document.getElementById("btn-draw").innerText = mode === "pick"
-                ? "🎯 지금 바로 뽑기 시작!"
-                : "👥 랜덤 팀 배정 시작!";
+            document.getElementById("btn-draw").innerHTML = mode === "pick"
+                ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>지금 바로 뽑기 시작!'
+                : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>랜덤 팀 배정 시작!';
             document.getElementById("result-box").classList.remove("active");
         }
 
@@ -900,12 +900,12 @@
 
         function renderPickResults(poolTotal) {
             const showRank = document.getElementById("chk-rank").checked;
-            document.getElementById("result-heading").innerText = `🎉 선별 완료 (${currentWinners.length}명 당첨)`;
+            document.getElementById("result-heading").innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>선별 완료 (${currentWinners.length}명 당첨)`;
             document.getElementById("result-meta").innerText = `대상 ${poolTotal}명 중 ${currentWinners.length}명 선별`;
 
             const html = currentWinners.map((name, idx) => `
                 <div class="winner-card">
-                    ${showRank ? `<span class="winner-rank">${idx + 1}</span>` : `<span class="winner-rank">★</span>`}
+                    ${showRank ? `<span class="winner-rank">${idx + 1}</span>` : `<span class="winner-rank"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`}
                     <span class="winner-name">${escapeHtml(name)}</span>
                 </div>
             `).join("");
@@ -924,12 +924,12 @@
                 remBtn.style.display = "none";
             }
 
-            document.getElementById("btn-redraw").innerText = "🔁 전체 명단 다시 뽑기";
+            document.getElementById("btn-redraw-label").innerText = "전체 명단 다시 뽑기";
             document.getElementById("result-box").classList.add("active");
         }
 
         function renderTeamResults(total) {
-            document.getElementById("result-heading").innerText = `👥 ${lastTeams.length}개 팀 배정 완료`;
+            document.getElementById("result-heading").innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:6px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>${lastTeams.length}개 팀 배정 완료`;
             document.getElementById("result-meta").innerText = `총 ${total}명 균등 배정`;
 
             const html = lastTeams.map((members, idx) => `
@@ -944,7 +944,7 @@
             document.getElementById("result-body").innerHTML = `<div class="teams-grid">${html}</div>`;
             document.getElementById("remaining-wrap").style.display = "none";
             document.getElementById("btn-draw-remaining").style.display = "none";
-            document.getElementById("btn-redraw").innerText = "🔁 팀 다시 섞기";
+            document.getElementById("btn-redraw-label").innerText = "팀 다시 섞기";
             document.getElementById("result-box").classList.add("active");
         }
 

@@ -78,9 +78,11 @@
                     'z-index: 999999;' +
                     'animation: slideDownLangBanner 0.3s ease-out;';
 
+                var svgGlobe = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; flex-shrink:0;" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><path d="M12 2.5a14.5 14.5 0 0 1 0 19a14.5 14.5 0 0 1 0-19"/></svg>';
+                var svgClose = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
                 banner.innerHTML =
                     '<span style="display:inline-flex; align-items:center; gap:6px;">' +
-                        '<span style="font-size:16px;">🌐</span>' +
+                        svgGlobe +
                         '<span style="font-weight: 500;">' + cfg.text + '</span>' +
                     '</span>' +
                     '<a href="' + cfg.target + '" style="' +
@@ -104,7 +106,8 @@
                         'cursor: pointer;' +
                         'padding: 4px 8px;' +
                         'margin-left: 4px;' +
-                    '" aria-label="Close">✕</button>';
+                        'display: inline-flex; align-items: center;' +
+                    '" aria-label="Close">' + svgClose + '</button>';
 
                 var bodyStyle = window.getComputedStyle(document.body);
                 if (bodyStyle && bodyStyle.display === 'flex') {
@@ -137,11 +140,13 @@
         }
 
         // ============================================================
-        // 💼 Leorio Paradinight Site-Wide Easter Egg 🕶️
+        // Leorio Paradinight Site-Wide Easter Egg
         // ============================================================
+        var svgBriefcase = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="9.5" y1="13.5" x2="14.5" y2="13.5"/></svg>';
+        var svgModalClose = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
         if (typeof console !== 'undefined' && console.log) {
             console.log(
-                '%c💼 [TESTYOUR] 참고로 이 사이트 주인장도 레오리오 팬입니다. %c(어디서든 leorio 치거나 푸터 💼 클릭)',
+                '%c[TESTYOUR] 참고로 이 사이트 주인장도 레오리오 팬입니다. %c(어디서든 leorio 입력 또는 하단 레오리오 버튼 클릭)',
                 'background:#eab308; color:#0f172a; font-weight:900; padding:4px 8px; border-radius:4px;',
                 'color:#fde047; font-weight:600;'
             );
@@ -162,25 +167,25 @@
 
             overlay.innerHTML = isEnPage
                 ? '<div style="background:#161a24; border:2px solid #eab308; border-radius:18px; max-width:410px; width:100%; padding:28px 24px; text-align:center; box-shadow:0 20px 50px rgba(234,179,8,0.22); position:relative; font-family:Inter, sans-serif;">' +
-                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; font-size:20px; cursor:pointer;">✕</button>' +
+                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; cursor:pointer; display:inline-flex; align-items:center; padding:4px;" aria-label="Close">' + svgModalClose + '</button>' +
                     '<img src="/hxh/images/leorio.jpg" alt="Leorio Paradinight" style="width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #eab308; margin-bottom:12px;">' +
-                    '<div style="display:inline-block; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">💼 EASTER EGG</div>' +
+                    '<div style="display:inline-flex; align-items:center; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">' + svgBriefcase + 'EASTER EGG</div>' +
                     '<h3 style="margin:0 0 10px 0; color:#f8fafc; font-size:20px; font-weight:900;">Owner\'s Pick: Leorio</h3>' +
                     '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.65;">A quiet note from the site creator.<br>Among everyone in <em>Hunter x Hunter</em>, <strong>Leorio Paradinight</strong> has always been my favorite character.</p>' +
                     '<div style="display:flex; flex-direction:column; gap:8px;">' +
-                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">📖 Essay: Why Leorio Stands Out &rarr;</a>' +
-                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">🕶️ Leorio Character Dossier</a>' +
+                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">Essay: Why Leorio Stands Out &rarr;</a>' +
+                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">Leorio Character Dossier</a>' +
                     '</div>' +
                   '</div>'
                 : '<div style="background:#161a24; border:2px solid #eab308; border-radius:18px; max-width:410px; width:100%; padding:28px 24px; text-align:center; box-shadow:0 20px 50px rgba(234,179,8,0.22); position:relative; font-family:\'Noto Sans KR\', sans-serif; word-break:keep-all;">' +
-                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; font-size:20px; cursor:pointer;">✕</button>' +
+                    '<button type="button" id="leorio-egg-close" style="position:absolute; top:12px; right:14px; background:transparent; border:none; color:#94a3b8; cursor:pointer; display:inline-flex; align-items:center; padding:4px;" aria-label="Close">' + svgModalClose + '</button>' +
                     '<img src="/hxh/images/leorio.jpg" alt="레오리오" style="width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #eab308; margin-bottom:12px;">' +
-                    '<div style="display:inline-block; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">💼 이스터에그</div>' +
+                    '<div style="display:inline-flex; align-items:center; background:rgba(234,179,8,0.18); color:#fde047; border:1px solid #eab308; border-radius:20px; padding:3px 12px; font-size:11.5px; font-weight:800; margin-bottom:10px;">' + svgBriefcase + '이스터에그</div>' +
                     '<h3 style="margin:0 0 10px 0; color:#f8fafc; font-size:20px; font-weight:900;">주인장은 레오리오 팬입니다</h3>' +
                     '<p style="margin:0 0 16px 0; color:#cbd5e1; font-size:14px; line-height:1.7;">그냥 사소한 얘기 하나.<br>이 사이트 만든 사람도 헌터×헌터에서는 <strong>레오리오</strong>를 제일 좋아합니다.</p>' +
                     '<div style="display:flex; flex-direction:column; gap:8px;">' +
-                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">📖 레오리오 관련 칼럼 보러가기 &rarr;</a>' +
-                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">🕶️ 레오리오 도감 페이지</a>' +
+                        '<a href="' + colUrl + '" style="background:#eab308; color:#0f172a; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:800; font-size:14px;">레오리오 관련 칼럼 보러가기 &rarr;</a>' +
+                        '<a href="' + docUrl + '" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:700; font-size:13px;">레오리오 도감 페이지</a>' +
                     '</div>' +
                   '</div>';
 
@@ -218,11 +223,11 @@
             var btn = document.createElement('button');
             btn.id = 'leorio-footer-egg';
             btn.type = 'button';
-            btn.textContent = isEnPage ? ' · 💼 Leorio' : ' · 💼 레오리오';
+            btn.innerHTML = ' &middot; ' + svgBriefcase + (isEnPage ? 'Leorio' : '레오리오');
             btn.title = isEnPage ? 'Owner note: Leorio fan' : '이스터에그: 주인장은 레오리오 팬';
             btn.style.cssText =
                 'background:transparent; border:none; color:#94a3b8; opacity:0.62; font-size:11.5px;' +
-                'cursor:pointer; padding:2px 4px; transition:opacity 0.2s, color 0.2s; vertical-align:baseline;';
+                'cursor:pointer; padding:2px 4px; transition:opacity 0.2s, color 0.2s; vertical-align:baseline; display:inline-flex; align-items:center;';
             btn.onmouseenter = function() { btn.style.opacity = '1'; btn.style.color = '#facc15'; };
             btn.onmouseleave = function() { btn.style.opacity = '0.62'; btn.style.color = '#94a3b8'; };
             btn.onclick = window.showLeorioEasterEgg;

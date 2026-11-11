@@ -15,7 +15,7 @@ const TESTYOUR_COLUMNS = [
     description_en: "Reviewing RESCENE's bold metallic pivot on mini-album PULSE, co-title promotion conviction, and how a delicate post-chorus sharp (#) vocal inflection shines cleanly over a restrained beat.",
     meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 7분",
     meta_en: "Author: TESTYOUR Creator · 7 min read",
-    badge: "음악 #1 🎧",
+    badge: "음악 #1",
     borderColor: "#06b6d4",
     defaultStatus: "published",
     date: "2026-11-11"

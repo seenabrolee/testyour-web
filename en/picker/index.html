@@ -413,7 +413,7 @@
 <body>
     <div class="container">
         <div class="header-bar">
-            <a href="/en/" class="logo">TESTYOUR</a>
+            <a href="/en/" class="logo" style="display:inline-flex; align-items:center; gap:8px;"><img src="/images/brand-mark.svg" alt="TESTYOUR Logo" width="22" height="22" style="border-radius:5px; flex-shrink:0;">TESTYOUR</a>
             <div class="lang-switch">
                 <a href="/picker/">KO</a>
                 <span style="color:#475569; margin:0 4px;">|</span>
@@ -427,8 +427,8 @@
             <p class="subtitle">Paste any list of names and set your exact winner count—or split everyone into balanced random teams in one click.</p>
 
             <div class="mode-tabs">
-                <button type="button" id="tab-pick" class="mode-tab active" onclick="switchMode('pick')">🎯 Pick K Winners</button>
-                <button type="button" id="tab-team" class="mode-tab" onclick="switchMode('team')">👥 Split Into Teams</button>
+                <button type="button" id="tab-pick" class="mode-tab active" onclick="switchMode('pick')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>Pick K Winners</button>
+                <button type="button" id="tab-team" class="mode-tab" onclick="switchMode('team')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Split Into Teams</button>
             </div>
 
             <div class="tool-card">
@@ -441,8 +441,8 @@
 
                 <div class="quick-bar">
                     <div class="chip-group">
-                        <button type="button" class="chip-btn" onclick="fillSampleNames()">📝 Load Sample List</button>
-                        <button type="button" class="chip-btn" onclick="clearAllNames()">🧹 Clear</button>
+                        <button type="button" class="chip-btn" onclick="fillSampleNames()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="15" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Load Sample List</button>
+                        <button type="button" class="chip-btn" onclick="clearAllNames()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>Clear</button>
                     </div>
                     <label class="checkbox-label">
                         <input type="checkbox" id="chk-dedupe" checked onchange="updateCounts()">
@@ -520,7 +520,7 @@
                     </label>
                 </div>
 
-                <button type="button" id="btn-draw" class="draw-btn" onclick="runDraw(false)">🎯 Draw Winners Now!</button>
+                <button type="button" id="btn-draw" class="draw-btn" onclick="runDraw(false)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>Draw Winners Now!</button>
             </div>
 
             <div id="rolling-box" class="rolling-banner">
@@ -530,7 +530,7 @@
 
             <section id="result-box" class="result-box">
                 <div class="result-header">
-                    <h2 id="result-heading" class="result-title">🎉 Selected Winners</h2>
+                    <h2 id="result-heading" class="result-title">Selected Winners</h2>
                     <span id="result-meta" style="font-size:12px; color:#94a3b8;"></span>
                 </div>
 
@@ -542,14 +542,14 @@
                 </div>
 
                 <div class="result-actions">
-                    <button type="button" class="sec-btn accent" onclick="copyResultText()">📋 Copy Results</button>
-                    <button type="button" id="btn-draw-remaining" class="sec-btn" onclick="runDraw(true)">➕ Draw More from Remaining</button>
-                    <button type="button" id="btn-redraw" class="sec-btn" onclick="runDraw(false)">🔁 Redraw Full List</button>
+                    <button type="button" class="sec-btn accent" onclick="copyResultText()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Results</button>
+                    <button type="button" id="btn-draw-remaining" class="sec-btn" onclick="runDraw(true)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Draw More from Remaining</button>
+                    <button type="button" id="btn-redraw" class="sec-btn" onclick="runDraw(false)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg><span id="btn-redraw-label">Redraw Full List</span></button>
                 </div>
             </section>
 
             <section class="guide-section">
-                <h2>📖 How Cryptographically Fair Drawing Works</h2>
+                <h2>How Cryptographically Fair Drawing Works</h2>
                 <p>
                     Whether you are selecting giveaway winners, picking office raffle recipients, or randomly organizing teams for a workshop, transparency and fairness are paramount. TESTYOUR's Random Picker requires zero downloads or logins and ensures every entry receives strictly equal mathematical probability.
                 </p>
@@ -674,9 +674,9 @@
             document.getElementById("tab-team").classList.toggle("active", mode === "team");
             document.getElementById("settings-pick").style.display = mode === "pick" ? "block" : "none";
             document.getElementById("settings-team").style.display = mode === "team" ? "block" : "none";
-            document.getElementById("btn-draw").innerText = mode === "pick"
-                ? "🎯 Draw Winners Now!"
-                : "👥 Split Into Random Teams!";
+            document.getElementById("btn-draw").innerHTML = mode === "pick"
+                ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>Draw Winners Now!'
+                : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-3px; margin-right:6px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Split Into Random Teams!';
             document.getElementById("result-box").classList.remove("active");
         }
 
@@ -794,12 +794,12 @@
 
         function renderPickResults(poolTotal) {
             const showRank = document.getElementById("chk-rank").checked;
-            document.getElementById("result-heading").innerText = `🎉 Selected Winners (${currentWinners.length})`;
+            document.getElementById("result-heading").innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:6px;" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Selected Winners (${currentWinners.length})`;
             document.getElementById("result-meta").innerText = `Picked ${currentWinners.length} of ${poolTotal}`;
 
             const html = currentWinners.map((name, idx) => `
                 <div class="winner-card">
-                    ${showRank ? `<span class="winner-rank">${idx + 1}</span>` : `<span class="winner-rank">★</span>`}
+                    ${showRank ? `<span class="winner-rank">${idx + 1}</span>` : `<span class="winner-rank"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`}
                     <span class="winner-name">${escapeHtml(name)}</span>
                 </div>
             `).join("");
@@ -817,12 +817,12 @@
                 remBtn.style.display = "none";
             }
 
-            document.getElementById("btn-redraw").innerText = "🔁 Redraw Full List";
+            document.getElementById("btn-redraw-label").innerText = "Redraw Full List";
             document.getElementById("result-box").classList.add("active");
         }
 
         function renderTeamResults(total) {
-            document.getElementById("result-heading").innerText = `👥 Assigned ${lastTeams.length} Teams`;
+            document.getElementById("result-heading").innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:6px;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Assigned ${lastTeams.length} Teams`;
             document.getElementById("result-meta").innerText = `${total} total participants`;
 
             const html = lastTeams.map((members, idx) => `
@@ -836,7 +836,7 @@
             document.getElementById("result-body").innerHTML = `<div class="teams-grid">${html}</div>`;
             document.getElementById("remaining-wrap").style.display = "none";
             document.getElementById("btn-draw-remaining").style.display = "none";
-            document.getElementById("btn-redraw").innerText = "🔁 Reshuffle Teams";
+            document.getElementById("btn-redraw-label").innerText = "Reshuffle Teams";
             document.getElementById("result-box").classList.add("active");
         }
 
