@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/column/5.html",
+      "destination": "/column/rescene-inside-out.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/column/5.html",
+      "destination": "/en/column/rescene-inside-out.html",
+      "statusCode": 301
+    }
+  ]
+}
