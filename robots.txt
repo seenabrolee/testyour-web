@@ -1,7 +1,5 @@
 User-agent: *
 Disallow: /admin.html
-Disallow: /admin.js
-Disallow: /column/columns-data.js
 Allow: /
 
 Sitemap: https://testyour.uk/sitemap.xml

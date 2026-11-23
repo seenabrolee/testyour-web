@@ -3,6 +3,24 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "music-john-park-rap",
+    topic: "music",
+    title: "[음악 감상 #2] 존박의 '맥도날드 주문 랩'이 밈을 넘어 귀에 꽂히는 이유: 바리톤 딕션과 정박 그루브",
+    title_en: "[Music Review #2] Why John Park's Viral Fast-Food Order Rap Hits Like a Real Track: Baritone Vocal Weight & Bilingual Flow",
+    category: "음악 | 주인장의 음악 감상 노트 #2",
+    category_en: "Music | Creator's Listening Notes #2",
+    url: "/column/john-park-rap.html",
+    url_en: "/en/column/john-park-rap.html",
+    description: "유튜브 '존이냐박이냐'의 존박 맥도날드 주문 랩 열풍에 대한 사운드 비평. 힘을 뺀 바리톤 저음 공명, 한·영 바이링구얼 라임 구조, 정박 태도가 만들어낸 반전의 설득력을 분석합니다.",
+    description_en: "A sound-focused critique of John Park's viral fast-food order rap: unstrained baritone vocal weight, Korean-English bilingual cadence pockets, and serious rhythmic delivery.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 7분",
+    meta_en: "Author: TESTYOUR Creator · 7 min read",
+    badge: "음악 #2",
+    borderColor: "#06b6d4",
+    defaultStatus: "published",
+    date: "2026-11-23"
+  },
+  {
     id: "music-5",
     topic: "music",
     title: "[음악 감상 #1] 리센느 〈백화요란 (Inside Out)〉 감상평: 향기를 뚫고 나온 '쇠맛', 반음(#)의 세련미",

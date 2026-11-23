@@ -205,6 +205,7 @@
             </div>
         </div>
 
+        <main style="width:100%; flex-grow:1; display:flex; flex-direction:column;">
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
             <div style="font-size: 13px; font-weight: bold; color: #ff3b30; letter-spacing: 2px; margin-bottom: 12px;">HUNTER EXAM PERSONALITY MATCH</div>
@@ -253,19 +254,7 @@
                     Featured Essays: <a href="/en/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">Adult Gon Deep Dive</a> | <a href="/en/column/leadership.html" style="color: #a855f7; text-decoration: underline;">4 Leadership Models in HxH</a>
                 </p>
             </section>
-            <footer style="margin-top: 28px; padding-top: 18px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
-                <div style="margin-bottom: 6px;">
-                    <a href="/en/" style="color: #94a3b8; text-decoration: none;">Home</a> |
-                    <a href="/en/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI Test</a> |
-                    <a href="/en/nen/" style="color: #94a3b8; text-decoration: none;">Nen Test</a> |
-                    <a href="/en/column/" style="color: #94a3b8; text-decoration: none;">Essays</a> |
-                    <a href="/en/about.html" style="color: #94a3b8; text-decoration: none;">About</a> |
-                    <a href="/en/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a> |
-                    <a href="/en/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
-                </div>
-                Unofficial non-commercial psychological edutainment guide. &copy; 2026 TESTYOUR.UK
-            </footer>
-        </div>
+</div>
 
         <!-- Question Screen -->
         <div id="screen-question" class="screen">
@@ -285,10 +274,30 @@
 
             <div id="result-desc" class="desc-box"></div>
 
+            <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.1), rgba(139,92,246,0.08)); border:1px solid rgba(56,189,248,0.35); border-radius:12px; padding:14px 16px; margin:14px 0; text-align:left;">
+                <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI ARCHETYPE CROSS-LINK</div>
+                <div id="res-mbti-title" style="font-size:15px; font-weight:800; color:#fff; margin-bottom:4px;"></div>
+                <p id="res-mbti-desc" style="font-size:12.5px; color:#cbd5e1; margin:0 0 10px; line-height:1.55;"></p>
+                <a id="res-mbti-link" href="#" style="display:inline-block; font-size:12px; font-weight:700; color:#0f172a; background:#38bdf8; padding:6px 12px; border-radius:7px; text-decoration:none;">Explore Matching MBTI Dossier &rarr;</a>
+            </div>
+
             <a id="btn-dossier" href="#" class="encyclopedia-btn">View Full Character Dossier &rarr;</a>
             <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Assessment</button>
             <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
         </div>
+        </main>
+        <footer style="margin-top: 28px; padding-top: 18px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
+                <div style="margin-bottom: 6px;">
+                    <a href="/en/" style="color: #94a3b8; text-decoration: none;">Home</a> |
+                    <a href="/en/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI Test</a> |
+                    <a href="/en/nen/" style="color: #94a3b8; text-decoration: none;">Nen Test</a> |
+                    <a href="/en/column/" style="color: #94a3b8; text-decoration: none;">Essays</a> |
+                    <a href="/en/about.html" style="color: #94a3b8; text-decoration: none;">About</a> |
+                    <a href="/en/contact.html" style="color: #94a3b8; text-decoration: none;">Contact</a> | <a href="/en/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a> |
+                    <a href="/en/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
+                </div>
+                Independent unofficial psychological edutainment guide. &copy; 2026 TESTYOUR.UK
+            </footer>
     </div>
 
     <script>
@@ -442,6 +451,27 @@
             }
             document.getElementById('result-desc').innerHTML = leorioEasterHtml + p.desc;
             document.getElementById('btn-dossier').href = '/en/hxh/' + winner + '.html';
+
+            const mbtiCrossMap = {
+                gon: { code: 'ESFP', title: 'ESFP (The Unfiltered Performer) · Enhancer', desc: 'Pure sensory presence (Se) paired with fiercely stubborn personal morals (Fi).' },
+                killua: { code: 'ISTP', title: 'ISTP (The Detached Tactician) · Transmuter', desc: 'Sharp internal logic (Ti) combined with lightning-fast situational reflexes (Se).' },
+                kurapika: { code: 'INTJ', title: 'INTJ (The Boundless Architect) · Conjurer / Specialist', desc: 'Long-range strategic foresight (Ni) executed through ironclad vows and structure (Te).' },
+                leorio: { code: 'ESFJ', title: 'ESFJ (The Devoted Protector) · Emitter', desc: 'Outward communal warmth and fierce loyalty (Fe) grounded in practical resolve (Si).' },
+                hisoka: { code: 'ESTP', title: 'ESTP (The High-Stakes Maverick) · Transmuter', desc: 'Thrill-seeking improvisational adrenaline (Se) sharpened by tactical detachment (Ti).' },
+                chrollo: { code: 'INFJ', title: 'INFJ (The Enigmatic Philosopher) · Specialist', desc: 'Deep existential symbolism (Ni) paired with disarming social composure (Fe).' },
+                illumi: { code: 'ISTJ', title: 'ISTJ (The Rigid Rule-Enforcer) · Manipulator', desc: 'Unquestioning allegiance to ancestral precedent (Si) and cold efficiency (Te).' },
+                meruem: { code: 'ENTJ', title: 'ENTJ (The Sovereign Strategist) · Emitter (Ultimate)', desc: 'Relentless systemic conquest (Te) evolving toward overarching philosophical insight (Ni).' }
+            };
+            const mInfo = mbtiCrossMap[winner];
+            const mBox = document.getElementById('res-mbti-box');
+            if (mInfo && mBox) {
+                document.getElementById('res-mbti-title').innerText = mInfo.title;
+                document.getElementById('res-mbti-desc').innerText = mInfo.desc;
+                const mLink = document.getElementById('res-mbti-link');
+                mLink.href = '/en/mbti/' + mInfo.code.toLowerCase() + '.html';
+                mLink.innerText = 'Read ' + mInfo.code + ' 1,500-Word Dossier →';
+                mBox.style.display = 'block';
+            }
 
             showScreen('screen-result');
         }

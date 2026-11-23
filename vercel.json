@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "testyour-web.vercel.app"
+        }
+      ],
+      "destination": "https://testyour.uk/:path*",
+      "statusCode": 308
+    },
+    {
       "source": "/column/5.html",
       "destination": "/column/rescene-inside-out.html",
       "statusCode": 301
@@ -8,6 +19,61 @@
     {
       "source": "/en/column/5.html",
       "destination": "/en/column/rescene-inside-out.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/hxh",
+      "destination": "/hxh/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mbti",
+      "destination": "/mbti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/nen",
+      "destination": "/nen/",
+      "statusCode": 301
+    },
+    {
+      "source": "/picker",
+      "destination": "/picker/",
+      "statusCode": 301
+    },
+    {
+      "source": "/column",
+      "destination": "/column/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en",
+      "destination": "/en/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/hxh",
+      "destination": "/en/hxh/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/mbti",
+      "destination": "/en/mbti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/nen",
+      "destination": "/en/nen/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/picker",
+      "destination": "/en/picker/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/column",
+      "destination": "/en/column/",
       "statusCode": 301
     }
   ]

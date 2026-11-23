@@ -207,6 +207,7 @@
         </div>
 
         <!-- Start Screen -->
+        <main style="width:100%; flex-grow:1; display:flex; flex-direction:column;">
         <div id="screen-start" class="screen active">
             <div style="font-size: 12.5px; font-weight: bold; color: #f15f79; letter-spacing: 1px; margin-bottom: 10px; display:flex; align-items:center; justify-content:center; gap:6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12,2 20,12 12,22 4,12"/></svg>HISOKA'S WATER DIVINATION &amp; AURA DIAGNOSIS</div>
             <h1>Water Divination Test</h1>
@@ -219,7 +220,6 @@
             </div>
             <img src="/nen/images/divination_hero.jpg" alt="Water Divination" class="hero-img">
             <button class="btn" onclick="startTest()">Begin Water Divination &rarr;</button>
-        </div>
 
             <!-- Educational Water Divination Guide -->
             <section style="margin-top: 32px; text-align: left; background: #12151e; border: 1px solid #262c3a; border-radius: 14px; padding: 20px 18px; line-height: 1.75; color: #cbd5e1; width: 100%; box-sizing: border-box;">
@@ -259,17 +259,6 @@
                     Read Related Essay: <a href="/en/column/mbti-nen.html" style="color: #f15f79; text-decoration: underline;">The 6 Nen Categories and MBTI 16 Types: A Surprising Parallel</a> &rarr;
                 </p>
             </section>
-            <footer style="margin-top: 28px; padding-top: 18px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
-                <div style="margin-bottom: 6px;">
-                    <a href="/en/" style="color: #94a3b8; text-decoration: none;">Home</a> |
-                    <a href="/en/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI Test</a> |
-                    <a href="/en/column/" style="color: #94a3b8; text-decoration: none;">Essays</a> |
-                    <a href="/en/about.html" style="color: #94a3b8; text-decoration: none;">About</a> |
-                    <a href="/en/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a> |
-                    <a href="/en/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
-                </div>
-                Unofficial non-commercial psychological edutainment assessment. &copy; 2026 TESTYOUR.UK
-            </footer>
         </div>
 
         <!-- Question Screen -->
@@ -294,6 +283,18 @@
             <button class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px;" onclick="location.reload()">Retake Divination</button>
             <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
         </div>
+        </main>
+        <footer style="margin-top: 28px; padding-top: 18px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
+                <div style="margin-bottom: 6px;">
+                    <a href="/en/" style="color: #94a3b8; text-decoration: none;">Home</a> |
+                    <a href="/en/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI Test</a> |
+                    <a href="/en/column/" style="color: #94a3b8; text-decoration: none;">Essays</a> |
+                    <a href="/en/about.html" style="color: #94a3b8; text-decoration: none;">About</a> |
+                    <a href="/en/contact.html" style="color: #94a3b8; text-decoration: none;">Contact</a> | <a href="/en/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a> |
+                    <a href="/en/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
+                </div>
+                Independent unofficial psychological edutainment assessment. &copy; 2026 TESTYOUR.UK
+            </footer>
     </div>
 
     <script>

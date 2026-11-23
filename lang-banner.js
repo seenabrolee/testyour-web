@@ -21,6 +21,7 @@
             else if (path.startsWith('/column')) target = '/en/column/';
             else if (path.includes('privacy')) target = '/en/privacy.html';
             else if (path.includes('terms')) target = '/en/terms.html';
+            else if (path.includes('contact')) target = '/en/contact.html';
             else if (path.includes('about')) target = '/en/about.html';
 
             initBanner({
