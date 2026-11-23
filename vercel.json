@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "testyour-web.vercel.app"
+        }
+      ],
+      "destination": "https://testyour.uk/",
+      "statusCode": 308
+    },
+    {
       "source": "/:path*",
       "has": [
         {
