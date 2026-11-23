@@ -18,6 +18,9 @@
             else if (path.startsWith('/mbti')) target = '/en/mbti/';
             else if (path.startsWith('/picker')) target = '/en/picker/';
             else if (path.startsWith('/column/leorio-love')) target = '/en/column/leorio-love.html';
+            else if (path.startsWith('/column/rescene-inside-out')) target = '/en/column/rescene-inside-out.html';
+            else if (path.startsWith('/column/john-park-rap')) target = '/en/column/john-park-rap.html';
+            else if (path.startsWith('/column/yoo-young-woo-vocal')) target = '/en/column/yoo-young-woo-vocal.html';
             else if (path.startsWith('/column')) target = '/en/column/';
             else if (path.includes('privacy')) target = '/en/privacy.html';
             else if (path.includes('terms')) target = '/en/terms.html';

@@ -3,6 +3,24 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "music-yoo-young-woo",
+    topic: "music",
+    title: "[음악 감상 #3] 사람들이 요즘 유영우에 열광하는 이유: 트렌드를 역행하는 '깡진성' 고음과 절대음감 멜리즈마",
+    title_en: "[Music Review #3] Why Audiences Are Obsessed with Comedian Yoo Young-woo's Vocals: Fearless Chest Belting & Absolute-Pitch Melisma",
+    category: "음악 | 주인장의 음악 감상 노트 #3",
+    category_en: "Music | Creator's Listening Notes #3",
+    url: "/column/yoo-young-woo-vocal.html",
+    url_en: "/en/column/yoo-young-woo-vocal.html",
+    description: "믹스보이스 대세를 역행하는 내일 없는 깡진성 고음, 웃기는 연출 대비 기성 가수급 절대음감 멜리즈마·화음, 메시 농구 밈과 정형돈을 떠올리게 하는 성장 서사까지 짚어봅니다.",
+    description_en: "A sound-focused critique of Yoo Young-woo's vocal appeal: counter-trend full-chest belting, surgical melisma & tight harmonies under comedy, and a slow-burn arc recalling Jeong Hyeong-don.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 8분",
+    meta_en: "Author: TESTYOUR Creator · 8 min read",
+    badge: "음악 #3",
+    borderColor: "#06b6d4",
+    defaultStatus: "published",
+    date: "2026-11-23"
+  },
+  {
     id: "music-john-park-rap",
     topic: "music",
     title: "[음악 감상 #2] 존박의 '맥도날드 주문 랩'이 밈을 넘어 귀에 꽂히는 이유: 바리톤 딕션과 정박 그루브",
