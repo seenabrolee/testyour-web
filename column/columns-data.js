@@ -3,6 +3,24 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "psychology-killua-t",
+    topic: "psychology",
+    title: "[칼럼] 사회화된 T는 야수의 F보다 따뜻하다",
+    title_en: "[Essay] A Socialized T-Type Is Warmer Than an Untamed F-Type",
+    category: "심리 | MBTI · 인간관계 노트",
+    category_en: "Psychology | MBTI & Relationships",
+    url: "/column/killua-socialized-t.html",
+    url_en: "/en/column/killua-socialized-t.html",
+    description: "T는 차갑고 F는 다정하다는 편견을 뒤집는 에세이. 이르미의 침을 뽑고 팜 앞에서 눈물로 호소한 키르아, 결국 무너진 곤까지 치료해 준 책임감과 현실에서 T와 대화가 편한 이유를 정리했다.",
+    description_en: "Flipping the Thinker vs. Feeler stereotype: Killua pulling out Illumi's needle, begging Palm in tears, healing broken Gon, and why grounded T-types feel easier to talk to in daily life.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 5분",
+    meta_en: "Author: TESTYOUR Creator · 5 min read",
+    badge: "심리 NEW",
+    borderColor: "#38bdf8",
+    defaultStatus: "published",
+    date: "2026-11-25"
+  },
+  {
     id: "music-kwak-jin-eon",
     topic: "music",
     title: "[음악 감상 #4] 곽진언의 비프리 편 프리스타일 랩: 기본기보다 먼저 보인 '창작가의 기질'",
