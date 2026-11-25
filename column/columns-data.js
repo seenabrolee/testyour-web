@@ -3,6 +3,24 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "music-kwak-jin-eon",
+    topic: "music",
+    title: "[음악 감상 #4] 곽진언의 비프리 편 프리스타일 랩: 기본기보다 먼저 보인 '창작가의 기질'",
+    title_en: "[Music Review #4] Kwak Jin-eon's Pure Freestyle Beside B-Free: Creator Instinct Before Technique",
+    category: "음악 | 주인장의 음악 감상 노트 #4",
+    category_en: "Music | Creator's Listening Notes #4",
+    url: "/column/kwak-jin-eon-freestyle.html",
+    url_en: "/en/column/kwak-jin-eon-freestyle.html",
+    description: "비트가 흐르는 찰나에 단어를 꺼내 메시지까지 맞춘 퓨어 프리스타일. 곡 메이킹에 강한 존박과 갈리는 순발력 적성, YDG 결 플로우 가능성과 아직 입문 단계인 기본기의 한계까지 짚어봤다.",
+    description_en: "Pulling words out on a live beat to land a clear message: comparing pure freestyle reflex vs. John Park's songcraft, YDG-like slow cadence potential, and honest beginner metrics.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 5분",
+    meta_en: "Author: TESTYOUR Creator · 5 min read",
+    badge: "음악 #4",
+    borderColor: "#06b6d4",
+    defaultStatus: "published",
+    date: "2026-11-25"
+  },
+  {
     id: "music-yoo-young-woo",
     topic: "music",
     title: "[음악 감상 #3] 사람들이 요즘 유영우에 열광하는 이유: 트렌드를 역행하는 '깡진성' 고음과 절대음감 멜리즈마",
