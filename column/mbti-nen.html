@@ -248,6 +248,16 @@
                     <span>분량: 공백 제외 2,800자</span>
                 </div>
             </header>
+            <section class="col-video-embed" aria-label="관련 유튜브 영상 플레이어" style="max-width: 680px; margin: 0 auto 30px; background: #141a24; border: 1px solid #4c1d24; border-radius: 14px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;">
+                    <span style="font-size: 13px; font-weight: 700; color: #fb7185; display: inline-flex; align-items: center; gap: 6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>관련 영상 · 헌터×헌터 넨 6계통 & 수견식 원리 해설 (조회수 66만+)</span>
+                    <a href="https://www.youtube.com/watch?v=YV3l23pO6G4" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #94a3b8; text-decoration: none; border: 1px solid #334155; padding: 3px 10px; border-radius: 999px;">YouTube에서 열기 &rarr;</a>
+                </div>
+                <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #090b10;">
+                    <iframe src="https://www.youtube.com/embed/YV3l23pO6G4" title="Hunter x Hunter (1999) - Nen Training / Nen Explanation" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </section>
+
 
             <p class="lead" style="font-size:18px; color:#f1f5f9; font-weight:500; line-height:1.8;">
                 만화 《헌터×헌터》를 보면서 히소카의 '오오라별 성격 진단' 장면을 봤을 때, 솔직히 처음엔 그냥 만화적 연출인 줄 알았다.
@@ -398,5 +408,13 @@
         </p>
     </footer>
 
+
+    <script src="/column/columns-data.js"></script>
+    <script src="/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initColumnArticlePage("mbti-nen", "published");
+        });
+    </script>
 </body>
 </html>

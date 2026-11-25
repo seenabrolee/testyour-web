@@ -107,6 +107,183 @@ function initColumnIndexPage() {
       card.style.display = "block";
       enhanceCardWithAdminControls(card, colId, status, isEn);
     }
+
+    if (loggedIn || status !== "draft") {
+      attachIndexLikeCounter(card, colId, isEn);
+    }
+  });
+}
+
+// ==========================================
+// 1-B. 칼럼 좋아요 카운터 (Abacus 글로벌 + localStorage 폴백)
+// ==========================================
+const ABACUS_BASE = "https://abacus.jasoncameron.dev";
+const ABACUS_NS = "testyour-uk";
+const LIKED_COLS_KEY = "testyour_liked_columns_v1";
+const LIKED_CACHE_KEY = "testyour_like_counts_v1";
+
+function readJsonStore(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function writeJsonStore(key, obj) {
+  try {
+    localStorage.setItem(key, JSON.stringify(obj));
+  } catch (e) {}
+}
+
+async function fetchGlobalLikeCount(colId) {
+  const res = await fetch(`${ABACUS_BASE}/get/${ABACUS_NS}/col-${encodeURIComponent(colId)}`);
+  if (res.status === 404) return 0;
+  if (!res.ok) throw new Error("Counter fetch failed");
+  const data = await res.json();
+  return typeof data.value === "number" ? data.value : 0;
+}
+
+async function incrementGlobalLikeCount(colId) {
+  const res = await fetch(`${ABACUS_BASE}/hit/${ABACUS_NS}/col-${encodeURIComponent(colId)}`);
+  if (!res.ok) throw new Error("Counter hit failed");
+  const data = await res.json();
+  return typeof data.value === "number" ? data.value : null;
+}
+
+function attachIndexLikeCounter(card, colId, isEn) {
+  if (card.querySelector(".col-card-like-pill")) return;
+  const metaSpan = card.querySelector("span:last-of-type");
+  const cache = readJsonStore(LIKED_CACHE_KEY);
+  const pill = document.createElement("span");
+  pill.className = "col-card-like-pill";
+  pill.style.cssText = "display:inline-flex; align-items:center; gap:4px; margin-left:10px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11.5px; color:#94a3b8; background:rgba(148,163,184,0.08); border:1px solid #2d3748; padding:2px 8px; border-radius:999px; vertical-align:middle;";
+  const cachedVal = typeof cache[colId] === "number" ? cache[colId] : 0;
+  pill.innerHTML = `<span style="color:#fb7185;">&hearts;</span> <span class="col-card-like-num">${cachedVal}</span>`;
+  if (metaSpan && metaSpan.parentNode === card) {
+    metaSpan.appendChild(pill);
+  } else {
+    card.appendChild(pill);
+  }
+  fetchGlobalLikeCount(colId).then(val => {
+    const nextCache = readJsonStore(LIKED_CACHE_KEY);
+    nextCache[colId] = val;
+    writeJsonStore(LIKED_CACHE_KEY, nextCache);
+    const numEl = pill.querySelector(".col-card-like-num");
+    if (numEl) numEl.textContent = String(val);
+  }).catch(() => {});
+}
+
+function renderColumnLikeWidget(colId, isEn) {
+  if (document.getElementById("testyour-column-like-box")) return;
+  const article = document.querySelector("article");
+  if (!article) return;
+
+  const likedMap = readJsonStore(LIKED_COLS_KEY);
+  const countCache = readJsonStore(LIKED_CACHE_KEY);
+  let alreadyLiked = Boolean(likedMap[colId]);
+  let currentCount = typeof countCache[colId] === "number" ? countCache[colId] : 0;
+
+  const box = document.createElement("div");
+  box.id = "testyour-column-like-box";
+  box.style.cssText = `
+    margin: 28px 0 34px;
+    padding: 18px 20px;
+    background: #141824;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  `;
+
+  box.innerHTML = `
+    <div style="text-align:left;">
+      <div style="font-size:14.5px; font-weight:700; color:#f8fafc; margin-bottom:3px;">
+        ${isEn ? "Did this column resonate with you?" : "오늘 칼럼이 재미있거나 공감되셨나요?"}
+      </div>
+      <div id="col-like-status" style="font-size:12.5px; color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Menlo,monospace;">
+        ${alreadyLiked
+          ? (isEn ? "Thanks! Your endorsement is recorded." : "공감해 주셔서 감사합니다 · 좋아요 반영됨")
+          : (isEn ? "Tap Like to check and add to the live reader count." : "좋아요를 눌러 누적 공감 수를 바로 확인해 보세요.")
+        }
+      </div>
+    </div>
+    <button type="button" id="col-like-btn" aria-pressed="${alreadyLiked ? "true" : "false"}" style="display:inline-flex; align-items:center; gap:9px; padding:10px 18px; border-radius:10px; border:1px solid ${alreadyLiked ? "#fb7185" : "#334155"}; background:${alreadyLiked ? "rgba(244,63,94,0.16)" : "#1e293b"}; color:${alreadyLiked ? "#fda4af" : "#f8fafc"}; font-size:14px; font-weight:700; cursor:pointer; transition:all 0.18s ease;">
+      <svg id="col-like-heart" width="17" height="17" viewBox="0 0 24 24" fill="${alreadyLiked ? "#f43f5e" : "none"}" stroke="${alreadyLiked ? "#f43f5e" : "currentColor"}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span id="col-like-label">${alreadyLiked ? (isEn ? "Liked" : "좋아요 완료") : (isEn ? "Like" : "좋아요")}</span>
+      <span id="col-like-count" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; background:rgba(15,23,42,0.75); border:1px solid #334155; padding:2px 9px; border-radius:999px; color:#22d3ee;">${currentCount}</span>
+    </button>
+  `;
+
+  const cta = article.querySelector(".cta-banner");
+  if (cta) {
+    article.insertBefore(box, cta);
+  } else {
+    article.appendChild(box);
+  }
+
+  const btn = document.getElementById("col-like-btn");
+  const heart = document.getElementById("col-like-heart");
+  const label = document.getElementById("col-like-label");
+  const countEl = document.getElementById("col-like-count");
+  const statusEl = document.getElementById("col-like-status");
+
+  fetchGlobalLikeCount(colId).then(val => {
+    currentCount = val;
+    countEl.textContent = String(val);
+    const nextCache = readJsonStore(LIKED_CACHE_KEY);
+    nextCache[colId] = val;
+    writeJsonStore(LIKED_CACHE_KEY, nextCache);
+  }).catch(() => {});
+
+  btn.addEventListener("click", async () => {
+    if (alreadyLiked) {
+      statusEl.textContent = isEn
+        ? `Already liked in this browser (total: ${currentCount}).`
+        : `이미 좋아요를 누른 글입니다 (현재 누적 ${currentCount}개).`;
+      return;
+    }
+
+    alreadyLiked = true;
+    btn.setAttribute("aria-pressed", "true");
+    btn.style.borderColor = "#fb7185";
+    btn.style.background = "rgba(244,63,94,0.16)";
+    btn.style.color = "#fda4af";
+    heart.setAttribute("fill", "#f43f5e");
+    heart.setAttribute("stroke", "#f43f5e");
+    label.textContent = isEn ? "Liked" : "좋아요 완료";
+
+    currentCount += 1;
+    countEl.textContent = String(currentCount);
+
+    const nextLiked = readJsonStore(LIKED_COLS_KEY);
+    nextLiked[colId] = true;
+    writeJsonStore(LIKED_COLS_KEY, nextLiked);
+
+    try {
+      const serverVal = await incrementGlobalLikeCount(colId);
+      if (typeof serverVal === "number") {
+        currentCount = serverVal;
+        countEl.textContent = String(serverVal);
+      }
+      const nextCache = readJsonStore(LIKED_CACHE_KEY);
+      nextCache[colId] = currentCount;
+      writeJsonStore(LIKED_CACHE_KEY, nextCache);
+      statusEl.textContent = isEn
+        ? `Liked! Live global count updated to ${currentCount}.`
+        : `좋아요 반영 완료 · 현재 누적 ${currentCount}명 공감`;
+    } catch (err) {
+      const nextCache = readJsonStore(LIKED_CACHE_KEY);
+      nextCache[colId] = currentCount;
+      writeJsonStore(LIKED_CACHE_KEY, nextCache);
+      statusEl.textContent = isEn
+        ? `Saved locally (${currentCount}).`
+        : `이 브라우저에 좋아요가 저장되었습니다 (${currentCount}).`;
+    }
   });
 }
 
@@ -179,7 +356,10 @@ function initColumnArticlePage(colId, defaultStatus = "draft") {
     // 일반 방문자이며 비공개 초안인 경우: 본문 숨기고 잠금 게이트 화면 노출
     article.style.display = "none";
     renderDraftGate(colId, isEn);
+    return;
   }
+
+  renderColumnLikeWidget(colId, isEn);
 }
 
 function renderArticleAdminBanner(colId, status, isEn) {
