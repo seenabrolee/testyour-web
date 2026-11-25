@@ -183,6 +183,30 @@
             color: #fff;
         }
 
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #262c3a;
+        }
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .top-nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .top-nav a:hover { color: #f8fafc; }
+
         .footer {
             margin-top: auto;
             padding-top: 35px;
@@ -212,17 +236,23 @@
 </head>
 <body>
     <div id="app">
-        <div style="display:flex; justify-content:flex-end; align-items:center; margin-bottom:12px;">
-            <div class="lang-switch" style="font-size:13px; background:rgba(255,255,255,0.06); padding:4px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.08);">
+        <header class="top-header">
+            <nav class="top-nav" aria-label="주 메뉴">
+                <a href="/" style="color:#f8fafc;">홈</a>
+                <a href="/column/" style="color:#22d3ee;">칼럼</a>
+                <a href="/about.html">소개</a>
+                <a href="/contact.html">문의</a>
+            </nav>
+            <div class="lang-switch" style="font-size:12.5px; background:rgba(255,255,255,0.06); padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.08);">
                 <a href="/" style="color:#38bdf8; font-weight:800; text-decoration:none;">KO</a>
                 <span style="color:#475569; margin:0 4px;">|</span>
                 <a href="/en/" style="color:#94a3b8; font-weight:600; text-decoration:none;">EN</a>
             </div>
-        </div>
+        </header>
 
         <main style="width:100%;">
         <h1 class="header-title"><img src="/images/brand-mark.svg" alt="TESTYOUR 로고" width="34" height="34" style="vertical-align:-6px; margin-right:10px; border-radius:8px;">TESTYOUR</h1>
-        <p class="subtitle">지친 일상에 작은 변주를 주는 성격 심리테스트 & 에디터 칼럼</p>
+        <p class="subtitle">성격·만화·음악 감상 칼럼 &amp; 인터랙티브 성향 테스트 아카이브</p>
         
         <!-- 16가지 성격 유형 MBTI 검사 -->
         <a href="/mbti/" class="test-card" style="background: linear-gradient(135deg, #0e2a3a 0%, #0d1b26 100%); color: #bae6fd; border-color: #0284c7;">

@@ -15,7 +15,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESTYOUR UK | Psychological Typing, MBTI & Cultural Character Diagnostics</title>
+    <title>TESTYOUR | Personality Tests, Character Dossiers &amp; Music Essays</title>
     
     <meta name="description" content="Explore TESTYOUR: 16 Jungian Personality Types (MBTI), Hunter x Hunter Character Match, Nen Water Divination tests, and original essays on psychology, manga, and music.">
     <link rel="canonical" href="https://testyour.uk/en/">
@@ -54,10 +54,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
             border-bottom: 1px solid #262c3a;
         }
+        .header-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            flex-wrap: wrap;
+        }
+        .header-nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+        .header-nav-links a:hover { color: #f8fafc; }
         .logo {
             font-size: 22px;
             font-weight: 900;
@@ -200,18 +215,23 @@
 </head>
 <body>
     <div id="app">
-        <div class="header-bar">
-            <a href="/en/" class="logo" style="display:inline-flex; align-items:center; gap:8px;"><img src="/images/brand-mark.svg" alt="TESTYOUR Logo" width="24" height="24" style="border-radius:6px;">TESTYOUR</a>
+        <header class="header-bar">
+            <a href="/en/" class="logo" style="display:inline-flex; align-items:center; gap:7px; font-size:19px;"><img src="/images/brand-mark.svg" alt="TESTYOUR Logo" width="22" height="22" style="border-radius:6px;">TESTYOUR</a>
+            <nav class="header-nav-links" aria-label="Main Navigation">
+                <a href="/en/column/" style="color:#22d3ee;">Essays</a>
+                <a href="/en/about.html">About</a>
+                <a href="/en/contact.html">Contact</a>
+            </nav>
             <div class="lang-switch">
                 <a href="/">KO</a>
                 <span style="color:#475569;">|</span>
                 <a href="/en/" class="active">EN</a>
             </div>
-        </div>
+        </header>
 
         <main style="width:100%;">
-        <h1 class="header-title">TESTYOUR UK</h1>
-        <p class="subtitle">Nuanced Personality Assessments & Workplace Essays</p>
+        <h1 class="header-title">TESTYOUR</h1>
+        <p class="subtitle">Interactive Typology Tests, Character Studies &amp; Music Listening Notes</p>
         
         <!-- 16 Personalities MBTI Test -->
         <a href="/en/mbti/" class="test-card" style="background: linear-gradient(135deg, #0e2a3a 0%, #0d1b26 100%); color: #bae6fd; border-color: #0284c7;">

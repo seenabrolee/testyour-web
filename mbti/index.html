@@ -550,6 +550,70 @@
             <h2 style="font-size:15px; color:#94a3b8; font-weight:normal; margin-bottom:22px;">애매한 질문 없이, 진짜 내 일상 모습으로 편하게 알아보는 30가지 질문</h2>
             
             <!-- Natural, Human Introduction Box -->
+            <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; border-radius: 12px; padding: 16px; margin-bottom: 22px; text-align: left; font-size: 13.5px; line-height: 1.65;">
+                <div style="color: #f8fafc; font-weight: 700; font-size: 14.5px; margin-bottom: 8px;">
+                    검사 전 가볍게 읽어보는 안내
+                </div>
+                <p style="margin: 0 0 10px 0; color: #94a3b8;">
+                    기존 MBTI 검사를 하면서 <span style="color: #e2e8f0;">'둘 다 내 얘기가 아닌데 뭘 골라야 하지?'</span> 하고 멈칫했던 적 많으셨죠?<br>
+                    '파티를 좋아하나요?' 같은 뻔하고 애매한 질문 대신, <strong>직장, 요리, 여행, 취미, 대화, 돌발 상황 등 30가지 다채로운 상황</strong>처럼 우리가 매일 마주하는 상황들로 풀었습니다.
+                </p>
+                <p style="margin: 0; color: #94a3b8;">
+                    질문 주제와 선택지 방향이 한쪽으로 쏠리지 않도록 고르게 균형을 맞췄으니, 부담 없이 <strong>"평소의 나"</strong>에 가까운 쪽을 편하게 골라보세요.
+                </p>
+            </div>
+
+            <button class="btn" onclick="startTest()">테스트 시작하기 &rarr;</button>
+            <a href="/" class="other-link">&larr; 다른 심리테스트 보러가기</a>
+
+            <!-- AdSense Educational Guide Section -->
+            <section style="margin-top:40px; text-align:left; background:#12151e; border:1px solid #262c3a; border-radius:14px; padding:22px 18px; line-height:1.8; color:#cbd5e1;">
+                <h2 style="color:#38bdf8; font-size:18px; margin-top:0; margin-bottom:12px; border-bottom:1px solid #2d3748; padding-bottom:8px;">
+                    MBTI의 과학적 배경과 8대 심리 기능 이론 가이드
+                </h2>
+                
+                <h3 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">1. 칼 융의 심리유형론(Psychological Types)과 다차원 스펙트럼</h3>
+                <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
+                    MBTI(Myers-Briggs Type Indicator)는 스위스의 정신의학자 칼 구스타프 융(Carl G. Jung)의 인지 기능 이론을 바탕으로, 캐서린 브릭스(Katharine C. Briggs)와 이사벨 마이어스(Isabel B. Myers)가 체계화한 성격 지표입니다. 인간의 성격은 단순한 흑백 논리가 아니라, 상황에 따라 주기능과 부기능이 역동적으로 상호작용하는 다차원 스펙트럼으로 작동합니다.
+                </p>
+
+                <h3 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">2. 4가지 양극 선호 지표와 교차 역학</h3>
+                <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
+                    - <strong>에너지 방향 (E vs I):</strong> 외부 세계와의 상호작용에서 활력을 얻는 외향형(E) vs 내면의 성찰과 깊이 있는 몰입에서 충전하는 내향형(I)<br>
+                    - <strong>정보 인식 (S vs N):</strong> 오감과 검증된 사실·실무 경험에 집중하는 감각형(S) vs 거시적 맥락·은유·미래 잠재력을 꿰뚫는 직관형(N)<br>
+                    - <strong>판단 및 결정 (T vs F):</strong> 인과관계와 객관적 논리·원칙을 우선하는 사고형(T) vs 인간적 유대와 정서적 공명·가치를 중시하는 감정형(F)<br>
+                    - <strong>생활 양식 (J vs P):</strong> 체계적 계획과 명확한 종결을 선호하는 판단형(J) vs 상황 변화에 맞춘 유연한 적응과 자율성을 즐기는 인식형(P)
+                </p>
+
+                <h3 style="color:#7dd3fc; font-size:14px; margin:16px 0 8px 0;">16가지 성격 유형별 개별 백과사전</h3>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:6px;">
+                    <a href="/mbti/intj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INTJ 전략가 &rarr;</a>
+                    <a href="/mbti/intp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INTP 사색가 &rarr;</a>
+                    <a href="/mbti/entj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENTJ 통솔자 &rarr;</a>
+                    <a href="/mbti/entp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENTP 논쟁가 &rarr;</a>
+                    <a href="/mbti/infj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INFJ 선지자 &rarr;</a>
+                    <a href="/mbti/infp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INFP 중재자 &rarr;</a>
+                    <a href="/mbti/enfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENFJ 사회운동가 &rarr;</a>
+                    <a href="/mbti/enfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENFP 활동가 &rarr;</a>
+                    <a href="/mbti/istj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISTJ 원칙주의자 &rarr;</a>
+                    <a href="/mbti/isfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISFJ 수호자 &rarr;</a>
+                    <a href="/mbti/estj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESTJ 관리자 &rarr;</a>
+                    <a href="/mbti/esfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESFJ 외교관 &rarr;</a>
+                    <a href="/mbti/istp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISTP 재주꾼 &rarr;</a>
+                    <a href="/mbti/isfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISFP 예술가 &rarr;</a>
+                    <a href="/mbti/estp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESTP 사업가 &rarr;</a>
+                    <a href="/mbti/esfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESFP 연예인 &rarr;</a>
+                </div>
+                <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(148,163,184,0.18);">
+                    <h3 style="font-size:15px; color:#f8fafc; margin:0 0 8px;">인지 기능 4단 위계와 '그립(Grip) 스트레스' 이해하기</h3>
+                    <p style="font-size:13px; color:#cbd5e1; line-height:1.7; margin:0 0 10px;">
+                        MBTI 4글자는 단순한 성향 라벨이 아니라, 개인이 가장 편안하게 쓰는 <strong>주기능(Dominant)</strong>과 균형을 잡는 <strong>부기능(Auxiliary)</strong>, 그리고 평소 억제되어 있다가 번아웃·극한 압박 시 거칠게 폭발하는 <strong>열등기능(Inferior)</strong>의 우선순위를 뜻합니다. TESTYOUR의 30문항은 단순 "집 vs 밖" 이분법 대신 갈등 상황에서의 의사결정 순서와 에너지 회복 방식을 함께 측정합니다.
+                    </p>
+                    <p style="font-size:13px; color:#cbd5e1; line-height:1.7; margin:0;">
+                        더 깊은 이론과 서브컬처 사례는 <a href="/column/mbti-nen.html" style="color:#38bdf8; text-decoration:underline;">MBTI &times; 헌터X헌터 넨(念) 6계통 심층 칼럼</a>이나 <a href="/hxh/" style="color:#fb7185; text-decoration:underline;">헌터X헌터 캐릭터 매칭 테스트</a>에서도 교차 탐색해 볼 수 있습니다.
+                    </p>
+                </div>
+            </section>
         </div>
 
         <!-- Quiz Screen -->
@@ -690,80 +754,15 @@
         </div>
         </main>
         <footer style="margin-top:35px; padding-top:20px; border-top:1px solid #2d3748; font-size:12px; color:#64748b; text-align:center; width:100%;">
-            <div style="color: #f8fafc; font-weight: 700; font-size: 14.5px; margin-bottom: 8px;">
-                    검사 전 가볍게 읽어보는 안내
-                </div>
-                <p style="margin: 0 0 10px 0; color: #94a3b8;">
-                    기존 MBTI 검사를 하면서 <span style="color: #e2e8f0;">'둘 다 내 얘기가 아닌데 뭘 골라야 하지?'</span> 하고 멈칫했던 적 많으셨죠?<br>
-                    '파티를 좋아하나요?' 같은 뻔하고 애매한 질문 대신, <strong>직장, 요리, 여행, 취미, 대화, 돌발 상황 등 30가지 다채로운 상황</strong>처럼 우리가 매일 마주하는 상황들로 풀었습니다.
-                </p>
-                <p style="margin: 0; color: #94a3b8;">
-                    질문 주제와 선택지 방향이 한쪽으로 쏠리지 않도록 고르게 균형을 맞췄으니, 부담 없이 <strong>"평소의 나"</strong>에 가까운 쪽을 편하게 골라보세요.
-                </p>
+            <div style="margin-bottom:8px;">
+                <a href="/" style="color:#94a3b8; text-decoration:none;">홈</a> |
+                <a href="/column/" style="color:#94a3b8; text-decoration:none;">칼럼</a> |
+                <a href="/about.html" style="color:#94a3b8; text-decoration:none;">소개</a> |
+                <a href="/contact.html" style="color:#94a3b8; text-decoration:none;">문의</a> | <a href="/privacy.html" style="color:#94a3b8; text-decoration:none;">개인정보처리방침</a> |
+                <a href="/terms.html" style="color:#94a3b8; text-decoration:none;">이용약관</a>
             </div>
-            
-            <button class="btn" onclick="startTest()">테스트 시작하기 &rarr;</button>
-            <a href="/" class="other-link">&larr; 다른 심리테스트 보러가기</a>
-
-            <!-- AdSense Educational Guide Section -->
-            <section style="margin-top:40px; text-align:left; background:#12151e; border:1px solid #262c3a; border-radius:14px; padding:22px 18px; line-height:1.8; color:#cbd5e1;">
-                <h3 style="color:#38bdf8; font-size:18px; margin-top:0; margin-bottom:12px; border-bottom:1px solid #2d3748; padding-bottom:8px;">
-                    MBTI의 과학적 배경과 8대 심리 기능 이론 가이드
-                </h3>
-                
-                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">1. 칼 융의 심리유형론(Psychological Types)과 다차원 스펙트럼</h4>
-                <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
-                    MBTI(Myers-Briggs Type Indicator)는 스위스의 정신의학자 칼 구스타프 융(Carl G. Jung)의 인지 기능 이론을 바탕으로, 캐서린 브릭스(Katharine C. Briggs)와 이사벨 마이어스(Isabel B. Myers)가 체계화한 성격 지표입니다. 인간의 성격은 단순한 흑백 논리가 아니라, 상황에 따라 주기능과 부기능이 역동적으로 상호작용하는 다차원 스펙트럼으로 작동합니다.
-                </p>
-
-                <h4 style="color:#7dd3fc; font-size:14px; margin:14px 0 4px 0;">2. 4가지 양극 선호 지표와 교차 역학</h4>
-                <p style="font-size:13px; color:#94a3b8; margin:0 0 10px 0;">
-                    - <strong>에너지 방향 (E vs I):</strong> 외부 세계와의 상호작용에서 활력을 얻는 외향형(E) vs 내면의 성찰과 깊이 있는 몰입에서 충전하는 내향형(I)<br>
-                    - <strong>정보 인식 (S vs N):</strong> 오감과 검증된 사실·실무 경험에 집중하는 감각형(S) vs 거시적 맥락·은유·미래 잠재력을 꿰뚫는 직관형(N)<br>
-                    - <strong>판단 및 결정 (T vs F):</strong> 인과관계와 객관적 논리·원칙을 우선하는 사고형(T) vs 인간적 유대와 정서적 공명·가치를 중시하는 감정형(F)<br>
-                    - <strong>생활 양식 (J vs P):</strong> 체계적 계획과 명확한 종결을 선호하는 판단형(J) vs 상황 변화에 맞춘 유연한 적응과 자율성을 즐기는 인식형(P)
-                </p>
-
-                <h4 style="color:#7dd3fc; font-size:14px; margin:16px 0 8px 0;">16가지 성격 유형별 개별 백과사전</h4>
-                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:6px;">
-                    <a href="/mbti/intj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INTJ 전략가 &rarr;</a>
-                    <a href="/mbti/intp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INTP 사색가 &rarr;</a>
-                    <a href="/mbti/entj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENTJ 통솔자 &rarr;</a>
-                    <a href="/mbti/entp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENTP 논쟁가 &rarr;</a>
-                    <a href="/mbti/infj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INFJ 선지자 &rarr;</a>
-                    <a href="/mbti/infp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">INFP 중재자 &rarr;</a>
-                    <a href="/mbti/enfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENFJ 사회운동가 &rarr;</a>
-                    <a href="/mbti/enfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ENFP 활동가 &rarr;</a>
-                    <a href="/mbti/istj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISTJ 원칙주의자 &rarr;</a>
-                    <a href="/mbti/isfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISFJ 수호자 &rarr;</a>
-                    <a href="/mbti/estj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESTJ 관리자 &rarr;</a>
-                    <a href="/mbti/esfj.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESFJ 외교관 &rarr;</a>
-                    <a href="/mbti/istp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISTP 재주꾼 &rarr;</a>
-                    <a href="/mbti/isfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ISFP 예술가 &rarr;</a>
-                    <a href="/mbti/estp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESTP 사업가 &rarr;</a>
-                    <a href="/mbti/esfp.html" style="background:#1a1e2b; border:1px solid #2d3748; border-radius:6px; padding:8px; text-decoration:none; color:#e2e8f0; font-size:12px; font-weight:bold;">ESFP 연예인 &rarr;</a>
-                </div>
-                <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(148,163,184,0.18);">
-                    <h3 style="font-size:15px; color:#f8fafc; margin:0 0 8px;">인지 기능 4단 위계와 '그립(Grip) 스트레스' 이해하기</h3>
-                    <p style="font-size:13px; color:#cbd5e1; line-height:1.7; margin:0 0 10px;">
-                        MBTI 4글자는 단순한 성향 라벨이 아니라, 개인이 가장 편안하게 쓰는 <strong>주기능(Dominant)</strong>과 균형을 잡는 <strong>부기능(Auxiliary)</strong>, 그리고 평소 억제되어 있다가 번아웃·극한 압박 시 거칠게 폭발하는 <strong>열등기능(Inferior)</strong>의 우선순위를 뜻합니다. TESTYOUR의 30문항은 단순 "집 vs 밖" 이분법 대신 갈등 상황에서의 의사결정 순서와 에너지 회복 방식을 함께 측정합니다.
-                    </p>
-                    <p style="font-size:13px; color:#cbd5e1; line-height:1.7; margin:0;">
-                        더 깊은 이론과 서브컬처 사례는 <a href="/column/mbti-nen.html" style="color:#38bdf8; text-decoration:underline;">MBTI &times; 헌터X헌터 넨(念) 6계통 심층 칼럼</a>이나 <a href="/hxh/" style="color:#fb7185; text-decoration:underline;">헌터X헌터 캐릭터 매칭 테스트</a>에서도 교차 탐색해 볼 수 있습니다.
-                    </p>
-                </div>
-            </section>
-
-            <div style="margin-top:35px; padding-top:20px; border-top:1px solid #2d3748; font-size:12px; color:#64748b; text-align:center;">
-                <div style="margin-bottom:8px;">
-                    <a href="/" style="color:#94a3b8; text-decoration:none;">홈</a> |
-                    <a href="/column/" style="color:#94a3b8; text-decoration:none;">심리 칼럼</a> |
-                    <a href="/about.html" style="color:#94a3b8; text-decoration:none;">소개</a> |
-                    <a href="/contact.html" style="color:#94a3b8; text-decoration:none;">문의</a> | <a href="/privacy.html" style="color:#94a3b8; text-decoration:none;">개인정보처리방침</a> |
-                    <a href="/terms.html" style="color:#94a3b8; text-decoration:none;">이용약관</a>
-                </div>
-                본 MBTI 성격 진단 서비스는 성격 심리학 비교 연구 및 자기 이해를 돕기 위한 에듀테인먼트 콘텐츠입니다.<br>
-                &copy; 2026 TESTYOUR. All rights reserved.
+            본 MBTI 성격 진단 서비스는 성격 심리학 비교 연구 및 자기 이해를 돕기 위한 에듀테인먼트 콘텐츠입니다.<br>
+            &copy; 2026 TESTYOUR. All rights reserved.
         </footer>
     </div>
 
