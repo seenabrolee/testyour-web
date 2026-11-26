@@ -26,6 +26,9 @@
     <meta property="og:description" content="성격 테스트로 알아보는 나의 헌터X헌터 캐릭터! 곤? 키르아? 히소카? 지금 바로 확인해보세요!">
     <meta property="og:url" content="https://testyour.uk/hxh/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://testyour.uk/images/og-main.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://testyour.uk/images/og-main.png">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
@@ -48,6 +51,43 @@
             word-break: keep-all;
         }
         
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 13px 18px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .header-bar .logo {
+            font-size: 19px;
+            font-weight: 900;
+            color: #ff3b30;
+            text-decoration: none;
+        }
+        .header-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            flex-wrap: wrap;
+        }
+        .header-nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+        .header-nav-links a:hover { color: #fff; }
+        .lang-switch {
+            font-size: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+        .lang-switch a { text-decoration: none; color: #94a3b8; font-weight: 600; }
+        .lang-switch a.active { color: #ff3b30; font-weight: 800; }
         .container {
             width: 100%;
             max-width: 500px;
@@ -537,12 +577,33 @@
 </head>
 <body>
     <div class="container">
+        <header class="header-bar">
+            <a href="/" class="logo" style="display:inline-flex; align-items:center; gap:7px;"><img src="/images/brand-mark.svg" alt="TESTYOUR 로고" width="21" height="21" style="border-radius:5px; flex-shrink:0;">TESTYOUR</a>
+            <nav class="header-nav-links" aria-label="주 메뉴">
+                <a href="/column/" style="color:#38bdf8;">칼럼</a>
+                <a href="/mbti/">MBTI</a>
+                <a href="/nen/">넨</a>
+                <a href="/contact.html">문의</a>
+            </nav>
+            <div class="lang-switch">
+                <a href="/hxh/" class="active">KO</a>
+                <span style="color:#475569; margin:0 3px;">|</span>
+                <a href="/en/hxh/">EN</a>
+            </div>
+        </header>
         <main style="width:100%; flex-grow:1; display:flex; flex-direction:column;">
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <h1 style="font-size: 34px; margin-top: 25px; margin-bottom: 10px;">HUNTER<br>&times;<br>HUNTER</h1>
-            <h2 style="font-size: 18px; color: #ccc; font-weight: 400; margin-bottom: 25px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
+            <h1 style="font-size: 34px; margin-top: 12px; margin-bottom: 10px;">HUNTER<br>&times;<br>HUNTER</h1>
+            <h2 style="font-size: 18px; color: #ccc; font-weight: 400; margin-bottom: 20px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
             
+            <div style="background: rgba(255, 59, 48, 0.08); border-left: 3px solid #ff3b30; padding: 13px 15px; border-radius: 8px; font-size: 13.5px; color: #ddd; text-align: left; line-height: 1.65; margin: 0 0 18px; width: 100%;">
+                "불나방 곤, 팩폭러 키르아, 복수귀 크라피카, 현실적 의리파 레오리오, 그리고 속을 알 수 없는 히소카와 클로로까지...<br>
+                극한의 위기 상황에서 나는 어떤 인물과 가장 닮아 있을까요? 원작 시나리오 8~10문항으로 내 성향을 확인해 보세요."
+            </div>
+
+            <button class="btn btn-start" style="margin-top: 0; margin-bottom: 22px;" onclick="startTest()">캐릭터 테스트 시작하기 &rarr;</button>
+
             <!-- Character Pool Box on Start Screen -->
             <div class="pool-box">
                 <div class="pool-header">
@@ -563,10 +624,47 @@
                     <div>원하는 캐릭터가 없나요? <strong>먼저 테스트를 진행한 후</strong> 결과 화면에서 개발자에게 캐릭터 추가를 요청할 수 있습니다!</div>
                 </div>
             </div>
+
+            <a href="/nen/" class="other-test-link" style="width:100%;">넨(念) 계통 테스트 하러가기 &rarr;</a>
+
+            <!-- 8대 캐릭터 행동 심리학 가이드 -->
+            <section style="margin-top: 28px; text-align: left; background: #1e2028; border: 1px solid #333846; border-radius: 14px; padding: 20px 18px; line-height: 1.8; color: #cbd5e1; width: 100%; box-sizing: border-box;">
+                <h2 style="color: #ff3b30; font-size: 17px; margin-top: 0; margin-bottom: 12px; border-bottom: 1px solid #333846; padding-bottom: 8px;">
+                    헌터X헌터 8대 캐릭터 심리 원형 &amp; 분석 도감
+                </h2>
+                <p style="font-size: 13px; color: #94a3b8; margin: 0 0 12px 0;">
+                    본 캐릭터 매칭 테스트는 단순한 인기투표식 질문이 아니라, <strong>누메르 습지, 트릭 타워 다수결, 요크신 경매장, 키메라 앤트 궁전 돌입</strong> 등 원작 속 극한의 선택지를 통해 나의 내면적 가치관(원칙 vs 실리, 충동 vs 냉정, 개인 vs 동료)을 측정합니다.
+                </p>
+                <h3 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">8대 인물 성향 비교: 원칙 vs 실리, 본능 vs 통제</h3>
+                <p style="font-size: 12.5px; color: #cbd5e1; margin: 0 0 12px 0;">
+                    • <strong>순수 본능 &amp; 정면 돌파형 (곤·레오리오):</strong> 계산보다 마음속 신념과 의리를 앞세우며, 동료가 위기에 처하면 자신의 손해를 따지지 않고 몸을 던집니다.<br>
+                    • <strong>냉철한 생존 &amp; 통제형 (키르아·이르미):</strong> 감정에 휩쓸리기보다 성공 확률과 퇴로를 먼저 계산해 리스크를 차단합니다.<br>
+                    • <strong>원칙주의 &amp; 시스템 설계형 (크라피카·클로로):</strong> 치밀한 규칙과 제약으로 자신의 약점을 통제하고 조직이나 목표를 완성합니다.<br>
+                    • <strong>도전 자극 &amp; 진화형 (히소카·메르엠):</strong> 기존의 틀에 얽매이지 않고 강한 자극이나 지적인 성장을 통해 자신의 한계를 시험합니다.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;">
+                    <a href="/hxh/gon.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">곤 프릭스 도감 &rarr;</a>
+                    <a href="/hxh/killua.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">키르아 조르딕 도감 &rarr;</a>
+                    <a href="/hxh/kurapika.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">크라피카 도감 &rarr;</a>
+                    <a href="/hxh/leorio.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">레오리오 도감 &rarr;</a>
+                    <a href="/hxh/hisoka.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">히소카 모로 도감 &rarr;</a>
+                    <a href="/hxh/illumi.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">이르미 조르딕 도감 &rarr;</a>
+                    <a href="/hxh/chrollo.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">클로로 루실플루 도감 &rarr;</a>
+                    <a href="/hxh/meruem.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">메르엠 도감 &rarr;</a>
+                </div>
+                <h3 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">적응형 꼬리 질문(Adaptive Follow-up) 알고리즘 작동 원리</h3>
+                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
+                    본 테스트는 고정된 8문항만 기계적으로 묻지 않습니다. 수험생이 위기 상황에서 내린 첫 번째 선택(정면 돌파, 전략적 후퇴, 협상 및 규칙 설계, 심리적 도발 등)을 감지하여, 그 내면의 진짜 동기를 한 번 더 파고드는 <strong>맞춤형 꼬리 질문(Follow-up Question)</strong>을 실시간으로 큐(Queue)에 삽입합니다. 예를 들어 적의 도발에 침착하게 대응하는 선택지를 골랐더라도, 그것이 키르아식의 냉정한 승률 계산 때문인지, 크라피카식의 복수를 위한 인내 때문인지, 혹은 클로로식의 초연한 관망 때문인지를 2단계 분기 질문으로 정밀하게 구분해 냅니다. 결과 화면에서는 1위 매칭 캐릭터뿐만 아니라 내 안에 숨어 있는 2위·3위 잠재 성향 일치율(%)까지 함께 확인할 수 있습니다.
+                </p>
+                <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
+                    심층 분석 칼럼: <a href="/column/killua-socialized-t.html" style="color: #38bdf8; text-decoration: underline;">사회화된 T(키르아)는 야수의 F(곤)보다 따뜻하다</a> | <a href="/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">곤은 왜 '곤육몬'이 되었을까?</a> | <a href="/column/leadership.html" style="color: #a855f7; text-decoration: underline;">직장인 시선 4대 리더십 모델</a>
+                </p>
+            </section>
         </div>
 
         <!-- Quiz Screen -->
         <div id="screen-quiz" class="screen">
+            <div id="quiz-step-label" style="font-size:12px; font-weight:800; color:#ff3b30; letter-spacing:1px; margin-bottom:10px;">Q 01</div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
@@ -606,7 +704,8 @@
                     <div id="sub-match-list"></div>
                 </div>
                 
-                <button class="btn" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">결과 공유하기</button>
+                <a id="btn-dossier" href="/hxh/" class="btn" style="display:block; text-decoration:none; margin-bottom:12px;">이 캐릭터 상세 도감 보러가기 &rarr;</a>
+                <button class="btn" id="btn-share-ko" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">결과 공유하기</button>
                 
                 <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.1), rgba(139,92,246,0.08)); border:1px solid rgba(56,189,248,0.35); border-radius:12px; padding:14px 16px; margin:14px 0 18px; text-align:left;">
                     <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI 성격 유형 크로스 매칭</div>
@@ -637,60 +736,18 @@
             </div>
         </div>
         </main>
-        <footer style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
-            <div style="background: rgba(255, 59, 48, 0.08); border-left: 3px solid #ff3b30; padding: 13px 15px; border-radius: 8px; font-size: 13.5px; color: #ddd; text-align: left; line-height: 1.65; margin: 15px 0 20px;">
-                "불나방 곤, 팩폭러 키르아, 복수귀 크라피카, 현실적 의리파 레오리오, 그리고 도무지 속을 알 수 없는 히소카와 클로로까지...<br>
-                극한의 위기 상황에서 나는 어떤 인물과 가장 닮아 있을까요? 8가지 다면 질문으로 내 본능을 확인해 보세요."
-            </div>
-
-            <button class="btn btn-start" onclick="startTest()">캐릭터 테스트 시작하기</button>
-            
-            <a href="/nen/" class="other-test-link">넨(念) 계통 테스트 하러가기 &rarr;</a>
-            
-            <!-- 8대 캐릭터 행동 심리학 가이드 -->
-            <section style="margin-top: 32px; text-align: left; background: #1e2028; border: 1px solid #333846; border-radius: 14px; padding: 20px 18px; line-height: 1.8; color: #cbd5e1; width: 100%; box-sizing: border-box;">
-                <h3 style="color: #ff3b30; font-size: 17px; margin-top: 0; margin-bottom: 12px; border-bottom: 1px solid #333846; padding-bottom: 8px;">
-                    헌터X헌터 8대 캐릭터 심리 원형 &amp; 분석 도감
-                </h3>
-                <p style="font-size: 13px; color: #94a3b8; margin: 0 0 12px 0;">
-                    본 캐릭터 매칭 테스트는 단순한 인기투표식 질문이 아니라, <strong>누메르 습지, 트릭 타워 다수결, 요크신 경매장, 키메라 앤트 궁전 돌입</strong> 등 원작 속 극한의 선택지를 통해 나의 내면적 가치관(원칙 vs 실리, 충동 vs 냉정, 개인 vs 동료)을 측정합니다.
-                </p>
-                <h4 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">8대 인물 성향 비교: 원칙 vs 실리, 본능 vs 통제</h4>
-                <p style="font-size: 12.5px; color: #cbd5e1; margin: 0 0 12px 0;">
-                    • <strong>순수 본능 &amp; 정면 돌파형 (곤·레오리오):</strong> 계산보다 마음속 신념과 의리를 앞세우며, 동료가 위기에 처하면 자신의 손해를 따지지 않고 몸을 던집니다.<br>
-                    • <strong>냉철한 생존 &amp; 통제형 (키르아·이르미):</strong> 감정에 휩쓸리기보다 성공 확률과 퇴로를 먼저 계산해 리스크를 차단합니다.<br>
-                    • <strong>원칙주의 &amp; 시스템 설계형 (크라피카·클로로):</strong> 치밀한 규칙과 제약으로 자신의 약점을 통제하고 조직이나 목표를 완성합니다.<br>
-                    • <strong>도전 자극 &amp; 진화형 (히소카·메르엠):</strong> 기존의 틀에 얽매이지 않고 강한 자극이나 지적인 성장을 통해 자신의 한계를 시험합니다.
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;">
-                    <a href="/hxh/gon.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">곤 프릭스 도감 &rarr;</a>
-                    <a href="/hxh/killua.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">키르아 조르딕 도감 &rarr;</a>
-                    <a href="/hxh/kurapika.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">크라피카 도감 &rarr;</a>
-                    <a href="/hxh/leorio.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">레오리오 도감 &rarr;</a>
-                    <a href="/hxh/hisoka.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">히소카 모로 도감 &rarr;</a>
-                    <a href="/hxh/illumi.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">이르미 조르딕 도감 &rarr;</a>
-                    <a href="/hxh/chrollo.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">클로로 루실플루 도감 &rarr;</a>
-                    <a href="/hxh/meruem.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">메르엠 도감 &rarr;</a>
-                </div>
-                <h4 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">적응형 꼬리 질문(Adaptive Follow-up) 알고리즘 작동 원리</h4>
-                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
-                    본 테스트는 고정된 8문항만 기계적으로 묻지 않습니다. 수험생이 위기 상황에서 내린 첫 번째 선택(정면 돌파, 전략적 후퇴, 협상 및 규칙 설계, 심리적 도발 등)을 감지하여, 그 내면의 진짜 동기를 한 번 더 파고드는 <strong>맞춤형 꼬리 질문(Follow-up Question)</strong>을 실시간으로 큐(Queue)에 삽입합니다. 예를 들어 적의 도발에 침착하게 대응하는 선택지를 골랐더라도, 그것이 키르아식의 냉정한 승률 계산 때문인지, 크라피카식의 복수를 위한 인내 때문인지, 혹은 클로로식의 초연한 관망 때문인지를 2단계 분기 질문으로 정밀하게 구분해 냅니다. 결과 화면에서는 1위 매칭 캐릭터뿐만 아니라 내 안에 숨어 있는 2위·3위 잠재 성향 일치율(%)까지 함께 확인할 수 있습니다.
-                </p>
-                <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                    심층 분석 칼럼: <a href="/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">곤은 왜 '곤육몬'이 되었을까?</a> | <a href="/column/leadership.html" style="color: #a855f7; text-decoration: underline;">직장인 시선 4대 리더십 모델</a>
-                </p>
-            </section>
-            <div style="margin-top: 20px; font-size: 12px; color: #64748b; text-align: center;">
+        <footer style="margin-top: 24px; padding: 18px 16px 28px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
+            <div style="margin-bottom: 8px;">
                 <a href="/" style="color: #94a3b8; text-decoration: none;">홈</a> |
                 <a href="/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI 검사</a> |
-                <a href="/column/" style="color: #94a3b8; text-decoration: none;">심리 칼럼</a> |
+                <a href="/nen/" style="color: #94a3b8; text-decoration: none;">넨 테스트</a> |
+                <a href="/column/" style="color: #94a3b8; text-decoration: none;">칼럼</a> |
                 <a href="/about.html" style="color: #94a3b8; text-decoration: none;">소개</a> |
                 <a href="/contact.html" style="color: #94a3b8; text-decoration: none;">문의</a> | <a href="/privacy.html" style="color: #94a3b8; text-decoration: none;">개인정보처리방침</a> |
                 <a href="/terms.html" style="color: #94a3b8; text-decoration: none;">이용약관</a>
             </div>
-            <div style="margin-top: 8px; font-size: 13px; color: #666;">
-                &copy; 2026 TESTYOUR<br>
-                본 테스트는 팬심으로 제작된 비공식 심리테스트입니다.
+            <div style="margin-top: 6px; font-size: 12.5px; color: #666;">
+                &copy; 2026 TESTYOUR. All rights reserved.
             </div>
         </footer>
     </div>
@@ -1542,6 +1599,9 @@
 
         function renderQuestion() {
             const data = questionQueue[currentQuestionIndex];
+            const totalEst = Math.min(questionQueue.length, 10);
+            const stepEl = document.getElementById('quiz-step-label');
+            if (stepEl) stepEl.innerText = `Q ${String(currentQuestionIndex + 1).padStart(2, '0')} / ${totalEst}`;
             document.getElementById('question-text').innerText = data.question;
             
             const progressPercent = Math.min((currentQuestionIndex / 10) * 100, 100);
@@ -1629,6 +1689,11 @@
             document.getElementById('result-title').innerText = topChar.name;
             document.getElementById('result-image').src = topChar.image;
             document.getElementById('match-percent-top').innerText = '일치율 ' + topResults[0].pct + '%';
+            const dossierBtn = document.getElementById('btn-dossier');
+            if (dossierBtn) {
+                dossierBtn.href = '/hxh/' + topResults[0].key + '.html';
+                dossierBtn.innerText = topChar.name + ' 상세 도감 보러가기 →';
+            }
             
             // Detailed View
             document.getElementById('result-quote').innerHTML = topChar.quote;
@@ -1684,16 +1749,16 @@
                 if(topResults[i]) {
                     const c = characters[topResults[i].key];
                     subHtml += `
-                        <div class="sub-match-item">
-                            <img class="sub-match-img" src="${c.image}" alt="">
+                        <a href="/hxh/${topResults[i].key}.html" class="sub-match-item" style="text-decoration:none; color:inherit;">
+                            <img class="sub-match-img" src="${c.image}" alt="${c.name}">
                             <div class="sub-match-info">
-                                <div class="sub-match-name">${i+1}위: ${c.name}</div>
+                                <div class="sub-match-name">${i+1}위: ${c.name} (${c.nen})</div>
                                 <div class="sub-match-bar-wrap">
                                     <div class="sub-match-bar-bg"><div class="sub-match-bar-fill" style="width: ${topResults[i].pct}%"></div></div>
                                     <div class="sub-match-pct">${topResults[i].pct}%</div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     `;
                 }
             }
@@ -1718,7 +1783,12 @@
         function shareResult() {
             const url = window.location.href.split('?')[0] + '?result=' + window.currentResultKey;
             copyShareUrl(url);
-            alert("결과 링크가 클립보드에 복사되었습니다!\n원하는 곳에 붙여넣어 친구들에게 공유해 보세요.");
+            const btn = document.getElementById('btn-share-ko');
+            if (btn) {
+                const orig = btn.innerText;
+                btn.innerText = '결과 링크가 복사되었습니다!';
+                setTimeout(() => { btn.innerText = orig; }, 2200);
+            }
         }
 
         
