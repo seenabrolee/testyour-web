@@ -15,15 +15,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나와 가장 닮은 헌터X헌터 캐릭터는? | TESTYOUR</title>
-    <meta name="description" content="헌터X헌터 8대 주역(곤 프릭스, 키르아, 크라피카, 레오리오, 히소카, 이르미, 클로로, 메르엠) 중 나와 가장 닮은 캐릭터는 누구일까? 원작 속 극한의 선택과 행동 심리학으로 알아보는 정밀 캐릭터 매칭 테스트.">
+    <title>나와 가장 닮은 헌터X헌터 캐릭터는? (16인 캐릭터 &amp; MBTI) | TESTYOUR</title>
+    <meta name="description" content="헌터X헌터 인기 캐릭터 16인(곤, 키르아, 페이탄, 마치, 아르카, 샤르나크, 크라피카, 레오리오, 히소카, 이르미, 클로로, 메르엠, 비스케, 네페르피트, 파쿠노다, 샤우아푸프) 중 나와 가장 닮은 인물은 누구일까? 원작 시나리오 속 선택으로 캐릭터와 MBTI 인지 성향을 함께 알아보세요.">
     <link rel="canonical" href="https://testyour.uk/hxh/">
     <link rel="alternate" hreflang="ko" href="https://testyour.uk/hxh/">
     <link rel="alternate" hreflang="en" href="https://testyour.uk/en/hxh/">
     <link rel="alternate" hreflang="x-default" href="https://testyour.uk/en/hxh/">
     
-    <meta property="og:title" content="나와 가장 닮은 헌터X헌터 캐릭터는?">
-    <meta property="og:description" content="성격 테스트로 알아보는 나의 헌터X헌터 캐릭터! 곤? 키르아? 히소카? 지금 바로 확인해보세요!">
+    <meta property="og:title" content="나와 가장 닮은 헌터X헌터 캐릭터는? (16인 + MBTI)">
+    <meta property="og:description" content="원작 시나리오 14문항으로 알아보는 나의 헌터X헌터 16인 캐릭터 매칭과 MBTI 인지기능 분석! 지금 바로 확인해보세요.">
     <meta property="og:url" content="https://testyour.uk/hxh/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://testyour.uk/images/og-main.png">
@@ -566,6 +566,36 @@
             min-height: 80px;
             resize: vertical;
         }
+        .axis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0 12px;
+        }
+        .axis-pill {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 8px;
+            padding: 7px 9px;
+        }
+        .axis-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+        .axis-track {
+            height: 5px;
+            border-radius: 3px;
+            background: #1e293b;
+            overflow: hidden;
+        }
+        .axis-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+        }
     </style>
     <script src="/lang-banner.js" defer></script>
     <!-- Favicon -->
@@ -581,8 +611,8 @@
             <a href="/" class="logo" style="display:inline-flex; align-items:center; gap:7px;"><img src="/images/brand-mark.svg" alt="TESTYOUR 로고" width="21" height="21" style="border-radius:5px; flex-shrink:0;">TESTYOUR</a>
             <nav class="header-nav-links" aria-label="주 메뉴">
                 <a href="/column/" style="color:#38bdf8;">칼럼</a>
-                <a href="/mbti/">MBTI</a>
                 <a href="/nen/">넨</a>
+                <a href="/about.html">소개</a>
                 <a href="/contact.html">문의</a>
             </nav>
             <div class="lang-switch">
@@ -598,11 +628,11 @@
             <h2 style="font-size: 18px; color: #ccc; font-weight: 400; margin-bottom: 20px;">나와 가장 닮은<br>헌터X헌터 캐릭터는?</h2>
             
             <div style="background: rgba(255, 59, 48, 0.08); border-left: 3px solid #ff3b30; padding: 13px 15px; border-radius: 8px; font-size: 13.5px; color: #ddd; text-align: left; line-height: 1.65; margin: 0 0 18px; width: 100%;">
-                "불나방 곤, 팩폭러 키르아, 복수귀 크라피카, 현실적 의리파 레오리오, 그리고 속을 알 수 없는 히소카와 클로로까지...<br>
-                극한의 위기 상황에서 나는 어떤 인물과 가장 닮아 있을까요? 원작 시나리오 8~10문항으로 내 성향을 확인해 보세요."
+                "곤·키르아·크라피카·레오리오는 물론 환영여단 페이탄·마치·샤르나크·파쿠노다, 조르딕가 아르카·이르미, 개미편 메르엠·피트·프후·비스케까지!<br>
+                원작 시나리오 14문항 속 선택으로 내 성향과 숨은 MBTI 인지기능까지 한 번에 확인해 보세요."
             </div>
 
-            <button class="btn btn-start" style="margin-top: 0; margin-bottom: 22px;" onclick="startTest()">캐릭터 테스트 시작하기 &rarr;</button>
+            <button class="btn btn-start" style="margin-top: 0; margin-bottom: 22px;" onclick="startTest()">16인 캐릭터 테스트 시작하기 &rarr;</button>
 
             <!-- Character Pool Box on Start Screen -->
             <div class="pool-box">
@@ -610,10 +640,10 @@
                     <div class="pool-title">
                         <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>
                         <span>등장 캐릭터 풀</span>
-                        <span style="font-size: 12px; color: #aaa; font-weight: normal;">(총 8명)</span>
+                        <span style="font-size: 12px; color: #aaa; font-weight: normal;">(총 16명 · MBTI 16유형)</span>
                     </div>
                     <button type="button" class="pool-modal-btn" onclick="openPoolModal()">
-                        <span class="svg-icon" style="margin-right:3px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>상세 도감 보기
+                        <span class="svg-icon" style="margin-right:3px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>전체 도감 보기
                     </button>
                 </div>
                 <div class="pool-grid" id="pool-grid-start">
@@ -621,26 +651,26 @@
                 </div>
                 <div class="pool-notice">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ff3b30" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    <div>원하는 캐릭터가 없나요? <strong>먼저 테스트를 진행한 후</strong> 결과 화면에서 개발자에게 캐릭터 추가를 요청할 수 있습니다!</div>
+                    <div>얼굴을 눌러 16인 프로필을 미리 보거나, 테스트 완료 후 결과 화면에서 내 <strong>MBTI 상세 분석</strong>까지 바로 확인할 수 있습니다.</div>
                 </div>
             </div>
 
             <a href="/nen/" class="other-test-link" style="width:100%;">넨(念) 계통 테스트 하러가기 &rarr;</a>
 
-            <!-- 8대 캐릭터 행동 심리학 가이드 -->
+            <!-- 16인 캐릭터 & MBTI 심리 가이드 -->
             <section style="margin-top: 28px; text-align: left; background: #1e2028; border: 1px solid #333846; border-radius: 14px; padding: 20px 18px; line-height: 1.8; color: #cbd5e1; width: 100%; box-sizing: border-box;">
                 <h2 style="color: #ff3b30; font-size: 17px; margin-top: 0; margin-bottom: 12px; border-bottom: 1px solid #333846; padding-bottom: 8px;">
-                    헌터X헌터 8대 캐릭터 심리 원형 &amp; 분석 도감
+                    헌터X헌터 16인 캐릭터 &amp; MBTI 16유형 통합 가이드
                 </h2>
                 <p style="font-size: 13px; color: #94a3b8; margin: 0 0 12px 0;">
-                    본 캐릭터 매칭 테스트는 단순한 인기투표식 질문이 아니라, <strong>누메르 습지, 트릭 타워 다수결, 요크신 경매장, 키메라 앤트 궁전 돌입</strong> 등 원작 속 극한의 선택지를 통해 나의 내면적 가치관(원칙 vs 실리, 충동 vs 냉정, 개인 vs 동료)을 측정합니다.
+                    본 테스트는 <strong>헌터 시험장·누메르 습지·요크신 경매장·그리드 아일랜드·키메라 앤트 궁전</strong>의 극한 딜레마 속에 MBTI 4가지 인지 축(외향/내향, 감각/직관, 사고/감정, 판단/인식)을 자연스럽게 녹여 16명 중 나와 가장 가까운 인물과 MBTI 유형을 동시에 매칭합니다.
                 </p>
-                <h3 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">8대 인물 성향 비교: 원칙 vs 실리, 본능 vs 통제</h3>
+                <h3 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">4대 기질군별 16인 캐릭터 배치</h3>
                 <p style="font-size: 12.5px; color: #cbd5e1; margin: 0 0 12px 0;">
-                    • <strong>순수 본능 &amp; 정면 돌파형 (곤·레오리오):</strong> 계산보다 마음속 신념과 의리를 앞세우며, 동료가 위기에 처하면 자신의 손해를 따지지 않고 몸을 던집니다.<br>
-                    • <strong>냉철한 생존 &amp; 통제형 (키르아·이르미):</strong> 감정에 휩쓸리기보다 성공 확률과 퇴로를 먼저 계산해 리스크를 차단합니다.<br>
-                    • <strong>원칙주의 &amp; 시스템 설계형 (크라피카·클로로):</strong> 치밀한 규칙과 제약으로 자신의 약점을 통제하고 조직이나 목표를 완성합니다.<br>
-                    • <strong>도전 자극 &amp; 진화형 (히소카·메르엠):</strong> 기존의 틀에 얽매이지 않고 강한 자극이나 지적인 성장을 통해 자신의 한계를 시험합니다.
+                    • <strong>분석·전략가형 (NT):</strong> 크라피카(INTJ) · 키르아(INTP) · 메르엠(ENTJ) · 샤르나크(ENTP)<br>
+                    • <strong>이념·공감가형 (NF):</strong> 클로로(INFJ) · 아르카(INFP) · 샤우아푸프(ENFJ) · 네페르피트(ENFP)<br>
+                    • <strong>규율·책임형 (SJ):</strong> 이르미(ISTJ) · 파쿠노다(ISFJ) · 비스케(ESTJ) · 레오리오(ESFJ)<br>
+                    • <strong>현장·본능형 (SP):</strong> 페이탄(ISTP) · 마치(ISFP) · 히소카(ESTP) · 곤(ESFP)
                 </p>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;">
                     <a href="/hxh/gon.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">곤 프릭스 도감 &rarr;</a>
@@ -652,10 +682,6 @@
                     <a href="/hxh/chrollo.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">클로로 루실플루 도감 &rarr;</a>
                     <a href="/hxh/meruem.html" style="background: #14161d; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12.5px; font-weight: bold;">메르엠 도감 &rarr;</a>
                 </div>
-                <h3 style="color: #ff6b6b; font-size: 14px; margin: 14px 0 6px 0;">적응형 꼬리 질문(Adaptive Follow-up) 알고리즘 작동 원리</h3>
-                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
-                    본 테스트는 고정된 8문항만 기계적으로 묻지 않습니다. 수험생이 위기 상황에서 내린 첫 번째 선택(정면 돌파, 전략적 후퇴, 협상 및 규칙 설계, 심리적 도발 등)을 감지하여, 그 내면의 진짜 동기를 한 번 더 파고드는 <strong>맞춤형 꼬리 질문(Follow-up Question)</strong>을 실시간으로 큐(Queue)에 삽입합니다. 예를 들어 적의 도발에 침착하게 대응하는 선택지를 골랐더라도, 그것이 키르아식의 냉정한 승률 계산 때문인지, 크라피카식의 복수를 위한 인내 때문인지, 혹은 클로로식의 초연한 관망 때문인지를 2단계 분기 질문으로 정밀하게 구분해 냅니다. 결과 화면에서는 1위 매칭 캐릭터뿐만 아니라 내 안에 숨어 있는 2위·3위 잠재 성향 일치율(%)까지 함께 확인할 수 있습니다.
-                </p>
                 <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
                     심층 분석 칼럼: <a href="/column/killua-socialized-t.html" style="color: #38bdf8; text-decoration: underline;">사회화된 T(키르아)는 야수의 F(곤)보다 따뜻하다</a> | <a href="/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">곤은 왜 '곤육몬'이 되었을까?</a> | <a href="/column/leadership.html" style="color: #a855f7; text-decoration: underline;">직장인 시선 4대 리더십 모델</a>
                 </p>
@@ -664,7 +690,7 @@
 
         <!-- Quiz Screen -->
         <div id="screen-quiz" class="screen">
-            <div id="quiz-step-label" style="font-size:12px; font-weight:800; color:#ff3b30; letter-spacing:1px; margin-bottom:10px;">Q 01</div>
+            <div id="quiz-step-label" style="font-size:12px; font-weight:800; color:#ff3b30; letter-spacing:1px; margin-bottom:10px;">Q 01 / 14</div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
@@ -677,7 +703,7 @@
             <div style="margin-top: 100px;">
                 <div class="loader"></div>
                 <h2 style="color: #ff3b30;">당신의 성향을 분석 중...</h2>
-                <p style="color: #aaa; margin-top: 15px;">헌터 시험 합격 여부를 판정하고 있습니다.</p>
+                <p style="color: #aaa; margin-top: 15px;">캐릭터 공명도 및 MBTI 인지기능 축을 계산하고 있습니다.</p>
             </div>
         </div>
 
@@ -694,25 +720,26 @@
                 <div class="quote-box" id="result-quote"></div>
                 <div style="text-align:center"><span class="nen-tag" id="result-nen"></span></div>
                 
-                <div class="result-desc" style="margin-bottom: 20px;">
+                <div class="result-desc" style="margin-bottom: 16px;">
                     <div id="result-stats" style="margin-bottom:20px; border-bottom: 1px solid #444; padding-bottom: 15px;"></div>
                     <div id="result-desc-text"></div>
                 </div>
+
+                <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.12), rgba(139,92,246,0.09)); border:1px solid rgba(56,189,248,0.4); border-radius:12px; padding:15px 16px; margin:0 0 18px; text-align:left;">
+                    <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI 인지기능 크로스 매칭</div>
+                    <div id="res-mbti-title" style="font-size:15.5px; font-weight:800; color:#fff; margin-bottom:4px;"></div>
+                    <p id="res-mbti-desc" style="font-size:12.5px; color:#cbd5e1; margin:0 0 8px; line-height:1.55;"></p>
+                    <div id="res-mbti-axes" class="axis-grid"></div>
+                    <a id="res-mbti-link" href="/mbti/" style="display:inline-block; font-size:12.5px; font-weight:800; color:#0f172a; background:#38bdf8; padding:8px 14px; border-radius:7px; text-decoration:none;">매칭 MBTI 상세 백과사전 보기 &rarr;</a>
+                </div>
                 
                 <div class="sub-match">
-                    <div class="sub-match-title">당신과 비슷한 또 다른 캐릭터는...</div>
+                    <div class="sub-match-title">당신과 비슷한 또 다른 캐릭터 (눌러서 보기)</div>
                     <div id="sub-match-list"></div>
                 </div>
                 
                 <a id="btn-dossier" href="/hxh/" class="btn" style="display:block; text-decoration:none; margin-bottom:12px;">이 캐릭터 상세 도감 보러가기 &rarr;</a>
                 <button class="btn" id="btn-share-ko" onclick="shareResult()" style="background-color: #fae100; color: #3b1e1e;">결과 공유하기</button>
-                
-                <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.1), rgba(139,92,246,0.08)); border:1px solid rgba(56,189,248,0.35); border-radius:12px; padding:14px 16px; margin:14px 0 18px; text-align:left;">
-                    <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI 성격 유형 크로스 매칭</div>
-                    <div id="res-mbti-title" style="font-size:15px; font-weight:800; color:#fff; margin-bottom:4px;"></div>
-                    <p id="res-mbti-desc" style="font-size:12.5px; color:#cbd5e1; margin:0 0 10px; line-height:1.55;"></p>
-                    <a id="res-mbti-link" href="/mbti/" style="display:inline-block; font-size:12px; font-weight:700; color:#0f172a; background:#38bdf8; padding:6px 12px; border-radius:7px; text-decoration:none;">매칭 MBTI 상세 백과사전 보기 &rarr;</a>
-                </div>
 
                 <button class="btn btn-outline" onclick="restartTest()">테스트 다시하기</button>
                 <a href="/nen/" class="other-test-link">넨(念) 계통 테스트도 해보기 &rarr;</a>
@@ -726,7 +753,7 @@
                         <span class="char-request-title">원하는 캐릭터가 없으신가요?</span>
                     </div>
                     <p class="char-request-desc">
-                        테스트를 완료하셨군요! <strong>네테로, 비스케, 페이탄, 모라우</strong> 등 추가되기를 바라는 헌터X헌터 캐릭터를 알려주시면 검토 후 다음 업데이트에 우선 추가해 드립니다.
+                        테스트를 완료하셨군요! <strong>네테로 회장, 카이토, 진 프릭스, 모라우</strong> 등 추가로 보고 싶은 캐릭터를 알려주시면 다음 업데이트에 반영해 드립니다.
                     </p>
                     <button class="btn-request" onclick="openRequestModal()">
                         <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
@@ -739,7 +766,6 @@
         <footer style="margin-top: 24px; padding: 18px 16px 28px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
             <div style="margin-bottom: 8px;">
                 <a href="/" style="color: #94a3b8; text-decoration: none;">홈</a> |
-                <a href="/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI 검사</a> |
                 <a href="/nen/" style="color: #94a3b8; text-decoration: none;">넨 테스트</a> |
                 <a href="/column/" style="color: #94a3b8; text-decoration: none;">칼럼</a> |
                 <a href="/about.html" style="color: #94a3b8; text-decoration: none;">소개</a> |
@@ -770,748 +796,291 @@
 
     <script>
         
+        const HAS_DOSSIER = new Set(['gon', 'killua', 'kurapika', 'leorio', 'hisoka', 'illumi', 'chrollo', 'meruem']);
+
         const characters = {
-            gon: { 
-                name: '곤 프릭스', 
+            gon: {
+                name: '곤 프릭스',
                 quote: '<span>"</span>내 동료를 상처 입히는 녀석은 절대 용서 못해!<span>"</span>',
-                nen: '강화계',
-                stats: { strength: 95, intelligence: 40, agility: 85, potential: 100 },
-                image: '/hxh/images/gon.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 꺾이지 않는 고집과 순수함<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 짐승 같은 직감과 호기심이 엄청납니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파! 때로는 그 순수함과 고집 때문에 주변 사람들이 혀를 내두르지만, 결국 모두가 당신을 응원하게 만드는 마성의 매력이 있습니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 키르아 조르딕<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 이르미 조르딕' 
+                nen: '강화계', nenSlug: 'enhancement',
+                stats: { strength: 95, intelligence: 45, agility: 85, potential: 100 },
+                image: '/hxh/images/gon.jpg',
+                description: '<strong>성향:</strong> 꺾이지 않는 고집과 순수함<br><strong>특징:</strong> 짐승 같은 직감과 호기심이 넘칩니다. 한번 목표를 정하면 앞뒤 재지 않고 달려가는 직진파이며, 솔직한 순수함 덕분에 주변 사람들이 결국 당신을 믿고 따르게 됩니다.<br><br><strong>환상의 짝꿍:</strong> 키르아 조르딕<br><strong>환장의 짝꿍:</strong> 이르미 조르딕'
             },
-            killua: { 
-                name: '키르아 조르딕', 
+            killua: {
+                name: '키르아 조르딕',
                 quote: '<span>"</span>내가 누군지 잊었어? 난 원래 암살자야.<span>"</span>',
-                nen: '변화계',
-                stats: { strength: 75, intelligence: 90, agility: 95, potential: 90 },
-                image: '/hxh/images/killua.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 차가운 머리, 따뜻한 심장<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 평소엔 변덕스럽고 까칠해 보이지만, 내 사람이라고 생각한 상대에게는 한없이 따뜻하고 모든 것을 다 바치는 츤데레입니다. 머리가 비상하고 상황 판단력이 빨라 그룹 내에서 브레인 역할을 톡톡히 해냅니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 곤 프릭스<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 이르미 조르딕' 
+                nen: '변화계', nenSlug: 'transmutation',
+                stats: { strength: 80, intelligence: 94, agility: 98, potential: 94 },
+                image: '/hxh/images/killua.jpg',
+                description: '<strong>성향:</strong> 냉철한 시뮬레이션, 묵묵한 헌신<br><strong>특징:</strong> 평소엔 시니컬하고 한발 물러나 판의 변수를 끝없이 계산하지만, 내가 직접 고른 소수의 사람 앞에서는 스스로의 속박까지 뜯어내고 곁을 지키는 속정 깊은 전술가입니다.<br><br><strong>환상의 짝꿍:</strong> 곤 프릭스 · 아르카<br><strong>환장의 짝꿍:</strong> 이르미 조르딕'
             },
-            kurapika: { 
-                name: '크라피카', 
+            kurapika: {
+                name: '크라피카',
                 quote: '<span>"</span>복수를 이룰 수 있다면 내 목숨 따위는 안중에도 없다.<span>"</span>',
-                nen: '구현화계 (특질계)',
-                stats: { strength: 70, intelligence: 95, agility: 80, potential: 85 },
-                image: '/hxh/images/kurapika.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 냉철한 이성과 완벽주의<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 평소에는 누구보다 지적이고 냉철하지만, 자신의 신념이나 소중한 것(동료)이 위협받으면 물불을 가리지 않는 뜨거운 분노를 보여줍니다. 혼자서 모든 것을 짊어지려는 경향이 있어 가끔은 주변에 기대는 것도 필요합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 레오리오<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 환영여단 전원' 
+                nen: '구현화계 (특질계)', nenSlug: 'conjuration',
+                stats: { strength: 75, intelligence: 96, agility: 82, potential: 88 },
+                image: '/hxh/images/kurapika.jpg',
+                description: '<strong>성향:</strong> 냉철한 이성과 완벽주의<br><strong>특징:</strong> 평소에는 누구보다 지적이고 논리적이지만, 자신의 신념이나 소중한 원칙이 침범당하면 스스로에게 가혹한 제약까지 걸어 끝장을 보는 집념가입니다.<br><br><strong>환상의 짝꿍:</strong> 레오리오<br><strong>환장의 짝꿍:</strong> 환영여단 전원'
             },
-            leorio: { 
-                name: '레오리오', 
+            leorio: {
+                name: '레오리오',
                 quote: '<span>"</span>겉모습으로 사람 판단하지 마라! 난 진짜 의리파라고!<span>"</span>',
-                nen: '방출계',
-                stats: { strength: 80, intelligence: 75, agility: 70, potential: 75 },
-                image: '/hxh/images/leorio.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 의리와 정이 넘치는 행동파<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 다혈질이고 돈이나 물질적인 것을 밝히는 것처럼 보이지만, 사실 누구보다 정이 많고 따뜻한 마음을 가진 진짜 의리파입니다! 겉으로는 투덜대면서도 친구가 위험할 땐 가장 먼저 주먹을 쥐고 나서는 타입입니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 크라피카<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 히소카' 
+                nen: '방출계', nenSlug: 'emission',
+                stats: { strength: 78, intelligence: 76, agility: 72, potential: 78 },
+                image: '/hxh/images/leorio.jpg',
+                description: '<strong>성향:</strong> 의리와 정이 넘치는 행동파<br><strong>특징:</strong> 다혈질이고 현실적인 실리도 챙길 줄 알지만, 누구보다 사람 냄새 나고 친구가 위기에 처하면 주먹부터 쥐고 나서는 든든한 인간미의 소유자입니다.<br><br><strong>환상의 짝꿍:</strong> 크라피카<br><strong>환장의 짝꿍:</strong> 히소카'
             },
-            hisoka: { 
-                name: '히소카', 
+            hisoka: {
+                name: '히소카 모로',
                 quote: '<span>"</span>더... 더 재밌게 해줘! 부숴버리고 싶게 말이야.♣<span>"</span>',
-                nen: '변화계',
-                stats: { strength: 90, intelligence: 90, agility: 90, potential: 80 },
-                image: '/hxh/images/hisoka.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 아드레날린 중독 마이웨이<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 속을 알 수 없는 완벽한 마이페이스! 남들의 시선이나 사회적 규칙보다는 오직 "내가 흥미로운가?"가 판단의 유일한 기준입니다. 강한 상대를 만나거나 어려운 도전을 할 때 오히려 짜릿함을 느끼는 타입입니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 곤 프릭스 (미래의 강자)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 약하고 재미없는 상대' 
+                nen: '변화계', nenSlug: 'transmutation',
+                stats: { strength: 92, intelligence: 90, agility: 92, potential: 85 },
+                image: '/hxh/images/hisoka.jpg',
+                description: '<strong>성향:</strong> 아드레날린 중독 마이웨이<br><strong>특징:</strong> 남들의 시선이나 고정된 규칙보다 "지금 나에게 짜릿한가?"가 판단 기준입니다. 예측 불가능한 심리전과 높은 몰입감으로 판을 뒤흔드는 승부사입니다.<br><br><strong>환상의 짝꿍:</strong> 강자와의 대결<br><strong>환장의 짝꿍:</strong> 시시하고 재미없는 상대'
             },
-            illumi: { 
-                name: '이르미 조르딕', 
+            illumi: {
+                name: '이르미 조르딕',
                 quote: '<span>"</span>넌 친구 같은 거 필요 없어. 나만 있으면 돼.<span>"</span>',
-                nen: '조작계',
-                stats: { strength: 85, intelligence: 85, agility: 90, potential: 75 },
-                image: '/hxh/images/illumi.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 뒤틀린 애정과 통제광<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 자신만의 논리와 룰이 확고하며, 그 안에서 모든 것이 통제되기를 원합니다. 타인(특히 가족이나 아끼는 사람)을 위한다는 명목 하에 과도하게 간섭하거나 조종하려는 경향이 있습니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 히소카 (서로 이용)<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 통제 불가능한 키르아' 
+                nen: '조작계', nenSlug: 'manipulation',
+                stats: { strength: 86, intelligence: 88, agility: 90, potential: 76 },
+                image: '/hxh/images/illumi.jpg',
+                description: '<strong>성향:</strong> 철저한 규율과 통제형 리스크 관리<br><strong>특징:</strong> 감상이나 추측 대신 검증된 선례와 냉정한 규칙으로 움직입니다. 모든 변수를 내 예측 범위 안에 묶어두려 하며, 실무에서 빈틈이 거의 없는 원칙주의자입니다.<br><br><strong>환상의 짝꿍:</strong> 히소카 (상호 이용)<br><strong>환장의 짝꿍:</strong> 통제를 벗어난 변수'
             },
-            chrollo: { 
-                name: '클로로 루실플루', 
+            chrollo: {
+                name: '클로로 루실플루',
                 quote: '<span>"</span>우리는 거미다. 머리가 죽어도 거미는 움직인다.<span>"</span>',
-                nen: '특질계',
-                stats: { strength: 85, intelligence: 100, agility: 90, potential: 90 },
-                image: '/hxh/images/chrollo.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 압도적 카리스마의 리더<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 속을 알 수 없는 미스터리함과 치명적인 카리스마로 사람들을 매료시킵니다. 평소에는 조용히 독서를 즐기는 차분한 성격이지만, 집단을 이끌 때는 무자비할 정도로 철저한 리더십을 보여줍니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 환영여단 멤버 전원<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 크라피카 (천적)' 
+                nen: '특질계', nenSlug: 'specialization',
+                stats: { strength: 88, intelligence: 100, agility: 90, potential: 90 },
+                image: '/hxh/images/chrollo.jpg',
+                description: '<strong>성향:</strong> 초연한 카리스마의 시스템 설계자<br><strong>특징:</strong> 차분하게 독서와 사유를 즐기다가도 판을 설계할 때는 누구보다 대담합니다. 개성 강한 이들을 하나의 서사 아래 묶어내는 미스터리한 통찰력이 강점입니다.<br><br><strong>환상의 짝꿍:</strong> 환영여단 멤버 전원<br><strong>환장의 짝꿍:</strong> 크라피카'
             },
-            meruem: { 
-                name: '메르엠', 
+            meruem: {
+                name: '메르엠',
                 quote: '<span>"</span>짐은 대체 무엇을 위해 태어난 것인가...<span>"</span>',
-                nen: "방출계 '극'(공식) / 특질계 해석",
+                nen: "방출계 '극'(공식) / 특질계 해석", nenSlug: 'emission',
                 stats: { strength: 100, intelligence: 100, agility: 100, potential: 100 },
-                image: '/hxh/images/meruem.jpg', 
-                description: '<strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>성향:</strong> 압도적인 천재성과 순정<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b30"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>특징:</strong> 태어날 때부터 남들보다 우월한 재능과 자존심을 가지고 있습니다. 세상 무서울 것 없는 오만한 성격이지만, 자신이 진정으로 존경하거나 사랑하는 단 한 사람에게는 모든 것을 내어주는 순정파이기도 합니다.<br><br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="#ff3b8d"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>환상의 짝꿍:</strong> 코무기<br><strong><span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>환장의 짝꿍:</strong> 네테로 회장' 
+                image: '/hxh/images/meruem.jpg',
+                description: '<strong>성향:</strong> 압도적인 학습력과 군주의 성장<br><strong>특징:</strong> 높은 기준과 거침없는 실행력으로 정점에 오르지만, 자신만의 영역에서 경지에 도달한 진짜 고수를 만나면 편견을 버리고 본질을 배우는 거물 기질입니다.<br><br><strong>환상의 짝꿍:</strong> 코무기<br><strong>환장의 짝꿍:</strong> 아이작 네테로'
+            },
+            feitan: {
+                name: '페이탄 포르토',
+                quote: '<span>"</span>이제 몸 좀 풀렸어. 얼마나 버틸지 보여줘.<span>"</span>',
+                nen: '변화계', nenSlug: 'transmutation',
+                stats: { strength: 90, intelligence: 82, agility: 96, potential: 85 },
+                image: '/hxh/images/feitan.jpg',
+                description: '<strong>성향:</strong> 군더더기 없는 실전파 스페셜리스트<br><strong>특징:</strong> 쓸데없는 수다나 사교를 싫어하고 철저히 과묵하지만, 현장이 열리면 가장 빠르고 날카롭게 결과로 말합니다. 한 번 선을 넘은 상대에게는 당한 만큼 고스란히 되돌려주는 타입입니다.<br><br><strong>환상의 짝꿍:</strong> 환영여단 전투조 (핑크스)<br><strong>환장의 짝꿍:</strong> 말만 많은 타입'
+            },
+            machi: {
+                name: '마치 코마치네',
+                quote: '<span>"</span>서두르는 봉합은 추가 요금이야. 헛소리 마.<span>"</span>',
+                nen: '변화계', nenSlug: 'transmutation',
+                stats: { strength: 78, intelligence: 84, agility: 88, potential: 82 },
+                image: '/hxh/images/machi.jpg',
+                description: '<strong>성향:</strong> 예리한 직감과 쿨한 독립심<br><strong>특징:</strong> 겉으로는 차갑고 직설적이지만 내 사람이라고 여기는 동료의 안위는 묵묵히 챙깁니다. 말보다 실제 손끝 감각과 설명하기 힘든 날카로운 육감을 믿는 쿨한 실력자입니다.<br><br><strong>환상의 짝꿍:</strong> 환영여단 동료들<br><strong>환장의 짝꿍:</strong> 선 넘는 집착가'
+            },
+            alluka: {
+                name: '아르카 조르딕 (나니카)',
+                quote: '<span>"</span>오빠는 우리 둘 다 지켜줬어. 그걸로 충분해.<span>"</span>',
+                nen: '특질계', nenSlug: 'specialization',
+                stats: { strength: 40, intelligence: 72, agility: 60, potential: 100 },
+                image: '/hxh/images/alluka.jpg',
+                description: '<strong>성향:</strong> 순수한 마음속 깊은 우주<br><strong>특징:</strong> 다정하고 순수한 내면 덕분에 거짓 없는 진심을 금세 알아봅니다. 평소엔 유순하고 조용하지만, 내면에는 누구도 함부로 가늠할 수 없는 거대한 상상력과 깊은 감정의 힘이 자리하고 있습니다.<br><br><strong>환상의 짝꿍:</strong> 키르아 조르딕<br><strong>환장의 짝꿍:</strong> 계산으로 이용하려는 가족'
+            },
+            shalnark: {
+                name: '샤르나크',
+                quote: '<span>"</span>복잡해 보여도 잘 뜯어보면 늘 재밌는 규칙이 숨어 있거든!<span>"</span>',
+                nen: '조작계', nenSlug: 'manipulation',
+                stats: { strength: 76, intelligence: 93, agility: 82, potential: 80 },
+                image: '/hxh/images/shalnark.jpg',
+                description: '<strong>성향:</strong> 웃는 얼굴의 정보 브레인<br><strong>특징:</strong> 언제나 환하고 친근한 분위기 메이커지만 머릿속에서는 누구보다 빠르게 판을 해체하고 변칙 수단을 돌려봅니다. 호기심이 많고 위기에서도 게임처럼 해법을 찾아내는 재치가 뛰어납니다.<br><br><strong>환상의 짝꿍:</strong> 클로로 · 우보긴<br><strong>환장의 짝꿍:</strong> 답답한 고정관념'
+            },
+            bisky: {
+                name: '비스케 크루거',
+                quote: '<span>"</span>지름길은 없어! 지루한 기본기부터 완벽하게 다져.<span>"</span>',
+                nen: '변화계', nenSlug: 'transmutation',
+                stats: { strength: 94, intelligence: 88, agility: 86, potential: 84 },
+                image: '/hxh/images/bisky.jpg',
+                description: '<strong>성향:</strong> 겉과 속이 단단한 카리스마 스승<br><strong>특징:</strong> 상황 판단과 사람 보는 눈이 기가 막힙니다. 겉으론 유쾌하게 넘겨도 기준에 못 미치면 가차 없이 뼈 때리는 조언을 날리며, 후배의 숨은 잠재력을 끝까지 끌어올려 주는 든든한 실행가입니다.<br><br><strong>환상의 짝꿍:</strong> 가능성 있는 원석(곤·키르아)<br><strong>환장의 짝꿍:</strong> 게으른 요령꾼'
+            },
+            pitou: {
+                name: '네페르피트',
+                quote: '<span>"</span>우와, 재밌어 보인다! 지금 당장 시험해 봐야지♪<span>"</span>',
+                nen: '특질계', nenSlug: 'specialization',
+                stats: { strength: 96, intelligence: 86, agility: 98, potential: 95 },
+                image: '/hxh/images/pitou.jpg',
+                description: '<strong>성향:</strong> 순수한 호기심과 소름 돋는 몰입력<br><strong>특징:</strong> 흥미로운 대상을 발견하면 눈을 반짝이며 경계를 넘어 탐구합니다. 평소엔 자유분방하고 장난기 넘치다가도, 자신이 진심으로 충성하거나 아끼기로 정한 존재를 지킬 때는 전력을 다해 변모합니다.<br><br><strong>환상의 짝꿍:</strong> 왕(메르엠)<br><strong>환장의 짝꿍:</strong> 왕을 위협하는 적'
+            },
+            pakunoda: {
+                name: '파쿠노다',
+                quote: '<span>"</span>내 기억을 받아줘. 내가 대가를 치르더라도 함께 나아가.<span>"</span>',
+                nen: '특질계', nenSlug: 'specialization',
+                stats: { strength: 72, intelligence: 89, agility: 78, potential: 80 },
+                image: '/hxh/images/pakunoda.jpg',
+                description: '<strong>성향:</strong> 공동체의 기억을 지키는 침묵의 수호자<br><strong>특징:</strong> 말수가 많지 않지만 사람 사이의 미묘한 진심과 기억을 누구보다 오래 간직합니다. 조직이 흔들리는 결정적 순간, 계산보다 소중한 인연을 지키기 위해 가장 무거운 희생을 조용히 감당하는 타입입니다.<br><br><strong>환상의 짝꿍:</strong> 클로로 · 여단 원년 멤버<br><strong>환장의 짝꿍:</strong> 신뢰를 배신하는 밀고자'
+            },
+            pouf: {
+                name: '샤우아푸프',
+                quote: '<span>"</span>완벽한 이상에 걸맞은 모습만이 남을 자격이 있습니다!<span>"</span>',
+                nen: '조작계', nenSlug: 'manipulation',
+                stats: { strength: 86, intelligence: 91, agility: 90, potential: 88 },
+                image: '/hxh/images/pouf.jpg',
+                description: '<strong>성향:</strong> 이상을 지휘하는 감성 전략가<br><strong>특징:</strong> 타인의 미세한 감정 파동까지 단숨에 읽어내고 판의 분위기를 주도하는 능력이 탁월합니다. 자신이 그린 완벽한 이상향과 리더십 모델에 대한 자부심이 강해, 때로는 극적인 몰입을 보여주기도 합니다.<br><br><strong>환상의 짝꿍:</strong> 이상적인 왕<br><strong>환장의 짝꿍:</strong> 계획을 흔드는 돌발 변수'
             }
         };
 
-        const questionGraph = {
-    "start": [
-        {
-            "id": "cq1",
-            "question": "당신은 헌터 시험 중 끝이 안 보이는 누메레 늪지대를 지나가야 합니다. 안개가 끼고 마수들이 우글거리는데, 당신의 전략은?",
-            "choices": [
-                {
-                    "text": "앞장서는 시험관을 놓치지 않기 위해 선두 그룹에서 바짝 쫓아간다.",
-                    "scores": {
-                        "gon": 3
-                    },
-                    "followUps": [
-                        "fq_gon1"
-                    ]
-                },
-                {
-                    "text": "페이스 조절이 생명. 체력을 아끼며 중간 그룹에서 달린다.",
-                    "scores": {
-                        "kurapika": 2,
-                        "illumi": 3
-                    },
-                    "followUps": [
-                        "fq_kura1"
-                    ]
-                },
-                {
-                    "text": "너무 힘든데... 적당한 탈것이나 주변 지형을 이용해 꼼수를 찾는다.",
-                    "scores": {
-                        "leorio": 3,
-                        "killua": 2
-                    },
-                    "followUps": [
-                        "fq_leo1"
-                    ]
-                },
-                {
-                    "text": "안개 속에서 어떤 변수나 강자가 숨어있는지 흥미롭게 지켜보며 상황을 즐긴다.",
-                    "scores": {
-                        "hisoka": 3,
-                        "chrollo": 2
-                    },
-                    "followUps": [
-                        "fq_hiso1"
-                    ]
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        {
-            "id": "cq2",
-            "question": "투기장 200층에 도달했더니, 악의적인 넨 공격을 날리며 선배 투사들이 도발해옵니다.",
-            "choices": [
-                {
-                    "text": "열받네?! 넨을 완벽히 배우기도 전에 일단 주먹부터 날리고 본다.",
-                    "scores": {
-                        "leorio": 3,
-                        "gon": 2
-                    },
-                    "followUps": [
-                        "fq_angry"
-                    ]
-                },
-                {
-                    "text": "완벽하게 힘을 길러둔 후, 압도적인 실력 차이를 보여주며 차갑게 짓밟는다.",
-                    "scores": {
-                        "killua": 3,
-                        "meruem": 3,
-                        "illumi": 2
-                    },
-                    "followUps": [
-                        "fq_calm"
-                    ]
-                },
-                {
-                    "text": "도발에 넘어가지 않고 침착하게 상대 능력의 특성과 허점을 분석한다.",
-                    "scores": {
-                        "kurapika": 3,
-                        "chrollo": 2
-                    },
-                    "followUps": [
-                        "fq_analyze"
-                    ]
-                },
-                {
-                    "text": "도발할수록 상대의 빈틈이 커지는 법. 오히려 여유를 보이며 상대의 페이스를 흔들어 농락한다.",
-                    "scores": {
-                        "hisoka": 4
-                    },
-                    "followUps": [
-                        "fq_psycho"
-                    ]
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        {
-            "id": "cq3",
-            "question": "생사가 걸린 극한의 미션 중, 함께하던 파트너가 당신을 속이고 배신했습니다. 당신의 첫 번째 행동은?",
-            "choices": [
-                {
-                    "text": "배신의 원인과 전모를 냉철하게 파악하고, 계산된 대가를 반드시 치르게 만든다.",
-                    "scores": {
-                        "kurapika": 3,
-                        "chrollo": 2
-                    },
-                    "followUps": [
-                        "fq_justice"
-                    ]
-                },
-                {
-                    "text": "어떻게 동료를 배신할 수 있냐며 분노를 폭발시키고, 즉각 멱살을 잡고 따진다.",
-                    "scores": {
-                        "gon": 3,
-                        "leorio": 3
-                    },
-                    "followUps": [
-                        "fq_confront"
-                    ]
-                },
-                {
-                    "text": "사람을 믿은 내 방심이다. 감정 소모 없이 차갑게 손절하고, 빼앗긴 실리만 빈틈없이 되찾는다.",
-                    "scores": {
-                        "killua": 3,
-                        "illumi": 3
-                    },
-                    "followUps": [
-                        "fq_cold"
-                    ]
-                },
-                {
-                    "text": "감히 날 속이다니 제법이네? 뜻밖의 스릴과 자극에 오히려 묘한 흥미가 솟구친다.",
-                    "scores": {
-                        "hisoka": 4,
-                        "meruem": 2
-                    },
-                    "followUps": [
-                        "fq_playful"
-                    ]
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        {
-            "id": "cq4",
-            "question": "강력하고 잔혹한 생물인 \"키메라 앤트\"들이 무고한 사람들을 학살하고 있습니다. 당신이라면?",
-            "choices": [
-                {
-                    "text": "앞뒤 안 재고 분노를 폭발시켜 무고한 자들을 구하러 쳐들어간다.",
-                    "scores": {
-                        "gon": 4,
-                        "leorio": 2
-                    },
-                    "followUps": [
-                        "fq_rescue_rash"
-                    ]
-                },
-                {
-                    "text": "감정을 억누르고, 희생자를 최소화할 가장 안전하고 확실한 작전을 짠다.",
-                    "scores": {
-                        "kurapika": 3,
-                        "killua": 3
-                    },
-                    "followUps": [
-                        "fq_rescue_plan"
-                    ]
-                },
-                {
-                    "text": "감정적인 분노 대신, 상대의 강력한 특성과 능력을 수집하거나 내 이득으로 이용할 방도를 찾는다.",
-                    "scores": {
-                        "chrollo": 3,
-                        "illumi": 3
-                    },
-                    "followUps": [
-                        "fq_rescue_calc"
-                    ]
-                },
-                {
-                    "text": "혼란을 틈타 사태를 장악하고, 압도적인 힘으로 상황을 평정하여 내가 질서의 정점에 선다.",
-                    "scores": {
-                        "meruem": 4
-                    },
-                    "followUps": [
-                        "fq_boss"
-                    ]
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        {
-            "id": "cq5",
-            "question": "당신이 헌터로서 궁극적으로 손에 넣고 싶은 것은 무엇입니까?",
-            "choices": [
-                {
-                    "text": "나 자신의 한계를 시험하고, 미지의 강자와 세상에 도전하는 짜릿한 자유",
-                    "scores": {
-                        "gon": 3,
-                        "hisoka": 2
-                    }
-                },
-                {
-                    "text": "세상의 불의와 악을 단죄하고, 내가 옳다고 믿는 정의와 신념을 관철하는 것",
-                    "scores": {
-                        "kurapika": 4,
-                        "leorio": 1
-                    }
-                },
-                {
-                    "text": "소중한 사람들과 함께 누리는 든든하고 따뜻한 현실적 행복",
-                    "scores": {
-                        "leorio": 3,
-                        "killua": 2
-                    }
-                },
-                {
-                    "text": "세상의 가치 있는 모든 것을 손에 넣고, 거대한 판을 내 뜻대로 움직이는 절대적인 통제력",
-                    "scores": {
-                        "meruem": 4,
-                        "chrollo": 3,
-                        "illumi": 3
-                    },
-                    "followUps": [
-                        "fq_boss_2"
-                    ]
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        }
-    ],
-    "followUps": {
-        "fq_gon1": {
-            "id": "fq_gon1",
-            "question": "[꼬리질문] 짙은 안개 속에서 앞서가던 시험관의 기척이 사라지고, 눈앞에 세 갈래 갈림길이 나타났습니다!",
-            "choices": [
-                {
-                    "text": "망설임 없이 바람의 냄새와 타고난 직감이 이끄는 길로 질주한다.",
-                    "scores": {
-                        "gon": 3
-                    }
-                },
-                {
-                    "text": "지면의 흙 쓸림과 발자국 흔적을 냉정하게 관찰해 올바른 루트를 찾아낸다.",
-                    "scores": {
-                        "kurapika": 2,
-                        "killua": 2
-                    }
-                },
-                {
-                    "text": "다른 선두 참가자들의 판단과 움직임을 먼저 지켜보며 위험을 분산한다.",
-                    "scores": {
-                        "illumi": 2,
-                        "leorio": 1,
-                        "chrollo": 2
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_kura1": {
-            "id": "fq_kura1",
-            "question": "[꼬리질문] 달리는 도중, 옆 참가자가 탈진해서 환각 나비에게 잡아먹힐 위기입니다.",
-            "choices": [
-                {
-                    "text": "내 알 바 아니다. 내 페이스를 유지하며 무시하고 지나친다.",
-                    "scores": {
-                        "illumi": 3,
-                        "chrollo": 2
-                    }
-                },
-                {
-                    "text": "시험도 중요하지만 사람 목숨이 먼저다! 망설임 없이 부축해준다.",
-                    "scores": {
-                        "leorio": 3,
-                        "gon": 2
-                    }
-                },
-                {
-                    "text": "최소한의 응급처치나 조언만 빠르게 해주고 다시 달린다.",
-                    "scores": {
-                        "kurapika": 3,
-                        "killua": 1
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_leo1": {
-            "id": "fq_leo1",
-            "question": "[꼬리질문] 꼼수를 부려 통과하다가 시험관에게 지적을 받았습니다!",
-            "choices": [
-                {
-                    "text": "\"아씨, 걸렸네!\" 쿨하게 포기하고 내려서 정석대로 달린다.",
-                    "scores": {
-                        "killua": 3
-                    }
-                },
-                {
-                    "text": "\"가져오지 말라는 룰은 없었잖아요?!\" 뻔뻔하게 말대꾸하며 따진다.",
-                    "scores": {
-                        "leorio": 3
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_hiso1": {
-            "id": "fq_hiso1",
-            "question": "[꼬리질문] 안개 속에서, 나와 맞먹을 정도로 강하고 살기를 뿜는 참가자와 눈이 마주쳤습니다.",
-            "choices": [
-                {
-                    "text": "온몸의 세포가 깨어나는 전율! 곧바로 살기를 맞부딪치며 싸움을 건다.",
-                    "scores": {
-                        "hisoka": 4
-                    }
-                },
-                {
-                    "text": "흥미로운 패지만 지금은 때가 아니다. 조용히 살기를 감추고 관찰에 들어간다.",
-                    "scores": {
-                        "illumi": 3,
-                        "chrollo": 3
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_angry": {
-            "id": "fq_angry",
-            "question": "[꼬리질문] 선빵을 날렸지만, 상대가 가볍게 피하고 넨으로 역공을 해옵니다!",
-            "choices": [
-                {
-                    "text": "맞으면서도 물러서지 않고 고집스럽게 밀어붙인다.",
-                    "scores": {
-                        "gon": 3
-                    }
-                },
-                {
-                    "text": "아차 싶어 빠르게 거리를 벌리고 방어 태세를 취한다.",
-                    "scores": {
-                        "leorio": 3
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_calm": {
-            "id": "fq_calm",
-            "question": "[꼬리질문] 상대를 완벽한 실력 차이로 제압했습니다. 쓰러진 상대를 바라보는 당신의 태도는?",
-            "choices": [
-                {
-                    "text": "\"말을 섞을 가치도 없다.\" 감정의 동요 없이 차가운 눈빛으로 내려다보며 돌아선다.",
-                    "scores": {
-                        "killua": 3,
-                        "illumi": 3
-                    }
-                },
-                {
-                    "text": "\"분수를 알아라.\" 미약한 존재가 건방지게 선을 넘은 것에 오만한 일침을 가한다.",
-                    "scores": {
-                        "meruem": 4,
-                        "chrollo": 2
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_analyze": {
-            "id": "fq_analyze",
-            "question": "[꼬리질문] 침착하게 분석해보니 상대 능력의 약점이 보입니다. 어떻게 공격할까요?",
-            "choices": [
-                {
-                    "text": "상대가 가장 고통스러워할 사각지대에서 찔러 넣어 제압한다.",
-                    "scores": {
-                        "kurapika": 3
-                    }
-                },
-                {
-                    "text": "상대의 특이한 능력에 지적 호기심이 생긴다. 그 메커니즘을 분석해 완전히 내 것으로 흡수할 궁리를 한다.",
-                    "scores": {
-                        "chrollo": 4
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_psycho": {
-            "id": "fq_psycho",
-            "question": "[꼬리질문] 당신의 서늘한 기백에 상대가 겁을 먹고 주춤하며 뒤로 물러섭니다.",
-            "choices": [
-                {
-                    "text": "여기서 끝내면 시시하지. 공포에 질려 필사적으로 발버둥치는 모습을 끝까지 몰아붙인다.",
-                    "scores": {
-                        "hisoka": 4
-                    }
-                },
-                {
-                    "text": "겁먹은 상대에게는 흥미가 식었다. 목숨만은 살려두고 미련 없이 등을 돌린다.",
-                    "scores": {
-                        "killua": 2,
-                        "meruem": 2,
-                        "chrollo": 1
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_boss": {
-            "id": "fq_boss",
-            "question": "[꼬리질문] 치열한 경쟁 끝에 거대한 집단의 정점에 섰습니다. 당신에게 복종하지 않는 반대파는 어떻게 다룰까요?",
-            "choices": [
-                {
-                    "text": "능력이 뛰어나다면 곁에 두고 내 규칙에 따르게 만들어 중요한 전력으로 활용한다.",
-                    "scores": {
-                        "chrollo": 4,
-                        "illumi": 2
-                    }
-                },
-                {
-                    "text": "전체 질서를 어지럽히는 반역자는 단 한 명도 용납하지 않고 철저히 처단한다.",
-                    "scores": {
-                        "meruem": 4
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_boss_2": {
-            "id": "fq_boss_2",
-            "question": "[꼬리질문] 당신이 생각하는 진정한 리더나 강자의 자질은 무엇입니까?",
-            "choices": [
-                {
-                    "text": "나의 뜻을 완벽히 이해하고 목숨까지 바쳐 함께할 단단한 동료와 조직",
-                    "scores": {
-                        "chrollo": 4
-                    }
-                },
-                {
-                    "text": "어떤 누구도 반박할 수 없는 압도적인 무력과 절대적인 카리스마",
-                    "scores": {
-                        "meruem": 4
-                    }
-                },
-                {
-                    "text": "규율과 계산을 통해 사람들을 내 손바닥 안에서 움직이는 철저한 통제력",
-                    "scores": {
-                        "illumi": 4
-                    }
-                },
-                {
-                    "text": "판세가 어떻게 바뀌든 즐기면서 상대를 무너뜨리는 냉혹한 심리전",
-                    "scores": {
-                        "hisoka": 3
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_rescue_rash": {
-            "id": "fq_rescue_rash",
-            "question": "[꼬리질문] 막무가내로 쳐들어갔더니 엄청난 괴물과 마주쳤습니다!",
-            "choices": [
-                {
-                    "text": "앞뒤 잴 것 없다. 내 모든 것을 다 쏟아부어서라도 눈앞의 적을 박살 내고 동료를 구한다.",
-                    "scores": {
-                        "gon": 4
-                    }
-                },
-                {
-                    "text": "\"내가 미쳤지...\" 다리가 후들거리지만 동료를 위해 버틴다.",
-                    "scores": {
-                        "leorio": 3
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_rescue_plan": {
-            "id": "fq_rescue_plan",
-            "question": "[꼬리질문] 작전을 짜는 도중, 괴물이 동료를 해치려 합니다!",
-            "choices": [
-                {
-                    "text": "리스크를 안고 내 신체 능력의 한계를 끌어올려 초고속으로 기습한다.",
-                    "scores": {
-                        "killua": 4
-                    }
-                },
-                {
-                    "text": "상대의 심리를 역이용해 가장 확실하게 적을 묶어둘 빈틈을 노린다.",
-                    "scores": {
-                        "kurapika": 4
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_rescue_calc": {
-            "id": "fq_rescue_calc",
-            "question": "[꼬리질문] 계산 결과, 동료를 구하는 것이 나에게 이득입니다.",
-            "choices": [
-                {
-                    "text": "구출해 준 대가를 철저히 요구하고, 앞으로 내 명령에 따르도록 확실한 주도권을 쥔다.",
-                    "scores": {
-                        "illumi": 4
-                    }
-                },
-                {
-                    "text": "동료를 돕는 건 당연하다! 계산은 그냥 습관적으로 해본 것일 뿐이다.",
-                    "scores": {
-                        "leorio": 2,
-                        "killua": 2
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_justice": {
-            "id": "fq_justice",
-            "question": "[꼬리질문] 상대가 \"어쩔 수 없는 사정(가족/생존)\"이 있었다며 무릎 꿇고 용서를 구합니다. 당신이라면?",
-            "choices": [
-                {
-                    "text": "사정이 딱하더라도 저지른 죄는 죄다. 원칙대로 엄격하게 책임을 묻는다.",
-                    "scores": {
-                        "kurapika": 3
-                    }
-                },
-                {
-                    "text": "진심이 느껴진다면 마음이 흔들려, 딱 한 번은 용서하고 기회를 준다.",
-                    "scores": {
-                        "leorio": 2,
-                        "gon": 2,
-                        "kurapika": -2
-                    }
-                },
-                {
-                    "text": "사정 따윈 관심 없다. 앞으로 내게 쓸모가 있는지 없는지만 따져서 처분한다.",
-                    "scores": {
-                        "chrollo": 2,
-                        "illumi": 2
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_confront": {
-            "id": "fq_confront",
-            "question": "[꼬리질문] 따져 물었더니, 상대가 오히려 비웃으며 적반하장으로 공격해옵니다!",
-            "choices": [
-                {
-                    "text": "더 이상 대화는 사치다. 내 모든 힘을 실어 그 자리에서 때려눕힌다.",
-                    "scores": {
-                        "gon": 3,
-                        "leorio": 2
-                    }
-                },
-                {
-                    "text": "순간적으로 끓어오르는 화를 억누르고, 상대의 무기를 빼앗아 무력화시킨다.",
-                    "scores": {
-                        "killua": 2,
-                        "kurapika": 2
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_cold": {
-            "id": "fq_cold",
-            "question": "[꼬리질문] 빼앗긴 물건을 되찾는 과정에서 배신자를 완전히 제거할 기회가 생겼습니다.",
-            "choices": [
-                {
-                    "text": "뒷말이 나오지 않도록 감정 없이 깔끔하고 확실하게 숨통을 끊는다.",
-                    "scores": {
-                        "killua": 3,
-                        "illumi": 3
-                    }
-                },
-                {
-                    "text": "목숨까지 빼앗을 필요는 없다. 두 번 다시 내 눈앞에 나타나지 못하게만 만든다.",
-                    "scores": {
-                        "killua": 2,
-                        "leorio": 1
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        },
-        "fq_playful": {
-            "id": "fq_playful",
-            "question": "[꼬리질문] 상대가 당신의 여유로운 모습에 기겁하며 죽기 살기로 도망치기 시작합니다.",
-            "choices": [
-                {
-                    "text": "공포에 질린 표정을 더 즐기기 위해, 뒤에서 천천히 사냥하듯 몰아붙인다.",
-                    "scores": {
-                        "hisoka": 3
-                    }
-                },
-                {
-                    "text": "달아나는 꼴이 우습군. 내 손을 더럽힐 가치조차 없는 미물이라 여기며 무심히 돌아선다.",
-                    "scores": {
-                        "meruem": 4,
-                        "chrollo": 1
-                    }
-                },
-                {
-                    "text": "어느 것도 해당되지 않는다 (질문 건너뛰기)",
-                    "scores": {}
-                }
-            ]
-        }
-    }
-};
+        const mbtiCrossMap = {
+            gon:      { code: 'ESFP', title: 'ESFP (자유로운 영혼의 연예인) · 강화계', stack: 'Se - Fi - Te - Ni', desc: '지금 눈앞에 몰입하는 외향 감각(Se)과 자기만의 꺾이지 않는 신의 기준(Fi)이 결합한 직진파.' },
+            killua:   { code: 'INTP', title: 'INTP (논리적인 사색가) · 변화계', stack: 'Ti - Ne - Si - Fe', desc: '예외 변수와 퇴로를 빠르게 시뮬레이션하는 분석력(Ti-Ne) 뒤에 소수의 내 사람을 끝까지 책임지는 순정(Fe)을 품은 전술가.' },
+            kurapika: { code: 'INTJ', title: 'INTJ (용의주도한 전략가) · 구현화계 / 특질계', stack: 'Ni - Te - Fi - Se', desc: '장기 목표(Ni)를 치밀한 제약·서약 구조(Te)로 구현하되 내면 깊은 열정(Fi)을 품은 완벽주의자.' },
+            leorio:   { code: 'ESFJ', title: 'ESFJ (사교적인 외교관) · 방출계', stack: 'Fe - Si - Ne - Ti', desc: '다혈질이지만 동료를 지키는 데 온몸을 바치는 따뜻한 외향 감정(Fe)과 실리적 의리파(Si).' },
+            hisoka:   { code: 'ESTP', title: 'ESTP (모험을 즐기는 사업가) · 변화계', stack: 'Se - Ti - Fe - Ni', desc: '생사의 쾌감과 즉흥 변수(Se)를 영리한 심리전(Ti)으로 조율하는 천부적 승부사.' },
+            chrollo:  { code: 'INFJ', title: 'INFJ (선의의 옹호자) · 특질계', stack: 'Ni - Fe - Ti - Se', desc: '존재의 본질을 사유하는 직관(Ni)과 타인을 끌어당기는 차분한 카리스마(Fe)의 소유자.' },
+            illumi:   { code: 'ISTJ', title: 'ISTJ (청렴결백한 논리주의자) · 조작계', stack: 'Si - Te - Fi - Ne', desc: '가문의 전통 규율(Si)을 감정의 흔들림 없이 냉정히 집행(Te)하는 통제형 원칙주의자.' },
+            meruem:   { code: 'ENTJ', title: "ENTJ (대담한 통솔자) · 방출계 '극'(공식) / 특질계", stack: 'Te - Ni - Se - Fi', desc: '압도적 효율과 체계 지배력(Te)이 본질 성찰(Ni)과 인간미 각성(Fi)으로 확장된 절대 군주.' },
+            feitan:   { code: 'ISTP', title: 'ISTP (만능 재주꾼) · 변화계', stack: 'Ti - Se - Ni - Fe', desc: '감정을 배제한 냉철한 실리 판단(Ti)과 즉각적인 신체·전투 순발력(Se)을 갖춘 현장형 스페셜리스트.' },
+            machi:    { code: 'ISFP', title: 'ISFP (호기심 많은 예술가) · 변화계', stack: 'Fi - Se - Ni - Te', desc: '내면의 확고한 가치관(Fi)과 군더더기 없는 섬세한 감각·직감(Se)이 살아 있는 쿨한 아티잔.' },
+            alluka:   { code: 'INFP', title: 'INFP (열정적인 중재자) · 특질계', stack: 'Fi - Ne - Si - Te', desc: '순수한 내면의 진심(Fi)과 무한한 가능성을 열어두는 상상력(Ne)이 공존하는 영혼.' },
+            shalnark: { code: 'ENTP', title: 'ENTP (뜨거운 논쟁을 즐기는 변론가) · 조작계', stack: 'Ne - Ti - Fe - Si', desc: '호기심으로 판을 뒤집는 발상(Ne)과 냉정한 논리 해독(Ti)을 웃으며 굴리는 전략형 브레인.' },
+            bisky:    { code: 'ESTJ', title: 'ESTJ (엄격한 관리자) · 변화계', stack: 'Te - Si - Ne - Fi', desc: '검증된 실전 노하우(Si)를 엄격하고 체계적인 기준(Te)으로 전수하는 카리스마 마스터.' },
+            pitou:    { code: 'ENFP', title: 'ENFP (재기발랄한 활동가) · 특질계', stack: 'Ne - Fi - Te - Si', desc: '흥미로운 미지를 향해 거침없이 뻗어나가는 직관(Ne)과 절대적 헌신(Fi)이 결합한 천재.' },
+            pakunoda: { code: 'ISFJ', title: 'ISFJ (용감한 수호자) · 특질계', stack: 'Si - Fe - Ti - Ne', desc: '함께한 기억과 사실(Si)을 지켜내고 동료의 마음을 위해 스스로 희생을 택하는 조용한 수호자(Fe).' },
+            pouf:     { code: 'ENFJ', title: 'ENFJ (정의로운 사회운동가) · 조작계', stack: 'Fe - Ni - Se - Ti', desc: '타인의 감정 흐름을 읽고 조율하는 안테나(Fe)와 절대적 이상향에 대한 집념(Ni)이 맞물린 연출가.' }
+        };
+
+        const questions = [
+            {
+                question: "헌터 시험 1차 대기 터널 안, 사방이 살벌한 무법자들로 꽉 찼습니다. 출발 전 당신의 행동은?",
+                choices: [
+                    { text: "먼저 주변 수험생들에게 가볍게 말을 걸어 현장 분위기와 정보를 파악한다.", mbti: { E: 2 }, chars: { leorio: 2, gon: 1, bisky: 1 } },
+                    { text: "유독 기세가 강하거나 특이해 보이는 인물 근처로 다가가 반응을 떠본다.", mbti: { E: 2 }, chars: { hisoka: 2, pitou: 2, shalnark: 1 } },
+                    { text: "기둥 쪽 구석에 기대어 각자의 움직임과 전력 구도를 조용히 관찰한다.", mbti: { I: 2 }, chars: { killua: 2, kurapika: 2, chrollo: 1 } },
+                    { text: "누구와도 말을 섞지 않고 혼자 체력을 아끼며 문이 열릴 때만 기다린다.", mbti: { I: 2 }, chars: { feitan: 2, illumi: 2, pakunoda: 1 } }
+                ]
+            },
+            {
+                question: "짙은 안개가 낀 누메르 습지대, 앞뒤가 안 보이는 마수들의 서식지에서 방향을 잡는 기준은?",
+                choices: [
+                    { text: "발밑 흙 질감, 바람 냄새, 발자국 흔적 등 눈앞의 생생한 감각 단서를 믿고 움직인다.", mbti: { S: 2 }, chars: { gon: 2, machi: 2, feitan: 1 } },
+                    { text: "페이스 안배와 검증된 시야 범위를 지키며 무리하지 않고 안정적으로 전진한다.", mbti: { S: 2 }, chars: { leorio: 2, illumi: 1, pakunoda: 2 } },
+                    { text: "시험관이 왜 이런 안개 코스를 설계했는지 숨겨진 의도와 전체 판의 구조부터 추론한다.", mbti: { N: 2 }, chars: { chrollo: 2, kurapika: 1, pouf: 2 } },
+                    { text: "지형의 예외 변수와 숨겨진 지름길 가설을 머릿속에서 빠르게 시뮬레이션해 본다.", mbti: { N: 2 }, chars: { killua: 2, shalnark: 2, alluka: 1 } }
+                ]
+            },
+            {
+                question: "트릭 타워 다수결 방에서 '전원 45시간 우회' vs '소수를 버리는 3분 지름길'을 골라야 합니다.",
+                choices: [
+                    { text: "쓸데없는 죄책감은 접고, 현실적인 생존 확률과 체력 손익을 냉정하게 계산한다.", mbti: { T: 2 }, chars: { killua: 2, illumi: 2, meruem: 1 } },
+                    { text: "문구와 규칙 조건의 허점을 파고들어 논리적으로 모두 빠져나갈 구조를 짠다.", mbti: { T: 2 }, chars: { kurapika: 2, bisky: 2, shalnark: 1 } },
+                    { text: "동료를 버리는 선택지는 처음부터 기권! 시간이 걸려도 끝까지 함께 가는 길을 고집한다.", mbti: { F: 2 }, chars: { gon: 2, leorio: 2, pakunoda: 1 } },
+                    { text: "어리석어 보여도 소중한 사람의 마음이 다치지 않는 편을 끝까지 지켜내려 한다.", mbti: { F: 2 }, chars: { alluka: 2, machi: 2, pouf: 2 } }
+                ]
+            },
+            {
+                question: "천공투기장 200층 등록 마감 직전, 정체를 알 수 없는 넨 고수들이 도열해 있습니다.",
+                choices: [
+                    { text: "층별 규정, 마감 기한, 대진 리스크를 먼저 체크해 대비책이 설 때까지 움직이지 않는다.", mbti: { J: 2 }, chars: { kurapika: 2, bisky: 2, illumi: 1 } },
+                    { text: "내가 밟아 올라갈 목표 단계와 일정을 먼저 확정한 뒤 계획대로 밀고 나간다.", mbti: { J: 2 }, chars: { pakunoda: 2, meruem: 2, pouf: 1 } },
+                    { text: "일단 현장에 몸을 던져 공기를 느껴보고, 그때그때 내 기세와 즉흥 감각으로 맞선다.", mbti: { P: 2 }, chars: { hisoka: 2, gon: 2, pitou: 1 } },
+                    { text: "세부 계획은 비워두고 상대 움직임에 맞춰 기술과 태세를 자유롭게 갈아끼운다.", mbti: { P: 2 }, chars: { killua: 2, shalnark: 2, feitan: 1 } }
+                ]
+            },
+            {
+                question: "요크신 지하 경매장을 둘러싼 암투가 벌어졌습니다. 팀 안에서 내가 자연스럽게 맡는 역할은?",
+                choices: [
+                    { text: "여기저기 루트를 찔러 흩어진 소문과 단서를 기발한 가설로 엮어 판을 읽는다.", mbti: { E: 1, N: 2 }, chars: { shalnark: 2, chrollo: 1, pitou: 2 } },
+                    { text: "겉으로 드러내지 않고, 직접 두 눈으로 확인한 확실한 팩트와 증거만 조용히 모은다.", mbti: { I: 2, S: 1 }, chars: { machi: 2, pakunoda: 2, illumi: 1 } },
+                    { text: "직접 발로 뛰고 거래처 사람들을 만나 확실한 실물 이득과 현장을 장악한다.", mbti: { E: 2, S: 1 }, chars: { bisky: 2, leorio: 2, hisoka: 1 } },
+                    { text: "혼자 한 발 뒤로 빠져 '적의 진짜 목적'과 2수 뒤 역공 그림까지 혼자 설계한다.", mbti: { I: 1, N: 2 }, chars: { kurapika: 2, killua: 2, alluka: 1 } }
+                ]
+            },
+            {
+                question: "중요한 작전을 앞두고 가장 가까운 동료가 감정이 무너져 주변에 가시 돋친 말을 쏟아냅니다.",
+                choices: [
+                    { text: "서운함은 삼키고, 그 친구가 망가진 부분의 뒷수습과 현실적 보완책부터 묵묵히 깐다.", mbti: { T: 2 }, chars: { killua: 2, bisky: 1, kurapika: 1 } },
+                    { text: "감정 폭주는 팀 전체에 독이다. 냉정하게 선을 긋고 작전 라인에서 분리해 버린다.", mbti: { T: 2 }, chars: { feitan: 2, illumi: 2, meruem: 1 } },
+                    { text: '참지 않고 정면으로 부딪쳐 "제발 정신 좀 차려!"라며 진심으로 멱살을 잡거나 안아준다.', mbti: { F: 2 }, chars: { leorio: 2, gon: 2, pakunoda: 1 } },
+                    { text: "왜 그렇게 마음이 무너졌는지 깊이 이입하며 곁을 떠나지 않고 버팀목이 되어준다.", mbti: { F: 2 }, chars: { alluka: 2, pouf: 2, machi: 1 } }
+                ]
+            },
+            {
+                question: "그리드 아일랜드 피구 대결! 압도적인 실력 차이를 보이는 강적을 상대로 어떤 작전을 쓸까요?",
+                choices: [
+                    { text: "각자 포지션과 수비 라인을 딱딱 맞춰 빈틈없이 조여 들어가는 조직적인 팀플레이.", mbti: { J: 2 }, chars: { bisky: 2, kurapika: 1, meruem: 2 } },
+                    { text: "사전에 약속한 예외 대응 프로토콜을 철저히 지켜 실수 하나 없이 받아친다.", mbti: { J: 1, S: 1 }, chars: { illumi: 2, pakunoda: 2, machi: 1 } },
+                    { text: "정석 포메이션 따윈 깨고 기상천외한 변칙 플레이와 심리전으로 코트를 뒤흔든다.", mbti: { P: 2 }, chars: { hisoka: 2, shalnark: 2, pitou: 2 } },
+                    { text: "지금 이 순간 몸이 반응하는 최대 화력 한 방에 모든 걸 실어 정면 돌파한다.", mbti: { P: 2 }, chars: { gon: 2, killua: 1, feitan: 2 } }
+                ]
+            },
+            {
+                question: "수견식으로 나만의 '하츠(필살기)'를 만든다면, 본성상 어떤 성질의 능력이 손에 붙을까요?",
+                choices: [
+                    { text: "복잡한 제약 없이 지금 내 눈앞의 현실에 정직하고 묵직하게 뻗어나가는 힘.", mbti: { S: 2 }, chars: { gon: 2, leorio: 2, machi: 1 } },
+                    { text: "수많은 실전 반복으로 갈고닦아 오차 없이 손끝에 구현되는 날카로운 기술.", mbti: { S: 2 }, chars: { feitan: 2, illumi: 1, bisky: 2 } },
+                    { text: "여러 조건문과 상대의 변수까지 한 판의 시스템으로 엮어 응용하는 다층 구조.", mbti: { N: 2 }, chars: { chrollo: 2, shalnark: 2, kurapika: 2 } },
+                    { text: "기존 상식이나 물리 법칙을 뛰어넘어 상상으로 현실을 비트는 기이한 특이 능력.", mbti: { N: 2 }, chars: { pitou: 2, alluka: 2, pouf: 2 } }
+                ]
+            },
+            {
+                question: "치열했던 임무가 끝나고 모처럼 찾아온 완전한 자유 시간, 에너지를 어떻게 채우시나요?",
+                choices: [
+                    { text: "동료들과 시끌벅적하게 맛있는 걸 먹고 떠들며 뒷풀이를 해야 스트레스가 풀린다.", mbti: { E: 2 }, chars: { leorio: 2, gon: 2, bisky: 1 } },
+                    { text: "여운을 즐기며 곧바로 다음 흥미로운 모임이나 자극적인 상대를 찾아 밖으로 나선다.", mbti: { E: 2 }, chars: { hisoka: 2, pitou: 2, pouf: 2 } },
+                    { text: "방해받지 않는 혼자만의 공간에서 조용히 음악을 듣거나 책을 보며 생각을 정리한다.", mbti: { I: 2 }, chars: { killua: 2, chrollo: 2, alluka: 2 } },
+                    { text: "불필요한 연락을 줄이고 익숙한 개인 루틴 속에서 조용히 컨디션을 회복한다.", mbti: { I: 2 }, chars: { feitan: 2, machi: 2, pakunoda: 2 } }
+                ]
+            },
+            {
+                question: "함께하던 동료가 적에게 정보를 팔아넘긴 사실이 드러났습니다. 상대를 붙잡았을 때 가장 먼저 드는 태도는?",
+                choices: [
+                    { text: "감정을 겉으로 드러내지 않고 배신의 피해 규모를 정확히 계산해 가장 아픈 대가를 치르게 한다.", mbti: { T: 2 }, chars: { feitan: 2, kurapika: 2, chrollo: 1 } },
+                    { text: "배신의 동기 구조를 냉정하게 분석하고, 더 이상 쓸모가 없다면 미련 없이 정리한다.", mbti: { T: 2 }, chars: { meruem: 2, shalnark: 2, illumi: 1 } },
+                    { text: "함께 나눈 신뢰를 짓밟았다는 배신감에 분노가 먼저 치밀어 즉각 따지고 든다.", mbti: { F: 2 }, chars: { gon: 2, leorio: 2, machi: 1 } },
+                    { text: "화보다도 '대체 왜 그런 선택까지 했는지' 상대의 사정과 남은 동료들의 상처가 먼저 밟힌다.", mbti: { F: 2 }, chars: { pakunoda: 2, alluka: 2, pouf: 2 } }
+                ]
+            },
+            {
+                question: "내가 환영여단 단장이나 헌터 원정대 리더가 된다면 팀을 어떻게 굴릴까요?",
+                choices: [
+                    { text: "'머리가 죽어도 다리는 움직인다' — 명확한 역할 규율과 장기 로드맵 아래 일사불란하게 운영한다.", mbti: { J: 2 }, chars: { chrollo: 2, bisky: 2, meruem: 2 } },
+                    { text: "목표 달성을 위한 제약, 기한, 보고 체계를 빈틈없이 고정해 조직을 통제한다.", mbti: { J: 2 }, chars: { kurapika: 2, illumi: 2, pouf: 2 } },
+                    { text: "큰 방향만 던져두고 각자의 개성과 번뜩이는 즉흥 센스를 발휘할 자유를 준다.", mbti: { P: 2 }, chars: { shalnark: 2, hisoka: 2, pitou: 2 } },
+                    { text: "거추장스러운 회의 없이 현장 상황에 맞춰 알아서 유연하게 치고 빠지는 실전파 스타일.", mbti: { P: 2 }, chars: { killua: 2, feitan: 2, machi: 2 } }
+                ]
+            },
+            {
+                question: "군의(보드게임)나 승부에서 도저히 이길 수 없어 보이는 천재를 만났습니다. 머릿속 반응은?",
+                choices: [
+                    { text: "한 수의 승패를 넘어 상대가 판 전체를 읽는 철학과 거시적 리듬까지 통찰해 낸다.", mbti: { N: 2 }, chars: { meruem: 2, chrollo: 2, killua: 2 } },
+                    { text: "기존 정석에 없는 기발하고 엉뚱한 수를 실험해 보며 완전히 새로운 판을 열어본다.", mbti: { N: 2 }, chars: { pitou: 2, alluka: 2, shalnark: 2 } },
+                    { text: "추상적 이론보다 지금 내 눈앞의 경험치와 몸에 익은 감각적 수 싸움을 믿고 반격한다.", mbti: { S: 2 }, chars: { bisky: 2, machi: 2, feitan: 2 } },
+                    { text: "복잡하게 머리 굴리기보다 당장 눈앞의 한 수에 내가 가진 집중력을 끝까지 밀어 넣는다.", mbti: { S: 2 }, chars: { gon: 2, leorio: 2, pakunoda: 2 } }
+                ]
+            },
+            {
+                question: "키메라 앤트 궁전 돌입처럼 모두가 벼랑 끝에 몰렸을 때, 내가 소중한 사람을 지키는 방식은?",
+                choices: [
+                    { text: "다정한 말 대신, 상대가 눈치채지 못하는 뒤편에서 가장 위험한 변수를 혼자 막아낸다.", mbti: { I: 1, T: 2 }, chars: { killua: 2, feitan: 2, illumi: 1 } },
+                    { text: "망설임 없이 맨 앞에 서서 내 감정과 의지를 드러내며 상대의 편이 되어준다.", mbti: { E: 1, F: 2 }, chars: { leorio: 2, pouf: 2, gon: 1 } },
+                    { text: "소중한 단 몇 명의 진심과 기억을 지키기 위해서라면 말없이 내 몫의 짐을 끝까지 안고 간다.", mbti: { I: 1, F: 2 }, chars: { pakunoda: 2, alluka: 2, machi: 2 } },
+                    { text: "감상에 빠지지 않고 모두가 실제로 살아남을 냉철한 훈련과 작전 지시를 당당히 내린다.", mbti: { E: 1, T: 2 }, chars: { bisky: 2, meruem: 2, shalnark: 2 } }
+                ]
+            },
+            {
+                question: "긴 여정의 끝에서 내가 가장 바라는 '완성된 나의 모습'은 어떤 결말일까요?",
+                choices: [
+                    { text: "처음 세운 맹세와 책임을 끝까지 완수하고, 정해진 서사의 매듭을 확실히 짓는 것.", mbti: { J: 2 }, chars: { kurapika: 2, meruem: 2, pakunoda: 2 } },
+                    { text: "어떤 상황에서도 무너지지 않을 나만의 실력 기준과 질서를 완벽히 세워두는 것.", mbti: { J: 2 }, chars: { illumi: 2, bisky: 2, pouf: 2 } },
+                    { text: "결말을 정해두지 않은 채 아직 보지 못한 미지의 세계와 강자를 향해 계속 뛰어드는 것.", mbti: { P: 2 }, chars: { gon: 2, hisoka: 2, pitou: 2 } },
+                    { text: "타인의 기대나 속박에서 벗어나, 내가 고른 소중한 사람과 내 방식대로 자유롭게 살아가는 것.", mbti: { P: 2 }, chars: { killua: 2, alluka: 2, feitan: 2 } }
+                ]
+            }
+        ];
 
         let questionQueue = [];
         let currentQuestionIndex = 0;
-        let scores = {};
+        let charScores = {};
+        let axisScores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
         window.currentResultKey = '';
 
         function showScreen(screenId) {
@@ -1527,20 +1096,20 @@
             }
         }
 
-        /* Character Pool Functions */
         function initCharacterPoolPreview() {
             const grid = document.getElementById('pool-grid-start');
             if (!grid) return;
             grid.innerHTML = '';
             for (const [key, c] of Object.entries(characters)) {
+                const mCode = (mbtiCrossMap[key] || {}).code || '';
                 const item = document.createElement('div');
                 item.className = 'pool-item';
                 item.onclick = openPoolModal;
-                item.title = `${c.name} (${c.nen})`;
+                item.title = `${c.name} (${c.nen} · ${mCode})`;
                 item.innerHTML = `
                     <img class="pool-thumb" src="${c.image}" alt="${c.name}">
                     <div class="pool-name">${c.name.split(' ')[0]}</div>
-                    <div class="pool-nen">${c.nen.split(' ')[0]}</div>
+                    <div class="pool-nen" style="color:#38bdf8; font-weight:700;">${mCode}</div>
                 `;
                 grid.appendChild(item);
             }
@@ -1551,14 +1120,16 @@
             if (!body || body.children.length > 0) return;
             body.innerHTML = '';
             for (const [key, c] of Object.entries(characters)) {
+                const mCode = (mbtiCrossMap[key] || {}).code || '';
                 const card = document.createElement('div');
                 card.className = 'char-card';
                 card.innerHTML = `
                     <img class="char-card-img" src="${c.image}" alt="${c.name}">
                     <div class="char-card-info">
-                        <div class="char-card-top">
+                        <div class="char-card-top" style="flex-wrap:wrap;">
                             <div class="char-card-name">${c.name}</div>
-                            <span class="char-card-badge">${c.nen}</span>
+                            <span class="char-card-badge">${c.nen.split(' ')[0]}</span>
+                            <span class="char-card-badge" style="background:#0284c7;">${mCode}</span>
                         </div>
                         <div class="char-card-quote">${c.quote.replace(/<\/?span>/g, '')}</div>
                     </div>
@@ -1577,162 +1148,174 @@
         }
 
         function closePoolModalOnBackdrop(e) {
-            if (e.target.id === 'modal-pool') {
-                closePoolModal();
-            }
+            if (e.target.id === 'modal-pool') closePoolModal();
         }
 
         function startTest() {
             currentQuestionIndex = 0;
-            scores = { gon: 0, killua: 0, kurapika: 0, leorio: 0, hisoka: 0, illumi: 0, chrollo: 0, meruem: 0 };
-            
-            questionQueue = JSON.parse(JSON.stringify(questionGraph.start));
-            shuffleArray(questionQueue);
-            
-            questionQueue.forEach(q => {
-                shuffleArray(q.choices);
+            charScores = {};
+            Object.keys(characters).forEach(k => { charScores[k] = 0; });
+            axisScores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+            questionQueue = questions.map(q => {
+                const copy = { question: q.question, choices: [...q.choices] };
+                shuffleArray(copy.choices);
+                return copy;
             });
-
             renderQuestion();
             showScreen('screen-quiz');
         }
 
         function renderQuestion() {
             const data = questionQueue[currentQuestionIndex];
-            const totalEst = Math.min(questionQueue.length, 10);
+            const totalQ = questionQueue.length;
             const stepEl = document.getElementById('quiz-step-label');
-            if (stepEl) stepEl.innerText = `Q ${String(currentQuestionIndex + 1).padStart(2, '0')} / ${totalEst}`;
+            if (stepEl) stepEl.innerText = `Q ${String(currentQuestionIndex + 1).padStart(2, '0')} / ${totalQ}`;
             document.getElementById('question-text').innerText = data.question;
-            
-            const progressPercent = Math.min((currentQuestionIndex / 10) * 100, 100);
-            document.getElementById('progress-bar').style.width = progressPercent + '%';
+            document.getElementById('progress-bar').style.width = ((currentQuestionIndex / totalQ) * 100) + '%';
 
             const container = document.getElementById('choices-container');
             container.innerHTML = '';
-            
-            // 1. 일반 선택지 렌더링 (건너뛰기 제외)
+
             data.choices.forEach(choice => {
-                if (choice.text.includes('건너뛰기')) return;
                 const btn = document.createElement('button');
                 btn.className = 'choice-btn';
                 btn.innerText = choice.text;
                 btn.onclick = () => selectChoice(choice);
                 container.appendChild(btn);
             });
-            
-            // 2. 건너뛰기 선택지 항상 마지막에 고정 렌더링
-            const skipChoice = data.choices.find(c => c.text.includes('건너뛰기')) || { text: '어느 것도 해당되지 않는다 (질문 건너뛰기)', scores: {} };
+
             const skipBtn = document.createElement('button');
             skipBtn.className = 'choice-btn';
-            skipBtn.innerText = skipChoice.text;
-            skipBtn.style.opacity = '0.75';
+            skipBtn.innerText = '어느 것도 해당되지 않는다 (질문 건너뛰기)';
+            skipBtn.style.opacity = '0.72';
             skipBtn.style.borderStyle = 'dashed';
             skipBtn.style.color = '#aaa';
-            skipBtn.onclick = () => selectChoice(skipChoice);
+            skipBtn.onclick = () => selectChoice({});
             container.appendChild(skipBtn);
         }
 
         function selectChoice(choice) {
-            if (choice.scores) {
-                for (const [key, weight] of Object.entries(choice.scores)) {
-                    scores[key] += weight + (Math.random() * 0.1); 
+            if (choice.mbti) {
+                for (const [ax, w] of Object.entries(choice.mbti)) {
+                    axisScores[ax] = (axisScores[ax] || 0) + w;
                 }
             }
-            
-            if (choice.followUps && choice.followUps.length > 0) {
-                choice.followUps.forEach(fid => {
-                    const fq = JSON.parse(JSON.stringify(questionGraph.followUps[fid]));
-                    if (fq) {
-                        shuffleArray(fq.choices);
-                        questionQueue.splice(currentQuestionIndex + 1, 0, fq);
-                    }
-                });
+            if (choice.chars) {
+                for (const [ch, w] of Object.entries(choice.chars)) {
+                    charScores[ch] = (charScores[ch] || 0) + w;
+                }
             }
-
             currentQuestionIndex++;
-            if (currentQuestionIndex < questionQueue.length && currentQuestionIndex < 10) {
+            if (currentQuestionIndex < questionQueue.length) {
                 renderQuestion();
             } else {
                 document.getElementById('progress-bar').style.width = '100%';
                 showScreen('screen-loading');
-                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 1800);
+                setTimeout(() => { calculateResult(); showScreen('screen-result'); }, 1100);
             }
+        }
+
+        function computeAxisPair(a, b) {
+            const total = (axisScores[a] || 0) + (axisScores[b] || 0);
+            if (total === 0) return { aPct: 50, bPct: 50, win: a };
+            const aPct = Math.round(((axisScores[a] || 0) / total) * 100);
+            return { aPct, bPct: 100 - aPct, win: (axisScores[a] || 0) >= (axisScores[b] || 0) ? a : b };
         }
 
         function calculateResult() {
-            let sortedScores = Object.entries(scores)
-                .map(([key, val]) => ({ key, score: Math.max(0, val) }))
-                .sort((a, b) => b.score - a.score);
-            
-            let maxTheoretical = 25;
-            let topScore = sortedScores[0].score;
-            let scale = 1;
-            if (topScore > 0 && (topScore / maxTheoretical) < 0.75) {
-                scale = 0.85 / (topScore / maxTheoretical);
-            }
-            
-            sortedScores.forEach(item => {
-                item.pct = Math.min(99, Math.max(1, Math.round((item.score / maxTheoretical) * 100 * scale)));
+            const ei = computeAxisPair('E', 'I');
+            const sn = computeAxisPair('S', 'N');
+            const tf = computeAxisPair('T', 'F');
+            const jp = computeAxisPair('J', 'P');
+            const pctMap = { E: ei.aPct/100, I: ei.bPct/100, S: sn.aPct/100, N: sn.bPct/100, T: tf.aPct/100, F: tf.bPct/100, J: jp.aPct/100, P: jp.bPct/100 };
+            const userMbti = ei.win + sn.win + tf.win + jp.win;
+
+            const ranked = Object.keys(characters).map(key => {
+                const mCode = mbtiCrossMap[key].code;
+                let axFit = 0;
+                for (const lt of mCode) axFit += (pctMap[lt] || 0.5) * 3.0;
+                const exactBonus = (mCode === userMbti) ? 4.0 : 0;
+                const score = (charScores[key] || 0) * 1.4 + axFit + exactBonus + Math.random() * 0.05;
+                return { key, score };
+            }).sort((a, b) => b.score - a.score);
+
+            const topVal = Math.max(ranked[0].score, 1);
+            ranked.forEach((item, idx) => {
+                const base = idx === 0 ? Math.min(98, 76 + Math.round((item.score / 32) * 22)) : Math.max(24, Math.round((item.score / topVal) * 86));
+                item.pct = Math.min(99, Math.max(15, base));
             });
 
-            window.currentResultKey = sortedScores[0].key;
-            window.topResults = sortedScores.slice(0, 3);
-            
-            applyResultToUI(window.topResults);
-            
+            window.currentResultKey = ranked[0].key;
+            window.topResults = ranked.slice(0, 3);
+            applyResultToUI(window.topResults, { ei, sn, tf, jp, userMbti });
             document.getElementById('detailed-result').style.display = 'block';
         }
-        
-        function applyResultToUI(topResults) {
-            const topChar = characters[topResults[0].key];
-            
+
+        function applyResultToUI(topResults, axisSummary) {
+            const winner = topResults[0].key;
+            const topChar = characters[winner];
+
             document.getElementById('result-title').innerText = topChar.name;
             document.getElementById('result-image').src = topChar.image;
+            document.getElementById('result-image').alt = topChar.name;
             document.getElementById('match-percent-top').innerText = '일치율 ' + topResults[0].pct + '%';
+
             const dossierBtn = document.getElementById('btn-dossier');
             if (dossierBtn) {
-                dossierBtn.href = '/hxh/' + topResults[0].key + '.html';
-                dossierBtn.innerText = topChar.name + ' 상세 도감 보러가기 →';
+                if (HAS_DOSSIER.has(winner)) {
+                    dossierBtn.href = '/hxh/' + winner + '.html';
+                    dossierBtn.innerText = topChar.name + ' 상세 도감 보러가기 →';
+                } else {
+                    dossierBtn.href = '/nen/' + topChar.nenSlug + '.html';
+                    dossierBtn.innerText = topChar.name + '의 ' + topChar.nen + ' 도감 보러가기 →';
+                }
             }
-            
-            // Detailed View
+
             document.getElementById('result-quote').innerHTML = topChar.quote;
             document.getElementById('result-nen').innerText = '[' + topChar.nen + ']';
-            let leorioEasterHtml = '';
-            if (topResults[0].key === 'leorio') {
-                leorioEasterHtml = '<div style="background:linear-gradient(135deg,#241e0d,#181c26); border:1.5px solid #eab308; border-radius:10px; padding:12px 14px; margin-bottom:16px; font-size:13.5px; line-height:1.6; color:#fef08a;">' +
-                    '<strong><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="9.5" y1="13.5" x2="14.5" y2="13.5"/></svg>[이스터에그] 레오리오가 나왔네요.</strong><br>' +
+
+            let relatedHtml = '';
+            if (winner === 'leorio') {
+                relatedHtml += '<div style="background:linear-gradient(135deg,#241e0d,#181c26); border:1.5px solid #eab308; border-radius:10px; padding:12px 14px; margin-bottom:16px; font-size:13.5px; line-height:1.6; color:#fef08a;">' +
+                    '<strong>[이스터에그] 레오리오가 나왔네요.</strong><br>' +
                     '<span style="color:#e2e8f0;">사실 이 사이트 만든 사람도 헌터×헌터에서는 <strong>레오리오</strong>를 제일 좋아합니다. 살다 보면 이런 스타일이 제일 정이 가죠.</span><br>' +
                     '<a href="/column/leorio-love.html" style="color:#facc15; font-weight:bold; text-decoration:underline; display:inline-block; margin-top:6px;">레오리오 칼럼 보러가기 &rarr;</a>' +
                     '</div>';
             }
-            document.getElementById('result-desc-text').innerHTML = leorioEasterHtml + topChar.description;
+            if (winner === 'killua' || winner === 'gon') {
+                relatedHtml += '<div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.35); border-radius:10px; padding:11px 13px; margin-bottom:16px; font-size:13px; line-height:1.55; color:#cbd5e1; text-align:left;">' +
+                    '<strong style="color:#38bdf8;">추천 칼럼:</strong> <a href="/column/killua-socialized-t.html" style="color:#38bdf8; text-decoration:underline; font-weight:700;">사회화된 T(키르아)는 야수의 F(곤)보다 따뜻하다 &rarr;</a>' +
+                    '</div>';
+            }
+            document.getElementById('result-desc-text').innerHTML = relatedHtml + topChar.description;
 
-            const mbtiCrossMap = {
-                gon: { code: 'ESFP', title: 'ESFP (자유로운 영혼의 연예인) · 강화계', desc: '지금 눈앞에 몰입하는 외향 감각(Se)과 자기만의 꺾이지 않는 신의 기준(Fi)이 결합한 직진파.' },
-                killua: { code: 'ISTP', title: 'ISTP (만능 재주꾼 · 보조 마치) · 변화계', desc: '감정을 배제한 날카로운 상황 분석(Ti)과 번개처럼 기민한 순발력(Se)을 갖춘 전술가.' },
-                kurapika: { code: 'INTJ', title: 'INTJ (용의주도한 전략가) · 구현화계 / 특질계', desc: '장기 목표(Ni)를 치밀한 제약·서약 구조(Te)로 구현하되 내면 깊은 열정(Fi)을 품은 완벽주의자.' },
-                leorio: { code: 'ESFJ', title: 'ESFJ (사교적인 외교관) · 방출계', desc: '다혈질이지만 동료를 지키는 데 온몸을 바치는 따뜻한 외향 감정(Fe)과 실리적 의리파(Si).' },
-                hisoka: { code: 'ESTP', title: 'ESTP (모험가 · 보조 네테로) · 변화계', desc: '생사의 쾌감과 즉흥 변수(Se)를 영리한 심리전(Ti)으로 조율하는 천부적 승부사.' },
-                chrollo: { code: 'INFJ', title: 'INFJ (선의의 옹호자) · 특질계', desc: '존재의 본질을 사유하는 직관(Ni)과 타인을 끌어당기는 차분한 카리스마(Fe)의 소유자.' },
-                illumi: { code: 'ISTJ', title: 'ISTJ (논리주의자) · 조작계', desc: '가문의 전통 규율(Si)을 감정의 흔들림 없이 냉정히 집행(Te)하는 통제형 원칙주의자.' },
-                meruem: { code: 'ENTJ', title: "ENTJ (대담한 통솔자) · 방출계 '극'(공식) / 특질계", desc: '압도적 효율과 체계 지배력(Te)이 본질 성찰(Ni)과 인간미 각성(Fi)으로 확장된 절대 군주.' }
-            };
-            const mInfo = mbtiCrossMap[topResults[0].key];
+            const mInfo = mbtiCrossMap[winner];
             const mBox = document.getElementById('res-mbti-box');
             if (mInfo && mBox) {
-                document.getElementById('res-mbti-title').innerText = mInfo.title;
+                document.getElementById('res-mbti-title').innerText = mInfo.title + ' (' + mInfo.stack + ')';
                 document.getElementById('res-mbti-desc').innerText = mInfo.desc;
+                const axesBox = document.getElementById('res-mbti-axes');
+                if (axisSummary) {
+                    const pairs = [
+                        { l: '외향 E ' + axisSummary.ei.aPct + '%', r: '내향 I ' + axisSummary.ei.bPct + '%', w: axisSummary.ei.aPct },
+                        { l: '감각 S ' + axisSummary.sn.aPct + '%', r: '직관 N ' + axisSummary.sn.bPct + '%', w: axisSummary.sn.aPct },
+                        { l: '사고 T ' + axisSummary.tf.aPct + '%', r: '감정 F ' + axisSummary.tf.bPct + '%', w: axisSummary.tf.aPct },
+                        { l: '판단 J ' + axisSummary.jp.aPct + '%', r: '인식 P ' + axisSummary.jp.bPct + '%', w: axisSummary.jp.aPct }
+                    ];
+                    axesBox.innerHTML = pairs.map(x => `<div class="axis-pill"><div class="axis-labels"><span>${x.l}</span><span>${x.r}</span></div><div class="axis-track"><div class="axis-fill" style="width:${x.w}%"></div></div></div>`).join('');
+                    axesBox.style.display = 'grid';
+                } else {
+                    axesBox.style.display = 'none';
+                }
                 const mLink = document.getElementById('res-mbti-link');
                 mLink.href = '/mbti/' + mInfo.code.toLowerCase() + '.html';
                 mLink.innerText = mInfo.code + ' 상세 백과사전 보러가기 →';
                 mBox.style.display = 'block';
             }
-            
-            // Stats
+
             let statsHtml = '';
             const statNames = { strength: '전투/체력', intelligence: '지능/전략', agility: '민첩/유연', potential: '잠재력' };
-            for (let [k, v] of Object.entries(topChar.stats)) {
+            for (const [k, v] of Object.entries(topChar.stats)) {
                 statsHtml += `
                     <div class="stat-row">
                         <div class="stat-name">${statNames[k]}</div>
@@ -1742,17 +1325,19 @@
                 `;
             }
             document.getElementById('result-stats').innerHTML = statsHtml;
-            
-            // Sub matches
+
             let subHtml = '';
             for (let i = 1; i <= 2; i++) {
-                if(topResults[i]) {
-                    const c = characters[topResults[i].key];
+                if (topResults[i]) {
+                    const sk = topResults[i].key;
+                    const c = characters[sk];
+                    const sm = mbtiCrossMap[sk];
+                    const subHref = HAS_DOSSIER.has(sk) ? (`/hxh/${sk}.html`) : (`/hxh/?result=${sk}`);
                     subHtml += `
-                        <a href="/hxh/${topResults[i].key}.html" class="sub-match-item" style="text-decoration:none; color:inherit;">
+                        <a href="${subHref}" class="sub-match-item" style="text-decoration:none; color:inherit;">
                             <img class="sub-match-img" src="${c.image}" alt="${c.name}">
                             <div class="sub-match-info">
-                                <div class="sub-match-name">${i+1}위: ${c.name} (${c.nen})</div>
+                                <div class="sub-match-name">${i+1}위: ${c.name} · ${sm ? sm.code : ''}</div>
                                 <div class="sub-match-bar-wrap">
                                     <div class="sub-match-bar-bg"><div class="sub-match-bar-fill" style="width: ${topResults[i].pct}%"></div></div>
                                     <div class="sub-match-pct">${topResults[i].pct}%</div>
@@ -1791,7 +1376,6 @@
             }
         }
 
-        
         function openRequestModal() {
             document.getElementById('modal-request').classList.add('active');
         }
@@ -1799,9 +1383,7 @@
             document.getElementById('modal-request').classList.remove('active');
         }
         function closeRequestModalOnBackdrop(e) {
-            if (e.target.id === 'modal-request') {
-                closeRequestModal();
-            }
+            if (e.target.id === 'modal-request') closeRequestModal();
         }
         function submitCharacterRequest() {
             const name = document.getElementById('req-char-name').value.trim();
@@ -1823,23 +1405,21 @@
             closeRequestModal();
         }
 
-        function contactUs() {
-            window.location.href = "mailto:gbcnewskr@gmail.com?subject=[헌터X헌터 테스트 캐릭터 추가 요청]";
-        }
         function restartTest() { showScreen('screen-start'); }
 
         window.addEventListener('DOMContentLoaded', () => {
             initCharacterPoolPreview();
 
-            const p = new URLSearchParams(window.location.search).get('result');
-            if (p && characters[p]) {
-                window.currentResultKey = p;
+            const r = new URLSearchParams(window.location.search).get('result');
+            if (r && characters[r]) {
+                window.currentResultKey = r;
+                const others = Object.keys(characters).filter(k => k !== r);
                 window.topResults = [
-                    { key: p, pct: 95 },
-                    { key: p === 'gon' ? 'killua' : 'gon', pct: 60 },
-                    { key: p === 'kurapika' ? 'leorio' : 'kurapika', pct: 40 }
+                    { key: r, pct: 95 },
+                    { key: others[0], pct: 64 },
+                    { key: others[1], pct: 48 }
                 ];
-                applyResultToUI(window.topResults);
+                applyResultToUI(window.topResults, null);
                 document.getElementById('detailed-result').style.display = 'block';
                 document.querySelectorAll('.btn-outline').forEach(btn => btn.innerText = '나도 테스트 해보기');
                 showScreen('screen-result');
@@ -1863,11 +1443,11 @@
                 </p>
                 <div class="form-group">
                     <label>추가 희망 캐릭터 이름 *</label>
-                    <input type="text" id="req-char-name" class="form-input" placeholder="예: 아이작 네테로, 페이탄, 비스케">
+                    <input type="text" id="req-char-name" class="form-input" placeholder="예: 아이작 네테로, 카이토, 진 프릭스, 모라우">
                 </div>
                 <div class="form-group">
                     <label>추천 성향 / 넨 계통 / 이유 (선택)</label>
-                    <textarea id="req-char-reason" class="form-input" placeholder="예: 강화계의 정점, 백식관음! 압도적인 무력과 노익장의 매력"></textarea>
+                    <textarea id="req-char-reason" class="form-input" placeholder="예: 강화계의 정점 백식관음! 압도적인 무력과 노익장의 매력"></textarea>
                 </div>
                 <button class="btn btn-request" style="margin-top: 10px;" onclick="submitCharacterRequest()">
                     <span class="svg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></span>

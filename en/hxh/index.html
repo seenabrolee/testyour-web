@@ -15,11 +15,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which Hunter x Hunter Character Are You? (Personality Quiz) | TESTYOUR</title>
+    <title>Which Hunter x Hunter Character Are You? (16 Characters &amp; MBTI) | TESTYOUR</title>
 
-    <meta name="description" content="Which Hunter x Hunter character are you? Take this 12-scenario HxH personality quiz to match with Gon, Killua, Kurapika, Leorio, Hisoka, Illumi, Chrollo, or Meruem—complete with match percentage, stat bars, runner-up shadows, Nen affinity, and MBTI type.">
-    <meta property="og:title" content="Which Hunter x Hunter Character Are You?">
-    <meta property="og:description" content="12 canonical Hunter Exam & Chimera Ant scenarios revealing your character match, runner-ups, Nen category, and MBTI type.">
+    <meta name="description" content="Which Hunter x Hunter character are you? Answer 14 canonical Hunter Exam, Yorknew, and Chimera Ant scenarios integrating MBTI cognitive profiling to match with 16 iconic characters including Gon, Killua, Feitan, Machi, Alluka, Shalnark, Hisoka, Kurapika, Pitou, and Meruem.">
+    <meta property="og:title" content="Which Hunter x Hunter Character Are You? (16 Characters + MBTI)">
+    <meta property="og:description" content="14 canonical Hunter x Hunter scenarios revealing your matching character among 16 icons, cognitive axes (E/I, S/N, T/F, J/P), Nen affinity, and MBTI type.">
     <meta property="og:url" content="https://testyour.uk/en/hxh/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://testyour.uk/images/og-main.png">
@@ -135,7 +135,7 @@
             background: #12151e;
             border: 1px solid #262c3a;
             border-radius: 14px;
-            padding: 14px 12px;
+            padding: 14px 10px;
             margin: 18px 0 8px;
             text-align: left;
         }
@@ -144,13 +144,13 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
-            padding-bottom: 8px;
+            padding: 0 4px 8px;
             border-bottom: 1px solid #262c3a;
         }
         .pool-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px 6px;
+            gap: 10px 4px;
         }
         .pool-card {
             display: flex;
@@ -174,14 +174,16 @@
             margin-bottom: 5px;
         }
         .pool-name {
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 700;
             color: #f1f5f9;
             line-height: 1.2;
+            text-align: center;
         }
         .pool-nen {
-            font-size: 10px;
-            color: #94a3b8;
+            font-size: 9.5px;
+            color: #38bdf8;
+            font-weight: 700;
             margin-top: 2px;
         }
 
@@ -200,7 +202,7 @@
             transition: width 0.3s ease;
         }
         .question-text {
-            font-size: 18.5px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 24px;
             line-height: 1.5;
@@ -212,10 +214,10 @@
             color: #e2e8f0;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 15px 18px;
+            padding: 14px 16px;
             margin-bottom: 12px;
             width: 100%;
-            font-size: 14.5px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
@@ -229,8 +231,8 @@
         }
 
         .result-img {
-            width: 140px;
-            height: 140px;
+            width: 144px;
+            height: 144px;
             border-radius: 22px;
             object-fit: cover;
             border: 3px solid #ff3b30;
@@ -289,6 +291,37 @@
         .stat-bar-bg { flex-grow: 1; background: #262c3a; height: 7px; border-radius: 4px; overflow: hidden; margin: 0 10px; }
         .stat-bar-fill { height: 100%; background: #ff3b30; border-radius: 4px; }
         .stat-val { width: 28px; font-size: 12px; color: #fda4af; text-align: right; font-weight: 800; }
+
+        .axis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0 12px;
+        }
+        .axis-pill {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 8px;
+            padding: 7px 9px;
+        }
+        .axis-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+        .axis-track {
+            height: 5px;
+            border-radius: 3px;
+            background: #1e293b;
+            overflow: hidden;
+        }
+        .axis-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+        }
 
         .sub-match-box {
             width: 100%;
@@ -354,8 +387,8 @@
             <a href="/en/" class="logo" style="display:inline-flex; align-items:center; gap:7px;"><img src="/images/brand-mark.svg" alt="TESTYOUR Logo" width="21" height="21" style="border-radius:5px; flex-shrink:0;">TESTYOUR</a>
             <nav class="header-nav-links" aria-label="Main Navigation">
                 <a href="/en/column/" style="color:#38bdf8;">Essays</a>
-                <a href="/en/mbti/">MBTI</a>
                 <a href="/en/nen/">Nen</a>
+                <a href="/en/about.html">About</a>
                 <a href="/en/contact.html">Contact</a>
             </nav>
             <div class="lang-switch">
@@ -368,17 +401,17 @@
         <main style="width:100%; flex-grow:1; display:flex; flex-direction:column;">
         <!-- Start Screen -->
         <div id="screen-start" class="screen active">
-            <div style="font-size: 12px; font-weight: 800; color: #ff3b30; letter-spacing: 2px; margin-bottom: 6px;">HUNTER EXAM PERSONALITY QUIZ</div>
+            <div style="font-size: 12px; font-weight: 800; color: #ff3b30; letter-spacing: 2px; margin-bottom: 6px;">16-CHARACTER + MBTI INTEGRATED QUIZ</div>
             <h1>Which Hunter x Hunter Character Are You?</h1>
-            <p style="color: #94a3b8; font-size: 14.5px; margin-bottom: 18px; line-height: 1.6;">
-                Answer 12 canonical Hunter Exam, Yorknew, and Chimera Ant scenarios to match with Gon, Killua, Kurapika, Leorio, Hisoka, Illumi, Chrollo, or Meruem.
+            <p style="color: #94a3b8; font-size: 14px; margin-bottom: 18px; line-height: 1.6;">
+                Answer 14 canonical Hunter Exam, Phantom Troupe, Greed Island, and Chimera Ant scenarios integrating Jungian MBTI dimensions to match your exact counterpart among 16 iconic characters.
             </p>
-            <button class="btn" style="margin-top:0;" onclick="startTest()">Take the 12-Question Quiz &rarr;</button>
+            <button class="btn" style="margin-top:0;" onclick="startTest()">Take the 14-Question Quiz &rarr;</button>
 
             <div class="pool-box">
                 <div class="pool-head">
-                    <span style="font-size:13px; font-weight:800; color:#ff3b30;">8 Playable Character Matches</span>
-                    <span style="font-size:11.5px; color:#94a3b8;">Tap any face for full dossier</span>
+                    <span style="font-size:13px; font-weight:800; color:#ff3b30;">16 Playable Character Matches</span>
+                    <span style="font-size:11px; color:#94a3b8;">Mapped to all 16 MBTI types</span>
                 </div>
                 <div class="pool-grid" id="pool-grid-start"></div>
             </div>
@@ -386,34 +419,28 @@
             <!-- Character Archetypes Guide -->
             <section style="margin-top: 24px; text-align: left; background: #12151e; border: 1px solid #262c3a; border-radius: 14px; padding: 20px 18px; line-height: 1.75; color: #cbd5e1; width: 100%; box-sizing: border-box;">
                 <h2 style="color: #ff3b30; font-size: 17px; margin-top: 0; margin-bottom: 12px; border-bottom: 1px solid #2d3748; padding-bottom: 8px;">
-                    Hunter Exam Psychology &amp; 8 Character Archetypes
+                    Hunter Exam Psychology &amp; All 16 MBTI Archetypes
                 </h2>
                 <p style="font-size: 13px; color: #94a3b8; margin: 0 0 12px 0;">
-                    Rather than surface-level trivia, this assessment places you inside critical turning points—surviving the Numere Wetlands, resolving Trick Tower's majority dilemma, facing the Phantom Troupe in Yorknew, and adapting under crisis pressure. Your instincts map directly to eight distinct psychological archetypes from the series.
+                    Instead of asking dry binary MBTI questions, this quiz weaves all four Jungian dimensions (<strong>Extraversion/Introversion, Sensing/Intuition, Thinking/Feeling, Judging/Perceiving</strong>) directly into high-pressure Hunter x Hunter dilemmas across Yorknew, Kukuroo Mountain, Greed Island, and East Gorteau.
                 </p>
+                <h3 style="color: #fda4af; font-size: 13.5px; margin: 14px 0 6px 0;">How the 16 Characters Span the Personality Spectrum</h3>
                 <p style="font-size: 12.5px; color: #cbd5e1; margin: 0 0 12px 0;">
-                    Will you charge straight through on pure moral conviction like <strong>Gon</strong>, prioritize tactical survival like <strong>Killua</strong> or <strong>Illumi</strong>, bear principled vows like <strong>Kurapika</strong>, build an autonomous collective system like <strong>Chrollo</strong>, or pursue philosophical evolution like <strong>Meruem</strong>?
+                    • <strong>Analysts &amp; Tacticians (NT):</strong> Kurapika (INTJ), Killua (INTP), Meruem (ENTJ), Shalnark (ENTP).<br>
+                    • <strong>Idealists &amp; Empaths (NF):</strong> Chrollo (INFJ), Alluka (INFP), Shaiapouf (ENFJ), Neferpitou (ENFP).<br>
+                    • <strong>Sentinels &amp; Executors (SJ):</strong> Illumi (ISTJ), Pakunoda (ISFJ), Biscuit Krueger (ESTJ), Leorio (ESFJ).<br>
+                    • <strong>Instinctive Challengers (SP):</strong> Feitan (ISTP), Machi (ISFP), Hisoka (ESTP), Gon (ESFP).
                 </p>
-                <h3 style="color: #fda4af; font-size: 13.5px; margin: 14px 0 6px 0;">Four Psychological Axes Across the 8 Characters</h3>
-                <p style="font-size: 12.5px; color: #cbd5e1; margin: 0 0 12px 0;">
-                    • <strong>Instinctive Heart &amp; Loyalty (Gon, Leorio):</strong> Driven by personal conviction and loyalty—willing to sacrifice calculation to defend the people inside their circle.<br>
-                    • <strong>Calculated Precision &amp; Control (Killua, Illumi):</strong> Prioritize survival probabilities, emotional detachment, and exit plans before acting under danger.<br>
-                    • <strong>Principled Order &amp; Systems (Kurapika, Chrollo):</strong> Master rules, vows, and group architectures to overcome structural disadvantages.<br>
-                    • <strong>Stimulus &amp; Philosophical Mastery (Hisoka, Meruem):</strong> Seek formidable challenges, unexpected intellectual breakthroughs, and self-evolution outside norms.
-                </p>
-                <p style="font-size: 12.5px; color: #94a3b8; margin: 0 0 12px 0;">
-                    After finishing the 12-scenario Hunter Exam quiz, you receive your primary match percentage, stat breakdown, Nen category, top 2 runner-up shadow matches, MBTI cognitive cross-link, and a shareable result URL.
-                </p>
-                <h3 style="color: #fda4af; font-size: 13.5px; margin: 14px 0 8px 0;">Explore All 8 Character Psychology Dossiers</h3>
+                <h3 style="color: #fda4af; font-size: 13.5px; margin: 14px 0 8px 0;">Explore Dedicated Character Psychology Dossiers</h3>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;">
-                    <a href="/en/hxh/gon.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Gon Freecss Dossier &rarr;</a>
-                    <a href="/en/hxh/killua.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Killua Zoldyck Dossier &rarr;</a>
-                    <a href="/en/hxh/kurapika.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Kurapika Dossier &rarr;</a>
-                    <a href="/en/hxh/leorio.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Leorio Paradinight Dossier &rarr;</a>
-                    <a href="/en/hxh/hisoka.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Hisoka Morow Dossier &rarr;</a>
-                    <a href="/en/hxh/illumi.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Illumi Zoldyck Dossier &rarr;</a>
-                    <a href="/en/hxh/chrollo.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Chrollo Lucilfer Dossier &rarr;</a>
-                    <a href="/en/hxh/meruem.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Meruem Dossier &rarr;</a>
+                    <a href="/en/hxh/gon.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Gon Freecss (ESFP) &rarr;</a>
+                    <a href="/en/hxh/killua.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Killua Zoldyck (INTP) &rarr;</a>
+                    <a href="/en/hxh/kurapika.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Kurapika (INTJ) &rarr;</a>
+                    <a href="/en/hxh/leorio.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Leorio (ESFJ) &rarr;</a>
+                    <a href="/en/hxh/hisoka.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Hisoka Morow (ESTP) &rarr;</a>
+                    <a href="/en/hxh/illumi.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Illumi Zoldyck (ISTJ) &rarr;</a>
+                    <a href="/en/hxh/chrollo.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Chrollo Lucilfer (INFJ) &rarr;</a>
+                    <a href="/en/hxh/meruem.html" style="background: #1a1e2b; border: 1px solid #2d3748; border-radius: 8px; padding: 8px 10px; color: #e2e8f0; text-decoration: none; font-size: 12px; font-weight: bold;">Meruem (ENTJ) &rarr;</a>
                 </div>
                 <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
                     Featured Essays: <a href="/en/column/killua-socialized-t.html" style="color: #38bdf8; text-decoration: underline;">A Socialized T (Killua) Is Warmer Than an Untamed F (Gon)</a> | <a href="/en/column/gon-analysis.html" style="color: #ff3b30; text-decoration: underline;">Adult Gon Deep Dive</a> | <a href="/en/column/leadership.html" style="color: #a855f7; text-decoration: underline;">4 Leadership Models in HxH</a>
@@ -423,7 +450,7 @@
 
         <!-- Question Screen -->
         <div id="screen-question" class="screen">
-            <div id="q-counter" style="font-size:12px; font-weight:800; color:#ff3b30; letter-spacing:1px; margin-bottom:10px;">QUESTION 01 / 12</div>
+            <div id="q-counter" style="font-size:12px; font-weight:800; color:#ff3b30; letter-spacing:1px; margin-bottom:10px;">QUESTION 01 / 14</div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
@@ -446,19 +473,20 @@
                 <div id="result-desc"></div>
             </div>
 
+            <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.12), rgba(139,92,246,0.09)); border:1px solid rgba(56,189,248,0.4); border-radius:12px; padding:15px 16px; margin:0 0 16px; text-align:left;">
+                <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI COGNITIVE ARCHETYPE MATCH</div>
+                <div id="res-mbti-title" style="font-size:15.5px; font-weight:800; color:#fff; margin-bottom:4px;"></div>
+                <p id="res-mbti-desc" style="font-size:12.5px; color:#cbd5e1; margin:0 0 8px; line-height:1.55;"></p>
+                <div id="res-mbti-axes" class="axis-grid"></div>
+                <a id="res-mbti-link" href="#" style="display:inline-block; font-size:12.5px; font-weight:800; color:#0f172a; background:#38bdf8; padding:8px 14px; border-radius:7px; text-decoration:none;">Read Full MBTI Encyclopedia Dossier &rarr;</a>
+            </div>
+
             <div class="sub-match-box">
-                <div style="font-size:12px; font-weight:800; color:#94a3b8; margin-bottom:12px;">RUNNER-UP SHADOW MATCHES (TAP TO READ)</div>
+                <div style="font-size:12px; font-weight:800; color:#94a3b8; margin-bottom:12px;">RUNNER-UP SHADOW MATCHES (TAP TO VIEW)</div>
                 <div id="sub-match-list"></div>
             </div>
 
-            <div id="res-mbti-box" style="display:none; width:100%; background:linear-gradient(135deg, rgba(56,189,248,0.1), rgba(139,92,246,0.08)); border:1px solid rgba(56,189,248,0.35); border-radius:12px; padding:14px 16px; margin:0 0 14px; text-align:left;">
-                <div style="font-size:11px; font-weight:800; color:#38bdf8; letter-spacing:0.6px; margin-bottom:4px;">MBTI ARCHETYPE CROSS-LINK</div>
-                <div id="res-mbti-title" style="font-size:15px; font-weight:800; color:#fff; margin-bottom:4px;"></div>
-                <p id="res-mbti-desc" style="font-size:12.5px; color:#cbd5e1; margin:0 0 10px; line-height:1.55;"></p>
-                <a id="res-mbti-link" href="#" style="display:inline-block; font-size:12px; font-weight:700; color:#0f172a; background:#38bdf8; padding:6px 12px; border-radius:7px; text-decoration:none;">Explore Matching MBTI Dossier &rarr;</a>
-            </div>
-
-            <a id="btn-dossier" href="#" class="encyclopedia-btn">View Full Character Dossier &rarr;</a>
+            <a id="btn-dossier" href="#" class="encyclopedia-btn">View Full Dossier &rarr;</a>
             <button id="btn-share-en" class="share-btn" onclick="shareResult()">Copy Result Link &amp; Share</button>
             <button id="btn-retake" class="btn" style="background:#2d3748; color:#e2e8f0; margin-top:10px; max-width:none;" onclick="startTest()">Retake Assessment</button>
             <a href="/en/" style="color:#64748b; font-size:13px; text-decoration:none; margin-top:15px;">&larr; Back to Main Hub</a>
@@ -467,7 +495,6 @@
         <footer style="margin-top: 28px; padding: 18px 16px 26px; border-top: 1px solid #2d3748; font-size: 12px; color: #64748b; text-align: center; width: 100%;">
             <div style="margin-bottom: 6px;">
                 <a href="/en/" style="color: #94a3b8; text-decoration: none;">Home</a> |
-                <a href="/en/mbti/" style="color: #94a3b8; text-decoration: none;">MBTI Test</a> |
                 <a href="/en/nen/" style="color: #94a3b8; text-decoration: none;">Nen Test</a> |
                 <a href="/en/column/" style="color: #94a3b8; text-decoration: none;">Essays</a> |
                 <a href="/en/about.html" style="color: #94a3b8; text-decoration: none;">About</a> |
@@ -479,213 +506,290 @@
     </div>
 
     <script>
+        const HAS_DOSSIER = new Set(['gon', 'killua', 'kurapika', 'leorio', 'hisoka', 'illumi', 'chrollo', 'meruem']);
+
         const charProfiles = {
             gon: {
-                name: "Gon Freecss",
-                short: "Gon",
-                title: "The Pure Heart of the Wild",
-                nen: "Enhancer",
+                name: "Gon Freecss", short: "Gon", title: "The Pure Heart of the Wild",
+                nen: "Enhancer", nenSlug: "enhancement",
                 quote: "\"I won't forgive anyone who hurts my friends.\"",
                 stats: { Power: 95, Intellect: 45, Agility: 85, Potential: 100 },
                 img: "/hxh/images/gon.jpg",
                 desc: "<strong>Archetype:</strong> Unbreakable Willpower &amp; Direct Instinct.<br>You are genuine, intensely driven, and guided by your personal moral compass. When you fix your eyes on a goal, hesitation disappears."
             },
             killua: {
-                name: "Killua Zoldyck",
-                short: "Killua",
-                title: "The Lightning Tactician",
-                nen: "Transmuter",
+                name: "Killua Zoldyck", short: "Killua", title: "The Lightning Tactician",
+                nen: "Transmuter", nenSlug: "transmutation",
                 quote: "\"Did you forget who I am? I was raised as an assassin.\"",
-                stats: { Power: 80, Intellect: 92, Agility: 98, Potential: 92 },
+                stats: { Power: 80, Intellect: 94, Agility: 98, Potential: 94 },
                 img: "/hxh/images/killua.jpg",
-                desc: "<strong>Archetype:</strong> Cool Intellect &amp; Earned Loyalty.<br>Sharp-witted, tactical, and hyper-observant. While calm and guarded on the surface, you quietly shoulder the heaviest burdens to protect the people you care about."
+                desc: "<strong>Archetype:</strong> Analytical Foresight &amp; Earned Loyalty.<br>Quick-minded, hyper-observant, and self-reliant. Beneath guarded sarcasm and nonstop scenario modeling, you quietly shoulder heavy risks to protect the people you choose."
             },
             kurapika: {
-                name: "Kurapika",
-                short: "Kurapika",
-                title: "The Vengeful Scarlet Eyes",
-                nen: "Conjurer / Specialist",
+                name: "Kurapika", short: "Kurapika", title: "The Vengeful Scarlet Eyes",
+                nen: "Conjurer / Specialist", nenSlug: "conjuration",
                 quote: "\"I do not fear death. I fear only that my rage will fade over time.\"",
                 stats: { Power: 75, Intellect: 96, Agility: 82, Potential: 88 },
                 img: "/hxh/images/kurapika.jpg",
                 desc: "<strong>Archetype:</strong> Principled Scholar &amp; Strategist.<br>You are intensely principled and analytical, willing to bind yourself with strict rules and heavy personal sacrifice to uphold justice."
             },
             leorio: {
-                name: "Leorio Paradinight",
-                short: "Leorio",
-                title: "The Heart of Gold",
-                nen: "Emitter",
+                name: "Leorio Paradinight", short: "Leorio", title: "The Heart of Gold",
+                nen: "Emitter", nenSlug: "emission",
                 quote: "\"Don't judge people by appearances. Loyalty comes first.\"",
                 stats: { Power: 78, Intellect: 76, Agility: 72, Potential: 78 },
                 img: "/hxh/images/leorio.jpg",
                 desc: "<strong>Archetype:</strong> Candid Humanist &amp; Brotherly Loyalty.<br>Pragmatic about how tough reality gets, yet guided by deep empathy. You may grumble openly, but you are first in line when a friend actually needs saving."
             },
             hisoka: {
-                name: "Hisoka Morow",
-                short: "Hisoka",
-                title: "The Grim Reaper Magician",
-                nen: "Transmuter",
+                name: "Hisoka Morow", short: "Hisoka", title: "The Grim Reaper Magician",
+                nen: "Transmuter", nenSlug: "transmutation",
                 quote: "\"Keep entertaining me... until I decide to break you.\"",
                 stats: { Power: 92, Intellect: 90, Agility: 92, Potential: 85 },
                 img: "/hxh/images/hisoka.jpg",
                 desc: "<strong>Archetype:</strong> Thrill-Seeking Maverick.<br>Unpredictable and magnetic, you refuse fixed loyalties and evaluate everything by one measure: whether it truly excites and challenges you."
             },
-            illumi: {
-                name: "Illumi Zoldyck",
-                short: "Illumi",
-                title: "The Pin-Cushion Controller",
-                nen: "Manipulator",
-                quote: "\"You don't need friends. Following family discipline keeps you alive.\"",
-                stats: { Power: 86, Intellect: 88, Agility: 90, Potential: 76 },
-                img: "/hxh/images/illumi.jpg",
-                desc: "<strong>Archetype:</strong> Stoic Controller &amp; Pragmatist.<br>Composed, systematic, and unsentimental. You remove ambiguity early and insist on predictable order—especially over people you claim to protect."
-            },
             chrollo: {
-                name: "Chrollo Lucilfer",
-                short: "Chrollo",
-                title: "The Spider's Head",
-                nen: "Specialist",
+                name: "Chrollo Lucilfer", short: "Chrollo", title: "The Spider's Head",
+                nen: "Specialist", nenSlug: "specialization",
                 quote: "\"We are the Spider. Even if the head dies, the legs keep moving.\"",
                 stats: { Power: 88, Intellect: 100, Agility: 90, Potential: 90 },
                 img: "/hxh/images/chrollo.jpg",
                 desc: "<strong>Archetype:</strong> Detached Mastermind.<br>Calm, bookish, and enigmatic, you hold disparate personalities together through quiet authority and layered contingency planning."
             },
+            illumi: {
+                name: "Illumi Zoldyck", short: "Illumi", title: "The Pin-Cushion Controller",
+                nen: "Manipulator", nenSlug: "manipulation",
+                quote: "\"You don't need friends. Following family discipline keeps you alive.\"",
+                stats: { Power: 86, Intellect: 88, Agility: 90, Potential: 76 },
+                img: "/hxh/images/illumi.jpg",
+                desc: "<strong>Archetype:</strong> Stoic Controller &amp; Pragmatist.<br>Composed, systematic, and unsentimental. You remove ambiguity early and insist on predictable order—especially over people you claim to protect."
+            },
             meruem: {
-                name: "Meruem",
-                short: "Meruem",
-                title: "The Apex Sovereign",
-                nen: "Emitter (Ultimate)",
+                name: "Meruem", short: "Meruem", title: "The Apex Sovereign",
+                nen: "Emitter (Ultimate)", nenSlug: "emission",
                 quote: "\"Why was I born into this world? What is true strength?\"",
                 stats: { Power: 100, Intellect: 100, Agility: 100, Potential: 100 },
                 img: "/hxh/images/meruem.jpg",
                 desc: "<strong>Archetype:</strong> Sovereign Strategist &amp; Seeker.<br>Driven by relentless mastery and rapid learning, you outgrow brute dominance once you encounter someone whose skill humbles your worldview."
+            },
+            feitan: {
+                name: "Feitan Portor", short: "Feitan", title: "The Rising Sun Executioner",
+                nen: "Transmuter", nenSlug: "transmutation",
+                quote: "\"Now that I'm warmed up... show me how long you last.\"",
+                stats: { Power: 90, Intellect: 82, Agility: 96, Potential: 85 },
+                img: "/hxh/images/feitan.jpg",
+                desc: "<strong>Archetype:</strong> Ice-Cold Pragmatic Operator.<br>Taciturn, unsentimental, and lethal when cornered. You avoid chatter or politics, judge purely by firsthand effectiveness, and turn pressure back on whoever pushed you."
+            },
+            machi: {
+                name: "Machi Komacine", short: "Machi", title: "The Nen-Thread Artisan",
+                nen: "Transmuter", nenSlug: "transmutation",
+                quote: "\"I charge extra for rushed stitches. Don't waste my time.\"",
+                stats: { Power: 78, Intellect: 84, Agility: 88, Potential: 82 },
+                img: "/hxh/images/machi.jpg",
+                desc: "<strong>Archetype:</strong> Sharp-Intuited Independent Minimalist.<br>Quiet, fiercely loyal to your inner circle, and blessed with uncanny gut intuition. You prefer clean actions over long explanations."
+            },
+            alluka: {
+                name: "Alluka Zoldyck", short: "Alluka", title: "The Starlight Wish-Binder",
+                nen: "Specialist", nenSlug: "specialization",
+                quote: "\"You protected both of us, big brother. That's all that ever mattered.\"",
+                stats: { Power: 40, Intellect: 72, Agility: 60, Potential: 100 },
+                img: "/hxh/images/alluka.jpg",
+                desc: "<strong>Archetype:</strong> Gentle Idealist Holding Infinite Depth.<br>Soft-hearted, imaginative, and devoted to genuine trust. Beneath an unassuming exterior lies deep emotional resonance and astonishing unseen potential."
+            },
+            shalnark: {
+                name: "Shalnark", short: "Shalnark", title: "The Autopilot Broker",
+                nen: "Manipulator", nenSlug: "manipulation",
+                quote: "\"Even when something looks chaotic, there's always a neat rulebook underneath!\"",
+                stats: { Power: 76, Intellect: 93, Agility: 82, Potential: 80 },
+                img: "/hxh/images/shalnark.jpg",
+                desc: "<strong>Archetype:</strong> Playful Tactical Brainstormer.<br>Cheery, conversational, and endlessly curious. You keep mood light while dissecting enemy systems like puzzles—always holding a wild workaround in your pocket."
+            },
+            bisky: {
+                name: "Biscuit Krueger", short: "Bisky", title: "The Diamond Drillmaster",
+                nen: "Transmuter", nenSlug: "transmutation",
+                quote: "\"No shortcuts! Master the boring basics first or you won't survive.\"",
+                stats: { Power: 94, Intellect: 88, Agility: 86, Potential: 84 },
+                img: "/hxh/images/bisky.jpg",
+                desc: "<strong>Archetype:</strong> Tough-Love Executive Coach.<br>Sharp, observant, and uncompromising about real standards. You spot sloppy fundamentals in seconds and push capable rookies to earn genuine strength."
+            },
+            pitou: {
+                name: "Neferpitou", short: "Pitou", title: "The Crimson Marionette Guard",
+                nen: "Specialist", nenSlug: "specialization",
+                quote: "\"Ooh, this looks fascinating! Let's see what happens when I test it.\"",
+                stats: { Power: 96, Intellect: 86, Agility: 98, Potential: 95 },
+                img: "/hxh/images/pitou.jpg",
+                desc: "<strong>Archetype:</strong> Curiosity-Driven Chimera Prodigy.<br>Boundless playful fascination paired with terrifying adaptability. Once someone earns your absolute devotion, you reinvent your abilities overnight to guard them."
+            },
+            pakunoda: {
+                name: "Pakunoda", short: "Pakunoda", title: "The Memory Bullet Keeper",
+                nen: "Specialist", nenSlug: "specialization",
+                quote: "\"Keep my memories. Even if I pay the price, keep moving together.\"",
+                stats: { Power: 72, Intellect: 89, Agility: 78, Potential: 80 },
+                img: "/hxh/images/pakunoda.jpg",
+                desc: "<strong>Archetype:</strong> Devoted Silent Guardian.<br>Steady, observant, and quietly protective of shared history. While others argue ideology, you protect the truth that keeps your companions intact—at any personal cost."
+            },
+            pouf: {
+                name: "Shaiapouf", short: "Pouf", title: "The Butterfly Idealist",
+                nen: "Manipulator", nenSlug: "manipulation",
+                quote: "\"Only perfection worthy of the ideal King deserves to endure!\"",
+                stats: { Power: 86, Intellect: 91, Agility: 90, Potential: 88 },
+                img: "/hxh/images/pouf.jpg",
+                desc: "<strong>Archetype:</strong> Dramatic Visionary Orchestrator.<br>Intensely expressive, hyper-sensitive to emotional atmospheres, and driven by grand ideals. You constantly read subtle shifts in morale and steer the room around you."
             }
+        };
+
+        const mbtiCrossMap = {
+            gon:      { code: 'ESFP', title: 'ESFP (The Unfiltered Performer) · Enhancer', stack: 'Se - Fi - Te - Ni', desc: 'Pure sensory presence (Se) paired with fiercely stubborn personal morals (Fi).' },
+            killua:   { code: 'INTP', title: 'INTP (The Analytical Logician) · Transmuter', stack: 'Ti - Ne - Si - Fe', desc: 'Rapid mental modeling (Ti-Ne) spotting every hidden escape route while carrying quiet, earned devotion (Fe).' },
+            kurapika: { code: 'INTJ', title: 'INTJ (The Boundless Architect) · Conjurer / Specialist', stack: 'Ni - Te - Fi - Se', desc: 'Long-range strategic foresight (Ni) executed through ironclad vows and structure (Te).' },
+            leorio:   { code: 'ESFJ', title: 'ESFJ (The Devoted Protector) · Emitter', stack: 'Fe - Si - Ne - Ti', desc: 'Outward communal warmth and fierce loyalty (Fe) grounded in practical resolve (Si).' },
+            hisoka:   { code: 'ESTP', title: 'ESTP (The High-Stakes Maverick) · Transmuter', stack: 'Se - Ti - Fe - Ni', desc: 'Thrill-seeking improvisational adrenaline (Se) sharpened by tactical detachment (Ti).' },
+            chrollo:  { code: 'INFJ', title: 'INFJ (The Enigmatic Philosopher) · Specialist', stack: 'Ni - Fe - Ti - Se', desc: 'Deep existential symbolism (Ni) paired with disarming social composure (Fe).' },
+            illumi:   { code: 'ISTJ', title: 'ISTJ (The Rigid Rule-Enforcer) · Manipulator', stack: 'Si - Te - Fi - Ne', desc: 'Unquestioning allegiance to lineage precedent (Si) and cold efficiency (Te).' },
+            meruem:   { code: 'ENTJ', title: 'ENTJ (The Sovereign Strategist) · Emitter (Ultimate)', stack: 'Te - Ni - Se - Fi', desc: 'Relentless systemic conquest (Te) evolving toward overarching philosophical insight (Ni).' },
+            feitan:   { code: 'ISTP', title: 'ISTP (The Lethal Virtuoso) · Transmuter', stack: 'Ti - Se - Ni - Fe', desc: 'Blunt hands-on detachment (Ti) welded to razor-sharp combat reflexes (Se).' },
+            machi:    { code: 'ISFP', title: 'ISFP (The Silent Artisan) · Transmuter', stack: 'Fi - Se - Ni - Te', desc: 'Uncompromising internal values (Fi) paired with crisp instinctual precision (Se).' },
+            alluka:   { code: 'INFP', title: 'INFP (The Pure Idealist) · Specialist', stack: 'Fi - Ne - Si - Te', desc: 'Deep emotional authenticity (Fi) dreaming up boundless connection and trust (Ne).' },
+            shalnark: { code: 'ENTP', title: 'ENTP (The Agile Strategist) · Manipulator', stack: 'Ne - Ti - Fe - Si', desc: 'Playful curiosity (Ne) endlessly dissecting rules and turning fights into clever games (Ti).' },
+            bisky:    { code: 'ESTJ', title: 'ESTJ (The Tough-Love Executive) · Transmuter', stack: 'Te - Si - Ne - Fi', desc: 'No-nonsense discipline (Te) rooted in battle-tested fundamentals (Si).' },
+            pitou:    { code: 'ENFP', title: 'ENFP (The Curious Prodigy) · Specialist', stack: 'Ne - Fi - Te - Si', desc: 'Wild creative experimentation (Ne) crystallized by fierce personal devotion (Fi).' },
+            pakunoda: { code: 'ISFJ', title: 'ISFJ (The Devoted Keeper) · Specialist', stack: 'Si - Fe - Ti - Ne', desc: 'Quiet vigilance over shared memory (Si) and selfless protection of companions (Fe).' },
+            pouf:     { code: 'ENFJ', title: 'ENFJ (The Dramatic Conductor) · Manipulator', stack: 'Fe - Ni - Se - Ti', desc: 'Acute emotional radar (Fe) obsessed with sculpting others around a sacred vision (Ni).' }
         };
 
         const questions = [
             {
-                q: "During the Hunter Exam, you enter the fog-choked Numere Wetlands crawling with monsters. What is your strategy?",
+                q: "At the Hunter Exam waiting tunnel before the run begins, crowds of lethal strangers fill the hall. What is your first instinct?",
                 choices: [
-                    { text: "Stick right behind the examiner in the lead pack so you never lose sight of him.", char: "gon" },
-                    { text: "Hold steady in the middle with a trusted friend while scanning the fog for ambushes.", char: "killua" },
-                    { text: "Form a clear tactical pact with reliable candidates to pool survival intel.", char: "kurapika" },
-                    { text: "Push through on sheer grit and keep yelling to rally teammates who fall behind.", char: "leorio" }
+                    { text: "Strike up conversations early to build rapport and trade useful intel.", mbti: { E: 2 }, chars: { leorio: 2, gon: 1, bisky: 1 } },
+                    { text: "Wander near the oddest or strongest contenders just to poke at their reactions.", mbti: { E: 2 }, chars: { hisoka: 2, pitou: 2, shalnark: 1 } },
+                    { text: "Hang back quietly by a pillar and study how everyone moves and sizes people up.", mbti: { I: 2 }, chars: { killua: 2, kurapika: 2, chrollo: 1 } },
+                    { text: "Ignore everyone, conserve energy alone, and simply wait for the gate to lift.", mbti: { I: 2 }, chars: { feitan: 2, illumi: 2, pakunoda: 1 } }
                 ]
             },
             {
-                q: "A rogue candidate starts hunting weaker examinees in the mist purely for sport. You:",
+                q: "Thick fog blankets the Numere Wetlands as predators ambush stragglers from every angle. How do you navigate?",
                 choices: [
-                    { text: "Grin quietly—finally someone strong enough to make this exam interesting.", char: "hisoka" },
-                    { text: "Watch his rhythm calmly from cover without revealing your own capabilities.", char: "chrollo" },
-                    { text: "Confront him directly because standing by while people get hurt is unacceptable.", char: "gon" },
-                    { text: "Treat him as an unnecessary variable and eliminate him cleanly without hesitation.", char: "illumi" }
+                    { text: "Trust crisp sensory cues—footsteps in mud, scent on the wind, and raw reflexes.", mbti: { S: 2 }, chars: { gon: 2, machi: 2, feitan: 1 } },
+                    { text: "Pace your stamina realistically and stay inside proven safe sightlines.", mbti: { S: 2 }, chars: { leorio: 2, illumi: 1, pakunoda: 2 } },
+                    { text: "Step back mentally and deduce why the examiner chose this exact trap structure.", mbti: { N: 2 }, chars: { chrollo: 2, kurapika: 1, pouf: 2 } },
+                    { text: "Map out unlikely edge cases and hidden shortcuts in your head on the fly.", mbti: { N: 2 }, chars: { killua: 2, shalnark: 2, alluka: 1 } }
                 ]
             },
             {
-                q: "In Trick Tower, your team faces a majority vote: a safe 45-hour detour or a 3-minute shortcut allowing only two survivors. You:",
+                q: "In Trick Tower, a timed vote offers either a grueling 45-hour detour or a 3-minute exit that sacrifices teammates. You:",
                 choices: [
-                    { text: "Refuse to leave anyone behind and search for a creative third way out together.", char: "gon" },
-                    { text: "Weigh the exact survival odds quietly and prepare the most realistic exit.", char: "killua" },
-                    { text: "Debate the ethical cost until the team reaches a principled consensus.", char: "kurapika" },
-                    { text: "Step up front and refuse to let anyone quietly sacrifice a teammate for convenience.", char: "leorio" }
+                    { text: "Strip out guilt and calculate the cold survival odds and practical cost first.", mbti: { T: 2 }, chars: { killua: 2, illumi: 2, meruem: 1 } },
+                    { text: "Scour the wording of the rules to engineer a logical loophole nobody saw.", mbti: { T: 2 }, chars: { kurapika: 2, bisky: 2, shalnark: 1 } },
+                    { text: "Reject sacrificing a friend instantly—no win counts if you abandon your own people.", mbti: { F: 2 }, chars: { gon: 2, leorio: 2, pakunoda: 1 } },
+                    { text: "Protect the emotional bond of those you care about, no matter how irrational it looks.", mbti: { F: 2 }, chars: { alluka: 2, machi: 2, pouf: 2 } }
                 ]
             },
             {
-                q: "At Heavens Arena on the 200th floor, malicious Nen pressure hits you the second you step into the hallway.",
+                q: "You step off the elevator onto Heavens Arena's 200th floor where Nen registration has a strict midnight deadline.",
                 choices: [
-                    { text: "Keep walking calmly anyway—provocation doesn't work when you only care about the fight ahead.", char: "hisoka" },
-                    { text: "Pull back immediately and study how their aura behaves before engaging.", char: "killua" },
-                    { text: "Note the rule system of the floor first and prepare a strict counter-condition.", char: "kurapika" },
-                    { text: "See through the bluff and decide whether taking them down benefits your objective.", char: "illumi" }
+                    { text: "Audit the rules, floor schedule, and threat roster cleanly before risking a single bout.", mbti: { J: 2 }, chars: { kurapika: 2, bisky: 2, illumi: 1 } },
+                    { text: "Lock in your step-by-step climbing milestones right away and push toward them systematically.", mbti: { J: 2 }, chars: { pakunoda: 2, meruem: 2, pouf: 1 } },
+                    { text: "Dive into the atmosphere first and improvise from whatever pressure hits you.", mbti: { P: 2 }, chars: { hisoka: 2, gon: 2, pitou: 1 } },
+                    { text: "Keep plans minimal and swap tactics dynamically once you feel out your opponent.", mbti: { P: 2 }, chars: { killua: 2, shalnark: 2, feitan: 1 } }
                 ]
             },
             {
-                q: "You discover a dangerous rival organization holds priceless leverage in Yorknew City. What role do you take?",
+                q: "Rival syndicates are gathering in Yorknew City ahead of an underground auction. What role comes naturally to you?",
                 choices: [
-                    { text: "Orchestrate a decoy raid from behind the scenes while collecting information nobody notices.", char: "chrollo" },
-                    { text: "Set airtight rules and private vows so every trap lands with mathematical certainty.", char: "kurapika" },
-                    { text: "Handle communications, lookout timing, and getaway logistics so friends survive.", char: "leorio" },
-                    { text: "Play both sides quietly until you get a one-on-one duel with the strongest leader.", char: "hisoka" }
+                    { text: "Ping contacts playfully, chase wild rumors, and connect dots into a clever hypothesis.", mbti: { E: 1, N: 2 }, chars: { shalnark: 2, chrollo: 1, pitou: 2 } },
+                    { text: "Stay off the radar, verify concrete evidence quietly, and avoid empty speculation.", mbti: { I: 2, S: 1 }, chars: { machi: 2, pakunoda: 2, illumi: 1 } },
+                    { text: "Work the floor directly—talk face-to-face, test leverage, and lock down tangible gains.", mbti: { E: 2, S: 1 }, chars: { bisky: 2, leorio: 2, hisoka: 1 } },
+                    { text: "Retreat into deep solo analysis to predict the enemy mastermind's moves two steps ahead.", mbti: { I: 1, N: 2 }, chars: { kurapika: 2, killua: 2, alluka: 1 } }
                 ]
             },
             {
-                q: "During a high-stakes dodgeball match on Greed Island, your team faces a massive power gap. What kicks in?",
+                q: "Before a dangerous raid, a close ally starts spiraling emotionally and snapping at everyone around them. Your reaction:",
                 choices: [
-                    { text: "Pour everything into one full-force strike even if your body breaks right after.", char: "gon" },
-                    { text: "Endure quiet pain so your partner's strongest shot has clean precision.", char: "killua" },
-                    { text: "Study the opponent's throws turn by turn until you spot an exact structural flaw.", char: "meruem" },
-                    { text: "Treat the match like an unpredictable game and turn their momentum back at them.", char: "hisoka" }
+                    { text: "Swallow your frustration silently and quietly patch up the tactical fallout they left behind.", mbti: { T: 2 }, chars: { killua: 2, bisky: 1, kurapika: 1 } },
+                    { text: "Draw an ice-cold boundary—emotional chaos slows the mission, so isolate the risk fast.", mbti: { T: 2 }, chars: { feitan: 2, illumi: 2, meruem: 1 } },
+                    { text: "Confront them loudly face-to-face—snap them out of it with blunt, heartfelt honesty.", mbti: { F: 2 }, chars: { leorio: 2, gon: 2, pakunoda: 1 } },
+                    { text: "Absorb why their heart is breaking and stay anchored gently beside them until they steady.", mbti: { F: 2 }, chars: { alluka: 2, pouf: 2, machi: 1 } }
                 ]
             },
             {
-                q: "Under Water Divination training, what kind of Nen ability feels closest to your personality?",
+                q: "In a brutal Greed Island dodgeball showdown against an overpowering boss, what kicks into gear?",
                 choices: [
-                    { text: "Direct, straightforward power amplified by pure focus and honesty.", char: "gon" },
-                    { text: "Shifting your aura's properties unpredictably so opponents never guess your hand.", char: "killua" },
-                    { text: "A rule-bound tool forged under strict personal vows that punish rule-breakers.", char: "kurapika" },
-                    { text: "Detached control—either projecting long-range strikes or pulling battlefield strings.", char: "illumi" }
+                    { text: "Assign strict defensive roles and tighten team formation until the boss's rhythm cracks.", mbti: { J: 2 }, chars: { bisky: 2, kurapika: 1, meruem: 2 } },
+                    { text: "Stick strictly to pre-agreed backup contingencies so no surprise throw breaks formation.", mbti: { J: 1, S: 1 }, chars: { illumi: 2, pakunoda: 2, machi: 1 } },
+                    { text: "Ditch conventional playbook moves and flip the court with outrageous mind games.", mbti: { P: 2 }, chars: { hisoka: 2, shalnark: 2, pitou: 2 } },
+                    { text: "Trust raw split-second adrenaline and pour every ounce of momentum into one strike.", mbti: { P: 2 }, chars: { gon: 2, killua: 1, feitan: 2 } }
                 ]
             },
             {
-                q: "An ally close to you starts spiraling out of control emotionally before a critical mission. How do you react?",
+                q: "During Water Divination training, what style of Hatsu ability feels truest to how your mind actually works?",
                 choices: [
-                    { text: "Stay beside them silently, plan around their blind spots, and swallow the hurt.", char: "killua" },
-                    { text: "Speak bluntly to snap them back to reality, even if it turns into a loud argument.", char: "leorio" },
-                    { text: "Restrain or redirect them firmly before emotion ruins the mission.", char: "illumi" },
-                    { text: "Observe without interfering—what someone destroys through their own drive is their choice.", char: "chrollo" }
+                    { text: "Honest, straightforward power acting directly on the physical reality right in front of you.", mbti: { S: 2 }, chars: { gon: 2, leorio: 2, machi: 1 } },
+                    { text: "A finely honed, repeatable combat craft perfected through concrete hands-on drills.", mbti: { S: 2 }, chars: { feitan: 2, illumi: 1, bisky: 2 } },
+                    { text: "A layered rule-system weaving conditions, enemy triggers, and multi-step possibilities.", mbti: { N: 2 }, chars: { chrollo: 2, shalnark: 2, kurapika: 2 } },
+                    { text: "A surreal, rule-defying power born from sheer imagination and deep emotional resonance.", mbti: { N: 2 }, chars: { pitou: 2, alluka: 2, pouf: 2 } }
                 ]
             },
             {
-                q: "If an adversary proves genuinely superior to you in one specific skill or board game, what happens inside your head?",
+                q: "The mission is finally over and everyone survives. How do you actually recharge your battery?",
                 choices: [
-                    { text: "Obsessive curiosity—you keep challenging them until you break past your own ceiling.", char: "meruem" },
-                    { text: "Thrilled amusement—defeating someone who pushed you becomes your sole priority.", char: "hisoka" },
-                    { text: "Frustration turned into fuel—you refuse to yield until you figure out how they did it.", char: "gon" },
-                    { text: "Respect mixed with caution—you memorize their patterns and adjust your own playbook.", char: "chrollo" }
+                    { text: "Loud food, crowded laughter, and celebrating with friends until the tension melts.", mbti: { E: 2 }, chars: { leorio: 2, gon: 2, bisky: 1 } },
+                    { text: "Chasing fresh stimulation right away—debriefing with rivals or hunting the next thrill.", mbti: { E: 2 }, chars: { hisoka: 2, pitou: 2, pouf: 2 } },
+                    { text: "Disappearing into a quiet room alone with a book, music, or undisturbed thoughts.", mbti: { I: 2 }, chars: { killua: 2, chrollo: 2, alluka: 2 } },
+                    { text: "Shutting off small talk and unwinding smoothly through a familiar solo routine.", mbti: { I: 2 }, chars: { feitan: 2, machi: 2, pakunoda: 2 } }
                 ]
             },
             {
-                q: "When you finally snap under unfair pressure in front of a crowd or organization, what does it look like?",
+                q: "A teammate secretly leaks your location to an enemy squad. When you corner them, what drives your response?",
                 choices: [
-                    { text: "Calling out hypocrisy right to the top leader's face so everyone hears it.", char: "leorio" },
-                    { text: "Shutting off emotion completely and turning laser-focused on a single vow.", char: "kurapika" },
-                    { text: "Walking away coldly after severing whatever expectation held you back.", char: "illumi" },
-                    { text: "Realizing brute power alone isn't enough and questioning what actually deserves protection.", char: "meruem" }
+                    { text: "Mask your anger completely, quantify the exact damage, and collect cold-blooded payback.", mbti: { T: 2 }, chars: { feitan: 2, kurapika: 2, chrollo: 1 } },
+                    { text: "Analyze why they flipped logically; once usefulness hits zero, cut them loose cleanly.", mbti: { T: 2 }, chars: { meruem: 2, shalnark: 2, illumi: 1 } },
+                    { text: "Demand answers straight to their face—betraying shared trust hits straight at the heart.", mbti: { F: 2 }, chars: { gon: 2, leorio: 2, machi: 1 } },
+                    { text: "Feel the quiet ache of wondering what drove them there and how it affects the remaining team.", mbti: { F: 2 }, chars: { pakunoda: 2, alluka: 2, pouf: 2 } }
                 ]
             },
             {
-                q: "Which mistake are you most likely to make in close friendships or team projects?",
+                q: "If you had to run a squad like the Phantom Troupe or a Hunter expedition team, how would it operate?",
                 choices: [
-                    { text: "Getting so locked into personal grief or fairness that you push away people helping you.", char: "gon" },
-                    { text: "Bearing every worst-case burden alone instead of admitting you feel hurt.", char: "killua" },
-                    { text: "Trying to control teammates 'for their own safety' without asking how they feel.", char: "illumi" },
-                    { text: "Staying so detached that nobody ever knows what you truly want for yourself.", char: "chrollo" }
+                    { text: "Like clockwork: clear chain of command, defined roles, and shared organizational rules.", mbti: { J: 2 }, chars: { chrollo: 2, bisky: 2, meruem: 2 } },
+                    { text: "Built on ironclad vows, deadlines, and strict mutual accountability.", mbti: { J: 2 }, chars: { kurapika: 2, illumi: 2, pouf: 2 } },
+                    { text: "Loose direction only—give weird specialists room to improvise brilliant plays.", mbti: { P: 2 }, chars: { shalnark: 2, hisoka: 2, pitou: 2 } },
+                    { text: "Zero bloated meetings—let everyone adapt cleanly in the field when chaos hits.", mbti: { P: 2 }, chars: { killua: 2, feitan: 2, machi: 2 } }
                 ]
             },
             {
-                q: "What defines true strength at the end of the journey?",
+                q: "In a tense board game or duel against a genius opponent who outplays you early, what goes through your head?",
                 choices: [
-                    { text: "Commanding both unmatched mastery and the wisdom to protect what truly matters.", char: "meruem" },
-                    { text: "Holding tight to trusted companions and surviving with clean hands.", char: "leorio" },
-                    { text: "Dancing on a knife-edge against worthy rivals where every breath feels electric.", char: "hisoka" },
-                    { text: "Rewriting your own fate without bowing to anyone else's chains.", char: "chrollo" }
+                    { text: "See past individual moves to decode the opponent's whole worldview and hidden rhythm.", mbti: { N: 2 }, chars: { meruem: 2, chrollo: 2, killua: 2 } },
+                    { text: "Start testing strange, unorthodox angles nobody expects just to open fresh space.", mbti: { N: 2 }, chars: { pitou: 2, alluka: 2, shalnark: 2 } },
+                    { text: "Fall back on battle-tested muscle memory, grounded reads, and proven fundamentals.", mbti: { S: 2 }, chars: { bisky: 2, machi: 2, feitan: 2 } },
+                    { text: "Focus intensely on the immediate turn in front of you and grind forward relentlessly.", mbti: { S: 2 }, chars: { gon: 2, leorio: 2, pakunoda: 2 } }
+                ]
+            },
+            {
+                q: "When someone you cherish falls into mortal danger during the Chimera Ant crisis, how do you show love?",
+                choices: [
+                    { text: "Say very little aloud while quietly neutralizing the nastiest risks behind their back.", mbti: { I: 1, T: 2 }, chars: { killua: 2, feitan: 2, illumi: 1 } },
+                    { text: "Step out visibly, take the heat loudly, and let everyone know whose side you stand on.", mbti: { E: 1, F: 2 }, chars: { leorio: 2, pouf: 2, gon: 1 } },
+                    { text: "Guard a quiet sacred promise—even sacrificing yourself silently so they survive whole.", mbti: { I: 1, F: 2 }, chars: { pakunoda: 2, alluka: 2, machi: 2 } },
+                    { text: "Step up cleanly with tough practical direction so the whole team actually makes it out alive.", mbti: { E: 1, T: 2 }, chars: { bisky: 2, meruem: 2, shalnark: 2 } }
+                ]
+            },
+            {
+                q: "Looking ahead to the end of your Hunter journey, what kind of ending feels most like you?",
+                choices: [
+                    { text: "Honoring every vow I took on and closing my chapter with duty fulfilled.", mbti: { J: 2 }, chars: { kurapika: 2, meruem: 2, pakunoda: 2 } },
+                    { text: "Standing on an unshakeable standard of mastery and order nobody can rattle.", mbti: { J: 2 }, chars: { illumi: 2, bisky: 2, pouf: 2 } },
+                    { text: "Chasing endless uncharted horizons and rivals where nothing is pre-scripted.", mbti: { P: 2 }, chars: { gon: 2, hisoka: 2, pitou: 2 } },
+                    { text: "Breaking free of every expectation so the people I choose and I can live on our own terms.", mbti: { P: 2 }, chars: { killua: 2, alluka: 2, feitan: 2 } }
                 ]
             }
         ];
 
-        const mbtiCrossMap = {
-            gon: { code: 'ESFP', title: 'ESFP (The Unfiltered Performer) · Enhancer', desc: 'Pure sensory presence (Se) paired with fiercely stubborn personal morals (Fi).' },
-            killua: { code: 'ISTP', title: 'ISTP (The Detached Tactician) · Transmuter', desc: 'Sharp internal logic (Ti) combined with lightning-fast situational reflexes (Se).' },
-            kurapika: { code: 'INTJ', title: 'INTJ (The Boundless Architect) · Conjurer / Specialist', desc: 'Long-range strategic foresight (Ni) executed through ironclad vows and structure (Te).' },
-            leorio: { code: 'ESFJ', title: 'ESFJ (The Devoted Protector) · Emitter', desc: 'Outward communal warmth and fierce loyalty (Fe) grounded in practical resolve (Si).' },
-            hisoka: { code: 'ESTP', title: 'ESTP (The High-Stakes Maverick) · Transmuter', desc: 'Thrill-seeking improvisational adrenaline (Se) sharpened by tactical detachment (Ti).' },
-            chrollo: { code: 'INFJ', title: 'INFJ (The Enigmatic Philosopher) · Specialist', desc: 'Deep existential symbolism (Ni) paired with disarming social composure (Fe).' },
-            illumi: { code: 'ISTJ', title: 'ISTJ (The Rigid Rule-Enforcer) · Manipulator', desc: 'Unquestioning allegiance to ancestral precedent (Si) and cold efficiency (Te).' },
-            meruem: { code: 'ENTJ', title: 'ENTJ (The Sovereign Strategist) · Emitter (Ultimate)', desc: 'Relentless systemic conquest (Te) evolving toward overarching philosophical insight (Ni).' }
-        };
-
         let currentQ = 0;
-        let scores = {};
+        let charScores = {};
+        let axisScores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
         let currentWinner = 'gon';
 
         function initPoolGrid() {
@@ -695,11 +799,12 @@
             for (const [key, p] of Object.entries(charProfiles)) {
                 const a = document.createElement('a');
                 a.className = 'pool-card';
-                a.href = '/en/hxh/' + key + '.html';
+                a.href = HAS_DOSSIER.has(key) ? (`/en/hxh/${key}.html`) : (`/en/hxh/?result=${key}`);
+                const mCode = (mbtiCrossMap[key] || {}).code || '';
                 a.innerHTML = `
                     <img class="pool-thumb" src="${p.img}" alt="${p.name}">
                     <span class="pool-name">${p.short}</span>
-                    <span class="pool-nen">${p.nen.split(' ')[0]}</span>
+                    <span class="pool-nen">${mCode}</span>
                 `;
                 grid.appendChild(a);
             }
@@ -713,7 +818,9 @@
 
         function startTest() {
             currentQ = 0;
-            scores = { gon:0, killua:0, kurapika:0, leorio:0, hisoka:0, chrollo:0, illumi:0, meruem:0 };
+            charScores = {};
+            Object.keys(charProfiles).forEach(k => { charScores[k] = 0; });
+            axisScores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
             showScreen('screen-question');
             renderQuestion();
         }
@@ -732,7 +839,16 @@
                 btn.className = 'choice-btn';
                 btn.innerText = c.text;
                 btn.onclick = () => {
-                    scores[c.char] += 1 + Math.random() * 0.08;
+                    if (c.mbti) {
+                        for (const [ax, w] of Object.entries(c.mbti)) {
+                            axisScores[ax] = (axisScores[ax] || 0) + w;
+                        }
+                    }
+                    if (c.chars) {
+                        for (const [ch, w] of Object.entries(c.chars)) {
+                            charScores[ch] = (charScores[ch] || 0) + w;
+                        }
+                    }
                     currentQ++;
                     if (currentQ < questions.length) renderQuestion();
                     else finishQuiz();
@@ -741,20 +857,41 @@
             });
         }
 
+        function computeAxisPair(a, b) {
+            const total = (axisScores[a] || 0) + (axisScores[b] || 0);
+            if (total === 0) return { aPct: 50, bPct: 50, win: a };
+            const aPct = Math.round(((axisScores[a] || 0) / total) * 100);
+            return { aPct, bPct: 100 - aPct, win: (axisScores[a] || 0) >= (axisScores[b] || 0) ? a : b };
+        }
+
         function finishQuiz() {
-            const ranked = Object.entries(scores)
-                .map(([key, val]) => ({ key, val }))
-                .sort((a, b) => b.val - a.val);
+            const ei = computeAxisPair('E', 'I');
+            const sn = computeAxisPair('S', 'N');
+            const tf = computeAxisPair('T', 'F');
+            const jp = computeAxisPair('J', 'P');
+            const pctMap = { E: ei.aPct/100, I: ei.bPct/100, S: sn.aPct/100, N: sn.bPct/100, T: tf.aPct/100, F: tf.bPct/100, J: jp.aPct/100, P: jp.bPct/100 };
+            const userMbti = ei.win + sn.win + tf.win + jp.win;
+
+            const ranked = Object.keys(charProfiles).map(key => {
+                const mCode = mbtiCrossMap[key].code;
+                let axFit = 0;
+                for (const lt of mCode) axFit += (pctMap[lt] || 0.5) * 3.0;
+                const exactBonus = (mCode === userMbti) ? 4.0 : 0;
+                const val = (charScores[key] || 0) * 1.4 + axFit + exactBonus + Math.random() * 0.05;
+                return { key, val };
+            }).sort((a, b) => b.val - a.val);
+
             const topVal = Math.max(ranked[0].val, 1);
             ranked.forEach((item, idx) => {
-                const base = idx === 0 ? Math.min(98, 72 + Math.round((item.val / 6) * 26)) : Math.max(18, Math.round((item.val / topVal) * 84));
-                item.pct = Math.min(99, Math.max(12, base));
+                const base = idx === 0 ? Math.min(98, 76 + Math.round((item.val / 32) * 22)) : Math.max(24, Math.round((item.val / topVal) * 86));
+                item.pct = Math.min(99, Math.max(15, base));
             });
-            renderResults(ranked.slice(0, 3));
+
+            renderResults(ranked.slice(0, 3), { ei, sn, tf, jp, userMbti });
             showScreen('screen-result');
         }
 
-        function renderResults(topThree) {
+        function renderResults(topThree, axisSummary) {
             const winner = topThree[0].key;
             currentWinner = winner;
             const p = charProfiles[winner];
@@ -767,20 +904,20 @@
             document.getElementById('result-nen').innerText = p.nen;
             document.getElementById('result-quote').innerText = p.quote;
 
-            let leorioEasterHtml = '';
+            let relatedHtml = '';
             if (winner === 'leorio') {
-                leorioEasterHtml = '<div style="background:linear-gradient(135deg,#241e0d,#181c26); border:1.5px solid #eab308; border-radius:10px; padding:12px 14px; margin-bottom:14px; font-size:13.5px; line-height:1.6; color:#fef08a; text-align:left;">' +
+                relatedHtml += '<div style="background:linear-gradient(135deg,#241e0d,#181c26); border:1.5px solid #eab308; border-radius:10px; padding:12px 14px; margin-bottom:14px; font-size:13.5px; line-height:1.6; color:#fef08a; text-align:left;">' +
                     '<strong>[Creator\'s Note] You got Leorio.</strong><br>' +
                     '<span style="color:#e2e8f0;">Leorio Paradinight happens to be the TESTYOUR creator\'s favorite character in the series.</span><br>' +
                     '<a href="/en/column/leorio-love.html" style="color:#facc15; font-weight:bold; text-decoration:underline; display:inline-block; margin-top:6px;">Read the Leorio essay &rarr;</a>' +
                     '</div>';
             }
             if (winner === 'killua' || winner === 'gon') {
-                leorioEasterHtml += '<div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.35); border-radius:10px; padding:10px 13px; margin-bottom:14px; font-size:13px; line-height:1.55; color:#cbd5e1; text-align:left;">' +
+                relatedHtml += '<div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.35); border-radius:10px; padding:10px 13px; margin-bottom:14px; font-size:13px; line-height:1.55; color:#cbd5e1; text-align:left;">' +
                     '<strong style="color:#38bdf8;">Related Essay:</strong> <a href="/en/column/killua-socialized-t.html" style="color:#38bdf8; text-decoration:underline; font-weight:700;">A Socialized T-Type (Killua) Is Warmer Than an Untamed F-Type (Gon) &rarr;</a>' +
                     '</div>';
             }
-            document.getElementById('result-desc').innerHTML = leorioEasterHtml + p.desc;
+            document.getElementById('result-desc').innerHTML = relatedHtml + p.desc;
 
             let statsHtml = '';
             for (const [k, v] of Object.entries(p.stats)) {
@@ -790,11 +927,14 @@
 
             let subHtml = '';
             for (let i = 1; i < topThree.length; i++) {
-                const sc = charProfiles[topThree[i].key];
-                subHtml += `<a href="/en/hxh/${topThree[i].key}.html" class="sub-match-item">
+                const sk = topThree[i].key;
+                const sc = charProfiles[sk];
+                const sm = mbtiCrossMap[sk];
+                const subHref = HAS_DOSSIER.has(sk) ? (`/en/hxh/${sk}.html`) : (`/en/hxh/?result=${sk}`);
+                subHtml += `<a href="${subHref}" class="sub-match-item">
                     <img src="${sc.img}" alt="${sc.name}" class="sub-match-img">
                     <div style="flex-grow:1;">
-                        <div style="font-size:13.5px; font-weight:700; color:#f8fafc;">#${i+1} ${sc.name} (${sc.nen})</div>
+                        <div style="font-size:13.5px; font-weight:700; color:#f8fafc;">#${i+1} ${sc.name} · ${sm ? sm.code : ''}</div>
                         <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
                             <div style="flex-grow:1; background:#262c3a; height:5px; border-radius:3px; overflow:hidden;"><div style="height:100%; width:${topThree[i].pct}%; background:#ff3b30;"></div></div>
                             <span style="font-size:12px; font-weight:800; color:#fda4af;">${topThree[i].pct}%</span>
@@ -804,17 +944,36 @@
             }
             document.getElementById('sub-match-list').innerHTML = subHtml;
 
-            document.getElementById('btn-dossier').href = '/en/hxh/' + winner + '.html';
-            document.getElementById('btn-dossier').innerText = 'Read Full ' + p.name + ' Dossier →';
+            const dossierBtn = document.getElementById('btn-dossier');
+            if (HAS_DOSSIER.has(winner)) {
+                dossierBtn.href = '/en/hxh/' + winner + '.html';
+                dossierBtn.innerText = 'Read Full ' + p.name + ' Dossier →';
+            } else {
+                dossierBtn.href = '/en/nen/' + p.nenSlug + '.html';
+                dossierBtn.innerText = 'Explore ' + p.nen + ' Nen Affinity Dossier →';
+            }
 
             const mInfo = mbtiCrossMap[winner];
             const mBox = document.getElementById('res-mbti-box');
             if (mInfo && mBox) {
-                document.getElementById('res-mbti-title').innerText = mInfo.title;
+                document.getElementById('res-mbti-title').innerText = mInfo.title + ' (' + mInfo.stack + ')';
                 document.getElementById('res-mbti-desc').innerText = mInfo.desc;
+                const axesBox = document.getElementById('res-mbti-axes');
+                if (axisSummary) {
+                    const pairs = [
+                        { l: 'E ' + axisSummary.ei.aPct + '%', r: 'I ' + axisSummary.ei.bPct + '%', w: axisSummary.ei.aPct },
+                        { l: 'S ' + axisSummary.sn.aPct + '%', r: 'N ' + axisSummary.sn.bPct + '%', w: axisSummary.sn.aPct },
+                        { l: 'T ' + axisSummary.tf.aPct + '%', r: 'F ' + axisSummary.tf.bPct + '%', w: axisSummary.tf.aPct },
+                        { l: 'J ' + axisSummary.jp.aPct + '%', r: 'P ' + axisSummary.jp.bPct + '%', w: axisSummary.jp.aPct }
+                    ];
+                    axesBox.innerHTML = pairs.map(x => `<div class="axis-pill"><div class="axis-labels"><span>${x.l}</span><span>${x.r}</span></div><div class="axis-track"><div class="axis-fill" style="width:${x.w}%"></div></div></div>`).join('');
+                    axesBox.style.display = 'grid';
+                } else {
+                    axesBox.style.display = 'none';
+                }
                 const mLink = document.getElementById('res-mbti-link');
                 mLink.href = '/en/mbti/' + mInfo.code.toLowerCase() + '.html';
-                mLink.innerText = 'Read ' + mInfo.code + ' Dossier →';
+                mLink.innerText = 'Read ' + mInfo.code + ' Encyclopedia Dossier →';
                 mBox.style.display = 'block';
             }
         }
@@ -850,7 +1009,7 @@
                     { key: r, pct: 94 },
                     { key: others[0], pct: 68 },
                     { key: others[1], pct: 52 }
-                ]);
+                ], null);
                 const rbtn = document.getElementById('btn-retake');
                 if (rbtn) rbtn.innerText = 'Take the Quiz Yourself';
                 showScreen('screen-result');

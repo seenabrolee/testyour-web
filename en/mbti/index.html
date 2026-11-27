@@ -1546,21 +1546,21 @@ const typeProfiles = {
 
             const hxhCrossMap = {
                 esfp: { name: 'Gon Freecss', nen: 'Enhancer', nenSlug: 'enhancement', charSlug: 'gon', reason: 'Unfiltered sensory drive (Se) powered by fierce personal conviction (Fi).' },
-                istp: { name: 'Killua Zoldyck (Co-match: Machi)', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: 'killua', reason: 'Detached tactical logic (Ti) paired with razor-sharp battle reflexes (Se).' },
+                istp: { name: 'Feitan Portor', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: null, resultSlug: 'feitan', reason: 'Ice-cold tactical efficiency (Ti) welded to razor-sharp combat reflexes (Se).' },
                 intj: { name: 'Kurapika', nen: 'Conjurer / Specialist (Scarlet Eyes)', nenSlug: 'conjuration', charSlug: 'kurapika', reason: 'Long-range strategic foresight (Ni) enforced through airtight vows and rules (Te).' },
                 esfj: { name: 'Leorio Paradinight', nen: 'Emitter', nenSlug: 'emission', charSlug: 'leorio', reason: 'Vocal outward camaraderie and protective warmth (Fe) rooted in grounded resolve (Si).' },
                 estp: { name: 'Hisoka Morow (Co-match: Netero)', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: 'hisoka', reason: 'High-stakes improvised thrill-seeking (Se) sharpened by cool tactical detachment (Ti).' },
                 infj: { name: 'Chrollo Lucilfer', nen: 'Specialist', nenSlug: 'specialization', charSlug: 'chrollo', reason: 'Meditative symbolic intuition (Ni) masked beneath composed social poise (Fe).' },
                 istj: { name: 'Illumi Zoldyck', nen: 'Manipulator', nenSlug: 'manipulation', charSlug: 'illumi', reason: 'Absolute adherence to lineage precedent (Si) executed with cold efficiency (Te).' },
                 entj: { name: 'Meruem', nen: "Emitter ('Ultimate' Canon) / Classic Specialist", nenSlug: 'emission', charSlug: 'meruem', reason: 'Relentless systemic mastery (Te) rapidly evolving toward big-picture insight (Ni).' },
-                enfp: { name: 'Neferpitou', nen: 'Specialist', nenSlug: 'specialization', charSlug: null, reason: 'Playful exploratory curiosity (Ne) generating terrifyingly original Hatsu instincts (Fi).' },
-                infp: { name: 'Komugi', nen: 'Enhancer', nenSlug: 'enhancement', charSlug: null, reason: 'Unshakeable inner purity (Fi) channeled into single-minded devotion to mastery (Ne).' },
-                isfj: { name: 'Melody (Senritsu)', nen: 'Emitter', nenSlug: 'emission', charSlug: null, reason: 'Attentive sensory perception (Si) sustaining gentle, healing empathy for allies (Fe).' },
-                enfj: { name: 'Shaiapouf', nen: 'Manipulator', nenSlug: 'manipulation', charSlug: null, reason: 'Orchestrating emotions and collective devotion (Fe) around an idealized vision (Ni).' },
-                intp: { name: 'Kite', nen: 'Conjurer', nenSlug: 'conjuration', charSlug: null, reason: 'Encyclopedic fieldwork taxonomy (Ti) paired with cool-headed conceptual analysis (Ne).' },
-                entp: { name: 'Ging Freecss & Biscuit Krueger', nen: 'Transmuter (Bisky) / Undisclosed (Ging)', nenSlug: 'transmutation', charSlug: null, reason: 'Rule-bending inventiveness (Ne) driven by playful structural curiosity (Ti).' },
-                estj: { name: 'Morel Mackernasey', nen: 'Manipulator', nenSlug: 'manipulation', charSlug: null, reason: 'Veteran logistical command (Te) grounded in seasoned combat discipline (Si).' },
-                isfp: { name: 'Menthuthuyoupi', nen: 'Transmuter (Exhibition Canon)', nenSlug: 'transmutation', charSlug: null, reason: 'Raw authentic intensity (Fi) translated into visceral physical adaptability (Se).' }
+                enfp: { name: 'Neferpitou', nen: 'Specialist', nenSlug: 'specialization', charSlug: null, resultSlug: 'pitou', reason: 'Playful exploratory curiosity (Ne) generating terrifyingly original Hatsu instincts (Fi).' },
+                infp: { name: 'Alluka Zoldyck', nen: 'Specialist', nenSlug: 'specialization', charSlug: null, resultSlug: 'alluka', reason: 'Gentle emotional authenticity (Fi) dreaming up boundless trust and unseen cosmic potential (Ne).' },
+                isfj: { name: 'Pakunoda', nen: 'Specialist', nenSlug: 'specialization', charSlug: null, resultSlug: 'pakunoda', reason: 'Attentive memory preservation (Si) fueling selfless devotion to protect close companions (Fe).' },
+                enfj: { name: 'Shaiapouf', nen: 'Manipulator', nenSlug: 'manipulation', charSlug: null, resultSlug: 'pouf', reason: 'Orchestrating emotions and collective devotion (Fe) around an idealized vision (Ni).' },
+                intp: { name: 'Killua Zoldyck', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: 'killua', reason: 'Rapid mental modeling of worst-case risks (Ti-Ne) paired with quiet, fiercely earned loyalty (Fe).' },
+                entp: { name: 'Shalnark', nen: 'Manipulator', nenSlug: 'manipulation', charSlug: null, resultSlug: 'shalnark', reason: 'Breezy rule-bending curiosity (Ne) endlessly dissecting enemy systems like puzzles (Ti).' },
+                estj: { name: 'Biscuit Krueger', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: null, resultSlug: 'bisky', reason: 'Disciplined tactical command (Te) grounded in battle-tested fundamentals (Si).' },
+                isfp: { name: 'Machi Komacine', nen: 'Transmuter', nenSlug: 'transmutation', charSlug: null, resultSlug: 'machi', reason: 'Uncompromising inner values (Fi) paired with crisp instinctual precision (Se).' }
             };
             const hxhMatch = hxhCrossMap[finalCode.toLowerCase()];
             const hxhBox = document.getElementById('res-hxh-box');
@@ -1573,8 +1573,8 @@ const typeProfiles = {
                     hLink.href = '/en/hxh/' + hxhMatch.charSlug + '.html';
                     hLink.innerText = 'Read ' + hxhMatch.name.split(' (')[0] + ' Dossier →';
                 } else {
-                    hLink.href = '/en/hxh/';
-                    hLink.innerText = 'Take HxH Test (Dossier Coming Soon) →';
+                    hLink.href = '/en/hxh/?result=' + (hxhMatch.resultSlug || '');
+                    hLink.innerText = 'View ' + hxhMatch.name + ' Match Profile →';
                 }
                 nLink.href = '/en/nen/' + hxhMatch.nenSlug + '.html';
                 nLink.innerText = hxhMatch.nen.split(' (')[0].split(' / ')[0] + ' Affinity →';
