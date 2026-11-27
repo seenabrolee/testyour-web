@@ -917,6 +917,11 @@
                     '<strong style="color:#38bdf8;">Related Essay:</strong> <a href="/en/column/killua-socialized-t.html" style="color:#38bdf8; text-decoration:underline; font-weight:700;">A Socialized T-Type (Killua) Is Warmer Than an Untamed F-Type (Gon) &rarr;</a>' +
                     '</div>';
             }
+            if (winner === 'illumi') {
+                relatedHtml += '<div style="background:rgba(244,63,94,0.08); border:1px solid rgba(244,63,94,0.35); border-radius:10px; padding:10px 13px; margin-bottom:14px; font-size:13px; line-height:1.55; color:#cbd5e1; text-align:left;">' +
+                    '<strong style="color:#fb7185;">Related Essay:</strong> <a href="/en/column/illumi-zoldyck-love.html" style="color:#fb7185; text-decoration:underline; font-weight:700;">Illumi\'s Twisted Love? No, It\'s the Entire Zoldyck Household &rarr;</a>' +
+                    '</div>';
+            }
             document.getElementById('result-desc').innerHTML = relatedHtml + p.desc;
 
             let statsHtml = '';

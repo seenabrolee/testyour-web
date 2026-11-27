@@ -1287,6 +1287,11 @@
                     '<strong style="color:#38bdf8;">추천 칼럼:</strong> <a href="/column/killua-socialized-t.html" style="color:#38bdf8; text-decoration:underline; font-weight:700;">사회화된 T(키르아)는 야수의 F(곤)보다 따뜻하다 &rarr;</a>' +
                     '</div>';
             }
+            if (winner === 'illumi') {
+                relatedHtml += '<div style="background:rgba(244,63,94,0.08); border:1px solid rgba(244,63,94,0.35); border-radius:10px; padding:11px 13px; margin-bottom:16px; font-size:13px; line-height:1.55; color:#cbd5e1; text-align:left;">' +
+                    '<strong style="color:#fb7185;">추천 칼럼:</strong> <a href="/column/illumi-zoldyck-love.html" style="color:#fb7185; text-decoration:underline; font-weight:700;">이르미의 그릇된 사랑? 사실 이건 조르딕 가문 전체의 문제다 &rarr;</a>' +
+                    '</div>';
+            }
             document.getElementById('result-desc-text').innerHTML = relatedHtml + topChar.description;
 
             const mInfo = mbtiCrossMap[winner];

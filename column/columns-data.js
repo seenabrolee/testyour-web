@@ -3,6 +3,24 @@
 
 const TESTYOUR_COLUMNS = [
   {
+    id: "manga-illumi-family",
+    topic: "manga",
+    title: "[칼럼] 이르미의 그릇된 사랑? 사실 이건 조르딕 가문 전체의 문제다",
+    title_en: "[Essay] Illumi's Twisted Love? No, It's the Entire Zoldyck Household",
+    category: "만화 | 서사 심리 & <헌터×헌터> 해부",
+    category_en: "Manga | Narrative Psychology & Character Study",
+    url: "/column/illumi-zoldyck-love.html",
+    url_en: "/en/column/illumi-zoldyck-love.html",
+    description: "이르미에게 컷씬이 몰려 있어 혼자 이상해 보일 뿐, 조르딕 가문의 시선에서는 오히려 키르아가 이상한 놈이다. 가문의 가르침을 불만 없이 받아들인 장남 이르미의 논리를 짚어봤다.",
+    description_en: "Illumi only looks uniquely unhinged because he gets the field scenes. Inside Zoldyck house rules, Killua is the broken one—and Illumi is just the compliant eldest son enforcing household law.",
+    meta: "에디터: 테스트유어 주인장 · 읽는 시간 약 5분",
+    meta_en: "Author: TESTYOUR Creator · 5 min read",
+    badge: "만화 NEW",
+    borderColor: "#fb7185",
+    defaultStatus: "published",
+    date: "2026-11-27"
+  },
+  {
     id: "psychology-killua-t",
     topic: "psychology",
     title: "[칼럼] 사회화된 T는 야수의 F보다 따뜻하다",
