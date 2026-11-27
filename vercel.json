@@ -49,7 +49,12 @@
     },
     {
       "source": "/picker",
-      "destination": "/picker/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/picker/",
+      "destination": "/",
       "statusCode": 301
     },
     {
@@ -79,7 +84,12 @@
     },
     {
       "source": "/en/picker",
-      "destination": "/en/picker/",
+      "destination": "/en/",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/picker/",
+      "destination": "/en/",
       "statusCode": 301
     },
     {

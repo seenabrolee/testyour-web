@@ -16,7 +16,6 @@
             if (path.startsWith('/nen')) target = '/en/nen/';
             else if (path.startsWith('/hxh')) target = '/en/hxh/';
             else if (path.startsWith('/mbti')) target = '/en/mbti/';
-            else if (path.startsWith('/picker')) target = '/en/picker/';
             else if (path.startsWith('/column/leorio-love')) target = '/en/column/leorio-love.html';
             else if (path.startsWith('/column/rescene-inside-out')) target = '/en/column/rescene-inside-out.html';
             else if (path.startsWith('/column/john-park-rap')) target = '/en/column/john-park-rap.html';
